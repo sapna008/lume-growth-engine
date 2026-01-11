@@ -3,16 +3,16 @@
 @tailwind utilities;
 
 /* Apeiros AI - Lume Design System
-   Modern SaaS with Indian retail context
-   Primary: Deep Navy Blue | Accent: Emerald Green
+   Modern SaaS with Trust-focused Blue Theme
+   Primary: Deep Blue | Accent: Amber/Yellow
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap');
 
 @layer base {
   :root {
-    /* Core Brand Colors */
-    --background: 210 20% 98%;
+    /* Core Brand Colors - Trust-focused Blue */
+    --background: 214 100% 98%;
     --foreground: 222 47% 11%;
 
     --card: 0 0% 100%;
@@ -21,34 +21,62 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
 
-    /* Primary - Deep Navy Blue */
-    --primary: 222 47% 20%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Deep Blue (Trust) */
+    --primary: 224 76% 48%;
+    --primary-foreground: 0 0% 100%;
 
-    /* Secondary - Light Blue Gray */
-    --secondary: 214 32% 91%;
-    --secondary-foreground: 222 47% 11%;
+    /* Secondary - Light Blue */
+    --secondary: 214 95% 93%;
+    --secondary-foreground: 224 76% 48%;
 
     /* Muted */
-    --muted: 210 40% 96%;
+    --muted: 214 32% 96%;
     --muted-foreground: 215 16% 47%;
 
-    /* Accent - Emerald Green (Growth/Success) */
-    --accent: 160 84% 39%;
-    --accent-foreground: 0 0% 100%;
+    /* Accent - Amber/Yellow (Energy, Action) */
+    --accent: 45 93% 47%;
+    --accent-foreground: 222 47% 11%;
+
+    /* Success - Green */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
 
     /* Destructive */
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
     /* UI Elements */
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 222 47% 20%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 224 76% 48%;
 
     --radius: 0.75rem;
 
-    /* Extended Palette */
+    /* Extended Blue Palette */
+    --blue-900: 224 76% 17%;
+    --blue-800: 224 76% 27%;
+    --blue-700: 224 76% 37%;
+    --blue-600: 224 76% 48%;
+    --blue-500: 217 91% 60%;
+    --blue-400: 213 94% 68%;
+    --blue-300: 212 96% 78%;
+    --blue-200: 214 95% 88%;
+    --blue-100: 214 95% 93%;
+    --blue-50: 214 100% 97%;
+
+    /* Extended Amber Palette */
+    --amber-900: 22 78% 26%;
+    --amber-800: 26 83% 34%;
+    --amber-700: 32 81% 42%;
+    --amber-600: 38 92% 50%;
+    --amber-500: 45 93% 47%;
+    --amber-400: 48 96% 53%;
+    --amber-300: 50 98% 64%;
+    --amber-200: 52 98% 77%;
+    --amber-100: 55 92% 90%;
+    --amber-50: 55 100% 96%;
+
+    /* Legacy Navy (for compatibility) */
     --navy-900: 222 47% 11%;
     --navy-800: 222 47% 15%;
     --navy-700: 222 47% 20%;
@@ -60,29 +88,20 @@
     --navy-100: 222 20% 92%;
     --navy-50: 222 15% 96%;
 
-    --emerald-900: 160 84% 15%;
-    --emerald-800: 160 84% 22%;
-    --emerald-700: 160 84% 29%;
-    --emerald-600: 160 84% 36%;
-    --emerald-500: 160 84% 39%;
-    --emerald-400: 160 75% 48%;
-    --emerald-300: 160 65% 60%;
-    --emerald-200: 160 55% 75%;
-    --emerald-100: 160 45% 88%;
-    --emerald-50: 160 35% 96%;
-
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(222 47% 11%) 0%, hsl(222 47% 20%) 50%, hsl(222 40% 28%) 100%);
-    --gradient-cta: linear-gradient(135deg, hsl(160 84% 36%) 0%, hsl(160 84% 42%) 100%);
-    --gradient-subtle: linear-gradient(180deg, hsl(210 20% 98%) 0%, hsl(210 25% 95%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(210 20% 99%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(224 76% 17%) 0%, hsl(224 76% 27%) 50%, hsl(224 76% 37%) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(45 93% 47%) 0%, hsl(38 92% 50%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(214 100% 98%) 0%, hsl(214 95% 95%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(214 100% 99%) 100%);
+    --gradient-blue: linear-gradient(135deg, hsl(224 76% 48%) 0%, hsl(217 91% 60%) 100%);
 
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 hsl(222 47% 11% / 0.05);
     --shadow-md: 0 4px 6px -1px hsl(222 47% 11% / 0.08), 0 2px 4px -2px hsl(222 47% 11% / 0.06);
     --shadow-lg: 0 10px 15px -3px hsl(222 47% 11% / 0.1), 0 4px 6px -4px hsl(222 47% 11% / 0.08);
     --shadow-xl: 0 20px 25px -5px hsl(222 47% 11% / 0.1), 0 8px 10px -6px hsl(222 47% 11% / 0.08);
-    --shadow-glow: 0 0 40px hsl(160 84% 39% / 0.15);
+    --shadow-glow: 0 0 40px hsl(45 93% 47% / 0.25);
+    --shadow-glow-blue: 0 0 40px hsl(224 76% 48% / 0.2);
     --shadow-card: 0 4px 20px hsl(222 47% 11% / 0.06);
 
     /* Sidebar */
@@ -106,7 +125,7 @@
     --popover: 222 47% 11%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 160 84% 45%;
+    --primary: 217 91% 60%;
     --primary-foreground: 222 47% 11%;
 
     --secondary: 222 40% 18%;
@@ -115,7 +134,7 @@
     --muted: 222 35% 16%;
     --muted-foreground: 215 20% 65%;
 
-    --accent: 160 84% 45%;
+    --accent: 45 93% 47%;
     --accent-foreground: 222 47% 11%;
 
     --destructive: 0 62% 30%;
@@ -123,16 +142,16 @@
 
     --border: 222 30% 18%;
     --input: 222 30% 18%;
-    --ring: 160 84% 45%;
+    --ring: 217 91% 60%;
 
     --sidebar-background: 222 47% 10%;
     --sidebar-foreground: 210 40% 95%;
-    --sidebar-primary: 160 84% 45%;
+    --sidebar-primary: 217 91% 60%;
     --sidebar-primary-foreground: 222 47% 11%;
     --sidebar-accent: 222 35% 16%;
     --sidebar-accent-foreground: 210 40% 95%;
     --sidebar-border: 222 30% 18%;
-    --sidebar-ring: 160 84% 45%;
+    --sidebar-ring: 217 91% 60%;
   }
 }
 
@@ -173,6 +192,10 @@
     background: var(--gradient-card);
   }
 
+  .blue-gradient {
+    background: var(--gradient-blue);
+  }
+
   /* Glass Effect */
   .glass {
     @apply bg-white/80 backdrop-blur-md border border-white/20;
@@ -188,16 +211,20 @@
     position: absolute;
     inset: 0;
     padding: 2px;
-    background: linear-gradient(135deg, hsl(160 84% 39%), hsl(222 47% 20%));
+    background: linear-gradient(135deg, hsl(45 93% 47%), hsl(224 76% 48%));
     border-radius: inherit;
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask-composite: xor;
     -webkit-mask-composite: xor;
   }
 
-  /* Glow Effect */
-  .glow-emerald {
+  /* Glow Effects */
+  .glow-amber {
     box-shadow: var(--shadow-glow);
+  }
+
+  .glow-blue {
+    box-shadow: var(--shadow-glow-blue);
   }
 
   /* Card Shadows */
@@ -207,21 +234,26 @@
 
   /* Section Patterns */
   .pattern-dots {
-    background-image: radial-gradient(hsl(var(--navy-200)) 1px, transparent 1px);
+    background-image: radial-gradient(hsl(var(--blue-200)) 1px, transparent 1px);
     background-size: 24px 24px;
   }
 
   .pattern-grid {
     background-image: 
-      linear-gradient(hsl(var(--navy-100)) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(var(--navy-100)) 1px, transparent 1px);
+      linear-gradient(hsl(var(--blue-100)) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--blue-100)) 1px, transparent 1px);
     background-size: 40px 40px;
   }
 
   /* Text Gradient */
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(160 84% 39%) 0%, hsl(160 84% 32%) 100%);
+    background-image: linear-gradient(135deg, hsl(45 93% 47%) 0%, hsl(38 92% 50%) 100%);
+  }
+
+  .text-gradient-blue {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(224 76% 48%) 100%);
   }
 
   /* Hover Lift */
