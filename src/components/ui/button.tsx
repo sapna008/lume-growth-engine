@@ -15,12 +15,12 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        // Custom Lume variants
-        cta: "bg-emerald-500 text-accent-foreground shadow-lg hover:shadow-xl hover:-translate-y-0.5 hover:bg-emerald-600",
-        hero: "bg-accent text-accent-foreground shadow-lg hover:shadow-xl hover:-translate-y-0.5 hover:bg-accent/90",
+        // Custom Lume variants - Blue/Amber theme
+        cta: "bg-accent text-accent-foreground shadow-lg hover:shadow-xl hover:-translate-y-0.5 hover:bg-amber-400",
+        hero: "bg-accent text-accent-foreground shadow-lg hover:shadow-xl hover:-translate-y-0.5 hover:bg-amber-400",
         "hero-outline": "border-2 border-white/30 bg-transparent text-white hover:bg-white/10 hover:border-white/50",
-        nav: "text-foreground/80 hover:text-foreground hover:bg-muted/50",
-        "nav-cta": "bg-accent text-accent-foreground hover:bg-accent/90 shadow-sm",
+        nav: "text-muted-foreground hover:text-foreground hover:bg-muted/50",
+        "nav-cta": "bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm",
       },
       size: {
         default: "h-10 px-4 py-2",

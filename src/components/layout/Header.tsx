@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, Globe } from "lucide-react";
+import { Menu, X, ChevronDown, Globe, Search, HelpCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -13,6 +13,17 @@ import {
 const navigation = [
   { name: "For Retailers", href: "/for-retailers" },
   {
+    name: "Solutions",
+    href: "/solutions",
+    children: [
+      { name: "Digital Billing", href: "/solutions/digital-billing" },
+      { name: "Customer Capture", href: "/solutions/customer-capture" },
+      { name: "Loyalty & Campaigns", href: "/solutions/loyalty-campaigns" },
+      { name: "Credit Management", href: "/solutions/credit-management" },
+      { name: "Reports & Analytics", href: "/solutions/analytics" },
+    ],
+  },
+  {
     name: "Products",
     href: "/products",
     children: [
@@ -22,44 +33,24 @@ const navigation = [
       { name: "Supplier App (Coming Soon)", href: "/products/supplier-app" },
     ],
   },
-  {
-    name: "Solutions",
-    href: "/solutions",
-    children: [
-      { name: "Digital Billing", href: "/solutions/digital-billing" },
-      { name: "Customer Capture", href: "/solutions/customer-capture" },
-      { name: "Feedback & Engagement", href: "/solutions/feedback-engagement" },
-      { name: "Real-time Engagement", href: "/solutions/real-time-engagement" },
-      { name: "Credit Management", href: "/solutions/credit-management" },
-      { name: "Analytics & Reports", href: "/solutions/analytics" },
-    ],
-  },
+  { name: "Pricing", href: "/pricing" },
   {
     name: "Resources",
     href: "/resources",
     children: [
-      { name: "Guides & FAQs", href: "/resources/guides" },
       { name: "Case Studies", href: "/resources/case-studies" },
       { name: "Blog", href: "/resources/blog" },
-    ],
-  },
-  { name: "Pricing", href: "/pricing" },
-  {
-    name: "Company",
-    href: "/company",
-    children: [
-      { name: "About Us", href: "/company/about" },
-      { name: "Careers", href: "/company/careers" },
-      { name: "Contact Us", href: "/company/contact" },
+      { name: "Guides", href: "/resources/guides" },
+      { name: "Videos", href: "/resources/videos" },
     ],
   },
 ];
 
 const languages = [
   { code: "EN", name: "English" },
-  { code: "HI", name: "हिंदी" },
-  { code: "GU", name: "ગુજરાતી" },
-  { code: "MR", name: "मराठी" },
+  { code: "हिंदी", name: "Hindi" },
+  { code: "ગુજરાતી", name: "Gujarati" },
+  { code: "मराठी", name: "Marathi" },
 ];
 
 export function Header() {
@@ -70,18 +61,19 @@ export function Header() {
   const isActive = (href: string) => location.pathname === href;
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
-      <nav className="container-wide flex items-center justify-between h-16 lg:h-20">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-border shadow-sm">
+      <nav className="container-wide flex items-center justify-between h-16 lg:h-18">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center">
-            <span className="text-accent-foreground font-bold text-lg">L</span>
+          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+            <span className="text-primary-foreground font-bold text-lg">A</span>
           </div>
-          <span className="font-bold text-xl text-foreground">Lume</span>
-          <span className="text-xs text-muted-foreground font-medium hidden sm:block">by Apeiros AI</span>
+          <div className="flex flex-col">
+            <span className="font-display font-bold text-lg text-foreground leading-tight">Apeiros AI</span>
+          </div>
         </Link>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Navigation - Center */}
         <div className="hidden lg:flex items-center gap-1">
           {navigation.map((item) =>
             item.children ? (
@@ -108,7 +100,7 @@ export function Header() {
                 variant="nav"
                 size="sm"
                 asChild
-                className={isActive(item.href) ? "text-foreground bg-muted" : ""}
+                className={isActive(item.href) ? "text-primary bg-primary/5" : ""}
               >
                 <Link to={item.href}>{item.name}</Link>
               </Button>
@@ -116,11 +108,24 @@ export function Header() {
           )}
         </div>
 
-        {/* Right Side CTAs */}
-        <div className="hidden lg:flex items-center gap-3">
+        {/* Right Side - Utilities & CTA */}
+        <div className="hidden lg:flex items-center gap-2">
+          {/* Search */}
+          <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground">
+            <Search className="w-4 h-4" />
+          </Button>
+          
+          {/* Help */}
+          <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground" asChild>
+            <Link to="/help">
+              <HelpCircle className="w-4 h-4" />
+            </Link>
+          </Button>
+          
+          {/* Language Switcher */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="sm" className="gap-1">
+              <Button variant="ghost" size="sm" className="gap-1 text-muted-foreground">
                 <Globe className="w-4 h-4" />
                 {selectedLang}
                 <ChevronDown className="w-3 h-3" />
@@ -133,11 +138,13 @@ export function Header() {
                   onClick={() => setSelectedLang(lang.code)}
                   className="cursor-pointer"
                 >
-                  {lang.name}
+                  {lang.code} - {lang.name}
                 </DropdownMenuItem>
               ))}
             </DropdownMenuContent>
           </DropdownMenu>
+          
+          {/* Primary CTA */}
           <Button variant="cta" asChild>
             <Link to="/trial">Start Free Trial</Link>
           </Button>
@@ -161,14 +168,14 @@ export function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-background border-b border-border overflow-hidden"
+            className="lg:hidden bg-white border-b border-border overflow-hidden"
           >
             <div className="container-wide py-4 space-y-2">
               {navigation.map((item) => (
                 <div key={item.name}>
                   <Link
                     to={item.href}
-                    className="block py-2 text-foreground font-medium hover:text-accent"
+                    className="block py-2 text-foreground font-medium hover:text-primary"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {item.name}
@@ -189,7 +196,28 @@ export function Header() {
                   )}
                 </div>
               ))}
-              <div className="pt-4 flex flex-col gap-2">
+              
+              {/* Mobile Language & CTA */}
+              <div className="pt-4 border-t border-border space-y-3">
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <Globe className="w-4 h-4" />
+                  <span>Language:</span>
+                  <div className="flex gap-2">
+                    {languages.map((lang) => (
+                      <button
+                        key={lang.code}
+                        onClick={() => setSelectedLang(lang.code)}
+                        className={`px-2 py-1 rounded text-xs ${
+                          selectedLang === lang.code 
+                            ? "bg-primary text-primary-foreground" 
+                            : "bg-muted hover:bg-muted/80"
+                        }`}
+                      >
+                        {lang.code}
+                      </button>
+                    ))}
+                  </div>
+                </div>
                 <Button variant="cta" className="w-full" asChild>
                   <Link to="/trial">Start Free Trial</Link>
                 </Button>

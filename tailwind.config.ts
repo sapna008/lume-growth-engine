@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Plus Jakarta Sans", "system-ui", "sans-serif"],
-        display: ["Plus Jakarta Sans", "system-ui", "sans-serif"],
+        sans: ["Inter", "system-ui", "sans-serif"],
+        display: ["Poppins", "Inter", "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -43,6 +43,10 @@ export default {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
+        success: {
+          DEFAULT: "hsl(var(--success))",
+          foreground: "hsl(var(--success-foreground))",
+        },
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
@@ -61,7 +65,33 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // Extended Navy Palette
+        // Extended Blue Palette
+        blue: {
+          50: "hsl(var(--blue-50))",
+          100: "hsl(var(--blue-100))",
+          200: "hsl(var(--blue-200))",
+          300: "hsl(var(--blue-300))",
+          400: "hsl(var(--blue-400))",
+          500: "hsl(var(--blue-500))",
+          600: "hsl(var(--blue-600))",
+          700: "hsl(var(--blue-700))",
+          800: "hsl(var(--blue-800))",
+          900: "hsl(var(--blue-900))",
+        },
+        // Extended Amber Palette
+        amber: {
+          50: "hsl(var(--amber-50))",
+          100: "hsl(var(--amber-100))",
+          200: "hsl(var(--amber-200))",
+          300: "hsl(var(--amber-300))",
+          400: "hsl(var(--amber-400))",
+          500: "hsl(var(--amber-500))",
+          600: "hsl(var(--amber-600))",
+          700: "hsl(var(--amber-700))",
+          800: "hsl(var(--amber-800))",
+          900: "hsl(var(--amber-900))",
+        },
+        // Legacy Navy Palette (for compatibility)
         navy: {
           50: "hsl(var(--navy-50))",
           100: "hsl(var(--navy-100))",
@@ -74,19 +104,6 @@ export default {
           800: "hsl(var(--navy-800))",
           900: "hsl(var(--navy-900))",
         },
-        // Extended Emerald Palette
-        emerald: {
-          50: "hsl(var(--emerald-50))",
-          100: "hsl(var(--emerald-100))",
-          200: "hsl(var(--emerald-200))",
-          300: "hsl(var(--emerald-300))",
-          400: "hsl(var(--emerald-400))",
-          500: "hsl(var(--emerald-500))",
-          600: "hsl(var(--emerald-600))",
-          700: "hsl(var(--emerald-700))",
-          800: "hsl(var(--emerald-800))",
-          900: "hsl(var(--emerald-900))",
-        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -98,6 +115,7 @@ export default {
       boxShadow: {
         'card': 'var(--shadow-card)',
         'glow': 'var(--shadow-glow)',
+        'glow-blue': 'var(--shadow-glow-blue)',
       },
       keyframes: {
         "accordion-down": {
