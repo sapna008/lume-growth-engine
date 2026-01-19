@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, Star, HelpCircle, Zap } from "lucide-react";
+import { ArrowRight, CheckCircle2, Star, HelpCircle, Zap, X, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -17,6 +17,7 @@ const plans = [
     price: "₹0",
     period: "forever",
     description: "Perfect for trying out Lume",
+    messages: "50 bills/month",
     features: [
       "50 bills per month",
       "Basic customer capture",
@@ -27,12 +28,15 @@ const plans = [
     cta: "Start Free",
     href: "/trial",
     popular: false,
+    badge: null,
   },
   {
     name: "Starter",
     price: "₹499",
+    originalPrice: "₹799",
     period: "per month",
     description: "For small retail stores",
+    messages: "500 bills/month",
     features: [
       "500 bills per month",
       "Customer management",
@@ -44,12 +48,15 @@ const plans = [
     cta: "Start Free Trial",
     href: "/trial",
     popular: false,
+    badge: "Save 37%",
   },
   {
     name: "Growth",
     price: "₹999",
+    originalPrice: "₹1,499",
     period: "per month",
     description: "For growing businesses",
+    messages: "Unlimited bills",
     features: [
       "Unlimited bills",
       "Advanced customer insights",
@@ -62,25 +69,23 @@ const plans = [
     cta: "Start Free Trial",
     href: "/trial",
     popular: true,
+    badge: "Recommended",
   },
-  {
-    name: "Enterprise",
-    price: "Custom",
-    period: "",
-    description: "For multi-store chains",
-    features: [
-      "Everything in Growth",
-      "Multi-store management",
-      "Custom integrations",
-      "Dedicated account manager",
-      "API access",
-      "On-site training",
-      "SLA guarantee",
-    ],
-    cta: "Contact Sales",
-    href: "/company/contact",
-    popular: false,
-  },
+];
+
+const comparisonFeatures = [
+  { name: "Monthly Bills", free: "50", starter: "500", growth: "Unlimited" },
+  { name: "Customer Capture", free: "Basic", starter: "Advanced", growth: "Advanced + Insights" },
+  { name: "GST-Compliant Invoices", free: true, starter: true, growth: true },
+  { name: "WhatsApp Bill Sharing", free: true, starter: true, growth: true },
+  { name: "Credit (Udhaar) Management", free: false, starter: "Basic", growth: "Full" },
+  { name: "Analytics & Reports", free: false, starter: "Basic", growth: "Detailed" },
+  { name: "WhatsApp Campaigns", free: false, starter: "100/month", growth: "500/month" },
+  { name: "Inventory Management", free: false, starter: false, growth: true },
+  { name: "Multi-staff Access", free: false, starter: false, growth: true },
+  { name: "Customer Loyalty Program", free: false, starter: false, growth: true },
+  { name: "Priority Support", free: false, starter: false, growth: true },
+  { name: "API Access", free: false, starter: false, growth: "Coming Soon" },
 ];
 
 const faqs = [
@@ -118,21 +123,28 @@ const faqs = [
 
 export default function Pricing() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-b from-blue-50/50 via-white to-amber-50/30">
       <Header />
 
+      {/* Background Effects */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute top-40 right-20 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-blue-200/20 rounded-full blur-3xl" />
+      </div>
+
       {/* Hero */}
-      <section className="pt-24 lg:pt-32 pb-16 hero-gradient text-white">
+      <section className="pt-24 lg:pt-32 pb-16 relative z-10">
         <div className="container-wide text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Simple, Transparent <span className="text-emerald-400">Pricing</span>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary via-primary to-blue-600 bg-clip-text text-transparent">
+              Choose the right plan for your business
             </h1>
-            <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
               Start free, upgrade when you're ready. No hidden fees, no surprises.
             </p>
           </motion.div>
@@ -140,77 +152,119 @@ export default function Pricing() {
       </section>
 
       {/* Pricing Cards */}
-      <section className="section-padding bg-white -mt-8">
-        <div className="container-wide">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <section className="pb-16 relative z-10">
+        <div className="container-wide max-w-5xl">
+          <div className="grid md:grid-cols-3 gap-6">
             {plans.map((plan, i) => (
               <motion.div
                 key={plan.name}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className={`relative rounded-2xl p-6 ${
+                className={`relative rounded-2xl p-6 transition-all duration-300 ${
                   plan.popular
-                    ? "bg-navy-900 text-white ring-4 ring-emerald-500"
-                    : "bg-white border border-border"
+                    ? "bg-gradient-to-br from-amber-50 via-amber-100/50 to-white border-2 border-accent scale-105 shadow-2xl shadow-accent/20"
+                    : "bg-white border border-border shadow-lg hover:shadow-xl hover:-translate-y-1"
                 }`}
               >
-                {plan.popular && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
-                    <Star className="w-3 h-3 fill-current" />
-                    Most Popular
+                {plan.badge && (
+                  <div className={`absolute -top-0.5 right-4 px-3 py-1.5 rounded-b-lg text-xs font-bold uppercase tracking-wide ${
+                    plan.popular 
+                      ? "bg-gradient-to-r from-accent to-amber-500 text-white shadow-lg" 
+                      : "bg-gradient-to-r from-emerald-500 to-emerald-600 text-white"
+                  }`}>
+                    {plan.badge}
                   </div>
                 )}
 
-                <div className="mb-6">
-                  <h3 className={`text-lg font-bold ${plan.popular ? "text-white" : "text-navy-900"}`}>
-                    {plan.name}
-                  </h3>
-                  <p className={`text-sm ${plan.popular ? "text-white/70" : "text-muted-foreground"}`}>
-                    {plan.description}
-                  </p>
+                <div className="mb-4">
+                  <h3 className="text-2xl font-bold text-foreground">{plan.name}</h3>
+                  <p className="text-sm text-muted-foreground mt-1">{plan.description}</p>
                 </div>
 
-                <div className="mb-6">
-                  <span className={`text-4xl font-bold ${plan.popular ? "text-white" : "text-navy-900"}`}>
-                    {plan.price}
-                  </span>
-                  {plan.period && (
-                    <span className={`text-sm ${plan.popular ? "text-white/70" : "text-muted-foreground"}`}>
-                      /{plan.period}
+                <div className="mb-2">
+                  <div className="flex items-baseline gap-2">
+                    <span className={`text-4xl font-bold ${plan.popular ? "text-accent" : "text-foreground"}`}>
+                      {plan.price}
                     </span>
+                    {plan.originalPrice && (
+                      <span className="text-sm text-muted-foreground line-through">{plan.originalPrice}</span>
+                    )}
+                  </div>
+                  {plan.period && (
+                    <p className="text-sm text-muted-foreground">/{plan.period} + GST</p>
                   )}
                 </div>
 
-                <ul className="space-y-3 mb-8">
-                  {plan.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-2">
-                      <CheckCircle2
-                        className={`w-4 h-4 mt-0.5 ${
-                          plan.popular ? "text-emerald-400" : "text-emerald-600"
-                        }`}
-                      />
-                      <span className={`text-sm ${plan.popular ? "text-white/90" : "text-navy-700"}`}>
-                        {feature}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+                <div className="mb-4">
+                  <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-700">
+                    {plan.messages}
+                  </span>
+                </div>
 
                 <Button
-                  variant={plan.popular ? "hero" : "outline"}
-                  className="w-full"
+                  variant={plan.popular ? "cta" : "outline"}
+                  className={`w-full mb-6 ${plan.popular ? "shadow-lg" : ""}`}
                   asChild
                 >
                   <Link to={plan.href}>{plan.cta}</Link>
                 </Button>
+
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">
+                    What's included:
+                  </p>
+                  <ul className="space-y-2.5">
+                    {plan.features.map((feature) => (
+                      <li key={feature} className="flex items-start gap-2 text-sm">
+                        <CheckCircle2 className={`w-4 h-4 mt-0.5 flex-shrink-0 ${
+                          plan.popular ? "text-accent" : "text-emerald-600"
+                        }`} />
+                        <span className="text-muted-foreground">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Footer Badge */}
+                <div className="mt-6 pt-4 border-t border-border">
+                  <div className={`rounded-lg overflow-hidden ${plan.popular ? "ring-1 ring-accent/30" : ""}`}>
+                    <div className={`py-2 px-3 text-xs font-bold flex items-center gap-2 ${
+                      plan.popular 
+                        ? "bg-gradient-to-r from-accent to-amber-500 text-white" 
+                        : "bg-gradient-to-r from-primary to-blue-600 text-white"
+                    }`}>
+                      <Sparkles className="w-3 h-3" />
+                      POWERED BY LUME
+                    </div>
+                    <div className="bg-slate-50 py-2 px-3">
+                      <p className="text-xs text-muted-foreground">14-day free trial • Cancel anytime</p>
+                    </div>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
 
+          {/* Enterprise */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="mt-8 bg-gradient-to-r from-primary/5 via-white to-accent/5 rounded-2xl p-8 border border-border text-center"
+          >
+            <h3 className="text-xl font-bold text-foreground mb-2">Enterprise</h3>
+            <p className="text-muted-foreground mb-4">
+              For multi-store chains with custom needs. Get API access, dedicated support, and custom integrations.
+            </p>
+            <Button variant="outline" size="lg" asChild>
+              <Link to="/company/contact">Contact Sales</Link>
+            </Button>
+          </motion.div>
+
           {/* Trust Badge */}
-          <div className="text-center mt-12">
-            <div className="inline-flex items-center gap-2 bg-emerald-50 rounded-full px-6 py-3">
+          <div className="text-center mt-10">
+            <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 rounded-full px-6 py-3">
               <Zap className="w-5 h-5 text-emerald-600" />
               <span className="text-emerald-800 font-medium">
                 14-day free trial on all paid plans • No credit card required
@@ -220,12 +274,105 @@ export default function Pricing() {
         </div>
       </section>
 
+      {/* Comparison Table */}
+      <section className="py-16 relative z-10">
+        <div className="container-wide max-w-5xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl font-bold text-foreground mb-4">Compare Plans</h2>
+            <p className="text-muted-foreground">See what's included in each plan</p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-white rounded-2xl shadow-xl border border-border overflow-hidden"
+          >
+            <div className="overflow-x-auto">
+              <table className="w-full comparison-table">
+                <thead>
+                  <tr className="bg-gradient-to-r from-slate-50 to-slate-100">
+                    <th className="text-left py-4 px-6 font-semibold text-foreground">Features</th>
+                    <th className="text-center py-4 px-4 font-semibold text-foreground">
+                      <div className="flex flex-col items-center">
+                        <span>Free</span>
+                        <span className="text-sm font-normal text-muted-foreground">₹0</span>
+                      </div>
+                    </th>
+                    <th className="text-center py-4 px-4 font-semibold text-foreground">
+                      <div className="flex flex-col items-center">
+                        <span>Starter</span>
+                        <span className="text-sm font-normal text-muted-foreground">₹499/mo</span>
+                      </div>
+                    </th>
+                    <th className="text-center py-4 px-4 font-semibold text-foreground bg-accent/10">
+                      <div className="flex flex-col items-center">
+                        <span className="flex items-center gap-1">
+                          Growth
+                          <Star className="w-4 h-4 fill-accent text-accent" />
+                        </span>
+                        <span className="text-sm font-normal text-muted-foreground">₹999/mo</span>
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {comparisonFeatures.map((feature, i) => (
+                    <tr key={feature.name} className={i % 2 === 0 ? "bg-white" : "bg-slate-50/50"}>
+                      <td className="py-3 px-6 text-sm font-medium text-foreground">{feature.name}</td>
+                      <td className="py-3 px-4 text-center">
+                        {typeof feature.free === "boolean" ? (
+                          feature.free ? (
+                            <CheckCircle2 className="w-5 h-5 text-emerald-600 mx-auto" />
+                          ) : (
+                            <X className="w-5 h-5 text-slate-300 mx-auto" />
+                          )
+                        ) : (
+                          <span className="text-sm text-muted-foreground">{feature.free}</span>
+                        )}
+                      </td>
+                      <td className="py-3 px-4 text-center">
+                        {typeof feature.starter === "boolean" ? (
+                          feature.starter ? (
+                            <CheckCircle2 className="w-5 h-5 text-emerald-600 mx-auto" />
+                          ) : (
+                            <X className="w-5 h-5 text-slate-300 mx-auto" />
+                          )
+                        ) : (
+                          <span className="text-sm text-muted-foreground">{feature.starter}</span>
+                        )}
+                      </td>
+                      <td className="py-3 px-4 text-center bg-accent/5">
+                        {typeof feature.growth === "boolean" ? (
+                          feature.growth ? (
+                            <CheckCircle2 className="w-5 h-5 text-accent mx-auto" />
+                          ) : (
+                            <X className="w-5 h-5 text-slate-300 mx-auto" />
+                          )
+                        ) : (
+                          <span className="text-sm font-medium text-foreground">{feature.growth}</span>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* FAQs */}
-      <section className="section-padding subtle-gradient">
+      <section className="py-16 relative z-10">
         <div className="container-tight">
           <div className="text-center mb-12">
-            <HelpCircle className="w-12 h-12 text-emerald-600 mx-auto mb-4" />
-            <h2 className="text-3xl font-bold text-navy-900">Frequently Asked Questions</h2>
+            <HelpCircle className="w-12 h-12 text-primary mx-auto mb-4" />
+            <h2 className="text-3xl font-bold text-foreground">Frequently Asked Questions</h2>
           </div>
 
           <Accordion type="single" collapsible className="space-y-4">
@@ -233,9 +380,9 @@ export default function Pricing() {
               <AccordionItem
                 key={i}
                 value={`item-${i}`}
-                className="bg-white rounded-xl border border-border px-6"
+                className="bg-white rounded-xl border border-border px-6 shadow-sm"
               >
-                <AccordionTrigger className="text-left font-semibold text-navy-900 hover:no-underline">
+                <AccordionTrigger className="text-left font-semibold text-foreground hover:no-underline">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
@@ -248,25 +395,32 @@ export default function Pricing() {
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-white">
+      <section className="py-16 relative z-10">
         <div className="container-tight text-center">
-          <h2 className="text-3xl font-bold text-navy-900 mb-4">
-            Ready to Get Started?
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8">
-            Join 10,000+ retailers who trust Lume for their business.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="xl" variant="cta" asChild>
-              <Link to="/trial">
-                Start Free Trial
-                <ArrowRight className="w-5 h-5 ml-1" />
-              </Link>
-            </Button>
-            <Button size="xl" variant="outline" asChild>
-              <Link to="/company/contact">Contact Sales</Link>
-            </Button>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-r from-primary to-blue-600 rounded-2xl p-12 text-white"
+          >
+            <h2 className="text-3xl font-bold mb-4">
+              Ready to Get Started?
+            </h2>
+            <p className="text-lg text-white/80 mb-8">
+              Join 10,000+ retailers who trust Lume for their business.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="xl" variant="hero" asChild>
+                <Link to="/trial">
+                  Start Free Trial
+                  <ArrowRight className="w-5 h-5 ml-1" />
+                </Link>
+              </Button>
+              <Button size="xl" variant="hero-outline" asChild>
+                <Link to="/company/contact">Contact Sales</Link>
+              </Button>
+            </div>
+          </motion.div>
         </div>
       </section>
 
