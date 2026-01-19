@@ -1,194 +1,166 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, Smartphone, CreditCard, Users, Package } from "lucide-react";
+import { ArrowRight, Smartphone, Cpu, BarChart3, Package, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 
 const products = [
   {
-    name: "Lume Retail App",
-    tagline: "Your complete retail management solution",
-    status: "active",
+    id: "web-pos",
     icon: Smartphone,
-    description:
-      "The all-in-one app that transforms how you run your retail store. From digital billing to customer insights, everything works seamlessly on your phone.",
-    features: [
-      "Instant GST-compliant billing",
-      "Customer data capture & management",
-      "Credit (udhaar) tracking with reminders",
-      "Real-time sales & profit analytics",
-      "Inventory management with alerts",
-      "WhatsApp engagement & offers",
-    ],
-    cta: "Start Free Trial",
-    href: "/trial",
+    title: "Web POS",
+    tagline: "Complete retail POS system",
+    status: "active",
+    description: "Full-featured point of sale system that runs in your browser. No installation needed.",
+    features: ["Tax & non-tax billing", "Image-based billing", "Multiple bill templates", "Customer capture", "Smart bill generation", "Inventory management", "GST compliant"],
+    benefits: ["Works on any device", "Real-time sync", "Offline capable", "Multi-store support"],
   },
   {
-    name: "mPOS Terminal",
-    tagline: "Accept all payments, anywhere",
-    status: "coming",
-    icon: CreditCard,
-    description:
-      "Compact, affordable payment terminal that connects with your Lume app. Accept cards, UPI, and digital payments with instant reconciliation.",
-    features: [
-      "Card & contactless payments",
-      "UPI & wallet integration",
-      "Auto-sync with Lume billing",
-      "Daily settlement reports",
-      "Competitive transaction rates",
-    ],
-    cta: "Join Waitlist",
-    href: "/waitlist",
+    id: "pos-plugin",
+    icon: Cpu,
+    title: "POS Plugin",
+    tagline: "Connect existing systems",
+    status: "active",
+    description: "Plugin that connects to your existing POS and adds smart features without replacing your system.",
+    features: ["Works with any POS", "Bill data extraction", "Customer linking", "Smart bill overlay", "Zero disruption", "Quick setup"],
+    benefits: ["No system change", "Keep your workflow", "Add features instantly", "Unified data"],
   },
   {
-    name: "Consumer App",
-    tagline: "Your digital storefront",
-    status: "coming",
-    icon: Users,
-    description:
-      "Let customers browse products, place orders, and engage with your store — all from their phone. Build loyalty with a personalized shopping experience.",
-    features: [
-      "Digital catalog & ordering",
-      "Loyalty points & rewards",
-      "Order history & reordering",
-      "Personalized offers",
-      "Store ratings & reviews",
-    ],
-    cta: "Join Waitlist",
-    href: "/waitlist",
+    id: "analytics-dashboard",
+    icon: BarChart3,
+    title: "Analytics Dashboard",
+    tagline: "Business intelligence",
+    status: "active",
+    description: "Real-time dashboards with sales, customer, and inventory insights.",
+    features: ["Sales analytics", "Customer insights", "Product performance", "Store comparison", "Custom reports", "Export options"],
+    benefits: ["Data-driven decisions", "Identify trends", "Optimize inventory", "Track growth"],
   },
   {
-    name: "Supplier App",
-    tagline: "Connect with your suppliers",
-    status: "coming",
+    id: "campaign-manager",
     icon: Package,
-    description:
-      "Streamline your supply chain. Order from suppliers, track deliveries, and manage payments — all integrated with your inventory system.",
-    features: [
-      "Supplier catalog & ordering",
-      "Delivery tracking",
-      "Payment management",
-      "Price comparison",
-      "Auto-reorder suggestions",
-    ],
-    cta: "Join Waitlist",
-    href: "/waitlist",
+    title: "Campaign Manager",
+    tagline: "Marketing automation",
+    status: "active",
+    description: "Create and manage multi-channel marketing campaigns from a single dashboard.",
+    features: ["SMS campaigns", "WhatsApp marketing", "Customer segments", "Scheduled sends", "A/B testing", "ROI tracking"],
+    benefits: ["Automated marketing", "Targeted messaging", "Higher conversions", "Measure results"],
   },
 ];
 
 export default function Products() {
+  const { id } = useParams();
+  const selectedProduct = id ? products.find(p => p.id === id) : null;
+
+  if (selectedProduct) {
+    return (
+      <div className="min-h-screen bg-background">
+        <Header />
+        
+        <section className="pt-20 lg:pt-24 pb-12 hero-gradient text-white">
+          <div className="container-wide">
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+              <div className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center mb-4">
+                <selectedProduct.icon className="w-7 h-7 text-orange-400" />
+              </div>
+              <h1 className="text-3xl md:text-4xl font-display font-bold mb-2">{selectedProduct.title}</h1>
+              <p className="text-lg text-orange-400">{selectedProduct.tagline}</p>
+            </motion.div>
+          </div>
+        </section>
+
+        <section className="section-padding bg-white">
+          <div className="container-wide">
+            <div className="grid lg:grid-cols-2 gap-10">
+              <div>
+                <p className="text-lg text-muted-foreground mb-6">{selectedProduct.description}</p>
+                <h3 className="font-semibold text-foreground mb-4">Features</h3>
+                <ul className="grid grid-cols-2 gap-2">
+                  {selectedProduct.features.map((feature) => (
+                    <li key={feature} className="flex items-center gap-2 text-sm">
+                      <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
+                      <span className="text-foreground">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="bg-secondary/30 p-6 rounded-xl">
+                <h3 className="font-semibold text-foreground mb-4">Key Benefits</h3>
+                <ul className="space-y-3">
+                  {selectedProduct.benefits.map((benefit) => (
+                    <li key={benefit} className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                        <CheckCircle2 className="w-4 h-4 text-primary" />
+                      </div>
+                      <span className="text-foreground">{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Button size="lg" variant="cta" className="w-full mt-6" asChild>
+                  <Link to="/trial">
+                    Start Free Trial
+                    <ArrowRight className="w-4 h-4 ml-1" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <Footer />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
-      {/* Hero */}
-      <section className="pt-24 lg:pt-32 pb-16 hero-gradient text-white">
+      <section className="pt-20 lg:pt-24 pb-12 hero-gradient text-white">
         <div className="container-wide text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Products Built for <span className="text-emerald-400">Modern Retail</span>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+            <h1 className="text-3xl md:text-4xl font-display font-bold mb-3">
+              Products Built for <span className="text-orange-400">Modern Retail</span>
             </h1>
-            <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto">
-              A complete ecosystem of tools designed to help Indian retailers 
-              digitize, grow, and compete in the modern marketplace.
+            <p className="text-lg text-white/80 max-w-2xl mx-auto">
+              A complete ecosystem to digitize, grow, and compete
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Products Grid */}
       <section className="section-padding bg-white">
         <div className="container-wide">
-          <div className="space-y-12">
+          <div className="grid sm:grid-cols-2 gap-6">
             {products.map((product, i) => (
               <motion.div
-                key={product.name}
+                key={product.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className={`rounded-2xl p-8 lg:p-12 ${
-                  product.status === "active" ? "bg-navy-50" : "bg-muted/50"
-                }`}
+                transition={{ delay: i * 0.1 }}
               >
-                <div className="grid lg:grid-cols-2 gap-8 items-center">
-                  <div>
-                    <div className="flex items-center gap-3 mb-4">
-                      <div
-                        className={`w-12 h-12 rounded-xl flex items-center justify-center ${
-                          product.status === "active"
-                            ? "bg-emerald-500"
-                            : "bg-navy-300"
-                        }`}
-                      >
-                        <product.icon className="w-6 h-6 text-white" />
-                      </div>
-                      <div>
-                        <h2 className="text-2xl font-bold text-navy-900">{product.name}</h2>
-                        {product.status === "coming" && (
-                          <span className="text-xs bg-navy-200 text-navy-700 px-2 py-0.5 rounded-full font-medium">
-                            Coming Soon
-                          </span>
-                        )}
-                      </div>
+                <Link
+                  to={`/products/${product.id}`}
+                  className="block bg-secondary/30 p-6 rounded-xl hover:shadow-lg transition-all h-full"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                      <product.icon className="w-6 h-6 text-primary" />
                     </div>
-                    <p className="text-lg text-emerald-600 font-medium mb-4">{product.tagline}</p>
-                    <p className="text-muted-foreground mb-6">{product.description}</p>
-                    <Button
-                      size="lg"
-                      variant={product.status === "active" ? "cta" : "outline"}
-                      asChild
-                    >
-                      <Link to={product.href}>
-                        {product.cta}
-                        <ArrowRight className="w-4 h-4 ml-1" />
-                      </Link>
-                    </Button>
+                    <div>
+                      <h3 className="font-semibold text-foreground text-lg mb-1">{product.title}</h3>
+                      <p className="text-sm text-orange-600 mb-2">{product.tagline}</p>
+                      <p className="text-sm text-muted-foreground mb-3">{product.description}</p>
+                      <span className="inline-flex items-center gap-1 text-sm text-primary font-medium">
+                        Learn more <ArrowRight className="w-4 h-4" />
+                      </span>
+                    </div>
                   </div>
-                  <div className="bg-white rounded-xl p-6 shadow-card">
-                    <h3 className="font-semibold text-navy-900 mb-4">Key Features</h3>
-                    <ul className="space-y-3">
-                      {product.features.map((feature) => (
-                        <li key={feature} className="flex items-center gap-3">
-                          <CheckCircle2
-                            className={`w-5 h-5 ${
-                              product.status === "active"
-                                ? "text-emerald-600"
-                                : "text-navy-400"
-                            }`}
-                          />
-                          <span className="text-navy-700">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
+                </Link>
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="section-padding subtle-gradient">
-        <div className="container-tight text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-navy-900 mb-4">
-            Start with the Lume Retail App Today
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Get everything you need to run a modern retail store. More products coming soon.
-          </p>
-          <Button size="xl" variant="cta" asChild>
-            <Link to="/trial">
-              Start Free Trial
-              <ArrowRight className="w-5 h-5 ml-1" />
-            </Link>
-          </Button>
         </div>
       </section>
 

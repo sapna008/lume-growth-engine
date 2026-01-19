@@ -15,7 +15,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
-        display: ["Poppins", "Inter", "system-ui", "sans-serif"],
+        display: ["Archivo", "Inter", "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -78,31 +78,18 @@ export default {
           800: "hsl(var(--blue-800))",
           900: "hsl(var(--blue-900))",
         },
-        // Extended Amber Palette
-        amber: {
-          50: "hsl(var(--amber-50))",
-          100: "hsl(var(--amber-100))",
-          200: "hsl(var(--amber-200))",
-          300: "hsl(var(--amber-300))",
-          400: "hsl(var(--amber-400))",
-          500: "hsl(var(--amber-500))",
-          600: "hsl(var(--amber-600))",
-          700: "hsl(var(--amber-700))",
-          800: "hsl(var(--amber-800))",
-          900: "hsl(var(--amber-900))",
-        },
-        // Legacy Navy Palette (for compatibility)
-        navy: {
-          50: "hsl(var(--navy-50))",
-          100: "hsl(var(--navy-100))",
-          200: "hsl(var(--navy-200))",
-          300: "hsl(var(--navy-300))",
-          400: "hsl(var(--navy-400))",
-          500: "hsl(var(--navy-500))",
-          600: "hsl(var(--navy-600))",
-          700: "hsl(var(--navy-700))",
-          800: "hsl(var(--navy-800))",
-          900: "hsl(var(--navy-900))",
+        // Extended Orange Palette
+        orange: {
+          50: "hsl(var(--orange-50))",
+          100: "hsl(var(--orange-100))",
+          200: "hsl(var(--orange-200))",
+          300: "hsl(var(--orange-300))",
+          400: "hsl(var(--orange-400))",
+          500: "hsl(var(--orange-500))",
+          600: "hsl(var(--orange-600))",
+          700: "hsl(var(--orange-700))",
+          800: "hsl(var(--orange-800))",
+          900: "hsl(var(--orange-900))",
         },
       },
       borderRadius: {
