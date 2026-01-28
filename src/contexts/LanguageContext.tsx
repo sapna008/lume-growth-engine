@@ -19,7 +19,7 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.titleHighlight': 'Digital Tools',
     'hero.description': 'Simple billing, smart customer management, and real-time insights — everything you need to compete with quick commerce and grow your store.',
     'hero.download': 'Download',
-    'hero.watchDemo': 'Watch 2-min Demo',
+    'hero.watchDemo': 'Book a Demo',
     'hero.rating': '4.8/5 from 250+ reviews',
     
     // Stats
@@ -180,6 +180,8 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.posPlugin': 'POS Plugin – Add‑on for Billing',
     'footer.analytics': 'Analytics Dashboard',
     'footer.campaign': 'Campaign Manager',
+    'footer.lume': 'Lume',
+    'footer.lumeShopComingSoon': 'Lume Shop (Coming Soon)',
     'footer.smartBilling': 'Smart Billing',
     'footer.customerAnalytics': 'Customer Analytics',
     'footer.loyalty': 'Loyalty & Coupons',
@@ -308,7 +310,7 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.titleHighlight': 'डिजिटल टूल्स से बढ़ाइए',
     'hero.description': 'बिलिंग से लेकर ग्राहकों की जानकारी और बिक्री की पूरी रिपोर्ट — सब कुछ एक ही मोबाइल ऐप में। अब बड़ी डिलीवरी ऐप्स से मुकाबला करना आसान।',
     'hero.download': 'डाउनलोड करें',
-    'hero.watchDemo': '2 मिनट का डेमो देखें',
+    'hero.watchDemo': 'डेमो बुक करें',
     'hero.rating': '4.8/5 रेटिंग (250+ दुकानदारों की राय)',
     
     // Stats
@@ -502,6 +504,8 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.posPlugin': 'बिलिंग सिस्टम का अतिरिक्त फीचर',
     'footer.analytics': 'एनालिटिक्स डैशबोर्ड',
     'footer.campaign': 'कैंपेन मैनेजर',
+    'footer.lume': 'ल्यूम',
+    'footer.lumeShopComingSoon': 'ल्यूम शॉप (जल्द आ रहा है)',
     'footer.smartBilling': 'स्मार्ट बिलिंग',
     'footer.customerAnalytics': 'ग्राहक एनालिटिक्स',
     'footer.loyalty': 'लॉयल्टी और कूपन',

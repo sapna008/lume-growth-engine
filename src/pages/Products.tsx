@@ -220,22 +220,11 @@ export default function Products() {
               className="relative"
             >
               <div className="relative">
-                {/* Desktop Image */}
-                <div className="hidden lg:block">
-                  <img 
-                    src={dashboardDesktop} 
-                    alt="Lume retail management dashboard" 
-                    className="w-full max-w-lg mx-auto drop-shadow-2xl rounded-lg"
-                  />
-                </div>
-                {/* Mobile Image */}
-                <div className="lg:hidden">
-                  <img 
-                    src={dashboardMobile} 
-                    alt="Lume mobile app interface" 
-                    className="w-full max-w-sm mx-auto drop-shadow-2xl rounded-lg"
-                  />
-                </div>
+                <img 
+                  src={dashboardDesktop} 
+                  alt="Lume retail management dashboard" 
+                  className="w-full max-w-lg mx-auto drop-shadow-2xl rounded-lg"
+                />
               </div>
             </motion.div>
           </div>
@@ -276,7 +265,10 @@ export default function Products() {
         </section>
 
       {/* 3. CORE CAPABILITIES */}
-      <section id="core" className="section-padding pt-10 sm:pt-12 lg:pt-14 bg-gradient-to-b from-white via-[#eaf2f8]/20 to-white">
+      <section
+        id="core"
+        className="py-10 sm:py-12 lg:py-14 bg-gradient-to-b from-white via-[#eaf2f8]/20 to-white"
+      >
           <div className="container-wide">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -322,36 +314,36 @@ export default function Products() {
                   ))}
                 </ul>
               </div>
-                  <div className={i % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}>
+                  <div className={`${i % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''} flex items-center justify-center`}>
                     {capability.title === t('products.coreCapabilities.billing.title') ? (
                       <img 
                         src={posImage} 
                         alt="Billing & POS Integration" 
-                        className="w-full max-w-md h-auto max-h-64 sm:max-h-80 rounded-lg object-contain mx-auto"
+                        className="w-full max-w-md h-auto max-h-64 sm:max-h-80 rounded-lg object-contain"
                       />
                     ) : capability.title === t('products.coreCapabilities.loyalty.title') ? (
                       <img 
                         src={loyaltyImage} 
                         alt="Customer & Loyalty Engine" 
-                        className="w-full max-w-md h-auto max-h-64 sm:max-h-80 rounded-lg object-contain mx-auto"
+                        className="w-full max-w-md h-auto max-h-64 sm:max-h-80 rounded-lg object-contain"
                       />
                     ) : capability.title === t('products.coreCapabilities.digitalBills.title') ? (
                       <img 
                         src={smartDigitalBillImage} 
                         alt="Smart Digital Bills" 
-                        className="w-full max-w-md h-auto max-h-64 sm:max-h-80 rounded-lg object-contain mx-auto"
+                        className="w-full max-w-md h-auto max-h-64 sm:max-h-80 rounded-lg object-contain"
                       />
                     ) : capability.title === t('products.coreCapabilities.analytics.title') ? (
                       <img 
                         src={analyticsReportImage} 
                         alt="Analytics & Reports" 
-                        className="w-full max-w-md h-auto max-h-64 sm:max-h-80 rounded-lg object-contain mx-auto"
+                        className="w-full max-w-md h-auto max-h-64 sm:max-h-80 rounded-lg object-contain"
                       />
                     ) : capability.title === t('products.coreCapabilities.campaign.title') ? (
                       <img 
                         src={campaignManagerImage} 
                         alt="Campaign Manager" 
-                        className="w-full max-w-md h-auto max-h-64 sm:max-h-80 rounded-lg object-contain mx-auto"
+                        className="w-full max-w-md h-auto max-h-64 sm:max-h-80 rounded-lg object-contain"
                       />
                     ) : (
                       <div className="bg-gradient-to-br from-[#eaf2f8] to-white rounded-xl p-6 sm:p-8 h-64 sm:h-80 flex items-center justify-center">
@@ -370,7 +362,10 @@ export default function Products() {
       </section>
 
       {/* 4. HOW LUME WORKS */}
-      <section id="how-it-works" className="section-padding bg-white">
+      <section
+        id="how-it-works"
+        className="py-10 sm:py-12 lg:py-14 bg-white"
+      >
         <div className="container-wide">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -423,7 +418,10 @@ export default function Products() {
         </section>
 
       {/* 5. WHO IS LUME FOR? */}
-      <section id="who-is-lume-for" className="section-padding bg-gradient-to-b from-white via-[#eaf2f8]/20 to-white">
+      <section
+        id="who-is-lume-for"
+        className="py-10 sm:py-12 lg:py-14 bg-gradient-to-b from-white via-[#eaf2f8]/20 to-white"
+      >
         <div className="container-wide">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -447,7 +445,7 @@ export default function Products() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-[#146fb5]/30"
               >
-                <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl flex items-center justify-center mb-6 bg-gradient-to-br from-[#eaf2f8] to-white border-2 border-[#146fb5]/20 shadow-sm">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl flex items-center justify-center mb-6 bg-gradient-to-br from-[#eaf2f8] to-white border-2 border-[#146fb5]/20 shadow-sm mx-auto">
                   <img 
                     src={item.icon} 
                     alt={item.title}
@@ -467,7 +465,10 @@ export default function Products() {
       </section>
 
       {/* 6. LUME + LUME SHOP CONNECTION */}
-      <section id="lume-shop" className="section-padding bg-white">
+      <section
+        id="lume-shop"
+        className="py-10 sm:py-12 lg:py-14 bg-white"
+      >
         <div className="container-wide">
           <div className="max-w-4xl mx-auto">
               <motion.div
@@ -512,7 +513,10 @@ export default function Products() {
       </section>
 
       {/* 7. TRUST (LIGHT VERSION) */}
-      <section id="trust" className="section-padding bg-gradient-to-b from-white via-[#eaf2f8]/20 to-white">
+      <section
+        id="trust"
+        className="py-10 sm:py-12 lg:py-14 bg-gradient-to-b from-white via-[#eaf2f8]/20 to-white"
+      >
         <div className="container-wide">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -554,7 +558,10 @@ export default function Products() {
       </section>
 
       {/* 8. FINAL CTA */}
-      <section id="cta" className="section-padding bg-white">
+      <section
+        id="cta"
+        className="py-10 sm:py-12 lg:py-14 bg-white"
+      >
         <div className="container-wide">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

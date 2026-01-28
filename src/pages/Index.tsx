@@ -835,17 +835,14 @@ export default function Index() {
             <p className="text-base sm:text-lg md:text-xl mb-8 sm:mb-10 max-w-2xl mx-auto" style={{ color: '#4f4f4f' }}>
               {t('cta.description')}
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-              <Button size="lg" variant="hero" asChild className="shadow-xl text-base sm:text-lg">
-                <Link to="/book-demo">
-                  {t('cta.startTrial')}
-                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-1" />
-                </Link>
-              </Button>
-              <Button size="lg" variant="hero-outline" asChild className="text-base sm:text-lg">
-                <Link to="/company/contact">{t('cta.contactSales')}</Link>
-              </Button>
-            </div>
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+                  <Button size="lg" variant="hero" asChild className="shadow-xl text-base sm:text-lg">
+                    <Link to="/book-demo">
+                      {t('cta.startTrial')}
+                      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-1" />
+                    </Link>
+                  </Button>
+                </div>
           </motion.div>
         </div>
       </section>

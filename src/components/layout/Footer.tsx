@@ -1,20 +1,18 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Linkedin, Twitter, Youtube } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Facebook, Instagram } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import apeirosLogo from "@/assets/apeiros-logo.png";
 
 const footerLinks = {
   company: [
     { nameKey: "footer.about", href: "/company/about" },
-    { nameKey: "footer.careers", href: "/company/careers" },
-    { nameKey: "footer.investors", href: "/company/investors" },
+    // { nameKey: "footer.careers", href: "/company/careers" },
+    // { nameKey: "footer.investors", href: "/company/investors" },
     { nameKey: "footer.contact", href: "/contact" },
   ],
   products: [
-    { nameKey: "footer.webPos", href: "/products/web-pos" },
-    { nameKey: "footer.posPlugin", href: "/products/pos-plugin" },
-    { nameKey: "footer.analytics", href: "/products/analytics-dashboard" },
-    { nameKey: "footer.campaign", href: "/products/campaign-manager" },
+    { nameKey: "footer.lume", href: "/products" },
+    { nameKey: "footer.lumeShopComingSoon", href: "/products#lume-shop" },
   ],
   solutions: [
     { nameKey: "footer.smartBilling", href: "/solutions/smart-billing" },
@@ -50,13 +48,13 @@ export function Footer() {
               {t('footer.tagline')}
             </p>
             <div className="space-y-2">
-              <a href="mailto:hello@apeiros.ai" className="flex items-center gap-2 text-white/80 hover:text-white text-sm transition-colors">
+            <a href="mailto:info@apeiros.com" className="flex items-center gap-2 text-white/80 hover:text-white text-sm transition-colors">
                 <Mail className="w-4 h-4" />
-                hello@apeiros.ai
+                info@apeiros.com
               </a>
-              <a href="tel:+918001234567" className="flex items-center gap-2 text-white/80 hover:text-white text-sm transition-colors">
+              <a href="tel:+919326601463" className="flex items-center gap-2 text-white/80 hover:text-white text-sm transition-colors">
                 <Phone className="w-4 h-4" />
-                +91 800-123-4567
+                +91 93266 01463
               </a>
               <div className="flex items-start gap-2 text-white/80 text-sm">
                 <MapPin className="w-4 h-4 mt-0.5" />
@@ -142,14 +140,29 @@ export function Footer() {
               ))}
             </div>
             <div className="flex items-center gap-3">
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors">
+              <a
+                href="https://www.facebook.com/people/Lume/61577808437645/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/80 hover:text-white transition-colors"
+              >
+                <Facebook className="w-4 h-4" />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/107869065/admin/page-posts/published/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/80 hover:text-white transition-colors"
+              >
                 <Linkedin className="w-4 h-4" />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors">
-                <Twitter className="w-4 h-4" />
-              </a>
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors">
-                <Youtube className="w-4 h-4" />
+              <a
+                href="https://www.instagram.com/the_lume_app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/80 hover:text-white transition-colors"
+              >
+                <Instagram className="w-4 h-4" />
               </a>
             </div>
           </div>

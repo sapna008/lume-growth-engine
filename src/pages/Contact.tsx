@@ -54,7 +54,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground">Email</h3>
-                    <p className="text-muted-foreground">hello@apeiros.ai</p>
+                    <p className="text-muted-foreground">info@apeiros.com</p>
                   </div>
                 </div>
                 
@@ -64,7 +64,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground">Phone</h3>
-                    <p className="text-muted-foreground">+91 800-123-4567</p>
+                    <p className="text-muted-foreground">+91 93266 01463</p>
                   </div>
                 </div>
                 

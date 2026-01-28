@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, Star, HelpCircle, Zap, X, Sparkles } from "lucide-react";
+import { ArrowRight, CheckCircle2, HelpCircle, Zap, X, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -11,6 +11,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useState } from "react";
 
 const plans = [
   {
@@ -536,6 +537,7 @@ const faqs = [
 
 export default function Pricing() {
   const { language } = useLanguage();
+  const [showComparison, setShowComparison] = useState(false);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50/50 via-white to-amber-50/30">
@@ -584,7 +586,7 @@ export default function Pricing() {
       </section>
 
       {/* Pricing Cards */}
-      <section className="pb-16 relative z-10">
+      <section className="6 relative z-10">
         <div className="container-wide max-w-5xl">
           <div className="grid md:grid-cols-3 gap-6">
             {plans.map((plan, i) => (
@@ -730,103 +732,122 @@ export default function Pricing() {
         </div>
       </section>
 
-      {/* Comparison Table */}
-      <section className="py-16 relative z-10">
+      {/* Plan Comparison */}
+      <section className="py-6 lg:py-8 relative z-10">
         <div className="container-wide max-w-5xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-8"
-          >
-            <h2 className="text-3xl font-bold mb-3" style={{ color: "#1b181f" }}>
-              {language === "HI" ? "एक नज़र में प्लान की तुलना" : "Compare plans at a glance"}
-            </h2>
-            <p style={{ color: "#4f4f4f" }}>
-              {language === "HI"
-                ? "स्टैण्डर्ड बनाम एडवांस बनाम प्रीमियम"
-                : "Standard vs Advance vs Premium"}
-            </p>
-          </motion.div>
+          <div className="flex justify-center mb-4">
+            <label className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white border border-border shadow-sm cursor-pointer">
+              <input
+                type="checkbox"
+                className="form-checkbox h-4 w-4 text-[#146fb5]"
+                checked={showComparison}
+                onChange={(e) => setShowComparison(e.target.checked)}
+              />
+              <span className="text-sm" style={{ color: "#1b181f" }}>
+                {language === "HI"
+                  ? "प्लान तुलना देखें"
+                  : "Plan comparison"}
+              </span>
+            </label>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="bg-white rounded-2xl shadow-xl border border-border overflow-hidden"
-          >
-            <div className="overflow-x-auto">
-              <table className="w-full comparison-table">
-                <thead>
-                  <tr className="bg-gradient-to-r from-slate-50 to-slate-100">
-                    <th className="text-left py-4 px-6 font-semibold" style={{ color: '#1b181f' }}>
-                      {language === "HI" ? "फीचर्स" : "Features"}
-                    </th>
-                    <th className="text-center py-4 px-4 font-semibold" style={{ color: '#1b181f' }}>
-                      <div className="flex flex-col items-center">
-                        <span>{language === "HI" ? "स्टैंडर्ड" : "Standard"}</span>
-                        <span className="text-sm font-normal" style={{ color: '#4f4f4f' }}>₹2,500 / year</span>
-                      </div>
-                    </th>
-                    <th className="text-center py-4 px-4 font-semibold" style={{ color: '#1b181f' }}>
-                      <div className="flex flex-col items-center">
-                        <span>{language === "HI" ? "एडवांस" : "Advance"}</span>
-                        <span className="text-sm font-normal" style={{ color: '#4f4f4f' }}>₹7,500 / year</span>
-                      </div>
-                    </th>
-                    <th className="text-center py-4 px-4 font-semibold bg-[#146fb5]/10" style={{ color: '#1b181f' }}>
-                      <div className="flex flex-col items-center">
-                        <span className="flex items-center gap-1">
-                          {language === "HI" ? "प्रीमियम" : "Premium"}
-                          <Star className="w-4 h-4" style={{ color: '#146fb5', fill: '#146fb5' }} />
-                        </span>
-                        <span className="text-sm font-normal" style={{ color: '#4f4f4f' }}>₹9,500 / year</span>
-                      </div>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {/* Detailed feature rows */}
-                  {comparisonFeatures.map((feature, index) => (
-                    <tr
-                      key={feature.name}
-                      className={`${index % 2 === 0 ? "bg-white" : "bg-slate-50/50"} align-top`}
-                    >
-                      <td className="py-4 px-6 text-sm" style={{ color: '#1b181f' }}>
-                        <div className="font-medium mb-1">
-                          {language === "HI" && feature.nameHI ? feature.nameHI : feature.name}
-                        </div>
-                        <div className="text-xs" style={{ color: '#4f4f4f' }}>
-                          {language === "HI" && feature.descriptionHI ? feature.descriptionHI : feature.description}
-                        </div>
-                      </td>
-                      <td className="py-4 px-4 text-center">
-                        {feature.standard === "yes" ? (
-                          <CheckCircle2 className="w-5 h-5 mx-auto" style={{ color: '#16a34a' }} />
-                        ) : (
-                          <span className="text-base" style={{ color: '#9ca3af' }}>—</span>
-                        )}
-                      </td>
-                      <td className="py-4 px-4 text-center">
-                        {feature.advance === "yes" ? (
-                          <CheckCircle2 className="w-5 h-5 mx-auto" style={{ color: '#16a34a' }} />
-                        ) : (
-                          <span className="text-base" style={{ color: '#9ca3af' }}>—</span>
-                        )}
-                      </td>
-                      <td className="py-4 px-4 text-center bg-[#146fb5]/5">
-                        {feature.premium === "yes" ? (
-                          <CheckCircle2 className="w-5 h-5 mx-auto" style={{ color: '#16a34a' }} />
-                        ) : (
-                          <span className="text-base" style={{ color: '#9ca3af' }}>—</span>
-                        )}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </motion.div>
+          {showComparison && (
+            <>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-center mb-4"
+              >
+                <h2 className="text-2xl font-bold mb-2" style={{ color: "#1b181f" }}>
+                  {language === "HI" ? "प्लान तुलना" : "Plan comparison"}
+                </h2>
+                <p style={{ color: "#4f4f4f" }}>
+                  {language === "HI"
+                    ? "स्टैंडर्ड बनाम एडवांस बनाम प्रीमियम"
+                    : "Standard vs Advance vs Premium"}
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="bg-white rounded-2xl shadow-xl border border-border overflow-hidden"
+              >
+                <div className="overflow-x-auto">
+                  <table className="w-full comparison-table">
+                    <thead>
+                      <tr className="bg-gradient-to-r from-slate-50 to-slate-100">
+                        <th className="text-left py-4 px-6 font-semibold" style={{ color: '#1b181f' }}>
+                          {language === "HI" ? "फीचर्स" : "Features"}
+                        </th>
+                        <th className="text-center py-4 px-4 font-semibold" style={{ color: '#1b181f' }}>
+                          <div className="flex flex-col items-center">
+                            <span>{language === "HI" ? "स्टैंडर्ड" : "Standard"}</span>
+                            <span className="text-sm font-normal" style={{ color: '#4f4f4f' }}>₹2,500 / year</span>
+                          </div>
+                        </th>
+                        <th className="text-center py-4 px-4 font-semibold" style={{ color: '#1b181f' }}>
+                          <div className="flex flex-col items-center">
+                            <span>{language === "HI" ? "एडवांस" : "Advance"}</span>
+                            <span className="text-sm font-normal" style={{ color: '#4f4f4f' }}>₹7,500 / year</span>
+                          </div>
+                        </th>
+                        <th className="text-center py-4 px-4 font-semibold bg-[#146fb5]/10" style={{ color: '#1b181f' }}>
+                          <div className="flex flex-col items-center">
+                            <span>
+                              {language === "HI" ? "प्रीमियम" : "Premium"}
+                            </span>
+                            <span className="text-sm font-normal" style={{ color: '#4f4f4f' }}>₹9,500 / year</span>
+                          </div>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {/* Detailed feature rows */}
+                      {comparisonFeatures.map((feature, index) => (
+                        <tr
+                          key={feature.name}
+                          className={`${index % 2 === 0 ? "bg-white" : "bg-slate-50/50"} align-top`}
+                        >
+                          <td className="py-4 px-6 text-sm" style={{ color: '#1b181f' }}>
+                            <div className="font-medium mb-1">
+                              {language === "HI" && feature.nameHI ? feature.nameHI : feature.name}
+                            </div>
+                            <div className="text-xs" style={{ color: '#4f4f4f' }}>
+                              {language === "HI" && feature.descriptionHI ? feature.descriptionHI : feature.description}
+                            </div>
+                          </td>
+                          <td className="py-4 px-4 text-center">
+                            {feature.standard === "yes" ? (
+                              <CheckCircle2 className="w-5 h-5 mx-auto" style={{ color: '#16a34a' }} />
+                            ) : (
+                              <span className="text-base" style={{ color: '#9ca3af' }}>—</span>
+                            )}
+                          </td>
+                          <td className="py-4 px-4 text-center">
+                            {feature.advance === "yes" ? (
+                              <CheckCircle2 className="w-5 h-5 mx-auto" style={{ color: '#16a34a' }} />
+                            ) : (
+                              <span className="text-base" style={{ color: '#9ca3af' }}>—</span>
+                            )}
+                          </td>
+                          <td className="py-4 px-4 text-center bg-[#146fb5]/5">
+                            {feature.premium === "yes" ? (
+                              <CheckCircle2 className="w-5 h-5 mx-auto" style={{ color: '#16a34a' }} />
+                            ) : (
+                              <span className="text-base" style={{ color: '#9ca3af' }}>—</span>
+                            )}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </motion.div>
+            </>
+          )}
         </div>
       </section>
 
@@ -881,11 +902,6 @@ export default function Pricing() {
                 <Link to="/book-demo">
                   {language === "HI" ? "डेमो बुक करें" : "Book a Demo"}
                   <ArrowRight className="w-5 h-5 ml-1" />
-                </Link>
-              </Button>
-              <Button size="xl" variant="hero-outline" asChild>
-                <Link to="/company/contact">
-                  {language === "HI" ? "सेल्स से संपर्क करें" : "Contact Sales"}
                 </Link>
               </Button>
             </div>

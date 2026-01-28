@@ -171,12 +171,12 @@ export default function Help() {
             <div className="bg-white p-5 rounded-xl text-center">
               <Phone className="w-8 h-8 text-primary mx-auto mb-3" />
               <h3 className="font-semibold text-foreground">Call Us</h3>
-              <p className="text-sm text-muted-foreground">+91 800-123-4567</p>
+              <p className="text-sm text-muted-foreground">+91 93266 01463</p>
             </div>
             <div className="bg-white p-5 rounded-xl text-center">
               <Mail className="w-8 h-8 text-primary mx-auto mb-3" />
               <h3 className="font-semibold text-foreground">Email</h3>
-              <p className="text-sm text-muted-foreground">support@apeiros.ai</p>
+              <p className="text-sm text-muted-foreground">info@apeiros.com</p>
             </div>
           </div>
         </div>
