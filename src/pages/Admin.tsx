@@ -177,7 +177,7 @@ export default function Admin() {
                     <p className="text-sm text-white/80 mb-4">{config.subheading}</p>
                     <div className="flex gap-2">
                       <button className="bg-orange-500 text-white text-xs px-3 py-1.5 rounded font-medium">
-                        Start Free Trial
+                        Book a Demo
                       </button>
                       <button className="bg-white/10 border border-white/30 text-white text-xs px-3 py-1.5 rounded font-medium">
                         Watch Demo

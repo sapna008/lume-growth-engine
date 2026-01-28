@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Search, BookOpen, Video, MessageCircle, Phone, Mail, ChevronDown, Play, FileText, HelpCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -61,23 +62,48 @@ export default function Help() {
       <section className="section-padding-sm bg-white">
         <div className="container-wide">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {categories.map((category, i) => (
-              <motion.div
-                key={category.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-secondary/30 p-5 rounded-xl hover:shadow-md transition-all cursor-pointer"
-              >
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
-                  <category.icon className="w-5 h-5 text-primary" />
-                </div>
-                <h3 className="font-semibold text-foreground">{category.title}</h3>
-                <p className="text-sm text-muted-foreground">{category.desc}</p>
-                <p className="text-xs text-primary mt-2">{category.count} articles</p>
-              </motion.div>
-            ))}
+            {categories.map((category, i) => {
+              const isGettingStarted = category.title === "Getting Started";
+              const isBilling = category.title === "Billing";
+              const linkTo = isGettingStarted
+                ? "/help/getting-started"
+                : isBilling
+                ? "/help/billing-guide"
+                : null;
+              const content = (
+                <>
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-3" style={{ backgroundColor: 'rgba(20, 111, 181, 0.15)' }}>
+                    <category.icon className="w-5 h-5" style={{ color: '#146fb5' }} />
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-1">{category.title}</h3>
+                  <p className="text-sm" style={{ color: '#4f4f4f' }}>{category.desc}</p>
+                  <p className="text-xs font-medium mt-2" style={{ color: '#146fb5' }}>{category.count} articles</p>
+                </>
+              );
+
+              return (
+                <motion.div
+                  key={category.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                >
+                  {linkTo ? (
+                    <Link
+                      to={linkTo}
+                      className="block bg-secondary/30 p-5 rounded-xl hover:shadow-md transition-all cursor-pointer"
+                    >
+                      {content}
+                    </Link>
+                  ) : (
+                    <div className="bg-secondary/30 p-5 rounded-xl hover:shadow-md transition-all">
+                      {content}
+                    </div>
+                  )}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -96,8 +122,8 @@ export default function Help() {
                 transition={{ delay: i * 0.05 }}
                 className="bg-white p-4 rounded-lg border border-border hover:border-primary/30 transition-colors cursor-pointer"
               >
-                <span className="text-xs text-primary bg-primary/10 px-2 py-0.5 rounded">{article.category}</span>
-                <p className="font-medium text-foreground mt-2">{article.title}</p>
+                <span className="text-xs font-medium px-2 py-0.5 rounded inline-block" style={{ color: '#146fb5', backgroundColor: 'rgba(20, 111, 181, 0.1)' }}>{article.category}</span>
+                <p className="font-medium mt-2" style={{ color: '#1b181f' }}>{article.title}</p>
               </motion.div>
             ))}
           </div>

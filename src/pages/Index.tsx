@@ -8,7 +8,6 @@ import {
   Shield, 
   Smartphone,
   BarChart3,
-  Receipt,
   CreditCard,
   MessageSquare,
   Star,
@@ -23,140 +22,314 @@ import {
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import heroBanner from "@/assets/hero-banner.png";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import dashboardDesktop from "@/assets/hero-banner/dashboard-hindii.png";
+import mobileHeroVideo from "@/assets/hero-banner/mobile-hero.mp4";
+import billVideo from "@/assets/hero-banner/bill-vdoo.mp4";
+import bgImage from "@/assets/bg-1.avif";
+import smileIcon from "@/assets/smile.png";
+import challengeIcon1 from "@/assets/home-icons/chalanges-icons/i-1.png";
+import challengeIcon2 from "@/assets/home-icons/chalanges-icons/i-2.png";
+import challengeIcon3 from "@/assets/home-icons/chalanges-icons/i-3.png";
+import challengeIcon4 from "@/assets/home-icons/chalanges-icons/i-4.png";
+import benefitIcon1 from "@/assets/home-icons/benifit-icons/i-1.png";
+import benefitIcon2 from "@/assets/home-icons/benifit-icons/i-2.png";
+import benefitIcon3 from "@/assets/home-icons/benifit-icons/i-3.png";
+import benefitIcon4 from "@/assets/home-icons/benifit-icons/i-4.png";
+import benefitIcon5 from "@/assets/home-icons/benifit-icons/i-5.png";
+import benefitIcon6 from "@/assets/home-icons/benifit-icons/i-6.png";
+import testimonialImg1 from "@/assets/testimonials/Testimonial-01.png";
+import testimonialImg2 from "@/assets/testimonials/Testimonial-02.png";
+import testimonialImg3 from "@/assets/testimonials/Testimonial-03.png";
+import testimonialImg4 from "@/assets/testimonials/Testimonial-04.png";
+import testimonialImg5 from "@/assets/testimonials/Testimonial-05.png";
+import testimonialImg6 from "@/assets/testimonials/Testimonial-06.png";
+import testimonialImg7 from "@/assets/testimonials/Testimonial-07.png";
 
-const stats = [
-  { value: "10,000+", label: "Retailers Trust Us" },
-  { value: "₹50Cr+", label: "Transactions Processed" },
-  { value: "25%", label: "Average Revenue Increase" },
-  { value: "4.8/5", label: "Customer Rating" },
+// Import retailer logos
+const retailerLogos = [
+  'AaraCouture-removebg-preview.png',
+  'AMStaationers-removebg-preview.png',
+  'Auction-removebg-preview.png',
+  'BottomForGroom-removebg-preview.png',
+  'CakePointPartySpot-removebg-preview.png',
+  'Canon-removebg-preview.png',
+  'Golden-removebg-preview.png',
+  'GopalDiary-removebg-preview.png',
+  'Gunjan-removebg-preview.png',
+  'HarrierLuggage-removebg-preview.png',
+  'HeartyMart-removebg-preview.png',
+  'HPWorld-removebg-preview.png',
+  'JainTraders-removebg-preview.png',
+  'JohnNBrown-removebg-preview.png',
+  'JyotiStores-removebg-preview.png',
+  'Kirti-removebg-preview.png',
+  'KrishnaFashion-removebg-preview.png',
+  'KuberJwellers-removebg-preview.png',
+  'Lotus-removebg-preview.png',
+  'MagicScissors-removebg-preview.png',
+  'MetroPharmacy-removebg-preview.png',
+  'NagrikStores-removebg-preview.png',
+  'PatelSareesPvt-removebg-preview.png',
+  'RJHairBeauty-removebg-preview.png',
+  'Salvi-removebg-preview.png',
+  'Sonika-removebg-preview.png',
+  'Surabhi-removebg-preview.png',
+  'TheCakeShop-removebg-preview.png',
+  'TheCakeWay-removebg-preview.png',
+  'Vastram-removebg-preview.png',
+  'Veera-removebg-preview.png',
 ];
 
-const painPoints = [
-  { icon: Users, text: "Losing customers to quick commerce apps" },
-  { icon: Receipt, text: "Manual billing wastes time & causes errors" },
-  { icon: Target, text: "No way to track or engage customers" },
-  { icon: BarChart3, text: "No visibility into business performance" },
+// Stats will be translated in component
+const statsKeys = [
+  { value: "250+", key: "stats.retailers" },
+  { value: "₹40Cr+", key: "stats.transactions" },
+  { value: "25%", key: "stats.revenue" },
+  { value: "4.8/5", key: "stats.rating" },
 ];
 
-const benefits = [
+// Pain points will be translated in component
+const painPointsKeys = [
+  { icon: challengeIcon1, key: "challenge.point1" },
+  { icon: challengeIcon2, key: "challenge.point2" },
+  { icon: challengeIcon3, key: "challenge.point3" },
+  { icon: challengeIcon4, key: "challenge.point4" },
+];
+
+// Benefits will be translated in component
+const benefitsKeys = [
   {
-    icon: IndianRupee,
-    title: "Save Money",
-    description: "Reduce billing errors, track inventory better, and cut operational costs with digital tools.",
+    icon: benefitIcon1,
+    titleKey: "benefit.fastBilling.title",
+    descKey: "benefit.fastBilling.desc",
   },
   {
-    icon: RefreshCw,
-    title: "Increase Repeat Sales",
-    description: "Build customer loyalty with personalized offers and engagement that brings them back.",
+    icon: benefitIcon2,
+    titleKey: "benefit.posIntegration.title",
+    descKey: "benefit.posIntegration.desc",
   },
   {
-    icon: Users,
-    title: "Capture Customers Automatically",
-    description: "Every transaction builds your customer database. Know who buys, what they buy, when they buy.",
+    icon: benefitIcon3,
+    titleKey: "benefit.engagement.title",
+    descKey: "benefit.engagement.desc",
   },
   {
-    icon: BarChart3,
-    title: "Track Business Easily",
-    description: "Real-time dashboard shows sales, profits, inventory — everything you need to make smart decisions.",
+    icon: benefitIcon4,
+    titleKey: "benefit.customerCapture.title",
+    descKey: "benefit.customerCapture.desc",
+  },
+  {
+    icon: benefitIcon5,
+    titleKey: "benefit.smartOffers.title",
+    descKey: "benefit.smartOffers.desc",
+  },
+  {
+    icon: benefitIcon6,
+    titleKey: "benefit.dashboard.title",
+    descKey: "benefit.dashboard.desc",
   },
 ];
 
-const howItWorks = [
-  { step: "1", title: "Download the App", description: "Free download from Play Store. Setup takes just 5 minutes." },
-  { step: "2", title: "Add Your Products", description: "Scan barcodes or add manually. Bulk import available." },
-  { step: "3", title: "Start Billing", description: "Create digital bills and capture customer data automatically." },
-  { step: "4", title: "Grow Your Business", description: "Use insights and engagement tools to increase repeat customers." },
+// How it works will be translated in component
+const howItWorksKeys = [
+  { step: "1", titleKey: "howItWorks.step1.title", descKey: "howItWorks.step1.desc" },
+  { step: "2", titleKey: "howItWorks.step2.title", descKey: "howItWorks.step2.desc" },
+  { step: "3", titleKey: "howItWorks.step3.title", descKey: "howItWorks.step3.desc" },
+  { step: "4", titleKey: "howItWorks.step4.title", descKey: "howItWorks.step4.desc" },
 ];
 
-const industries = [
-  { name: "Grocery & Kirana", icon: Store, count: "5,000+ stores" },
-  { name: "Fashion & Apparel", icon: ShoppingBag, count: "2,000+ stores" },
-  { name: "Electronics", icon: Zap, count: "1,500+ stores" },
-  { name: "General Stores", icon: IndianRupee, count: "1,500+ stores" },
+// Industries will be translated in component
+const industriesKeys = [
+  { key: "industries.grocery" },
+  { key: "industries.fashion" },
+  { key: "industries.electronics" },
+  { key: "industries.pharmacy" },
+  { key: "industries.general" },
+  { key: "industries.footwear" },
+  { key: "industries.cosmetic" },
+  { key: "industries.stationery" },
+  { key: "industries.hardware" },
+  { key: "industries.bakery" },
 ];
 
 const testimonials = [
   {
-    quote: "Lume helped me increase my repeat customers by 40%. The credit management feature alone saved me ₹50,000 in bad debts.",
+    logo: "ELECTRONICS",
+    logoSub: "K K Telecome",
+    quote: "Sales increased by 40% in just 3 months!",
+    quoteHI: "सिर्फ 3 महीने में 40% ज़्यादा सेल्स!",
+    text: "Lume helped me increase my repeat customers by 40%. The credit management feature alone saved me ₹50,000 in bad debts. The digital billing and customer management features have made our operations so smooth.",
+    textHI: "Lume की वजह से मेरे रिपीट कस्टमर लगभग 40% तक बढ़ गए। सिर्फ क्रेडिट मैनेजमेंट फ़ीचर ने ही हमें करीब ₹50,000 तक के खराब उधार से बचा लिया। डिजिटल बिलिंग और कस्टमर मैनेजमेंट ने हमारी रोज़ की दुकानदारी बहुत स्मूद बना दी है।",
     author: "Ramesh Kumar",
-    role: "Kirana Store Owner, Delhi",
-    rating: 5,
+    role: "Store Manager, K K Telecome",
+    image: testimonialImg1,
   },
   {
-    quote: "Finally, a billing app that understands Indian retailers. Simple to use, and my customers love getting digital bills.",
+    logo: "ELECTRONICS",
+    logoSub: "Lotus Enterprises",
+    quote: "Best retail management solution we've used!",
+    quoteHI: "अब तक का सबसे बढ़िया रिटेल मैनेजमेंट सॉल्यूशन!",
+    text: "Finally, a billing app that understands Indian retailers. The inventory management and sales analytics features are outstanding. We can now track our best-selling products efficiently.",
+    textHI: "आख़िरकार ऐसा बिलिंग ऐप मिला जो सच में भारतीय रिटेलर्स को समझता है। इन्वेंटरी मैनेजमेंट और सेल्स एनालिटिक्स के फ़ीचर कमाल के हैं। अब हम आसानी से देख सकते हैं कि कौन-से प्रोडक्ट सबसे ज़्यादा बिक रहे हैं।",
     author: "Priya Sharma",
-    role: "Fashion Boutique, Mumbai",
-    rating: 5,
+    role: "Store Manager, Lotus Enterprises",
+    image: testimonialImg2,
   },
   {
-    quote: "I can now track my daily sales from anywhere. The insights helped me stock the right products at the right time.",
+    logo: "GENERAL STORE",
+    logoSub: "Burhan Store",
+    quote: "Customer loyalty program is a game changer!",
+    quoteHI: "कस्टमर लॉयल्टी प्रोग्राम ने खेल ही बदल दिया!",
+    text: "I can now track my daily sales from anywhere. The loyalty and rewards system has helped us retain customers and increase sales. The campaign builder makes it so easy to create offers.",
+    textHI: "अब मैं कहीं से भी अपनी रोज़ की सेल्स देख सकता हूँ। लॉयल्टी और रिवॉर्ड सिस्टम ने हमें कस्टमर रोके रखने और सेल बढ़ाने में बहुत मदद की है। कैंपेन बिल्डर से ऑफ़र बनाना भी अब कुछ सेकंड का काम हो गया है।",
     author: "Mohammed Ali",
-    role: "Electronics Shop, Hyderabad",
-    rating: 5,
+    role: "Founder, General Store",
+    image: testimonialImg3,
+  },
+  {
+    logo: "STYLE",
+    logoSub: "The Clothing House",
+    quote: "Streamlined operations with amazing insights!",
+    quoteHI: "बेहतरीन इनसाइट्स के साथ पूरे ऑपरेशन आसान हो गए!",
+    text: "Lume's dashboard gives us real-time insights into our business performance. The credit management feature has helped us track customer payments efficiently. The smart e-bills have enhanced our brand image significantly.",
+    textHI: "Lume का डैशबोर्ड हमें रियल-टाइम में बिज़नेस की परफॉर्मेंस दिखाता है। क्रेडिट मैनेजमेंट फ़ीचर से कस्टमर पेमेंट ट्रैक करना बहुत आसान हो गया है। स्मार्ट ई-बिल्स ने हमारे ब्रांड की इमेज भी काफ़ी मज़बूत कर दी है।",
+    author: "Neha Singh",
+    role: "Store Manager, The Clothing House",
+    image: testimonialImg4,
+  },
+  {
+    logo: "CLOTHING",
+    logoSub: "Patel Sarees",
+    quote: "Perfect for multi-store management!",
+    quoteHI: "मल्टी-स्टोर मैनेजमेंट के लिए परफेक्ट सॉल्यूशन!",
+    text: "Managing multiple pharmacy stores was challenging until we found Lume. The centralized dashboard, franchise management, and multi-store POS features have made our operations seamless.",
+    textHI: "कई स्टोर्स संभालना पहले बहुत मुश्किल था, जब तक हमें Lume नहीं मिला था। सेंट्रलाइज़्ड डैशबोर्ड, फ़्रेंचाइज़ मैनेजमेंट और मल्टी-स्टोर POS फीचर्स की वजह से अब हमारा पूरा ऑपरेशन बहुत आसान और कंट्रोल में है।",
+    author: "Vikram Patel",
+    role: "Store Manager, Patel Sarees",
+    image: testimonialImg5,
+  },
+  {
+    logo: "STYLE",
+    logoSub: "Surabhi Store",
+    quote: "Amazing customer engagement features!",
+    quoteHI: "कस्टमर एंगेजमेंट वाले फ़ीचर वाकई कमाल के हैं!",
+    text: "The WhatsApp campaigns and customer feedback system have transformed how we interact with our customers. Sales have increased significantly since we started using Lume.",
+    textHI: "WhatsApp कैंपेन और कस्टमर फ़ीडबैक सिस्टम ने हमारे ग्राहकों से जुड़ने का तरीका पूरी तरह बदल दिया है। Lume इस्तेमाल करने के बाद से हमारी सेल्स में साफ़-साफ़ बढ़ोतरी दिख रही है।",
+    author: "Anjali Mehta",
+    role: "Owner, Surabhi Store",
+    image: testimonialImg6,
+  },
+  {
+    logo: "ELECTRONICS",
+    logoSub: "GEONET HP WORLD",
+    quote: "Best investment for our business!",
+    quoteHI: "हमारे बिज़नेस के लिए अब तक का सबसे अच्छा निवेश!",
+    text: "Lume has made billing so much faster and easier. The automatic customer capture and credit tracking features have saved us hours every day. Highly recommended!",
+    textHI: "Lume ने हमारी बिलिंग को बहुत तेज़ और आसान बना दिया है। ऑटोमैटिक कस्टमर कैप्चर और क्रेडिट ट्रैकिंग फ़ीचर्स रोज़ के कई घंटे बचा देते हैं। हम इसे हर रिटेलर को सलाह देंगे।",
+    author: "Rajesh Verma",
+    role: "Store Manager, GEONET HP WORLD",
+    image: testimonialImg7,
   },
 ];
 
 export default function Index() {
+  const { t, language } = useLanguage();
+  // Debug: Check if image is loaded
+  console.log('Background image path:', bgImage);
+  
   return (
     <div className="min-h-screen bg-background">
-      <Header />
-      
       {/* Hero Section */}
-      <section className="relative pt-20 lg:pt-24 overflow-hidden">
-        <div className="hero-gradient text-white">
-          <div className="container-wide py-16 lg:py-24">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <section className="relative overflow-hidden min-h-[500px] sm:min-h-[600px] lg:min-h-[700px]">
+        {/* Background Image */}
+        <img 
+          src={bgImage}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ zIndex: 0 }}
+        />
+        {/* Gradient Overlay - Light blue overlay */}
+        <div 
+          className="absolute inset-0"
+          style={{ 
+            background: 'linear-gradient(135deg, rgba(234, 242, 248, 0.7) 0%, rgba(212, 230, 243, 0.5) 100%)',
+            zIndex: 1 
+          }}
+        />
+        <Header />
+        <div className={`relative z-10 ${language === 'HI' ? 'pt-10 sm:pt-18 lg:pt-20' : 'pt-12 sm:pt-14 lg:pt-16'}`}>
+          <div className={`container-wide relative z-10 ${language === 'HI' ? 'py-6 sm:py-14 lg:py-18' : 'py-8 sm:py-12 lg:py-16'}`}>
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-white/20">
-                  <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                  <span className="text-sm font-medium">Trusted by 10,000+ retailers across India</span>
+                <div className={`inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20 ${language === 'HI' ? 'mb-8' : 'mb-6'}`}>
+                  <span className="w-2 h-2 rounded-full bg-[#146fb5] animate-pulse" />
+                  <span className={`font-medium ${language === 'HI' ? 'text-xs' : 'text-sm'}`} style={{ color: '#1b181f' }}>{t('hero.badge')}</span>
                 </div>
                 
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight mb-6">
-                  Grow Your Retail Business with{" "}
-                  <span className="text-accent">Digital Tools</span>
+                <h1 className={`font-display font-bold ${language === 'HI' ? 'text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-5 sm:mb-7 leading-[1.5] space-y-1' : 'text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 sm:mb-6 leading-tight'}`} style={{ color: '#1b181f' }}>
+                  {language === 'HI' ? (
+                    <>
+                      <div className="block">{t('hero.title')}</div>
+                      <div className="block" style={{ color: '#146fb5' }}>{t('hero.titleHighlight')}</div>
+                    </>
+                  ) : (
+                    <>
+                      {t('hero.title')}{" "}
+                      <span style={{ color: '#146fb5' }}>{t('hero.titleHighlight')}</span>
+                    </>
+                  )}
                 </h1>
                 
-                <p className="text-lg md:text-xl text-white/80 mb-8 max-w-lg">
-                  Simple billing, smart customer management, and real-time insights — 
-                  everything you need to compete with quick commerce and grow your store.
+                <p className={`max-w-lg ${language === 'HI' ? 'text-sm sm:text-base md:text-lg mb-7 sm:mb-9' : 'text-base sm:text-lg md:text-xl mb-6 sm:mb-8'}`} style={{ color: '#4f4f4f' }}>
+                  {t('hero.description')}
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button size="xl" variant="hero" asChild className="shadow-lg hover:shadow-xl transition-shadow">
-                    <Link to="/trial">
-                      Start Free Trial
-                      <ArrowRight className="w-5 h-5 ml-1" />
-                    </Link>
+                    <a href="https://play.google.com/store/apps/details?id=com.mhjs.retailerapp" target="_blank" rel="noopener noreferrer">
+                      <svg className="w-6 h-6 sm:w-7 sm:h-7 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3 20.5v-17c0-.59.34-1.11.84-1.35L13.69 12l-9.85 9.85c-.5-.24-.84-.76-.84-1.35zm13.81-5.38L6.05 21.34l8.49-8.49 2.27 2.27zm-1.36-2.24l2.27 2.27L21.95 12l-4.48-4.48-2.27 2.27L17.45 12l-1.99 1.88zM6.05 2.66l10.76 6.22-2.27 2.27L6.05 2.66z"/>
+                      </svg>
+                      {t('hero.download')}
+                    </a>
                   </Button>
                   <Button size="xl" variant="hero-outline" asChild>
                     <Link to="/demo">
                       <Play className="w-5 h-5 mr-1" />
-                      Watch 2-min Demo
+                      {t('hero.watchDemo')}
                     </Link>
                   </Button>
                 </div>
                 
-                <div className="mt-8 flex items-center gap-6">
+                {/* Desktop: testimonials above video */}
+                <div className="hidden sm:flex mt-6 sm:mt-8 flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
                   <div className="flex -space-x-3">
-                    {[1, 2, 3, 4].map((i) => (
-                      <div key={i} className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 border-2 border-white/30 flex items-center justify-center shadow-lg">
-                        <Users className="w-4 h-4" />
+                    {testimonials.slice(0, 4).map((testimonial, i) => (
+                      <div key={i} className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white shadow-lg overflow-hidden" style={{ borderColor: '#146fb5' }}>
+                        <img 
+                          src={testimonial.image} 
+                          alt={testimonial.author}
+                          className="w-full h-full object-cover"
+                        />
                       </div>
                     ))}
                   </div>
-                  <div className="text-sm">
-                    <div className="flex items-center gap-1 text-accent">
+                  <div className="text-xs sm:text-sm">
+                    <div className="flex items-center gap-1" style={{ color: '#146fb5' }}>
                       {[1, 2, 3, 4, 5].map((i) => (
-                        <Star key={i} className="w-4 h-4 fill-current" />
+                        <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 fill-current" />
                       ))}
                     </div>
-                    <span className="text-white/70">4.8/5 from 2,000+ reviews</span>
+                    <span style={{ color: '#4f4f4f' }}>{t('hero.rating')}</span>
                   </div>
                 </div>
               </motion.div>
@@ -167,75 +340,163 @@ export default function Index() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="relative"
               >
-                <div className="relative z-10">
-                  <img 
-                    src={heroBanner} 
+                {/* Desktop / larger screens: layered desktop + video */}
+                <div className="relative z-10 mt-8 lg:mt-0 hidden sm:block">
+                  <div className="relative -mt-16 lg:-mt-20 xl:-mt-24">
+                    {/* Desktop Image - Background, positioned at right, moved up, aligned to right edge */}
+                    <div className="flex justify-end w-full -mr-4 sm:-mr-6 md:-mr-8 lg:-mr-12 xl:-mr-16" style={{ paddingRight: 0, marginRight: 0 }}>
+                      <img 
+                        src={dashboardDesktop} 
                     alt="Lume retail management app interface showing billing and analytics" 
-                    className="w-full max-w-lg mx-auto drop-shadow-2xl rounded-lg"
-                  />
+                        className="max-w-[200px] sm:max-w-[280px] md:max-w-[360px] lg:max-w-[440px] xl:max-w-[520px] drop-shadow-2xl"
+                        style={{ 
+                          zIndex: 1, 
+                          marginRight: 0,
+                          paddingRight: 0,
+                          borderTopLeftRadius: '0.5rem',
+                          borderBottomLeftRadius: '0.5rem',
+                          borderTopRightRadius: 0,
+                          borderBottomRightRadius: 0
+                        }}
+                      />
+                    </div>
+                    
+                    {/* Mobile Video - Foreground, positioned at bottom left, smaller, moved down more */}
+                    <div className="absolute -bottom-24 sm:-bottom-22 md:-bottom-20 lg:-bottom-18 xl:-bottom-16 -left-2 sm:left-0 md:left-2 lg:left-6" style={{ zIndex: 20 }}>
+                      <video 
+                        src={billVideo}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-20 sm:w-24 md:w-28 lg:w-32 xl:w-40 drop-shadow-2xl rounded-lg border-2 border-white shadow-2xl"
+                        style={{ borderColor: 'rgba(255, 255, 255, 0.8)' }}
+                      />
+                    </div>
+                  </div>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-r from-accent/30 to-primary/20 rounded-3xl blur-3xl" />
+
+                {/* Mobile: full width video */}
+                <div className="sm:hidden mt-2 w-full">
+                  <video 
+                    src={mobileHeroVideo}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-auto drop-shadow-2xl rounded-xl"
+                  />
+                  
+                  {/* Mobile: testimonials below video */}
+                  <div className="mt-4 flex flex-col items-center gap-3">
+                    <div className="flex -space-x-3">
+                      {testimonials.slice(0, 4).map((testimonial, i) => (
+                        <div key={i} className="w-10 h-10 rounded-full border-2 border-white shadow-lg overflow-hidden" style={{ borderColor: '#146fb5' }}>
+                          <img 
+                            src={testimonial.image} 
+                            alt={testimonial.author}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                    <div className="text-sm text-center">
+                      <div className="flex items-center justify-center gap-1 mb-1" style={{ color: '#146fb5' }}>
+                        {[1, 2, 3, 4, 5].map((i) => (
+                          <Star key={i} className="w-4 h-4 fill-current" />
+                        ))}
+                      </div>
+                      <span style={{ color: '#4f4f4f' }}>{t('hero.rating')}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="absolute inset-0 bg-gradient-to-r from-[#146fb5]/30 to-primary/20 rounded-3xl blur-3xl" />
               </motion.div>
             </div>
           </div>
         </div>
         
         {/* Stats Bar */}
-        <div className="bg-white shadow-xl relative z-10 -mt-8 mx-4 lg:mx-auto max-w-5xl rounded-2xl border border-border">
+        <div className="bg-white shadow-xl relative z-10 -mt-6 sm:-mt-8 mx-4 sm:mx-6 lg:mx-auto max-w-5xl rounded-xl sm:rounded-2xl border border-border">
           <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-border">
-            {stats.map((stat, i) => (
+            {statsKeys.map((stat, i) => (
               <motion.div
-                key={stat.label}
+                key={stat.key}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
-                className="p-6 text-center group hover:bg-primary/5 transition-colors rounded-xl"
+                className="p-4 sm:p-6 text-center group hover:bg-primary/5 transition-colors rounded-xl"
               >
-                <div className="text-2xl md:text-3xl font-bold text-primary group-hover:scale-110 transition-transform">{stat.value}</div>
-                <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
+                <div className="text-xl sm:text-2xl md:text-3xl font-bold group-hover:scale-110 transition-transform" style={{ color: '#146fb5' }}>{stat.value}</div>
+                <div className="text-xs sm:text-sm mt-1" style={{ color: '#4f4f4f' }}>{t(stat.key)}</div>
               </motion.div>
+            ))}
+          </div>
+        </div>
+        
+        {/* Retailer Logos Banner */}
+        <div className="relative z-10 -mt-4 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 py-4 sm:py-6 overflow-hidden">
+          <div className="flex animate-scroll whitespace-nowrap">
+            {/* First set of logos */}
+            {retailerLogos.map((logo, index) => (
+              <div key={`first-${index}`} className="inline-flex items-center justify-center mx-4 sm:mx-6 md:mx-8 flex-shrink-0">
+                <img 
+                  src={new URL(`../assets/RetailersLogosTR/${logo}`, import.meta.url).href}
+                  alt={logo.replace('-removebg-preview.png', '')}
+                  className="h-8 sm:h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity filter brightness-0 invert"
+                />
+              </div>
+            ))}
+            {/* Duplicate set for seamless loop */}
+            {retailerLogos.map((logo, index) => (
+              <div key={`second-${index}`} className="inline-flex items-center justify-center mx-4 sm:mx-6 md:mx-8 flex-shrink-0">
+                <img 
+                  src={new URL(`../assets/RetailersLogosTR/${logo}`, import.meta.url).href}
+                  alt={logo.replace('-removebg-preview.png', '')}
+                  className="h-8 sm:h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity filter brightness-0 invert"
+                />
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Problem Statement Section */}
-      <section className="section-padding bg-white">
-        <div className="container-wide">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white">
+        <div className="container-wide px-4">
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <span className="inline-block px-4 py-1.5 rounded-full bg-red-100 text-red-700 font-semibold text-sm uppercase tracking-wider mb-4">
-                The Challenge
-              </span>
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mt-3 mb-4">
-                Local Retailers Are Losing Customers
+              <h2 className="text-3xl md:text-4xl font-display font-bold mb-4" style={{ color: '#1b181f' }}>
+                {t('challenge.title')}
               </h2>
-              <p className="text-lg text-muted-foreground">
-                While apps deliver in 10 minutes, local stores struggle with manual processes, 
-                no customer data, and zero digital presence.
+              <p className="text-lg" style={{ color: '#4f4f4f' }}>
+                {t('challenge.subtitle')}
               </p>
             </motion.div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {painPoints.map((point, i) => (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12">
+            {painPointsKeys.map((point, i) => (
               <motion.div
-                key={point.text}
+                key={point.key}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-gradient-to-br from-red-50 to-red-100/50 border border-red-200 rounded-xl p-6 text-center hover:shadow-lg transition-all hover:-translate-y-1"
+                className="bg-gradient-to-br from-[#eaf2f8] to-white border border-[#146fb5]/20 rounded-xl p-6 sm:p-8 text-center hover:shadow-xl transition-all hover:-translate-y-2 group"
               >
-                <div className="w-14 h-14 mx-auto rounded-full bg-red-100 flex items-center justify-center mb-4 shadow-inner">
-                  <point.icon className="w-7 h-7 text-red-600" />
-                </div>
-                <p className="text-sm text-red-800 font-medium">{point.text}</p>
+                <img 
+                  src={point.icon} 
+                  alt="" 
+                  className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 mx-auto mb-3 object-contain group-hover:scale-110 transition-transform"
+                />
+                <p className="text-xs sm:text-sm font-medium" style={{ color: '#1b181f' }}>{t(point.key)}</p>
               </motion.div>
             ))}
           </div>
@@ -244,21 +505,25 @@ export default function Index() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-r from-primary/10 via-primary/5 to-accent/10 border border-primary/20 rounded-2xl p-8 lg:p-12 text-center relative overflow-hidden"
+            className="bg-gradient-to-r from-primary/10 via-primary/5 to-[#146fb5]/10 border border-primary/20 rounded-xl sm:rounded-2xl p-6 sm:p-8 lg:p-12 text-center relative overflow-hidden mt-6 sm:mt-8"
           >
             <div className="absolute inset-0 bg-grid-pattern opacity-5" />
             <div className="relative z-10">
-              <h3 className="text-2xl md:text-3xl font-display font-bold text-primary mb-4">
-                Lume Gives You the Digital Edge
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-display font-bold mb-3 sm:mb-4" style={{ color: '#146fb5' }}>
+                {t('challenge.solution')}
               </h3>
-              <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
-                Transform your store with digital billing, customer management, and real-time insights — 
-                all from your smartphone. No expensive hardware, no technical skills needed.
+              <p className="text-sm sm:text-base max-w-2xl mx-auto mb-6 sm:mb-8" style={{ color: '#4f4f4f' }}>
+                {t('challenge.solutionDesc')}
               </p>
-              <Button size="lg" variant="cta" asChild className="shadow-lg">
-                <Link to="/for-retailers">
-                  See How It Works
-                  <ArrowRight className="w-4 h-4 ml-1" />
+              <Button 
+                size="lg" 
+                variant="cta" 
+                asChild 
+                className={`shadow-lg w-full sm:w-auto ${language === 'HI' ? '!whitespace-normal text-xs sm:text-base !px-4 sm:!px-6' : ''}`}
+              >
+                <Link to="/for-retailers" className="flex items-center justify-center w-full">
+                  <span className={language === 'HI' ? 'text-center leading-tight' : ''}>{t('challenge.solution')}</span>
+                  <ArrowRight className={`${language === 'HI' ? 'w-3.5 h-3.5 sm:w-4 sm:h-4' : 'w-4 h-4'} ${language === 'HI' ? 'ml-1.5 sm:ml-1' : 'ml-1'} flex-shrink-0`} />
                 </Link>
               </Button>
             </div>
@@ -266,43 +531,44 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Key Benefits Section (NOT features) */}
-      <section className="section-padding bg-gradient-to-b from-slate-50 to-white">
-        <div className="container-wide">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+      {/* Key Benefits Section */}
+      <section className="py-12 sm:py-14 lg:py-16 bg-gradient-to-b from-slate-50 to-white">
+        <div className="container-wide px-4">
+          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary font-semibold text-sm uppercase tracking-wider mb-4">
-                Benefits
-              </span>
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mt-3 mb-4">
-                What You Get with Lume
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-3 sm:mb-4" style={{ color: '#1b181f' }}>
+                {t('challenge.solution')}
               </h2>
-              <p className="text-lg text-muted-foreground">
-                Focus on outcomes, not features. Here's how Lume helps your business grow.
+              <p className="text-base sm:text-lg" style={{ color: '#4f4f4f' }}>
+                {t('challenge.solutionDesc')}
               </p>
             </motion.div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {benefits.map((benefit, i) => (
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+            {benefitsKeys.map((benefit, i) => (
               <motion.div
-                key={benefit.title}
+                key={benefit.titleKey}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-white rounded-2xl p-8 shadow-lg border border-border hover:shadow-xl hover:-translate-y-1 transition-all flex gap-6 group"
+                className="bg-white rounded-xl p-4 sm:p-6 shadow-md border border-border hover:shadow-lg hover:-translate-y-1 transition-all group flex flex-col sm:flex-row gap-4 sm:gap-5 items-start"
               >
-                <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                  <benefit.icon className="w-8 h-8 text-primary" />
+                <div className="flex-shrink-0 w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center bg-gradient-to-br from-[#eaf2f8] to-white rounded-lg border border-[#146fb5]/10 mx-auto sm:mx-0">
+                  <img 
+                    src={benefit.icon} 
+                    alt={t(benefit.titleKey)}
+                    className="w-14 h-14 sm:w-16 sm:h-16 object-contain group-hover:scale-110 transition-transform"
+                  />
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold text-foreground mb-2">{benefit.title}</h3>
-                  <p className="text-muted-foreground">{benefit.description}</p>
+                <div className="flex-1 min-w-0 text-center sm:text-left">
+                  <h3 className="text-base sm:text-lg font-bold mb-2" style={{ color: '#1b181f' }}>{t(benefit.titleKey)}</h3>
+                  <p className="text-xs sm:text-sm leading-relaxed" style={{ color: '#4f4f4f' }}>{t(benefit.descKey)}</p>
                 </div>
               </motion.div>
             ))}
@@ -311,25 +577,56 @@ export default function Index() {
       </section>
 
       {/* How It Works */}
-      <section className="section-padding bg-white">
-        <div className="container-wide">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white to-slate-50">
+        <div className="container-wide px-4">
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <span className="inline-block px-4 py-1.5 rounded-full bg-accent/20 text-amber-700 font-semibold text-sm uppercase tracking-wider mb-4">
-                Get Started
-              </span>
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mt-3 mb-4">
-                Start Selling Smarter in 4 Simple Steps
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-3 sm:mb-4" style={{ color: '#1b181f' }}>
+                {t('howItWorks.title')}
               </h2>
+              <p className="text-sm sm:text-base" style={{ color: '#4f4f4f' }}>
+                {t('howItWorks.subtitle')}
+              </p>
             </motion.div>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-8">
-            {howItWorks.map((item, i) => (
+          {/* Mobile: Vertical Timeline Layout */}
+          <div className="md:hidden space-y-6">
+            {howItWorksKeys.map((item, i) => (
+              <motion.div
+                key={item.step}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="relative pl-12"
+              >
+                {/* Connecting Line */}
+                {i < howItWorksKeys.length - 1 && (
+                  <div className="absolute left-5 top-12 w-0.5 h-full bg-gradient-to-b from-[#146fb5] to-[#146fb5]/30" />
+                )}
+                
+                {/* Step Number Circle */}
+                <div className="absolute left-0 top-0 flex items-center justify-center w-10 h-10 rounded-full bg-[#146fb5] text-white text-lg font-bold shadow-lg z-10">
+                  {item.step}
+                </div>
+                
+                {/* Content Card */}
+                <div className="bg-white rounded-xl p-5 shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all">
+                  <h3 className="text-base font-bold mb-2" style={{ color: '#1b181f' }}>{t(item.titleKey)}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: '#4f4f4f' }}>{t(item.descKey)}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Desktop: Horizontal Layout */}
+          <div className="hidden md:grid md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+            {howItWorksKeys.map((item, i) => (
               <motion.div
                 key={item.step}
                 initial={{ opacity: 0, y: 20 }}
@@ -338,22 +635,22 @@ export default function Index() {
                 transition={{ duration: 0.5, delay: i * 0.15 }}
                 className="text-center relative group"
               >
-                {i < howItWorks.length - 1 && (
-                  <div className="hidden md:block absolute top-8 left-[60%] w-[80%] h-[2px] bg-gradient-to-r from-primary/40 to-transparent" />
+                {i < howItWorksKeys.length - 1 && (
+                  <div className="hidden md:block absolute top-8 left-[60%] w-[80%] h-[2px] bg-gradient-to-r from-[#146fb5]/40 to-transparent" />
                 )}
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary/80 text-white text-2xl font-bold mb-6 shadow-lg group-hover:scale-110 transition-transform">
+                <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-[#146fb5] text-white text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-6 shadow-lg group-hover:scale-110 transition-transform">
                   {item.step}
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-3">{item.title}</h3>
-                <p className="text-muted-foreground text-sm">{item.description}</p>
+                <h3 className="text-base sm:text-lg font-bold mb-2 sm:mb-3" style={{ color: '#1b181f' }}>{t(item.titleKey)}</h3>
+                <p className="text-xs sm:text-sm" style={{ color: '#4f4f4f' }}>{t(item.descKey)}</p>
               </motion.div>
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-12 sm:mt-16">
             <Button size="lg" variant="cta" asChild className="shadow-lg">
-              <Link to="/trial">
-                Start Your Free Trial
+              <Link to="/book-demo">
+                {t('howItWorks.cta')}
                 <ArrowRight className="w-4 h-4 ml-1" />
               </Link>
             </Button>
@@ -361,129 +658,192 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Social Proof - Metrics & Logos */}
-      <section className="section-padding-sm bg-gradient-to-r from-blue-50 via-white to-blue-50">
-        <div className="container-wide">
-          <div className="text-center mb-12">
-            <span className="text-primary font-semibold text-sm uppercase tracking-wider">
-              Trusted by Retailers
-            </span>
-            <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground mt-3">
-              Join 10,000+ Stores Using Lume
+      {/* Industries */}
+      <section className="py-8 sm:py-10 lg:py-12 bg-gradient-to-b from-white to-[#eaf2f8]">
+        <div className="container-wide px-4">
+          <div className="text-center mb-6 sm:mb-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-3 sm:mb-4" style={{ color: '#1b181f' }}>
+              {t('industries.title')}
             </h2>
+            <p className="text-base sm:text-lg max-w-2xl mx-auto" style={{ color: '#4f4f4f' }}>
+              {t('industries.subtitle')}
+            </p>
           </div>
           
-          <div className="flex flex-wrap justify-center items-center gap-6">
-            {["BigMart", "QuickStop", "CityStore", "LocalBest", "ShopEasy", "RetailHub"].map((name) => (
-              <div key={name} className="px-8 py-4 bg-white rounded-xl shadow-md border border-border hover:shadow-lg transition-shadow">
-                <span className="font-bold text-muted-foreground text-lg">{name}</span>
+          {/* Horizontal Scrolling Banner */}
+          <div className="border-t border-b border-gray-300 py-4 sm:py-5 overflow-hidden">
+            <div className="flex items-center gap-3 sm:gap-4 animate-scroll-text whitespace-nowrap">
+              {/* First set */}
+              {industriesKeys.map((industry, i) => (
+                <div key={`first-${i}`} className="flex items-center flex-shrink-0">
+                  <span className="text-sm sm:text-base font-semibold whitespace-nowrap" style={{ color: '#146fb5' }}>
+                    {t(industry.key)}
+                  </span>
+                  <span className="mx-3 sm:mx-4 text-gray-300 font-bold" style={{ color: '#d1d5db' }}>|</span>
+                </div>
+              ))}
+              <div className="flex items-center flex-shrink-0">
+                <span className="text-sm sm:text-base font-semibold whitespace-nowrap" style={{ color: '#146fb5' }}>
+                  and many more
+                </span>
+                <span className="mx-3 sm:mx-4 text-gray-300 font-bold" style={{ color: '#d1d5db' }}>|</span>
+              </div>
+              {/* Duplicate set for seamless loop */}
+              {industriesKeys.map((industry, i) => (
+                <div key={`second-${i}`} className="flex items-center flex-shrink-0">
+                  <span className="text-sm sm:text-base font-semibold whitespace-nowrap" style={{ color: '#146fb5' }}>
+                    {t(industry.key)}
+                  </span>
+                  <span className="mx-3 sm:mx-4 text-gray-300 font-bold" style={{ color: '#d1d5db' }}>|</span>
               </div>
             ))}
+              <div className="flex items-center flex-shrink-0">
+                <span className="text-sm sm:text-base font-semibold whitespace-nowrap" style={{ color: '#146fb5' }}>
+                  and many more
+                </span>
+                <span className="mx-3 sm:mx-4 text-gray-300 font-bold" style={{ color: '#d1d5db' }}>|</span>
           </div>
         </div>
-      </section>
-
-      {/* Industries */}
-      <section className="section-padding-sm hero-gradient text-white">
-        <div className="container-wide">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-display font-bold">Built for All Types of Retail Stores</h2>
-          </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            {industries.map((industry, i) => (
-              <motion.div
-                key={industry.name}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition-all border border-white/10 hover:border-white/30 group"
-              >
-                <industry.icon className="w-10 h-10 mx-auto mb-3 text-accent group-hover:scale-110 transition-transform" />
-                <h3 className="font-semibold mb-1">{industry.name}</h3>
-                <p className="text-sm text-white/70">{industry.count}</p>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="section-padding bg-gradient-to-b from-amber-50/50 to-white">
-        <div className="container-wide">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+      <section className="pt-8 sm:pt-10 lg:pt-12 pb-12 sm:pb-16 lg:pb-20 relative overflow-hidden bg-gradient-to-b from-[#eaf2f8] via-white to-[#eaf2f8]">
+        {/* Decorative background element - Left Top */}
+        <div className="absolute left-8 top-[100px] w-[250px] h-[250px] opacity-15 pointer-events-none hidden lg:block">
+          <img 
+            src={smileIcon} 
+            alt="Smile icon" 
+            className="w-full h-full object-contain"
+            style={{ 
+              filter: 'brightness(0) saturate(100%) invert(27%) sepia(95%) saturate(1352%) hue-rotate(194deg) brightness(96%) contrast(89%) opacity(0.3)',
+              transform: 'scale(1.2)'
+            }}
+          />
+        </div>
+        
+        {/* Decorative background element - Right Bottom */}
+        <div className="absolute right-0 bottom-0 w-[250px] h-[250px] opacity-15 pointer-events-none hidden lg:block">
+          <img 
+            src={smileIcon} 
+            alt="Smile icon" 
+            className="w-full h-full object-contain"
+            style={{ 
+              filter: 'brightness(0) saturate(100%) invert(27%) sepia(95%) saturate(1352%) hue-rotate(194deg) brightness(96%) contrast(89%) opacity(0.3)',
+              transform: 'scale(1.2)'
+            }}
+          />
+        </div>
+
+        <div className="container-wide px-4 relative z-10">
+          {/* Header */}
+          <div className="text-center mb-12 sm:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              className="flex flex-col items-center"
             >
-              <span className="inline-block px-4 py-1.5 rounded-full bg-accent/20 text-amber-700 font-semibold text-sm uppercase tracking-wider mb-4">
-                Success Stories
-              </span>
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mt-3 mb-4">
-                Retailers Love Lume
+              {/* Quote Icon */}
+              <div className="mb-2 sm:mb-3 flex items-center justify-center">
+                <svg className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ color: '#146fb5', transform: 'rotate(180deg)', opacity: 0.7 }}>
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.996 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.984zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.432.917-3.995 3.638-3.995 5.849h3.983v10h-9.984z" fill="currentColor"/>
+                </svg>
+              </div>
+              
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-3 sm:mb-4" style={{ color: '#1b181f' }}>
+                {t('testimonials.quote')}
               </h2>
-              <p className="text-lg text-muted-foreground">
-                Join thousands of store owners who have transformed their business with Lume.
+              <p className="text-base sm:text-lg" style={{ color: '#4f4f4f' }}>
+                {t('testimonials.subtitle')}
               </p>
             </motion.div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          {/* Swiper */}
+          <div className="max-w-5xl mx-auto px-4 sm:px-8 md:px-12 lg:px-20">
+            <Swiper
+              modules={[Autoplay, Pagination]}
+              spaceBetween={24}
+              slidesPerView={1}
+              breakpoints={{
+                768: {
+                  slidesPerView: 2,
+                },
+              }}
+              autoplay={{
+                delay: 4000,
+                disableOnInteraction: false,
+              }}
+              loop={true}
+              pagination={{
+                clickable: true,
+                bulletClass: 'swiper-pagination-bullet !bg-gray-300 !opacity-100',
+                bulletActiveClass: 'swiper-pagination-bullet-active !bg-[#146fb5]',
+              }}
+              className="!pb-12"
+            >
             {testimonials.map((testimonial, i) => (
+                <SwiperSlide key={i}>
               <motion.div
-                key={testimonial.author}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-white rounded-2xl p-8 shadow-lg border border-border hover:shadow-xl transition-shadow"
-              >
-                <div className="flex gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-accent text-accent" />
-                  ))}
+                    className="bg-white rounded-xl pt-6 px-6 pb-4 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all h-full flex flex-col min-h-[260px] sm:min-h-[280px] md:min-h-[320px]"
+                  >
+                    {/* Logo */}
+                    <div className="mb-3">
+                      <div className="text-xl font-bold" style={{ color: '#4b5563', fontFamily: 'Archivo, sans-serif' }}>
+                        {testimonial.logo}
                 </div>
-                <p className="text-foreground mb-6 italic leading-relaxed">"{testimonial.quote}"</p>
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-bold shadow-md">
-                    {testimonial.author.charAt(0)}
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground">{testimonial.author}</p>
-                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                      <div className="text-xs uppercase tracking-wider" style={{ color: '#9ca3af', fontFamily: 'Inter, sans-serif', letterSpacing: '1px' }}>
+                        {testimonial.logoSub}
                   </div>
                 </div>
+
+                    {/* Quote */}
+                    <div className="text-lg font-bold mb-3" style={{ color: '#1b181f', fontFamily: 'Archivo, sans-serif', lineHeight: '1.4' }}>
+                      {language === 'HI' && testimonial.quoteHI ? testimonial.quoteHI : testimonial.quote}
+                    </div>
+
+                    {/* Text */}
+                    <div className="text-sm mb-0 leading-relaxed flex-1" style={{ color: '#4b5563', fontFamily: 'Inter, sans-serif' }}>
+                      {language === 'HI' && testimonial.textHI ? testimonial.textHI : testimonial.text}
+                    </div>
               </motion.div>
+                </SwiperSlide>
             ))}
+            </Swiper>
           </div>
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="section-padding hero-gradient text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/10" />
-        <div className="container-tight text-center relative z-10">
+      <section className="py-12 sm:py-16 lg:py-20 hero-gradient relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-[#146fb5]/10" />
+        <div className="container-tight text-center relative z-10 px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
-              Ready to Grow Your Retail Business?
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-4 sm:mb-6" style={{ color: '#1b181f' }}>
+              {t('cta.title')}
             </h2>
-            <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
-              Join 10,000+ retailers who trust Lume. Start your free trial today — no credit card required.
+            <p className="text-base sm:text-lg md:text-xl mb-8 sm:mb-10 max-w-2xl mx-auto" style={{ color: '#4f4f4f' }}>
+              {t('cta.description')}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="xl" variant="hero" asChild className="shadow-xl">
-                <Link to="/trial">
-                  Start Free Trial
-                  <ArrowRight className="w-5 h-5 ml-1" />
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+              <Button size="lg" variant="hero" asChild className="shadow-xl text-base sm:text-lg">
+                <Link to="/book-demo">
+                  {t('cta.startTrial')}
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-1" />
                 </Link>
               </Button>
-              <Button size="xl" variant="hero-outline" asChild>
-                <Link to="/company/contact">Contact Sales</Link>
+              <Button size="lg" variant="hero-outline" asChild className="text-base sm:text-lg">
+                <Link to="/company/contact">{t('cta.contactSales')}</Link>
               </Button>
             </div>
           </motion.div>

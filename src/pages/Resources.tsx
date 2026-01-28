@@ -64,10 +64,10 @@ export default function Resources() {
           <div className="container-wide">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
               <div className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center mb-4">
-                <selectedCategory.icon className="w-7 h-7 text-orange-400" />
+                <selectedCategory.icon className="w-7 h-7" style={{ color: '#146fb5' }} />
               </div>
-              <h1 className="text-3xl md:text-4xl font-display font-bold mb-2">{selectedCategory.title}</h1>
-              <p className="text-lg text-white/80">{selectedCategory.desc}</p>
+              <h1 className="text-3xl md:text-4xl font-display font-bold mb-2" style={{ color: '#1b181f' }}>{selectedCategory.title}</h1>
+              <p className="text-lg" style={{ color: '#4f4f4f' }}>{selectedCategory.desc}</p>
             </motion.div>
           </div>
         </section>
@@ -84,13 +84,13 @@ export default function Resources() {
                   transition={{ delay: i * 0.1 }}
                   className="bg-secondary/30 p-5 rounded-xl hover:shadow-md transition-all cursor-pointer"
                 >
-                  <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded font-medium">
+                  <span className="text-xs px-2 py-1 rounded font-medium" style={{ background: '#eaf2f8', color: '#146fb5' }}>
                     {item.category}
                   </span>
-                  <h3 className="font-semibold text-foreground mt-3 mb-1">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.desc}</p>
+                  <h3 className="font-semibold mt-3 mb-1" style={{ color: '#1b181f' }}>{item.title}</h3>
+                  <p className="text-sm" style={{ color: '#4f4f4f' }}>{item.desc}</p>
                   {(item as any).duration && (
-                    <div className="flex items-center gap-1 mt-3 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-1 mt-3 text-sm" style={{ color: '#4f4f4f' }}>
                       <Play className="w-4 h-4" />
                       {(item as any).duration}
                     </div>
@@ -113,10 +113,10 @@ export default function Resources() {
       <section className="pt-20 lg:pt-24 pb-12 hero-gradient text-white">
         <div className="container-wide text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <h1 className="text-3xl md:text-4xl font-display font-bold mb-3">
+            <h1 className="text-3xl md:text-4xl font-display font-bold mb-3" style={{ color: '#1b181f' }}>
               Resources
             </h1>
-            <p className="text-lg text-white/80 max-w-2xl mx-auto">
+            <p className="text-lg max-w-2xl mx-auto" style={{ color: '#4f4f4f' }}>
               Learn, grow, and succeed with Lume
             </p>
           </motion.div>
@@ -138,12 +138,12 @@ export default function Resources() {
                   to={`/resources/${category.id}`}
                   className="block bg-secondary/30 p-6 rounded-xl hover:shadow-lg transition-all h-full text-center"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <category.icon className="w-6 h-6 text-primary" />
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4" style={{ background: '#eaf2f8' }}>
+                    <category.icon className="w-6 h-6" style={{ color: '#146fb5' }} />
                   </div>
-                  <h3 className="font-semibold text-foreground mb-1">{category.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-3">{category.desc}</p>
-                  <span className="text-xs text-primary font-medium">{category.items.length} items</span>
+                  <h3 className="font-semibold mb-1" style={{ color: '#1b181f' }}>{category.title}</h3>
+                  <p className="text-sm mb-3" style={{ color: '#4f4f4f' }}>{category.desc}</p>
+                  <span className="text-xs font-medium" style={{ color: '#146fb5' }}>{category.items.length} items</span>
                 </Link>
               </motion.div>
             ))}

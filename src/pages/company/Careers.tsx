@@ -6,7 +6,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 
 const perks = [
-  { icon: Rocket, title: "High Impact Work", description: "Build products used by 10,000+ retailers daily" },
+  { icon: Rocket, title: "High Impact Work", description: "Build products used by 250+ retailers daily" },
   { icon: Heart, title: "Health & Wellness", description: "Comprehensive health insurance for you & family" },
   { icon: Users, title: "Great Team", description: "Work with passionate, talented people" },
   { icon: Zap, title: "Fast Growth", description: "Rapid learning and career progression" },
@@ -16,25 +16,25 @@ const openings = [
   {
     title: "Senior Full Stack Engineer",
     department: "Engineering",
-    location: "Bengaluru / Remote",
+    location: "Ahmedabad / Remote",
     type: "Full-time",
   },
   {
     title: "Product Designer",
     department: "Design",
-    location: "Bengaluru",
+    location: "Ahmedabad",
     type: "Full-time",
   },
   {
     title: "Growth Marketing Manager",
     department: "Marketing",
-    location: "Bengaluru",
+    location: "Ahmedabad",
     type: "Full-time",
   },
   {
     title: "Customer Success Lead",
     department: "Customer Success",
-    location: "Bengaluru / Remote",
+    location: "Ahmedabad / Remote",
     type: "Full-time",
   },
 ];
@@ -53,9 +53,9 @@ export default function Careers() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4">
                 Build the Future of{" "}
-                <span className="text-emerald-400">Retail Technology</span>
+                <span className="text-[#4fc3ff]">Retail Technology</span>
               </h1>
               <p className="text-lg md:text-xl text-white/80 mb-8">
                 Join a team that's on a mission to empower 13 million local retailers 
@@ -76,7 +76,7 @@ export default function Careers() {
       <section className="section-padding bg-white">
         <div className="container-wide">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold text-navy-900 mb-4">Why Join Apeiros AI?</h2>
+            <h2 className="text-3xl font-bold text-[#1b181f] mb-4">Why Join Apeiros AI?</h2>
             <p className="text-lg text-muted-foreground">
               We're building something meaningful, and we want you to be part of it.
             </p>
@@ -92,8 +92,8 @@ export default function Careers() {
                 transition={{ delay: i * 0.1 }}
                 className="text-center p-6"
               >
-                <div className="w-14 h-14 rounded-2xl bg-emerald-100 flex items-center justify-center mx-auto mb-4">
-                  <perk.icon className="w-7 h-7 text-emerald-600" />
+                <div className="w-14 h-14 rounded-2xl bg-[#e3f0ff] flex items-center justify-center mx-auto mb-4">
+                  <perk.icon className="w-7 h-7 text-[#146fb5]" />
                 </div>
                 <h3 className="text-lg font-bold text-navy-900 mb-2">{perk.title}</h3>
                 <p className="text-muted-foreground">{perk.description}</p>
@@ -107,7 +107,7 @@ export default function Careers() {
       <section id="openings" className="section-padding subtle-gradient">
         <div className="container-wide">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold text-navy-900 mb-4">Open Positions</h2>
+            <h2 className="text-3xl font-bold text-[#1b181f] mb-4">Open Positions</h2>
             <p className="text-lg text-muted-foreground">
               Find your next opportunity. We're always looking for talented people.
             </p>
@@ -121,7 +121,7 @@ export default function Careers() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-white rounded-xl p-6 shadow-card hover-lift"
+                className="bg-white rounded-xl p-6 shadow-card hover-lift border border-[#146fb5]/10"
               >
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                   <div>
@@ -135,7 +135,7 @@ export default function Careers() {
                         <MapPin className="w-4 h-4" />
                         {job.location}
                       </span>
-                      <span className="text-sm bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full">
+                      <span className="text-sm bg-[#e3f0ff] text-[#146fb5] px-2 py-0.5 rounded-full">
                         {job.type}
                       </span>
                     </div>

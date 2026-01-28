@@ -1,73 +1,42 @@
-# Welcome to your Lovable project
+## Apeiros AI – Lume Retail Platform
 
-## Project info
+This repository contains the marketing & help website for **Lume**, the retail intelligence platform from **Apeiros AI**.  
+The site is designed for Indian retailers who want to move from manual billing to digital tools that actually understand how retail works on the ground.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+### What this website covers
 
-## How can I edit this code?
+- **Home / For Retailers**: Positioning, hero, challenges, and how Lume turns billing into a growth engine.
+- **Solutions**: Detailed use-cases like Digital Billing, Customer Capture, Credit (Udhaar) Management, Feedback & Engagement, Analytics & Reports.
+- **Products**: Lume product overview, core capabilities, how it fits into existing POS/web billing, who Lume is for, and Lume Shop preview.
+- **Resources**:
+  - **Guides & FAQs** (Quick Guides, FAQs with accordion UI)
+  - **Customer Success Stories / Case Studies**
+- **Help Center**:
+  - **Getting Started with Lume** (onboarding, installer, mobile app flow)
+  - **Billing Guide** (Quick Bill, POS Bill, Image Bill, MPOS, E‑Bill Listing)
+- **Company**:
+  - **About Us** (Apeiros AI story, Lume philosophy, leadership)
+  - **Careers**
+- **Legal & Pricing**:
+  - Pricing plans + comparison
+  - Privacy Policy & Terms & Conditions (Hindi + English content)
 
-There are several ways of editing your application.
+Almost all key pages support **bilingual content (English + Hindi)** using a shared `LanguageContext` and `t()` helper.
 
-**Use Lovable**
+### Tech stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+- **React + TypeScript** (Vite)
+- **React Router** for SPA routing and scroll‑to‑top behavior
+- **Tailwind CSS** for styling
+- **shadcn/ui + lucide-react** for components & icons
+- Custom **LanguageContext** for EN / HI toggle
 
-Changes made via Lovable will be committed automatically to this repo.
+### Local development
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+The dev server will start on the default Vite port (usually `http://localhost:5173`).  
+Update the `index.html` meta tags if you change branding, share image, or SEO copy.
