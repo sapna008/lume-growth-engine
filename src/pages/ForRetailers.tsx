@@ -116,25 +116,37 @@ export default function ForRetailers() {
       name: t('forRetailers.industries.grocery.name'),
       icon: Store,
       description: t('forRetailers.industries.grocery.description'),
-      benefits: ["Barcode scanning", "Stock alerts", "Margin tracking"],
+      benefits:
+        language === "HI"
+          ? ["बारकोड स्कैनिंग", "स्टॉक अलर्ट्स", "मार्जिन ट्रैकिंग"]
+          : ["Barcode scanning", "Stock alerts", "Margin tracking"],
     },
     {
       name: t('forRetailers.industries.fashion.name'),
       icon: ShoppingBag,
       description: t('forRetailers.industries.fashion.description'),
-      benefits: ["Product variants", "Season planning", "Customer loyalty"],
+      benefits:
+        language === "HI"
+          ? ["प्रोडक्ट वेरिएंट्स", "सीज़न प्लानिंग", "कस्टमर लॉयल्टी"]
+          : ["Product variants", "Season planning", "Customer loyalty"],
     },
     {
       name: t('forRetailers.industries.electronics.name'),
       icon: Zap,
       description: t('forRetailers.industries.electronics.description'),
-      benefits: ["Warranty management", "Service tracking", "EMI options"],
+      benefits:
+        language === "HI"
+          ? ["वारंटी मैनेजमेंट", "सर्विस ट्रैकिंग", "ईएमआई विकल्प"]
+          : ["Warranty management", "Service tracking", "EMI options"],
     },
     {
       name: t('forRetailers.industries.general.name'),
       icon: IndianRupee,
       description: t('forRetailers.industries.general.description'),
-      benefits: ["Mixed inventory", "Quick billing", "Credit management"],
+      benefits:
+        language === "HI"
+          ? ["मिक्स्ड इन्वेंटरी", "क्विक बिलिंग", "क्रेडिट मैनेजमेंट"]
+          : ["Mixed inventory", "Quick billing", "Credit management"],
     },
   ];
 

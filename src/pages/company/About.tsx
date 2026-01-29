@@ -197,18 +197,18 @@ export default function About() {
             viewport={{ once: true }}
           >
             <p className="text-xs font-semibold tracking-[0.18em] uppercase text-[#146fb5] mb-2">
-              {language === "HI" ? "What We Build" : "What We Build"}
+              {language === "HI" ? "हम क्या बनाते हैं" : "What We Build"}
             </p>
             <h2 className="text-2xl md:text-3xl font-display font-bold mb-3 text-[#1b181f]">
-              {language === "HI" ? "Lume — रिटेल इंटेलिजेंस प्लेटफ़ॉर्म" : "Lume — Retail Intelligence Platform"}
+              {language === "HI" ? "ल्यूम — रिटेल इंटेलिजेंस प्लेटफ़ॉर्म" : "Lume — Retail Intelligence Platform"}
             </h2>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-4">
               {language === "HI"
-                ? "Lume हमारा फ़्लैगशिप प्रोडक्ट है — एक यूनिफ़ाइड रिटेल इंटेलिजेंस प्लेटफ़ॉर्म जो बिलिंग, POS सिस्टम, कस्टमर डेटा, लॉयल्टी, कैम्पेन और एनालिटिक्स को एक ही सिंपल सिस्टम में जोड़ देता है।"
+                ? "ल्यूम हमारा फ़्लैगशिप प्रोडक्ट है — एक यूनिफ़ाइड रिटेल इंटेलिजेंस प्लेटफ़ॉर्म जो बिलिंग, POS सिस्टम, कस्टमर डेटा, लॉयल्टी, कैम्पेन और एनालिटिक्स को एक ही सिंपल सिस्टम में जोड़ देता है।"
                 : "Lume is our flagship product — a unified retail intelligence platform that connects billing, POS systems, customer data, loyalty, campaigns, and analytics into one simple system."}
             </p>
             <p className="text-sm font-semibold text-[#146fb5] mb-3">
-              {language === "HI" ? "Lume इन सबको एक साथ जोड़ता है:" : "Lume brings together:"}
+              {language === "HI" ? "ल्यूम इन सबको एक साथ जोड़ता है:" : "Lume brings together:"}
             </p>
             <div className="grid sm:grid-cols-2 gap-4 mb-4">
               <div className="rounded-2xl bg-white/80 border border-[#146fb5]/15 p-4">
@@ -237,7 +237,7 @@ export default function About() {
                 </h3>
                 <p className="text-xs md:text-sm text-muted-foreground">
                   {language === "HI"
-                    ? "WhatsApp, SMS और मल्टी‑चैनल कैम्पेन जो रियल परचेज डेटा पर चलते हैं।"
+                    ? "व्हाट्सऐप, SMS और मल्टी‑चैनल कैम्पेन जो रियल परचेज डेटा पर चलते हैं।"
                     : "WhatsApp, SMS and multi-channel campaigns that run on real purchase data."}
                 </p>
               </div>
@@ -259,7 +259,7 @@ export default function About() {
                   इनसाइट्स में बदल जाता है। रिटेलर्स सिर्फ़ बिल नहीं बनाते,
                   <span className="font-semibold text-[#146fb5]">
                     {" "}
-                    Lume के ज़रिए वे बिलिंग से ही अपना पूरा बिज़नेस समझने लगते हैं।
+                    ल्यूम के ज़रिए वे बिलिंग से ही अपना पूरा बिज़नेस समझने लगते हैं।
                   </span>
                 </>
               ) : (
@@ -314,7 +314,7 @@ export default function About() {
                     {language === "HI" ? "वाकई काम करने वाले कैम्पेन:" : "Campaigns that actually work:"}
                   </span>{" "}
                   {language === "HI"
-                    ? "WhatsApp, SMS और मल्टी‑चैनल कैम्पेन जो रियल परचेज डेटा पर चलकर सही कस्टमर तक सही मैसेज पहुँचाते हैं।"
+                    ? "व्हाट्सऐप, SMS और मल्टी‑चैनल कैम्पेन जो रियल परचेज डेटा पर चलकर सही कस्टमर तक सही मैसेज पहुँचाते हैं।"
                     : "WhatsApp, SMS and multi-channel campaigns driven by real purchase data."}
                 </span>
               </li>
@@ -660,7 +660,7 @@ export default function About() {
             className="rounded-2xl bg-[#0b1530] text-white p-6 space-y-3"
           >
             <p className="text-xs font-semibold tracking-[0.18em] uppercase text-[#7fb6ff]">
-              {language === "HI" ? "Principles" : "Principles"}
+              {language === "HI" ? "हमारे सिद्धांत" : "Principles"}
             </p>
             <ul className="space-y-2 text-sm md:text-base">
               {language === "HI" ? (
@@ -746,12 +746,9 @@ export default function About() {
             <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
               <Button size="lg" variant="hero" asChild>
                 <Link to="/book-demo">
-                  Book a Demo
+                  {language === "HI" ? "डेमो बुक करें" : "Book a Demo"}
                   <ArrowRight className="w-5 h-5 ml-1" />
                 </Link>
-              </Button>
-              <Button size="lg" variant="hero-outline" asChild>
-                <Link to="/company/careers">Explore Careers</Link>
               </Button>
             </div>
           </motion.div>

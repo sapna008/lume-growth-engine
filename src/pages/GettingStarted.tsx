@@ -143,7 +143,7 @@ export default function GettingStarted() {
               </div>
               <p className="mb-4" style={{ color: "#4f4f4f" }}>
                 {language === "HI"
-                  ? "सीधे प्ले स्टोर से Lume POS डाउनलोड करें और कुछ ही मिनटों में बिलिंग शुरू करें।"
+                  ? "सीधे Google Play Store से ल्यूम POS डाउनलोड करें और कुछ ही मिनटों में बिलिंग शुरू करें।"
                   : "Download Lume POS directly from the Play Store and start billing in minutes."}
               </p>
               <div className="space-y-2">
@@ -152,15 +152,15 @@ export default function GettingStarted() {
                     ? "अपने एंड्रॉइड फ़ोन में Google Play Store खोलें"
                     : "Open Google Play Store on your Android phone",
                   language === "HI"
-                    ? "Lume POS या Lume Retailer सर्च करें"
+                    ? "\"ल्यूम POS\" या \"ल्यूम Retailer\" सर्च करें"
                     : "Search for Lume POS or Lume Retailer",
-                  language === "HI" ? "Install पर टैप करें" : "Tap Install",
+                  language === "HI" ? "इंस्टॉल (Install) पर टैप करें" : "Tap Install",
                   language === "HI" ? "ऐप खोलें" : "Open the app",
                   language === "HI"
                     ? "अपने क्रेडेंशियल्स से लॉगिन करें"
                     : "Login with your credentials",
                   language === "HI"
-                    ? "रोज़ाना की बिलिंग के लिए Lume POS इस्तेमाल करना शुरू करें"
+                    ? "रोज़ाना की बिलिंग के लिए ल्यूम POS इस्तेमाल करना शुरू करें"
                     : "Start using Lume POS for daily billing",
                 ].map((step, i) => (
                   <div key={i} className="flex items-start gap-2">
@@ -207,13 +207,13 @@ export default function GettingStarted() {
               </div>
               <p className="mb-4" style={{ color: "#4f4f4f" }}>
                 {language === "HI"
-                  ? "Lume Installer की मदद से ल्यूम को अपने मौजूदा POS सिस्टम से कनेक्ट करें।"
+                  ? "ल्यूम इंस्टॉलर की मदद से ल्यूम को अपने मौजूदा POS सिस्टम से कनेक्ट करें।"
                   : "Integrate Lume with your current POS system using the Lume Installer."}
               </p>
               <div className="space-y-2">
                 {[
                   language === "HI"
-                    ? "Lume Retailer Portal में लॉगिन करें"
+                    ? "ल्यूम रिटेलर पोर्टल (Lume Retailer Portal) में लॉगिन करें"
                     : "Login to your Lume Retailer Portal",
                   language === "HI"
                     ? "\"Stores & POS\" सेक्शन में जाएँ"
@@ -225,10 +225,10 @@ export default function GettingStarted() {
                     ? "\"Download Installer\" पर क्लिक करें"
                     : "Click Download Installer",
                   language === "HI"
-                    ? "Installer, secretKey.txt और गाइड वाला ZIP फाइल डाउनलोड करें"
+                    ? "इंस्टॉलर, secretKey.txt और गाइड वाला ZIP फाइल डाउनलोड करें"
                     : "Download ZIP file containing installer, secretKey.txt, and guide",
                   language === "HI"
-                    ? "अपने POS टर्मिनल पर Lume Installer इंस्टॉल करें"
+                    ? "अपने POS टर्मिनल पर ल्यूम इंस्टॉलर (Lume Installer) इंस्टॉल करें"
                     : "Install the Lume Installer on your POS terminal",
                   language === "HI"
                     ? "इंटीग्रेशन पूरा करने के लिए POS सिस्टम रीस्टार्ट करें"

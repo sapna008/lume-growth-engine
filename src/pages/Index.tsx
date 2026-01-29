@@ -164,7 +164,7 @@ const testimonials = [
     quote: "Sales increased by 40% in just 3 months!",
     quoteHI: "सिर्फ 3 महीने में 40% ज़्यादा सेल्स!",
     text: "Lume helped me increase my repeat customers by 40%. The credit management feature alone saved me ₹50,000 in bad debts. The digital billing and customer management features have made our operations so smooth.",
-    textHI: "Lume की वजह से मेरे रिपीट कस्टमर लगभग 40% तक बढ़ गए। सिर्फ क्रेडिट मैनेजमेंट फ़ीचर ने ही हमें करीब ₹50,000 तक के खराब उधार से बचा लिया। डिजिटल बिलिंग और कस्टमर मैनेजमेंट ने हमारी रोज़ की दुकानदारी बहुत स्मूद बना दी है।",
+    textHI: "ल्यूम की वजह से मेरे रिपीट कस्टमर लगभग 40% तक बढ़ गए। सिर्फ क्रेडिट मैनेजमेंट फ़ीचर ने ही हमें करीब ₹50,000 तक के खराब उधार से बचा लिया। डिजिटल बिलिंग और कस्टमर मैनेजमेंट ने हमारी रोज़ की दुकानदारी बहुत स्मूद बना दी है।",
     author: "Ramesh Kumar",
     role: "Store Manager, K K Telecome",
     image: testimonialImg1,
@@ -197,7 +197,7 @@ const testimonials = [
     quote: "Streamlined operations with amazing insights!",
     quoteHI: "बेहतरीन इनसाइट्स के साथ पूरे ऑपरेशन आसान हो गए!",
     text: "Lume's dashboard gives us real-time insights into our business performance. The credit management feature has helped us track customer payments efficiently. The smart e-bills have enhanced our brand image significantly.",
-    textHI: "Lume का डैशबोर्ड हमें रियल-टाइम में बिज़नेस की परफॉर्मेंस दिखाता है। क्रेडिट मैनेजमेंट फ़ीचर से कस्टमर पेमेंट ट्रैक करना बहुत आसान हो गया है। स्मार्ट ई-बिल्स ने हमारे ब्रांड की इमेज भी काफ़ी मज़बूत कर दी है।",
+    textHI: "ल्यूम का डैशबोर्ड हमें रियल-टाइम में बिज़नेस की परफॉर्मेंस दिखाता है। क्रेडिट मैनेजमेंट फ़ीचर से कस्टमर पेमेंट ट्रैक करना बहुत आसान हो गया है। स्मार्ट ई-बिल्स ने हमारे ब्रांड की इमेज भी काफ़ी मज़बूत कर दी है।",
     author: "Neha Singh",
     role: "Store Manager, The Clothing House",
     image: testimonialImg4,
@@ -208,7 +208,7 @@ const testimonials = [
     quote: "Perfect for multi-store management!",
     quoteHI: "मल्टी-स्टोर मैनेजमेंट के लिए परफेक्ट सॉल्यूशन!",
     text: "Managing multiple pharmacy stores was challenging until we found Lume. The centralized dashboard, franchise management, and multi-store POS features have made our operations seamless.",
-    textHI: "कई स्टोर्स संभालना पहले बहुत मुश्किल था, जब तक हमें Lume नहीं मिला था। सेंट्रलाइज़्ड डैशबोर्ड, फ़्रेंचाइज़ मैनेजमेंट और मल्टी-स्टोर POS फीचर्स की वजह से अब हमारा पूरा ऑपरेशन बहुत आसान और कंट्रोल में है।",
+    textHI: "कई स्टोर्स संभालना पहले बहुत मुश्किल था, जब तक हमें ल्यूम नहीं मिला था। सेंट्रलाइज़्ड डैशबोर्ड, फ़्रेंचाइज़ मैनेजमेंट और मल्टी-स्टोर POS फीचर्स की वजह से अब हमारा पूरा ऑपरेशन बहुत आसान और कंट्रोल में है।",
     author: "Vikram Patel",
     role: "Store Manager, Patel Sarees",
     image: testimonialImg5,
@@ -219,7 +219,7 @@ const testimonials = [
     quote: "Amazing customer engagement features!",
     quoteHI: "कस्टमर एंगेजमेंट वाले फ़ीचर वाकई कमाल के हैं!",
     text: "The WhatsApp campaigns and customer feedback system have transformed how we interact with our customers. Sales have increased significantly since we started using Lume.",
-    textHI: "WhatsApp कैंपेन और कस्टमर फ़ीडबैक सिस्टम ने हमारे ग्राहकों से जुड़ने का तरीका पूरी तरह बदल दिया है। Lume इस्तेमाल करने के बाद से हमारी सेल्स में साफ़-साफ़ बढ़ोतरी दिख रही है।",
+    textHI: "व्हाट्सऐप कैंपेन और कस्टमर फ़ीडबैक सिस्टम ने हमारे ग्राहकों से जुड़ने का तरीका पूरी तरह बदल दिया है। ल्यूम इस्तेमाल करने के बाद से हमारी सेल्स में साफ़-साफ़ बढ़ोतरी दिख रही है।",
     author: "Anjali Mehta",
     role: "Owner, Surabhi Store",
     image: testimonialImg6,
@@ -230,7 +230,7 @@ const testimonials = [
     quote: "Best investment for our business!",
     quoteHI: "हमारे बिज़नेस के लिए अब तक का सबसे अच्छा निवेश!",
     text: "Lume has made billing so much faster and easier. The automatic customer capture and credit tracking features have saved us hours every day. Highly recommended!",
-    textHI: "Lume ने हमारी बिलिंग को बहुत तेज़ और आसान बना दिया है। ऑटोमैटिक कस्टमर कैप्चर और क्रेडिट ट्रैकिंग फ़ीचर्स रोज़ के कई घंटे बचा देते हैं। हम इसे हर रिटेलर को सलाह देंगे।",
+    textHI: "ल्यूम ने हमारी बिलिंग को बहुत तेज़ और आसान बना दिया है। ऑटोमैटिक कस्टमर कैप्चर और क्रेडिट ट्रैकिंग फ़ीचर्स रोज़ के कई घंटे बचा देते हैं। हम इसे हर रिटेलर को सलाह देंगे।",
     author: "Rajesh Verma",
     role: "Store Manager, GEONET HP WORLD",
     image: testimonialImg7,
@@ -684,7 +684,7 @@ export default function Index() {
               ))}
               <div className="flex items-center flex-shrink-0">
                 <span className="text-sm sm:text-base font-semibold whitespace-nowrap" style={{ color: '#146fb5' }}>
-                  and many more
+                  {language === 'HI' ? 'और भी कई तरह की दुकानें' : 'and many more'}
                 </span>
                 <span className="mx-3 sm:mx-4 text-gray-300 font-bold" style={{ color: '#d1d5db' }}>|</span>
               </div>
@@ -695,15 +695,15 @@ export default function Index() {
                     {t(industry.key)}
                   </span>
                   <span className="mx-3 sm:mx-4 text-gray-300 font-bold" style={{ color: '#d1d5db' }}>|</span>
-              </div>
-            ))}
+                </div>
+              ))}
               <div className="flex items-center flex-shrink-0">
                 <span className="text-sm sm:text-base font-semibold whitespace-nowrap" style={{ color: '#146fb5' }}>
-                  and many more
+                  {language === 'HI' ? 'और भी कई तरह की दुकानें' : 'and many more'}
                 </span>
                 <span className="mx-3 sm:mx-4 text-gray-300 font-bold" style={{ color: '#d1d5db' }}>|</span>
-          </div>
-        </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

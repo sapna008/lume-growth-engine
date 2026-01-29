@@ -26,62 +26,102 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Guides() {
+  const { language } = useLanguage();
+
   const quickGuides = [
     {
       icon: Rocket,
       title: "Getting Started with Lume",
+      titleHI: "ल्यूम के साथ शुरुआत कैसे करें",
       steps: [
         "Download the Lume app from Play Store",
         "Set up your store details and staff",
         "Start billing within minutes",
         "Send your first digital bill to a customer"
+      ],
+      stepsHI: [
+        "Google Play Store से ल्यूम ऐप डाउनलोड करें",
+        "अपनी दुकान और स्टाफ की जानकारी सेट करें",
+        "कुछ ही मिनटों में बिलिंग शुरू करें",
+        "पहला डिजिटल बिल अपने ग्राहक को भेजें"
       ]
     },
     {
       icon: ReceiptIndianRupee,
       title: "How to Create & Send Digital Bills",
+      titleHI: "डिजिटल बिल कैसे बनाएँ और भेजें",
       steps: [
         "Create tax or non-tax bills",
         "Use quick billing or image billing",
         "Send bills via WhatsApp, SMS, or Email",
         "Bills are stored automatically for reports"
+      ],
+      stepsHI: [
+        "टैक्स या नॉन-टैक्स बिल बनाएँ",
+        "क्विक बिलिंग या इमेज बिलिंग का उपयोग करें",
+        "WhatsApp, SMS या Email से बिल भेजें",
+        "रिपोर्ट्स के लिए बिल अपने आप सेव हो जाते हैं"
       ]
     },
     {
       icon: Users,
       title: "Capturing & Managing Customers",
+      titleHI: "ग्राहक जोड़ना और संभालना",
       steps: [
         "Customer details are auto-captured from bills",
         "View purchase history and feedback",
         "Segment customers for better targeting"
+      ],
+      stepsHI: [
+        "बिल से ग्राहक की जानकारी अपने आप कैप्चर होती है",
+        "खरीदारी हिस्ट्री और फ़ीडबैक देखें",
+        "बेहतर टार्गेटिंग के लिए ग्राहकों को सेगमेंट करें"
       ]
     },
     {
       icon: Megaphone,
       title: "Running Campaigns & Offers",
+      titleHI: "कैंपेन और ऑफ़र कैसे चलाएँ",
       steps: [
         "Create WhatsApp or SMS promotions",
         "Run rewards, coupons, or loyalty programs",
         "Track campaign performance"
+      ],
+      stepsHI: [
+        "WhatsApp या SMS पर प्रमोशन बनाएं",
+        "रिवॉर्ड, कूपन या लॉयल्टी प्रोग्राम चलाएँ",
+        "कैंपेन के रिज़ल्ट्स को ट्रैक करें"
       ]
     },
     {
       icon: BarChart3,
       title: "Understanding Reports & Analytics",
+      titleHI: "रिपोर्ट्स और एनालिटिक्स समझें",
       steps: [
         "Track daily, weekly, and monthly sales",
         "Understand customer buying behaviour",
         "See product and timing insights"
+      ],
+      stepsHI: [
+        "रोज़ाना, साप्ताहिक और मासिक सेल्स ट्रैक करें",
+        "ग्राहकों की खरीदारी की आदतें समझें",
+        "प्रोडक्ट और टाइमिंग से जुड़े इनसाइट्स देखें"
       ]
     },
     {
       icon: HelpCircle,
       title: "Need Help?",
+      titleHI: "मदद चाहिए?",
       steps: [
         "Reach out via WhatsApp or phone support",
         "Get personalised assistance from the Lume team"
+      ],
+      stepsHI: [
+        "WhatsApp या फ़ोन सपोर्ट से हमसे जुड़ें",
+        "ल्यूम टीम से पर्सनल मदद प्राप्त करें"
       ]
     }
   ];
@@ -89,43 +129,63 @@ export default function Guides() {
   const faqs = [
     {
       question: "What is Lume?",
-      answer: "Lume is a smart retail platform designed to help retailers manage billing, customer engagement, campaigns, analytics, and online sales — all from one system. It goes beyond basic billing and helps you grow your business using data and digital tools."
+      questionHI: "ल्यूम क्या है?",
+      answer: "Lume is a smart retail platform designed to help retailers manage billing, customer engagement, campaigns, analytics, and online sales — all from one system. It goes beyond basic billing and helps you grow your business using data and digital tools.",
+      answerHI: "ल्यूम एक स्मार्ट रिटेल प्लेटफ़ॉर्म है जो दुकानदारों को बिलिंग, ग्राहक जुड़ाव, कैंपेन, एनालिटिक्स और ऑनलाइन सेल्स — सब कुछ एक ही सिस्टम से मैनेज करने में मदद करता है। यह सिर्फ़ बेसिक बिलिंग से आगे बढ़कर डेटा और डिजिटल टूल्स की मदद से आपका बिज़नेस बढ़ाने के लिए बनाया गया है।"
     },
     {
       question: "What features do I get for free?",
-      answer: "With Lume, you get free access to essential tools including: Basic tax and non-tax billing, Digital bills via SMS, WhatsApp, and Email, Store listing and visibility, Customer feedback collection, Staff and team management tools, ONDC auto-onboarding, Simple promotional campaigns. These features are enough to start billing and engaging customers digitally."
+      questionHI: "मुझे फ्री में कौन‑कौन से फीचर्स मिलते हैं?",
+      answer: "With Lume, you get free access to essential tools including: Basic tax and non-tax billing, Digital bills via SMS, WhatsApp, and Email, Store listing and visibility, Customer feedback collection, Staff and team management tools, ONDC auto-onboarding, Simple promotional campaigns. These features are enough to start billing and engaging customers digitally.",
+      answerHI: "ल्यूम के साथ आपको कई ज़रूरी टूल्स का फ्री एक्सेस मिलता है: बेसिक टैक्स और नॉन‑टैक्स बिलिंग, SMS, WhatsApp और Email के ज़रिये डिजिटल बिल, स्टोर लिस्टिंग और विज़िबिलिटी, कस्टमर फ़ीडबैक कलेक्शन, स्टाफ और टीम मैनेजमेंट टूल्स, ONDC ऑटो‑ऑनबोर्डिंग और सिंपल प्रमोशनल कैंपेन। ये सब आपको डिजिटल बिलिंग और कस्टमर एंगेजमेंट शुरू करने के लिए काफ़ी है।"
     },
     {
       question: "What advanced features can I use?",
-      answer: "Advanced features are designed for growing businesses and include: Advanced sales and customer analytics, Personalised campaigns (rewards, loyalty, coupons), Customer segmentation, Campaign performance insights, Social media promotion tools, Multi-store and franchise management. You can enable these tools based on your business needs."
+      questionHI: "मैं कौन‑कौन से एडवांस फीचर्स इस्तेमाल कर सकता हूँ?",
+      answer: "Advanced features are designed for growing businesses and include: Advanced sales and customer analytics, Personalised campaigns (rewards, loyalty, coupons), Customer segmentation, Campaign performance insights, Social media promotion tools, Multi-store and franchise management. You can enable these tools based on your business needs.",
+      answerHI: "एडवांस फीचर्स बढ़ते हुए बिज़नेस के लिए बनाए गए हैं, जैसे: एडवांस सेल्स और कस्टमर एनालिटिक्स, पर्सनलाइज़्ड कैंपेन (रिवॉर्ड्स, लॉयल्टी, कूपन), कस्टमर सेगमेंटेशन, कैंपेन परफॉर्मेंस इनसाइट्स, सोशल मीडिया प्रमोशन टूल्स, मल्टी‑स्टोर और फ्रैंचाइज़ मैनेजमेंट। आप अपने बिज़नेस की ज़रूरत के हिसाब से इन्हें ऑन कर सकते हैं।"
     },
     {
       question: "Can I send bills directly to my customers?",
-      answer: "Yes. Lume allows you to send bills instantly through: WhatsApp, SMS, Email, App notifications. This ensures customers always receive and remember your store bills."
+      questionHI: "क्या मैं सीधे अपने ग्राहकों को बिल भेज सकता हूँ?",
+      answer: "Yes. Lume allows you to send bills instantly through: WhatsApp, SMS, Email, App notifications. This ensures customers always receive and remember your store bills.",
+      answerHI: "हाँ। ल्यूम आपको तुरंत WhatsApp, SMS, Email और ऐप नोटिफिकेशन के ज़रिये ग्राहकों को बिल भेजने की सुविधा देता है। इससे ग्राहक हमेशा आपका बिल आसानी से देख और संभाल पाते हैं और आपकी दुकान याद रहती है।"
     },
     {
       question: "How can I promote my store using Lume?",
-      answer: "You can promote your store using multiple channels: WhatsApp and SMS campaigns, Social media promotions, Visibility on the Lume consumer app, Listing and discovery via ONDC. These tools help attract new customers and bring back existing ones."
+      questionHI: "मैं ल्यूम के ज़रिये अपनी दुकान का प्रमोशन कैसे करूँ?",
+      answer: "You can promote your store using multiple channels: WhatsApp and SMS campaigns, Social media promotions, Visibility on the Lume consumer app, Listing and discovery via ONDC. These tools help attract new customers and bring back existing ones.",
+      answerHI: "आप कई चैनलों के ज़रिये अपनी दुकान प्रमोट कर सकते हैं: WhatsApp और SMS कैंपेन, सोशल मीडिया प्रमोशन, ल्यूम कंज्यूमर ऐप पर विज़िबिलिटी, और ONDC के माध्यम से लिस्टिंग व डिस्कवरी। ये टूल्स नए ग्राहकों को लाने और पुराने ग्राहकों को वापस बुलाने में मदद करते हैं।"
     },
     {
       question: "Can I manage more than one shop in Lume?",
-      answer: "Yes. Lume supports: Multiple stores, POS-based billing, Franchise or chain store management. All your stores can be managed from a single dashboard."
+      questionHI: "क्या मैं ल्यूम में एक से ज़्यादा दुकानें मैनेज कर सकता हूँ?",
+      answer: "Yes. Lume supports: Multiple stores, POS-based billing, Franchise or chain store management. All your stores can be managed from a single dashboard.",
+      answerHI: "हाँ। ल्यूम में आप मल्टीपल स्टोर्स, POS‑आधारित बिलिंग और फ्रैंचाइज़ या चेन स्टोर्स को मैनेज कर सकते हैं। आपकी सारी दुकानों का कंट्रोल एक ही डैशबोर्ड से हो सकता है।"
     },
     {
       question: "Can I track customer activity and behaviour?",
-      answer: "Yes. Lume automatically: Tracks customer purchase history, Collects feedback, Segments customers based on behaviour, Helps you create targeted campaigns. This allows you to make better business decisions."
+      questionHI: "क्या मैं ग्राहकों की एक्टिविटी और व्यवहार ट्रैक कर सकता हूँ?",
+      answer: "Yes. Lume automatically: Tracks customer purchase history, Collects feedback, Segments customers based on behaviour, Helps you create targeted campaigns. This allows you to make better business decisions.",
+      answerHI: "हाँ। ल्यूम अपने आप ग्राहकों की खरीदारी हिस्ट्री ट्रैक करता है, फ़ीडबैक जुटाता है, व्यवहार के आधार पर कस्टमर सेगमेंट बनाता है और आपको टार्गेटेड कैंपेन बनाने में मदद करता है। इससे आप बेहतर बिज़नेस डिसीज़न ले पाते हैं।"
     },
     {
       question: "What are cashback, rewards, and loyalty features?",
-      answer: "Lume lets you run custom retention programs such as: Loyalty points, Discount coupons, Cashback offers, Referral programs. These tools help increase repeat customers and long-term loyalty."
+      questionHI: "कैशबैक, रिवॉर्ड और लॉयल्टी फीचर्स क्या हैं?",
+      answer: "Lume lets you run custom retention programs such as: Loyalty points, Discount coupons, Cashback offers, Referral programs. These tools help increase repeat customers and long-term loyalty.",
+      answerHI: "ल्यूम आपको कई तरह के रिटेंशन प्रोग्राम चलाने देता है जैसे: लॉयल्टी पॉइंट्स, डिस्काउंट कूपन, कैशबैक ऑफ़र और रेफ़रल प्रोग्राम। ये टूल्स रिपीट कस्टमर बढ़ाने और लंबी अवधि की लॉयल्टी बनाने में मदद करते हैं।"
     },
     {
       question: "Is customer support available?",
-      answer: "Yes. Lume provides: WhatsApp support, Phone support, Personalised onboarding and assistance. Our support team helps you at every step of your journey."
+      questionHI: "क्या कस्टमर सपोर्ट उपलब्ध है?",
+      answer: "Yes. Lume provides: WhatsApp support, Phone support, Personalised onboarding and assistance. Our support team helps you at every step of your journey.",
+      answerHI: "हाँ। ल्यूम आपको WhatsApp सपोर्ट, फ़ोन सपोर्ट और पर्सनलाइज़्ड ऑनबोर्डिंग व असिस्टेंस देता है। हमारी सपोर्ट टीम हर स्टेप पर आपकी मदद के लिए तैयार रहती है।"
     },
     {
       question: "Do I need to pay for all features?",
-      answer: "No. Basic features are completely free. You only pay for additional tools such as: Advanced campaigns, SMS / WhatsApp usage beyond free limits, Loyalty and rewards programs, Advanced analytics. You can upgrade anytime based on your needs."
+      questionHI: "क्या मुझे सारे फीचर्स के लिए पैसे देने पड़ेंगे?",
+      answer: "No. Basic features are completely free. You only pay for additional tools such as: Advanced campaigns, SMS / WhatsApp usage beyond free limits, Loyalty and rewards programs, Advanced analytics. You can upgrade anytime based on your needs.",
+      answerHI: "नहीं। बेसिक फीचर्स पूरी तरह फ्री हैं। आपको सिर्फ़ कुछ एडवांस टूल्स के लिए पे करना होता है, जैसे: एडवांस कैंपेन, फ्री लिमिट से ज़्यादा SMS / WhatsApp यूज़ेज, लॉयल्टी और रिवॉर्ड प्रोग्राम, एडवांस एनालिटिक्स। अपनी ज़रूरत के हिसाब से आप कभी भी अपग्रेड कर सकते हैं।"
     }
   ];
 
@@ -147,11 +207,13 @@ export default function Guides() {
               <div className="inline-flex items-center gap-2 mb-4">
                 <Rocket className="w-6 h-6" style={{ color: '#146fb5' }} />
                 <h2 className="text-3xl sm:text-4xl font-bold" style={{ color: '#1b181f' }}>
-                  Quick Guides
+                  {language === "HI" ? "क्विक गाइड्स" : "Quick Guides"}
                 </h2>
               </div>
               <p className="text-lg" style={{ color: '#4f4f4f' }}>
-                Short & actionable steps to get you started
+                {language === "HI"
+                  ? "छोटे‑छोटे आसान स्टेप्स जिनसे आप तुरंत शुरू कर सकते हैं"
+                  : "Short & actionable steps to get you started"}
               </p>
             </motion.div>
 
@@ -169,10 +231,10 @@ export default function Guides() {
                     <guide.icon className="w-7 h-7" style={{ color: '#146fb5' }} />
                   </div>
                   <h3 className="text-xl sm:text-2xl font-bold mb-4" style={{ color: '#1b181f' }}>
-                    {guide.title}
+                    {language === "HI" && (guide as any).titleHI ? (guide as any).titleHI : guide.title}
                   </h3>
                   <ul className="space-y-3">
-                    {guide.steps.map((step, stepIndex) => (
+                    {(language === "HI" && (guide as any).stepsHI ? (guide as any).stepsHI : guide.steps).map((step: string, stepIndex: number) => (
                       <li key={stepIndex} className="flex items-start gap-3">
                         <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#146fb5' }} />
                         <span className="text-sm sm:text-base leading-relaxed" style={{ color: '#4f4f4f' }}>
@@ -200,11 +262,13 @@ export default function Guides() {
               <div className="inline-flex items-center gap-2 mb-4">
                 <HelpCircle className="w-6 h-6" style={{ color: '#146fb5' }} />
                 <h2 className="text-3xl sm:text-4xl font-bold" style={{ color: '#1b181f' }}>
-                  Frequently Asked Questions
+                  {language === "HI" ? "अक्सर पूछे जाने वाले सवाल" : "Frequently Asked Questions"}
                 </h2>
               </div>
               <p className="text-lg" style={{ color: '#4f4f4f' }}>
-                Find answers to common questions about Lume
+                {language === "HI"
+                  ? "Lume से जुड़े आम सवालों के जवाब यहाँ पाएँ"
+                  : "Find answers to common questions about Lume"}
               </p>
             </motion.div>
 
@@ -225,11 +289,13 @@ export default function Guides() {
                       <AccordionTrigger className="text-left font-bold text-lg sm:text-xl hover:no-underline py-6" style={{ color: '#1b181f' }}>
                         <div className="flex items-start gap-3">
                           <FileText className="w-5 h-5 mt-1 flex-shrink-0" style={{ color: '#146fb5' }} />
-                          <span>{faq.question}</span>
+                          <span>
+                            {language === "HI" && (faq as any).questionHI ? (faq as any).questionHI : faq.question}
+                          </span>
                         </div>
                       </AccordionTrigger>
                       <AccordionContent className="text-base leading-relaxed pb-6 ml-8" style={{ color: '#4f4f4f' }}>
-                        {faq.answer}
+                        {language === "HI" && (faq as any).answerHI ? (faq as any).answerHI : faq.answer}
                       </AccordionContent>
                     </AccordionItem>
                   </motion.div>
@@ -266,7 +332,9 @@ export default function Guides() {
                   {/* Content */}
                   <div className="max-w-2xl">
                     <p className="text-lg sm:text-xl leading-relaxed text-white font-medium mb-4 sm:mb-6">
-                      Lume is built to be simple for retailers and powerful for growing businesses — start with basics and upgrade only when you're ready.
+                      {language === "HI"
+                        ? "Lume को ऐसे बनाया गया है कि यह दुकानदारों के लिए आसान रहे और बढ़ते बिज़नेस के लिए काफ़ी पावरफुल भी हो — पहले बेसिक से शुरू करें और जब तैयार हों तभी अगले स्टेप पर जाएँ।"
+                        : "Lume is built to be simple for retailers and powerful for growing businesses — start with basics and upgrade only when you're ready."}
                     </p>
                     
                     {/* Get Started Button */}
@@ -274,7 +342,7 @@ export default function Guides() {
                       onClick={() => window.open('https://r.apeirosai.com/en', '_blank')}
                       className="bg-white text-[#146fb5] hover:bg-white/90 font-semibold px-6 py-3 rounded-lg shadow-lg"
                     >
-                      Get Started
+                      {language === "HI" ? "शुरू करें" : "Get Started"}
                     </Button>
                   </div>
                 </div>
