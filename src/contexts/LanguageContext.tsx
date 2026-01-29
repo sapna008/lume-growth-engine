@@ -196,7 +196,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Book Demo Page
     'demo.title': 'Book a Demo',
-    'demo.subtitle': 'See how ल्यूम can transform your retail business. Schedule a personalized demo with our team.',
+    'demo.subtitle': 'See how Lume can transform your retail business. Schedule a personalized demo with our team.',
     'demo.formTitle': 'Schedule Your Demo',
     'demo.name': 'Full Name',
     'demo.namePlaceholder': 'Enter your full name',
@@ -285,7 +285,7 @@ const translations: Record<Language, Record<string, string>> = {
     'forRetailers.roi.timeSaved.label': 'Time saved on billing',
     'forRetailers.roi.creditRecovered.value': '₹15,000/month',
     'forRetailers.roi.creditRecovered.label': 'Credit recovered',
-    'forRetailers.roi.repeatCustomers.value': '30% वृद्धि',
+    'forRetailers.roi.repeatCustomers.value': '30% increase',
     'forRetailers.roi.repeatCustomers.label': 'More repeat customers',
     'forRetailers.roi.averageROI.value': '10x return on investment',
     'forRetailers.roi.averageROI.label': 'Average ROI',
@@ -455,15 +455,15 @@ const translations: Record<Language, Record<string, string>> = {
     'forRetailers.testimonials.title': 'असली दुकानदारों के असली नतीजे',
     'forRetailers.testimonials.story1.metric': '40%',
     'forRetailers.testimonials.story1.outcome': 'ज़्यादा दोबारा आने वाले ग्राहक',
-    'forRetailers.testimonials.story1.quote': 'My customers now get WhatsApp bills. They love it and keep coming back.',
+    'forRetailers.testimonials.story1.quote': 'अब मेरे ग्राहकों को व्हाट्सऐप पर बिल मिलता है। उन्हें पसंद आता है और वे दोबारा आते हैं।',
     'forRetailers.testimonials.story1.name': 'Vijay Grocery',
     'forRetailers.testimonials.story2.metric': '₹50K',
     'forRetailers.testimonials.story2.outcome': 'हर महीने ₹50,000 तक उधार की बचत',
-    'forRetailers.testimonials.story2.quote': 'The credit tracking feature has transformed how I manage udhaar.',
+    'forRetailers.testimonials.story2.quote': 'क्रेडिट ट्रैकिंग फ़ीचर ने उधार संभालने का तरीका ही बदल दिया है।',
     'forRetailers.testimonials.story2.name': 'Style Corner',
     'forRetailers.testimonials.story3.metric': '2 घंटे',
     'forRetailers.testimonials.story3.outcome': 'रोज़ 2 घंटे की बचत',
-    'forRetailers.testimonials.story3.quote': 'What took hours now takes minutes. I can focus on customers.',
+    'forRetailers.testimonials.story3.quote': 'जो काम घंटों में होता था अब मिनटों में हो जाता है। अब मैं ग्राहकों पर ध्यान दे सकता हूँ।',
     'forRetailers.testimonials.story3.name': 'City Mart',
     
     'forRetailers.roi.title': 'पहले ही महीने में Lume अपनी कीमत निकाल देता है',
@@ -602,9 +602,9 @@ const translations: Record<Language, Record<string, string>> = {
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguageState] = useState<Language>(() => {
-    // Get from localStorage or default to EN
+    // Get from localStorage or default to HI
     const saved = localStorage.getItem('language') as Language;
-    return saved && (saved === 'EN' || saved === 'HI') ? saved : 'EN';
+    return saved && (saved === 'EN' || saved === 'HI') ? saved : 'HI';
   });
 
   useEffect(() => {

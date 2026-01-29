@@ -144,21 +144,21 @@ export default function ForRetailers() {
       location: t('forRetailers.testimonials.story1.location'),
       metric: t('forRetailers.testimonials.story1.metric'),
       outcome: t('forRetailers.testimonials.story1.outcome'),
-      quote: "My customers now get WhatsApp bills. They love it and keep coming back.",
+      quote: t('forRetailers.testimonials.story1.quote'),
     },
     {
       name: "RJ's Hair & Beauty Studio",
       location: t('forRetailers.testimonials.story2.location'),
       metric: t('forRetailers.testimonials.story2.metric'),
       outcome: t('forRetailers.testimonials.story2.outcome'),
-      quote: "The credit tracking feature has transformed how I manage udhaar.",
+      quote: t('forRetailers.testimonials.story2.quote'),
     },
     {
       name: "Surbhi",
       location: t('forRetailers.testimonials.story3.location'),
       metric: t('forRetailers.testimonials.story3.metric'),
       outcome: t('forRetailers.testimonials.story3.outcome'),
-      quote: "What took hours now takes minutes. I can focus on customers.",
+      quote: t('forRetailers.testimonials.story3.quote'),
     },
   ];
 
