@@ -55,7 +55,7 @@ export default function Contact() {
       </section>
 
       {/* Contact Section */}
-      <section className="section-padding bg-white">
+      <section className="section-spacing bg-white">
         <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}

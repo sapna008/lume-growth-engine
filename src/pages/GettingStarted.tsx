@@ -101,7 +101,7 @@ export default function GettingStarted() {
       </section>
 
       {/* Setup Options */}
-      <section className="section-padding-sm bg-white">
+      <section className="section-spacing bg-white">
         <div className="container-wide">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -143,13 +143,13 @@ export default function GettingStarted() {
               </div>
               <p className="mb-4" style={{ color: "#4f4f4f" }}>
                 {language === "HI"
-                  ? "सीधे Google Play Store से ल्यूम POS डाउनलोड करें और कुछ ही मिनटों में बिलिंग शुरू करें।"
+                  ? "सीधे गूगल प्ले स्टोर से ल्यूम POS डाउनलोड करें और कुछ ही मिनटों में बिलिंग शुरू करें।"
                   : "Download Lume POS directly from the Play Store and start billing in minutes."}
               </p>
               <div className="space-y-2">
                 {[
                   language === "HI"
-                    ? "अपने एंड्रॉइड फ़ोन में Google Play Store खोलें"
+                    ? "अपने एंड्रॉइड फ़ोन में गूगल प्ले स्टोर खोलें"
                     : "Open Google Play Store on your Android phone",
                   language === "HI"
                     ? "\"ल्यूम POS\" या \"ल्यूम Retailer\" सर्च करें"
@@ -255,7 +255,7 @@ export default function GettingStarted() {
       </section>
 
       {/* Onboarding Journey */}
-      <section className="section-padding-sm subtle-gradient">
+      <section className="section-spacing subtle-gradient">
         <div className="container-wide">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -969,7 +969,7 @@ export default function GettingStarted() {
       </section>
 
       {/* Support Section */}
-      <section className="section-padding-sm bg-white">
+      <section className="section-spacing bg-white">
         <div className="container-wide">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

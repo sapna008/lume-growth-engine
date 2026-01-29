@@ -487,11 +487,11 @@ const comparisonFeatures = [
 const faqs = [
   {
     question: "What plans does Lume offer?",
-    questionHI: "Lume कौन से प्लान ऑफर करता है?",
+    questionHI: "ल्यूम कौन से प्लान ऑफर करता है?",
     answer:
       "Lume offers flexible paid plans designed for different types of retailers — from single stores to multi-store businesses. Each plan is based on store size, feature usage, messaging (WhatsApp / SMS), and analytics & growth tools. You can choose a plan that fits your current business and upgrade anytime as you grow.",
     answerHI:
-      "Lume अलग-अलग तरह के रिटेलर्स के लिए लचीले पेड प्लान ऑफर करता है — सिंगल स्टोर से लेकर मल्टी-स्टोर बिज़नेस तक। हर प्लान स्टोर साइज़, फीचर यूज़ेज, मैसेजिंग (व्हाट्सऐप / SMS), और एनालिटिक्स और ग्रोथ टूल्स पर आधारित है। आप अपने मौजूदा बिज़नेस के लिए सही प्लान चुन सकते हैं और जैसे-जैसे बिज़नेस बढ़े, कभी भी अपग्रेड कर सकते हैं।",
+      "ल्यूम अलग-अलग तरह के रिटेलर्स के लिए लचीले पेड प्लान ऑफर करता है — सिंगल स्टोर से लेकर मल्टी-स्टोर बिज़नेस तक। हर प्लान स्टोर साइज़, फीचर यूज़ेज, मैसेजिंग (व्हाट्सऐप / SMS), और एनालिटिक्स और ग्रोथ टूल्स पर आधारित है। आप अपने मौजूदा बिज़नेस के लिए सही प्लान चुन सकते हैं और जैसे-जैसे बिज़नेस बढ़े, कभी भी अपग्रेड कर सकते हैं।",
   },
   {
     question: "What features are included in all plans?",
@@ -499,7 +499,7 @@ const faqs = [
     answer:
       "All Lume plans include core retail features such as Quick Bill, POS Bill, Image Bill & MPOS, digital bills via WhatsApp / SMS / Email, customer data capture, e-bill history & listing, and basic store & billing management. Advanced growth tools like loyalty, rewards, and deep analytics vary by plan.",
     answerHI:
-      "सभी Lume प्लान में कोर रिटेल फीचर्स शामिल हैं जैसे Quick Bill, POS Bill, Image Bill और MPOS, व्हाट्सऐप / SMS / Email के ज़रिये डिजिटल बिल, कस्टमर डेटा कैप्चर, ई-बिल हिस्ट्री और लिस्टिंग, और बेसिक स्टोर और बिलिंग मैनेजमेंट। एडवांस ग्रोथ टूल्स जैसे लॉयल्टी, रिवॉर्ड्स, और डीप एनालिटिक्स प्लान के अनुसार अलग-अलग होते हैं।",
+      "सभी ल्यूम प्लान में कोर रिटेल फीचर्स शामिल हैं जैसे क्विक बिल, POS बिल, इमेज बिल और MPOS, व्हाट्सऐप / SMS / Email के ज़रिये डिजिटल बिल, कस्टमर डेटा कैप्चर, ई‑बिल हिस्ट्री और लिस्टिंग, और बेसिक स्टोर और बिलिंग मैनेजमेंट। एडवांस ग्रोथ टूल्स जैसे लॉयल्टी, रिवॉर्ड्स, और डीप एनालिटिक्स प्लान के अनुसार अलग‑अलग होते हैं।",
   },
   {
     question: "Are WhatsApp and SMS charges included in the plan price?",
@@ -507,7 +507,7 @@ const faqs = [
     answer:
       "No. WhatsApp and SMS are usage-based and charged separately, as per actual usage. This helps you pay only for what you use, control communication costs, and view charges transparently inside the Lume dashboard. There are no hidden communication charges.",
     answerHI:
-      "नहीं। व्हाट्सऐप और SMS यूज़ेज-आधारित हैं और अलग से चार्ज किए जाते हैं, जैसा कि आपका असली यूज़ेज हो। इससे आप सिर्फ उतना ही पे करते हैं जितना यूज़ करते हैं, कम्युनिकेशन कॉस्ट कंट्रोल कर सकते हैं, और Lume डैशबोर्ड में चार्ज्स को पारदर्शी तरीके से देख सकते हैं। कोई छुपे हुए कम्युनिकेशन चार्ज नहीं हैं।",
+      "नहीं। व्हाट्सऐप और SMS यूज़ेज‑आधारित हैं और अलग से चार्ज किए जाते हैं, जैसा कि आपका असली यूज़ेज हो। इससे आप सिर्फ उतना ही पे करते हैं जितना यूज़ करते हैं, कम्युनिकेशन कॉस्ट कंट्रोल कर सकते हैं, और ल्यूम डैशबोर्ड में चार्जेस को पारदर्शी तरीके से देख सकते हैं। कोई छुपे हुए कम्युनिकेशन चार्ज नहीं हैं।",
   },
   {
     question: "Can I change or upgrade my plan later?",
@@ -515,15 +515,15 @@ const faqs = [
     answer:
       "Yes. You can upgrade your plan anytime from the Lume dashboard. As your business grows you can add more features, enable advanced campaigns, and manage multiple stores and POS systems under one account. Lume is built to scale with your business.",
     answerHI:
-      "हाँ। आप Lume डैशबोर्ड से कभी भी अपना प्लान अपग्रेड कर सकते हैं। जैसे-जैसे आपका बिज़नेस बढ़ेगा, आप और फीचर्स जोड़ सकते हैं, एडवांस कैंपेन चालू कर सकते हैं, और एक अकाउंट के तहत कई स्टोर्स और POS सिस्टम मैनेज कर सकते हैं। Lume आपके बिज़नेस के साथ बढ़ने के लिए बना है।",
+      "हाँ। आप ल्यूम डैशबोर्ड से कभी भी अपना प्लान अपग्रेड कर सकते हैं। जैसे‑जैसे आपका बिज़नेस बढ़ेगा, आप और फीचर्स जोड़ सकते हैं, एडवांस कैंपेन चालू कर सकते हैं, और एक अकाउंट के तहत कई स्टोर्स और POS सिस्टम मैनेज कर सकते हैं। ल्यूम आपके बिज़नेस के साथ बढ़ने के लिए बना है।",
   },
   {
     question: "Do I need an existing POS system to use Lume?",
-    questionHI: "क्या Lume इस्तेमाल करने के लिए मुझे मौजूदा POS सिस्टम चाहिए?",
+    questionHI: "क्या ल्यूम इस्तेमाल करने के लिए मुझे मौजूदा POS सिस्टम चाहिए?",
     answer:
       "No. You can start with Lume’s own web or mobile POS for quick billing, or integrate Lume with your existing POS using Lume plugins. All billing data from different sources is unified in one place so your reports and analytics stay consistent.",
     answerHI:
-      "नहीं। आप Lume के अपने वेब या मोबाइल POS से क्विक बिलिंग के लिए शुरू कर सकते हैं, या Lume प्लगइन का इस्तेमाल करके Lume को अपने मौजूदा POS के साथ इंटीग्रेट कर सकते हैं। अलग-अलग स्रोतों से सभी बिलिंग डेटा एक जगह यूनिफाइड होता है ताकि आपकी रिपोर्ट्स और एनालिटिक्स कंसिस्टेंट रहें।",
+      "नहीं। आप ल्यूम के अपने वेब या मोबाइल POS से क्विक बिलिंग के लिए शुरू कर सकते हैं, या ल्यूम प्लगइन का इस्तेमाल करके ल्यूम को अपने मौजूदा POS के साथ इंटीग्रेट कर सकते हैं। अलग‑अलग स्रोतों से सभी बिलिंग डेटा एक जगह यूनिफाइड होता है ताकि आपकी रिपोर्ट्स और एनालिटिक्स कंसिस्टेंट रहें।",
   },
   {
     question: "Is onboarding and support included?",
@@ -595,9 +595,9 @@ export default function Pricing() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className={`relative rounded-2xl p-6 transition-all duration-300 ${
+                className={`relative rounded-2xl p-6 transition-all duration-300 flex flex-col h-full ${
                   plan.popular
-                    ? "bg-gradient-to-br from-[#eaf2f8] via-[#d4e6f3]/50 to-white border-2 border-[#146fb5] scale-105 shadow-2xl shadow-[#146fb5]/20"
+                    ? "bg-gradient-to-br from-[#eaf2f8] via-[#d4e6f3]/50 to-white border-2 border-[#146fb5] shadow-2xl shadow-[#146fb5]/20"
                     : "bg-white border border-border shadow-lg hover:shadow-xl hover:-translate-y-1"
                 }`}
               >
@@ -654,17 +654,7 @@ export default function Pricing() {
                   </span>
                 </div>
 
-                <Button
-                  variant={plan.popular ? "cta" : "outline"}
-                  className={`w-full mb-6 ${plan.popular ? "shadow-lg" : ""}`}
-                  asChild
-                >
-                  <Link to={plan.href}>
-                    {language === "HI" ? "शुरू करें" : plan.cta}
-                  </Link>
-                </Button>
-
-                <div>
+                <div className="flex-1">
                   <p
                     className="text-xs font-semibold uppercase tracking-wider mb-3"
                     style={{ color: "#4f4f4f" }}
@@ -688,52 +678,22 @@ export default function Pricing() {
                 </div>
 
                 {/* Footer Badge */}
-                <div className="mt-6 pt-4 border-t border-border">
+                <div className="mt-auto pt-4 border-t border-border">
                   <div className={`rounded-lg overflow-hidden ${plan.popular ? "ring-1 ring-[#146fb5]/30" : ""}`}>
                     <div className="py-2 px-3 text-xs font-bold flex items-center gap-2 text-white" style={{ background: 'linear-gradient(135deg, #146fb5 0%, #1a7fc7 100%)' }}>
                       <Sparkles className="w-3 h-3" />
                       {language === "HI" ? "ल्यूम द्वारा संचालित" : "POWERED BY LUME"}
-                    </div>
-                    <div className="bg-slate-50 py-2 px-3">
-                      <p className="text-xs" style={{ color: "#4f4f4f" }}>
-                        {language === "HI"
-                          ? "शुरू करने के लिए डेमो बुक करें"
-                          : "Book a demo to get started"}
-                      </p>
                     </div>
                   </div>
                 </div>
               </motion.div>
             ))}
           </div>
-
-          {/* Enterprise */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="mt-8 bg-gradient-to-r from-primary/5 via-white to-accent/5 rounded-2xl p-8 border border-border text-center"
-          >
-            <h3 className="text-xl font-bold mb-2" style={{ color: '#1b181f' }}>
-              {language === "HI" ? "एंटरप्राइज़" : "Enterprise"}
-            </h3>
-            <p className="mb-4" style={{ color: '#4f4f4f' }}>
-              {language === "HI"
-                ? "मल्टी-स्टोर चेन के लिए जिन्हें कस्टम ज़रूरतें हों। API एक्सेस, समर्पित सपोर्ट और कस्टम इंटीग्रेशन पाएँ।"
-                : "For multi-store chains with custom needs. Get API access, dedicated support, and custom integrations."}
-            </p>
-            <Button variant="outline" size="lg" asChild>
-              <Link to="/company/contact">
-                {language === "HI" ? "सेल्स से संपर्क करें" : "Contact Sales"}
-              </Link>
-            </Button>
-          </motion.div>
-
         </div>
       </section>
 
       {/* Plan Comparison */}
-      <section className="py-6 lg:py-8 relative z-10">
+      <section className="section-spacing relative z-10">
         <div className="container-wide max-w-5xl">
           <div className="flex justify-center mb-4">
             <label className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white border border-border shadow-sm cursor-pointer">
@@ -851,8 +811,34 @@ export default function Pricing() {
         </div>
       </section>
 
+      {/* Enterprise */}
+      <section className="relative z-10">
+        <div className="container-wide max-w-5xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="mt-8 bg-gradient-to-r from-primary/5 via-white to-accent/5 rounded-2xl p-8 border border-border text-center"
+          >
+            <h3 className="text-xl font-bold mb-2" style={{ color: '#1b181f' }}>
+              {language === "HI" ? "एंटरप्राइज़" : "Enterprise"}
+            </h3>
+            <p className="mb-4" style={{ color: '#4f4f4f' }}>
+              {language === "HI"
+                ? "मल्टी-स्टोर चेन के लिए जिन्हें कस्टम ज़रूरतें हों। API एक्सेस, समर्पित सपोर्ट और कस्टम इंटीग्रेशन पाएँ।"
+                : "For multi-store chains with custom needs. Get API access, dedicated support, and custom integrations."}
+            </p>
+            <Button variant="outline" size="lg" asChild>
+              <Link to="/company/contact">
+                {language === "HI" ? "सेल्स से संपर्क करें" : "Contact Sales"}
+              </Link>
+            </Button>
+          </motion.div>
+        </div>
+      </section>
+
       {/* FAQs */}
-      <section className="py-16 relative z-10">
+      <section className="section-spacing relative z-10">
         <div className="container-tight">
           <div className="text-center mb-12">
             <HelpCircle className="w-12 h-12 mx-auto mb-4" style={{ color: '#146fb5' }} />
@@ -881,7 +867,7 @@ export default function Pricing() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 relative z-10">
+      <section className="section-spacing relative z-10">
         <div className="container-tight text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

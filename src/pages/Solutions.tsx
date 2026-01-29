@@ -250,7 +250,7 @@ export default function Solutions() {
       </section>
 
       {/* Solutions List */}
-      <section className="section-padding bg-white">
+      <section className="section-spacing bg-white">
         <div className="container-wide space-y-16">
           {solutions.map((solution, i) => (
           <motion.div
@@ -323,7 +323,7 @@ export default function Solutions() {
       </section>
 
       {/* CTA */}
-      <section className="section-padding subtle-gradient">
+      <section className="section-spacing subtle-gradient">
         <div className="container-tight text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: '#1b181f' }}>
             {language === "HI" ? "एक ऐप में सभी समाधान" : "All Solutions in One App"}

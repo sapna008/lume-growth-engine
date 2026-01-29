@@ -96,7 +96,7 @@ export default function BookDemo() {
       </section>
 
       {/* Booking Form Section */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white to-slate-50">
+      <section className="section-spacing bg-gradient-to-b from-white to-slate-50">
         <div className="container-wide px-4">
           <div className="max-w-4xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">

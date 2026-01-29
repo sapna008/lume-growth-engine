@@ -195,7 +195,7 @@ export default function Guides() {
       
       <main className="flex-1">
         {/* Quick Guides Section */}
-        <section className="section-padding bg-white pt-24">
+        <section className="section-spacing bg-white pt-24">
           <div className="container-wide">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -306,7 +306,7 @@ export default function Guides() {
         </section>
 
         {/* Closing Section */}
-        <section className="section-padding bg-white">
+        <section className="section-spacing bg-white">
           <div className="container-wide">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

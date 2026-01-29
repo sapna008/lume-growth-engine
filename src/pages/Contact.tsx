@@ -37,7 +37,7 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="section-padding bg-white">
+      <section className="section-spacing bg-white">
         <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
             {/* Contact Info */}

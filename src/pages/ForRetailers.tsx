@@ -222,14 +222,14 @@ export default function ForRetailers() {
                   {t('forRetailers.hero.description')}
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start px-4 sm:px-0">
-                  <Button size="xl" variant="hero" className="w-full sm:w-auto" asChild>
+                <div className="flex flex-row gap-3 sm:gap-4 w-full sm:w-auto px-4 sm:px-0">
+                  <Button size="xl" variant="hero" asChild className="shadow-lg hover:shadow-xl transition-shadow h-10 sm:h-12 text-sm sm:text-base px-4 sm:px-6 flex-1 sm:flex-initial">
                     <Link to="/book-demo">
                       {t('forRetailers.hero.bookDemo')}
                       <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-1" />
                     </Link>
                   </Button>
-                  <Button size="xl" variant="hero-outline" className="w-full sm:w-auto" asChild>
+                  <Button size="xl" variant="hero-outline" asChild className="h-10 sm:h-12 text-sm sm:text-base px-4 sm:px-6 flex-1 sm:flex-initial">
                     <Link to="/pricing">{t('forRetailers.hero.viewPricing')}</Link>
                   </Button>
                 </div>
@@ -257,7 +257,7 @@ export default function ForRetailers() {
       </section>
 
       {/* Pain Points → Solutions */}
-      <section className="section-padding bg-white px-4 sm:px-0">
+      <section className="section-spacing bg-white px-4 sm:px-0">
         <div className="container-wide">
           <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 lg:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4" style={{ color: '#1b181f' }}>
@@ -398,7 +398,7 @@ export default function ForRetailers() {
       </section>
 
       {/* Industry Solutions */}
-      <section className="section-padding bg-white px-4 sm:px-0">
+      <section className="section-spacing bg-white px-4 sm:px-0">
         <div className="container-wide">
           <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8 lg:mb-10">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4" style={{ color: '#1b181f' }}>
@@ -442,7 +442,7 @@ export default function ForRetailers() {
       </section>
 
       {/* Success Stories */}
-      <section className="section-padding hero-gradient text-white px-4 sm:px-0">
+      <section className="section-spacing hero-gradient text-white px-4 sm:px-0">
         <div className="container-wide">
           <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8 lg:mb-10">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4" style={{ color: '#1b181f' }}>
@@ -474,7 +474,7 @@ export default function ForRetailers() {
       </section>
 
       {/* ROI Section */}
-      <section className="section-padding bg-white px-4 sm:px-0">
+      <section className="section-spacing bg-white px-4 sm:px-0">
         <div className="container-wide">
           <div className="grid md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-start md:items-center">
             <motion.div

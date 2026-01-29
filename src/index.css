@@ -246,6 +246,11 @@
     @apply py-10 md:py-14 lg:py-16;
   }
 
+  /* Universal Section Spacing - Reduced for all pages */
+  .section-spacing {
+    @apply py-6 sm:py-8 md:py-10;
+  }
+
   /* Animated Background */
   .animated-bg {
     position: relative;

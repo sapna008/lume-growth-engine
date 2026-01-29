@@ -72,7 +72,7 @@ export default function Resources() {
           </div>
         </section>
 
-        <section className="section-padding bg-white">
+        <section className="section-spacing bg-white">
           <div className="container-wide">
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {selectedCategory.items.map((item, i) => (

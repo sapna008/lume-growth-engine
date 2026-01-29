@@ -139,7 +139,7 @@ export default function Help() {
       </section>
 
       {/* Categories */}
-      <section className="section-padding-sm bg-white">
+      <section className="section-spacing bg-white">
         <div className="container-wide">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {categories.map((category, i) => {
@@ -223,7 +223,7 @@ export default function Help() {
       </section>
 
       {/* Contact */}
-      <section className="section-padding-sm bg-secondary/30">
+      <section className="section-spacing bg-secondary/30">
         <div className="container-wide">
           <div className="text-center mb-8">
             <h2 className="text-xl font-display font-bold text-foreground">

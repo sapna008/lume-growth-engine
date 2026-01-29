@@ -25,6 +25,7 @@ import { Footer } from "@/components/layout/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
+import { useMemo } from 'react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import dashboardDesktop from "@/assets/hero-banner/dashboard-hindii.png";
@@ -242,6 +243,9 @@ export default function Index() {
   // Debug: Check if image is loaded
   console.log('Background image path:', bgImage);
   
+  // Memoize testimonials to prevent re-renders
+  const memoizedTestimonials = useMemo(() => testimonials, []);
+  
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
@@ -293,18 +297,18 @@ export default function Index() {
                   {t('hero.description')}
                 </p>
                 
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button size="xl" variant="hero" asChild className="shadow-lg hover:shadow-xl transition-shadow">
+                <div className="flex flex-row gap-3 sm:gap-4 w-full sm:w-auto">
+                  <Button size="xl" variant="hero" asChild className="shadow-lg hover:shadow-xl transition-shadow h-10 sm:h-12 text-sm sm:text-base px-4 sm:px-6 flex-1 sm:flex-initial">
                     <a href="https://play.google.com/store/apps/details?id=com.mhjs.retailerapp" target="_blank" rel="noopener noreferrer">
-                      <svg className="w-6 h-6 sm:w-7 sm:h-7 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                      <svg className="w-5 h-5 sm:w-6 sm:h-6 mr-1.5 sm:mr-2" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M3 20.5v-17c0-.59.34-1.11.84-1.35L13.69 12l-9.85 9.85c-.5-.24-.84-.76-.84-1.35zm13.81-5.38L6.05 21.34l8.49-8.49 2.27 2.27zm-1.36-2.24l2.27 2.27L21.95 12l-4.48-4.48-2.27 2.27L17.45 12l-1.99 1.88zM6.05 2.66l10.76 6.22-2.27 2.27L6.05 2.66z"/>
                       </svg>
                       {t('hero.download')}
                     </a>
                   </Button>
-                  <Button size="xl" variant="hero-outline" asChild>
+                  <Button size="xl" variant="hero-outline" asChild className="h-10 sm:h-12 text-sm sm:text-base px-4 sm:px-6 flex-1 sm:flex-initial">
                     <Link to="/demo">
-                      <Play className="w-5 h-5 mr-1" />
+                      <Play className="w-4 h-4 sm:w-5 sm:h-5 mr-1" />
                       {t('hero.watchDemo')}
                     </Link>
                   </Button>
@@ -313,12 +317,15 @@ export default function Index() {
                 {/* Desktop: testimonials above video */}
                 <div className="hidden sm:flex mt-6 sm:mt-8 flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
                   <div className="flex -space-x-3">
-                    {testimonials.slice(0, 4).map((testimonial, i) => (
-                      <div key={i} className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white shadow-lg overflow-hidden" style={{ borderColor: '#146fb5' }}>
+                    {memoizedTestimonials.slice(0, 4).map((testimonial, i) => (
+                      <div key={`hero-testimonial-${testimonial.author}-${i}`} className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white shadow-lg overflow-hidden" style={{ borderColor: '#146fb5' }}>
                         <img 
                           src={testimonial.image} 
                           alt={testimonial.author}
                           className="w-full h-full object-cover"
+                          loading="lazy"
+                          decoding="async"
+                          fetchPriority="low"
                         />
                       </div>
                     ))}
@@ -390,12 +397,15 @@ export default function Index() {
                   {/* Mobile: testimonials below video */}
                   <div className="mt-4 flex flex-col items-center gap-3">
                     <div className="flex -space-x-3">
-                      {testimonials.slice(0, 4).map((testimonial, i) => (
-                        <div key={i} className="w-10 h-10 rounded-full border-2 border-white shadow-lg overflow-hidden" style={{ borderColor: '#146fb5' }}>
+                      {memoizedTestimonials.slice(0, 4).map((testimonial, i) => (
+                        <div key={`mobile-testimonial-${testimonial.author}-${i}`} className="w-10 h-10 rounded-full border-2 border-white shadow-lg overflow-hidden" style={{ borderColor: '#146fb5' }}>
                           <img 
                             src={testimonial.image} 
                             alt={testimonial.author}
                             className="w-full h-full object-cover"
+                            loading="lazy"
+                            decoding="async"
+                            fetchPriority="low"
                           />
                         </div>
                       ))}
@@ -463,7 +473,7 @@ export default function Index() {
       </section>
 
       {/* Problem Statement Section */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-white">
+      <section className="pt-4 sm:pt-6 pb-6 sm:pb-8 bg-white">
         <div className="container-wide px-4">
           <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
             <motion.div
@@ -532,7 +542,7 @@ export default function Index() {
       </section>
 
       {/* Key Benefits Section */}
-      <section className="py-12 sm:py-14 lg:py-16 bg-gradient-to-b from-slate-50 to-white">
+      <section className="section-spacing bg-gradient-to-b from-slate-50 to-white">
         <div className="container-wide px-4">
           <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
             <motion.div
@@ -577,7 +587,7 @@ export default function Index() {
       </section>
 
       {/* How It Works */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white to-slate-50">
+      <section className="section-spacing bg-gradient-to-b from-white to-slate-50">
         <div className="container-wide px-4">
           <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
             <motion.div
@@ -659,7 +669,7 @@ export default function Index() {
       </section>
 
       {/* Industries */}
-      <section className="py-8 sm:py-10 lg:py-12 bg-gradient-to-b from-white to-[#eaf2f8]">
+      <section className="section-spacing bg-gradient-to-b from-white to-[#eaf2f8]">
         <div className="container-wide px-4">
           <div className="text-center mb-6 sm:mb-8">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-3 sm:mb-4" style={{ color: '#1b181f' }}>
@@ -775,6 +785,7 @@ export default function Index() {
               autoplay={{
                 delay: 4000,
                 disableOnInteraction: false,
+                pauseOnMouseEnter: true,
               }}
               loop={true}
               pagination={{
@@ -784,8 +795,8 @@ export default function Index() {
               }}
               className="!pb-12"
             >
-            {testimonials.map((testimonial, i) => (
-                <SwiperSlide key={i}>
+            {memoizedTestimonials.map((testimonial, i) => (
+                <SwiperSlide key={`testimonial-${testimonial.author}-${i}`}>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -821,7 +832,7 @@ export default function Index() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-12 sm:py-16 lg:py-20 hero-gradient relative overflow-hidden">
+      <section className="section-spacing hero-gradient relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-[#146fb5]/10" />
         <div className="container-tight text-center relative z-10 px-4 sm:px-6">
           <motion.div

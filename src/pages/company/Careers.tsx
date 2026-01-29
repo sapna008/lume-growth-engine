@@ -73,7 +73,7 @@ export default function Careers() {
       </section>
 
       {/* Why Join Us */}
-      <section className="section-padding bg-white">
+      <section className="section-spacing bg-white">
         <div className="container-wide">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl font-bold text-[#1b181f] mb-4">Why Join Apeiros AI?</h2>
@@ -104,7 +104,7 @@ export default function Careers() {
       </section>
 
       {/* Open Positions */}
-      <section id="openings" className="section-padding subtle-gradient">
+      <section id="openings" className="section-spacing subtle-gradient">
         <div className="container-wide">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl font-bold text-[#1b181f] mb-4">Open Positions</h2>

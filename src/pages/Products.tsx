@@ -232,7 +232,7 @@ export default function Products() {
       </section>
 
       {/* 2. WHAT IS LUME? */}
-      <section id="what-is-lume" className="py-8 sm:py-12 bg-gradient-to-b from-white via-[#eaf2f8]/30 to-white">
+      <section id="what-is-lume" className="section-spacing bg-gradient-to-b from-white via-[#eaf2f8]/30 to-white">
           <div className="container-wide">
           <div className="max-w-5xl mx-auto">
             <motion.div
@@ -267,7 +267,7 @@ export default function Products() {
       {/* 3. CORE CAPABILITIES */}
       <section
         id="core"
-        className="py-10 sm:py-12 lg:py-14 bg-gradient-to-b from-white via-[#eaf2f8]/20 to-white"
+        className="section-spacing bg-gradient-to-b from-white via-[#eaf2f8]/20 to-white"
       >
           <div className="container-wide">
           <motion.div
@@ -364,7 +364,7 @@ export default function Products() {
       {/* 4. HOW LUME WORKS */}
       <section
         id="how-it-works"
-        className="py-10 sm:py-12 lg:py-14 bg-white"
+        className="section-spacing bg-white"
       >
         <div className="container-wide">
           <motion.div
@@ -420,7 +420,7 @@ export default function Products() {
       {/* 5. WHO IS LUME FOR? */}
       <section
         id="who-is-lume-for"
-        className="py-10 sm:py-12 lg:py-14 bg-gradient-to-b from-white via-[#eaf2f8]/20 to-white"
+        className="section-spacing bg-gradient-to-b from-white via-[#eaf2f8]/20 to-white"
       >
         <div className="container-wide">
           <motion.div
@@ -467,7 +467,7 @@ export default function Products() {
       {/* 6. LUME + LUME SHOP CONNECTION */}
       <section
         id="lume-shop"
-        className="py-10 sm:py-12 lg:py-14 bg-white"
+        className="section-spacing bg-white"
       >
         <div className="container-wide">
           <div className="max-w-4xl mx-auto">
@@ -515,7 +515,7 @@ export default function Products() {
       {/* 7. TRUST (LIGHT VERSION) */}
       <section
         id="trust"
-        className="py-10 sm:py-12 lg:py-14 bg-gradient-to-b from-white via-[#eaf2f8]/20 to-white"
+        className="section-spacing bg-gradient-to-b from-white via-[#eaf2f8]/20 to-white"
       >
         <div className="container-wide">
           <div className="max-w-4xl mx-auto">
@@ -560,7 +560,7 @@ export default function Products() {
       {/* 8. FINAL CTA */}
       <section
         id="cta"
-        className="py-10 sm:py-12 lg:py-14 bg-white"
+        className="section-spacing bg-white"
       >
         <div className="container-wide">
           <motion.div

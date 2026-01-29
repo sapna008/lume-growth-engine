@@ -210,7 +210,7 @@ export default function CaseStudies() {
         </section>
 
         {/* Case Studies */}
-        <section className="py-10 sm:py-12 lg:py-14 bg-gradient-to-b from-white via-[#eaf2f8]/20 to-white">
+        <section className="section-spacing bg-gradient-to-b from-white via-[#eaf2f8]/20 to-white">
           <div className="container-wide">
             <div className="space-y-8 sm:space-y-10">
               {caseStudies.map((study, i) => (
@@ -378,7 +378,7 @@ export default function CaseStudies() {
         </section>
 
         {/* Snapshot Comparison */}
-        <section className="section-padding bg-gradient-to-b from-white via-[#eaf2f8]/20 to-white">
+        <section className="section-spacing bg-gradient-to-b from-white via-[#eaf2f8]/20 to-white">
           <div className="container-wide">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -492,7 +492,7 @@ export default function CaseStudies() {
         </section>
 
         {/* CTA Section */}
-        <section className="section-padding bg-gradient-to-b from-white via-[#eaf2f8]/20 to-white">
+        <section className="section-spacing bg-gradient-to-b from-white via-[#eaf2f8]/20 to-white">
           <div className="container-wide">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

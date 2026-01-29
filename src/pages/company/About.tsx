@@ -66,7 +66,7 @@ export default function About() {
       </section>
 
       {/* Why we exist */}
-      <section className="section-padding-sm bg-white">
+      <section className="section-spacing bg-white">
         <div className="container-wide grid lg:grid-cols-[1.1fr,1fr] gap-10 lg:gap-14 items-start">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -189,7 +189,7 @@ export default function About() {
       </section>
 
       {/* What we build - Lume */}
-      <section className="section-padding-sm subtle-gradient">
+      <section className="section-spacing subtle-gradient">
         <div className="container-wide grid lg:grid-cols-[1.15fr,1fr] gap-10 lg:gap-14 items-start">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -335,7 +335,7 @@ export default function About() {
       </section>
 
       {/* Our belief */}
-      <section className="section-padding-sm bg-white">
+      <section className="section-spacing bg-white">
         <div className="container-wide grid lg:grid-cols-[1.2fr,1fr] gap-10 lg:gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -396,7 +396,7 @@ export default function About() {
       </section>
 
       {/* Leadership */}
-      <section className="section-padding-sm subtle-gradient">
+      <section className="section-spacing subtle-gradient">
         <div className="container-wide">
           <div className="text-center max-w-3xl mx-auto mb-10">
             <h2 className="text-2xl md:text-3xl font-display font-bold mb-3 text-[#1b181f]">
@@ -611,7 +611,7 @@ export default function About() {
       </section>
 
       {/* How we work */}
-      <section className="section-padding-sm bg-white">
+      <section className="section-spacing bg-white">
         <div className="container-wide grid lg:grid-cols-[1.1fr,1fr] gap-10 lg:gap-16 items-start">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -689,7 +689,7 @@ export default function About() {
       </section>
 
       {/* Looking ahead & Join the journey */}
-      <section className="section-padding-sm bg-gradient-to-b from-[#0b1530] via-[#101c3a] to-[#0b1530] text-white">
+      <section className="section-spacing bg-gradient-to-b from-[#0b1530] via-[#101c3a] to-[#0b1530] text-white">
         <div className="container-wide grid lg:grid-cols-[1.15fr,1fr] gap-10 lg:gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

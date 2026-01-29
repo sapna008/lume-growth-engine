@@ -396,7 +396,7 @@ const translations: Record<Language, Record<string, string>> = {
     'demo.successTitle': 'डेमो सफलतापूर्वक बुक हो गया!',
     'demo.successMessage': 'हम आपको जल्द ही मीटिंग विवरण के साथ एक पुष्टिकरण ईमेल भेजेंगे।',
     'demo.whatToExpect': 'क्या उम्मीद करें',
-    'demo.expect1': 'सभी सुविधाओं का लाइव वॉकथ्रू',
+    'demo.expect1': 'सभी सुविधाओं का लाइव डेमो',
     'demo.expect2': 'देखें कि यह आपके दुकान के प्रकार के लिए कैसे काम करता है',
     'demo.expect3': 'अपने सभी सवालों के जवाब पाएं',
     'demo.expect4': 'कीमत और सेटअप के बारे में जानें',

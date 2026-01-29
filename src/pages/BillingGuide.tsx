@@ -89,7 +89,7 @@ export default function BillingGuide() {
       </section>
 
       {/* Top information + overview */}
-      <section className="section-padding-sm bg-white">
+      <section className="section-spacing bg-white">
         <div className="container-wide space-y-4">
           {/* Info banner */}
           <motion.div
@@ -156,7 +156,7 @@ export default function BillingGuide() {
       </section>
 
       {/* Billing types accordion */}
-      <section className="section-padding-sm subtle-gradient">
+      <section className="section-spacing subtle-gradient">
         <div className="container-wide space-y-5">
           {/* Quick Bill */}
           <BillingSection
@@ -464,7 +464,7 @@ export default function BillingGuide() {
       </section>
 
       {/* Important clarification box */}
-      <section className="section-padding-sm bg-white">
+      <section className="section-spacing bg-white">
         <div className="container-wide">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -492,7 +492,7 @@ export default function BillingGuide() {
       </section>
 
       {/* Support section */}
-      <section className="section-padding-sm bg-secondary/30">
+      <section className="section-spacing bg-secondary/30">
         <div className="container-wide">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
