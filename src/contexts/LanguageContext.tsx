@@ -35,8 +35,10 @@ const translations: Record<Language, Record<string, string>> = {
     'challenge.point2': 'Manual billing wastes time & causes errors',
     'challenge.point3': 'No way to track or engage customers',
     'challenge.point4': 'No visibility into business performance',
-    'challenge.solution': 'Lume Gives You the Digital Edge',
-    'challenge.solutionDesc': 'Now not just billing, but a complete system to grow customers and sales — without expensive machines or technical hassle.',
+    'challenge.solution': 'More than billing. A complete digital system for your store.',
+    'challenge.solutionDesc': 'Lume connects billing, customers, offers, stock and insights into one simple retail intelligence platform.',
+    'challenge.supportLine': '',
+    'challenge.cta': 'Book a Demo',
     
     // Benefits
     'benefit.fastBilling.title': 'Fast & Easy Billing',
@@ -326,8 +328,10 @@ const translations: Record<Language, Record<string, string>> = {
     'challenge.point2': 'हाथ से बिल बनाना समय बर्बाद करता है और गलतियाँ होती हैं',
     'challenge.point3': 'ग्राहकों को ट्रैक या जुड़ने का तरीका नहीं',
     'challenge.point4': 'दुकान का सही हिसाब समझ नहीं आता',
-    'challenge.solution': 'ल्यूम देता है आपकी दुकान को डिजिटल ताकत',
-    'challenge.solutionDesc': 'अब सिर्फ बिलिंग नहीं, बल्कि ग्राहक बढ़ाने और बिक्री बढ़ाने का पूरा सिस्टम — वो भी बिना महंगे मशीन या टेक्निकल झंझट के।',
+    'challenge.solution': 'अब सिर्फ बिलिंग नहीं — पूरी दुकान डिजिटल।',
+    'challenge.solutionDesc': 'ल्यूम आपके बिल, ग्राहक, ऑफ़र, स्टॉक और रिपोर्ट्स को एक आसान सिस्टम में बदल देता है।',
+    'challenge.supportLine': 'बिना महंगे मशीन • बिना टेक्निकल झंझट',
+    'challenge.cta': 'डेमो बुक करें',
     
     // Benefits
     'benefit.fastBilling.title': 'तेज़ और आसान बिलिंग',

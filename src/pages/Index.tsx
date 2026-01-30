@@ -522,9 +522,14 @@ export default function Index() {
               <h3 className="text-xl sm:text-2xl md:text-3xl font-display font-bold mb-3 sm:mb-4" style={{ color: '#146fb5' }}>
                 {t('challenge.solution')}
               </h3>
-              <p className="text-sm sm:text-base max-w-2xl mx-auto mb-6 sm:mb-8" style={{ color: '#4f4f4f' }}>
+              <p className="text-sm sm:text-base max-w-2xl mx-auto mb-3 sm:mb-4" style={{ color: '#4f4f4f' }}>
                 {t('challenge.solutionDesc')}
               </p>
+              {t('challenge.supportLine') && (
+                <p className="text-xs sm:text-sm mb-6 sm:mb-8" style={{ color: '#4f4f4f' }}>
+                  {t('challenge.supportLine')}
+                </p>
+              )}
               <Button 
                 size="lg" 
                 variant="cta" 
@@ -532,7 +537,7 @@ export default function Index() {
                 className={`shadow-lg w-full sm:w-auto ${language === 'HI' ? '!whitespace-normal text-xs sm:text-base !px-4 sm:!px-6' : ''}`}
               >
                 <Link to="/for-retailers" className="flex items-center justify-center w-full">
-                  <span className={language === 'HI' ? 'text-center leading-tight' : ''}>{t('challenge.solution')}</span>
+                  <span className={language === 'HI' ? 'text-center leading-tight' : ''}>{t('challenge.cta')}</span>
                   <ArrowRight className={`${language === 'HI' ? 'w-3.5 h-3.5 sm:w-4 sm:h-4' : 'w-4 h-4'} ${language === 'HI' ? 'ml-1.5 sm:ml-1' : 'ml-1'} flex-shrink-0`} />
                 </Link>
               </Button>
@@ -551,10 +556,14 @@ export default function Index() {
               viewport={{ once: true }}
             >
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-3 sm:mb-4" style={{ color: '#1b181f' }}>
-                {t('challenge.solution')}
+                {language === 'HI' ? (
+                  <>{t('hero.title')} {t('hero.titleHighlight')}</>
+                ) : (
+                  <>{t('hero.title')} <span style={{ color: '#146fb5' }}>{t('hero.titleHighlight')}</span></>
+                )}
               </h2>
               <p className="text-base sm:text-lg" style={{ color: '#4f4f4f' }}>
-                {t('challenge.solutionDesc')}
+                {t('hero.description')}
               </p>
             </motion.div>
           </div>
