@@ -4,6 +4,7 @@ import { ArrowRight, Rocket, Heart, Users, Zap, MapPin, Briefcase } from "lucide
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { useSEO } from "@/hooks/useSEO";
 
 const perks = [
   { icon: Rocket, title: "High Impact Work", description: "Build products used by 250+ retailers daily" },
@@ -40,6 +41,7 @@ const openings = [
 ];
 
 export default function Careers() {
+  useSEO('Careers – Join Lume & Apeiros AI', 'Join the Lume team. Build products for Indian retailers. Open roles in engineering, design, marketing.');
   return (
     <div className="min-h-screen bg-background">
       <Header />

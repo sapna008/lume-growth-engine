@@ -1,9 +1,11 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function Terms() {
   const { language } = useLanguage();
+  useSEO('Terms & Conditions – Lume', 'Terms of use for Lume retail platform by Apeiros AI.');
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Header />

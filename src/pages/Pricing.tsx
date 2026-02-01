@@ -11,6 +11,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useSEO } from "@/hooks/useSEO";
 import { useState } from "react";
 
 const plans = [
@@ -18,7 +19,7 @@ const plans = [
     name: "Standard",
     nameHI: "स्टैंडर्ड",
     tagLine: "Ideal for small retail businesses",
-    price: "₹2,500",
+    price: "₹5,500",
     originalPrice: "₹14,999",
     periodLabel: "per year + 18% GST",
     highlightLine: "What's included:",
@@ -538,6 +539,10 @@ const faqs = [
 export default function Pricing() {
   const { language } = useLanguage();
   const [showComparison, setShowComparison] = useState(false);
+  useSEO(
+    'Pricing Plans – Lume for Retailers',
+    'Lume pricing: Standard, Advance & Premium plans. Digital billing, customer loyalty, campaigns. Start from ₹5,500/year. Book a demo.'
+  );
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50/50 via-white to-amber-50/30">
@@ -745,7 +750,7 @@ export default function Pricing() {
                         <th className="text-center py-4 px-4 font-semibold" style={{ color: '#1b181f' }}>
                           <div className="flex flex-col items-center">
                             <span>{language === "HI" ? "स्टैंडर्ड" : "Standard"}</span>
-                            <span className="text-sm font-normal" style={{ color: '#4f4f4f' }}>₹2,500 / year</span>
+                            <span className="text-sm font-normal" style={{ color: '#4f4f4f' }}>₹5,500 / year</span>
                           </div>
                         </th>
                         <th className="text-center py-4 px-4 font-semibold" style={{ color: '#1b181f' }}>

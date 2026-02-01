@@ -23,6 +23,7 @@ import { Button } from "@/components/ui/button";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useSEO } from "@/hooks/useSEO";
 
 // Import problem and solution images
 import problem1 from "@/assets/problem-solved/problem/i-1.png";
@@ -53,7 +54,11 @@ import retbanGif from "@/assets/retban.gif";
 
 export default function ForRetailers() {
   const { t, language } = useLanguage();
-  
+  useSEO(
+    'For Retailers – Turn Your Store into a Modern Business',
+    'Lume gives Indian retailers digital billing, customer insights & smart tools. Compete with quick commerce. No expensive machines.'
+  );
+
   const painPoints = [
     {
       problem: t('forRetailers.problems.problem1'),
@@ -186,7 +191,7 @@ export default function ForRetailers() {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-20 sm:pt-12 lg:pt-16 pb-12 sm:pb-16 lg:pb-24 hero-gradient text-white px-4 sm:px-0">
+      <section className="pt-20 sm:pt-12 lg:pt-16 pb-12 sm:pb-16 lg:pb-24 hero-gradient text-white">
         <div className="container-wide">
           <div className="grid md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center">
             {/* Left Side - Text Content */}
@@ -201,7 +206,7 @@ export default function ForRetailers() {
                   <span className="text-xs sm:text-sm" style={{ color: '#1b181f' }}>{t('forRetailers.hero.badge')}</span>
                 </div>
 
-                <h1 className={`font-bold ${language === 'HI' ? 'text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-5 sm:mb-7 leading-[1.5]' : 'text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-3 sm:mb-4 leading-tight'} px-2 sm:px-0`} style={{ color: '#1b181f' }}>
+                <h1 className={`font-bold ${language === 'HI' ? 'text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-5 sm:mb-7 leading-[1.5]' : 'text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-3 sm:mb-4 leading-tight'}`} style={{ color: '#1b181f' }}>
                   {language === 'HI' ? (
                     <>
                       <div className="block">{t('forRetailers.hero.title')}</div>
@@ -218,11 +223,11 @@ export default function ForRetailers() {
                   )}
                 </h1>
 
-                <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 px-4 sm:px-0 md:px-0" style={{ color: '#4f4f4f' }}>
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8" style={{ color: '#4f4f4f' }}>
                   {t('forRetailers.hero.description')}
                 </p>
 
-                <div className="flex flex-row gap-3 sm:gap-4 w-full sm:w-auto px-4 sm:px-0">
+                <div className="flex flex-row gap-3 sm:gap-4 w-full sm:w-auto">
                   <Button size="xl" variant="hero" asChild className="shadow-lg hover:shadow-xl transition-shadow h-10 sm:h-12 text-sm sm:text-base px-4 sm:px-6 flex-1 sm:flex-initial">
                     <Link to="/book-demo">
                       {t('forRetailers.hero.bookDemo')}
@@ -257,13 +262,13 @@ export default function ForRetailers() {
       </section>
 
       {/* Pain Points → Solutions */}
-      <section className="section-spacing bg-white px-4 sm:px-0">
+      <section className="section-spacing bg-white">
         <div className="container-wide">
           <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 lg:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4" style={{ color: '#1b181f' }}>
               {t('forRetailers.problems.title')}
             </h2>
-            <p className="text-base sm:text-lg px-4 sm:px-0" style={{ color: '#4f4f4f' }}>
+            <p className="text-base sm:text-lg" style={{ color: '#4f4f4f' }}>
               {t('forRetailers.problems.subtitle')}
             </p>
           </div>
@@ -285,16 +290,16 @@ export default function ForRetailers() {
                   <div className="grid lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 items-center">
                     {/* Problem Box - Left Side */}
                     <div className="relative order-2 lg:order-1">
-                      <div className="bg-gradient-to-br from-gray-50 to-white rounded-xl sm:rounded-2xl border border-gray-200/60 px-4 sm:px-5 py-2 sm:py-2.5 shadow-sm hover:shadow-md hover:border-gray-300 transition-all duration-300">
-                        <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 md:gap-5">
+                      <div className="bg-gradient-to-br from-gray-50 to-white rounded-xl sm:rounded-2xl border border-gray-200/60 px-3 sm:px-4 py-1 sm:py-1.5 shadow-sm hover:shadow-md hover:border-gray-300 transition-all duration-300">
+                        <div className="flex flex-row items-center gap-2 sm:gap-3">
                           <div className="flex-shrink-0">
                             <img 
                               src={item.problemImg} 
                               alt={item.problem}
-                              className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 object-contain opacity-60"
+                              className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain opacity-60"
                             />
                           </div>
-                          <div className="flex-1 min-w-0 text-center sm:text-left flex items-center">
+                          <div className="flex-1 min-w-0 text-left flex items-center">
                             <p className="text-xs sm:text-sm md:text-base line-through leading-relaxed break-words font-medium w-full" style={{ color: '#9ca3af' }}>
                               {item.problem}
                             </p>
@@ -312,17 +317,17 @@ export default function ForRetailers() {
 
                     {/* Solution Box - Right Side */}
                     <div className="relative order-3">
-                      <div className="bg-gradient-to-br from-[#eaf2f8] to-white rounded-xl sm:rounded-2xl border-2 border-[#146fb5]/40 px-4 sm:px-5 py-2 sm:py-2.5 shadow-sm hover:shadow-md hover:border-[#146fb5]/60 transition-all duration-300">
-                        <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 md:gap-5">
+                      <div className="bg-gradient-to-br from-[#eaf2f8] to-white rounded-xl sm:rounded-2xl border-2 border-[#146fb5]/40 px-3 sm:px-4 py-1 sm:py-1.5 shadow-sm hover:shadow-md hover:border-[#146fb5]/60 transition-all duration-300">
+                        <div className="flex flex-row items-center gap-2 sm:gap-3">
                           <div className="flex-shrink-0">
                             <img 
                               src={item.solutionImg} 
                               alt={item.solution}
-                              className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 object-contain opacity-70"
+                              className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain opacity-70"
                             />
                           </div>
-                          <div className="flex-1 min-w-0 text-center sm:text-left flex items-center">
-                            <p className="text-xs sm:text-sm md:text-base font-semibold flex items-center justify-center sm:justify-start gap-1.5 sm:gap-2 leading-relaxed break-words w-full">
+                          <div className="flex-1 min-w-0 text-left flex items-center">
+                            <p className="text-xs sm:text-sm md:text-base font-semibold flex items-center justify-start gap-1.5 sm:gap-2 leading-relaxed break-words w-full">
                               <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" style={{ color: '#146fb5' }} />
                               <span style={{ color: '#1b181f' }}>{item.solution}</span>
                             </p>
@@ -339,7 +344,7 @@ export default function ForRetailers() {
       </section>
 
       {/* How It Works */}
-      <section className="section-padding subtle-gradient px-4 sm:px-0">
+      <section className="section-padding subtle-gradient">
         <div className="container-wide">
           <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8 lg:mb-10">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4" style={{ color: '#1b181f' }}>
@@ -398,13 +403,13 @@ export default function ForRetailers() {
       </section>
 
       {/* Industry Solutions */}
-      <section className="section-spacing bg-white px-4 sm:px-0">
+      <section className="section-spacing bg-white">
         <div className="container-wide">
           <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8 lg:mb-10">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4" style={{ color: '#1b181f' }}>
               {t('forRetailers.industries.title')}
             </h2>
-            <p className="text-base sm:text-lg px-4 sm:px-0" style={{ color: '#4f4f4f' }}>
+            <p className="text-base sm:text-lg" style={{ color: '#4f4f4f' }}>
               {t('forRetailers.industries.subtitle')}
             </p>
           </div>
@@ -442,7 +447,7 @@ export default function ForRetailers() {
       </section>
 
       {/* Success Stories */}
-      <section className="section-spacing hero-gradient text-white px-4 sm:px-0">
+      <section className="section-spacing hero-gradient text-white">
         <div className="container-wide">
           <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8 lg:mb-10">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4" style={{ color: '#1b181f' }}>
@@ -474,7 +479,7 @@ export default function ForRetailers() {
       </section>
 
       {/* ROI Section */}
-      <section className="section-spacing bg-white px-4 sm:px-0">
+      <section className="section-spacing bg-white">
         <div className="container-wide">
           <div className="grid md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-start md:items-center">
             <motion.div

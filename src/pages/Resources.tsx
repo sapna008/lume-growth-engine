@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, FileText, BookOpen, Video, Play, Calendar } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { useSEO } from "@/hooks/useSEO";
 
 const resourceCategories = [
   {
@@ -54,6 +55,10 @@ const resourceCategories = [
 export default function Resources() {
   const { id } = useParams();
   const selectedCategory = id ? resourceCategories.find(c => c.id === id) : null;
+  useSEO(
+    selectedCategory ? `${selectedCategory.title} – Lume Resources` : 'Resources – Guides, Case Studies & Videos | Lume',
+    selectedCategory ? selectedCategory.desc : 'Lume resources: case studies, guides, videos. Learn how retailers grow with digital billing & loyalty.'
+  );
 
   if (selectedCategory) {
     return (

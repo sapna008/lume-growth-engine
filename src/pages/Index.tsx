@@ -23,6 +23,7 @@ import { Button } from "@/components/ui/button";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useSEO } from "@/hooks/useSEO";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import { useMemo } from 'react';
@@ -240,8 +241,10 @@ const testimonials = [
 
 export default function Index() {
   const { t, language } = useLanguage();
-  // Debug: Check if image is loaded
-  console.log('Background image path:', bgImage);
+  useSEO(
+    'Digital Billing & Retail Growth for Indian Stores',
+    'Lume helps Indian retailers with digital billing, customer insights, loyalty & campaigns. One simple platform. Grow your store.'
+  );
   
   // Memoize testimonials to prevent re-renders
   const memoizedTestimonials = useMemo(() => testimonials, []);
@@ -253,7 +256,7 @@ export default function Index() {
         {/* Background Image */}
         <img 
           src={bgImage}
-          alt=""
+          alt="Retail POS billing software dashboard for Indian stores"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ zIndex: 0 }}
         />
@@ -274,16 +277,30 @@ export default function Index() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                <div className={`inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20 ${language === 'HI' ? 'mb-8' : 'mb-6'}`}>
+                <div className={`inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20 ${language === 'HI' ? 'mb-4 sm:mb-8' : 'mb-4 sm:mb-6'}`}>
                   <span className="w-2 h-2 rounded-full bg-[#146fb5] animate-pulse" />
                   <span className={`font-medium ${language === 'HI' ? 'text-xs' : 'text-sm'}`} style={{ color: '#1b181f' }}>{t('hero.badge')}</span>
                 </div>
                 
-                <h1 className={`font-display font-bold ${language === 'HI' ? 'text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-5 sm:mb-7 leading-[1.5] space-y-1' : 'text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 sm:mb-6 leading-tight'}`} style={{ color: '#1b181f' }}>
+                <h1 className={`font-display font-bold ${language === 'HI' ? 'text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-5 sm:mb-7 leading-[1.5]' : 'text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 sm:mb-6 leading-tight'}`} style={{ color: '#1b181f' }}>
                   {language === 'HI' ? (
                     <>
-                      <div className="block">{t('hero.title')}</div>
-                      <div className="block" style={{ color: '#146fb5' }}>{t('hero.titleHighlight')}</div>
+                      {/* Mobile: 2 lines — Line 1: title + स्मार्ट POS, Line 2: और डिजिटल बिलिंग से बढ़ाइए */}
+                      <div className="sm:hidden">
+                        <div className="block">
+                          {t('hero.title')}{" "}
+                          <span style={{ color: '#146fb5' }}>{t('hero.titleHighlightPart1')}</span>
+                        </div>
+                        <div className="block pt-2" style={{ color: '#146fb5' }}>
+                          {t('hero.titleHighlightPart2')} {t('hero.titleHighlightLine2')}
+                        </div>
+                      </div>
+                      {/* Desktop: 3 lines — Line 1: title, Line 2: स्मार्ट POS और डिजिटल, Line 3: बिलिंग से बढ़ाइए */}
+                      <div className="hidden sm:block">
+                        <div className="block">{t('hero.title')}</div>
+                        <div className="block pt-2 sm:pt-3" style={{ color: '#146fb5' }}>{t('hero.titleHighlightPart1')} {t('hero.titleHighlightPart2')}</div>
+                        <div className="block pt-1.5 sm:pt-2" style={{ color: '#146fb5' }}>{t('hero.titleHighlightLine2')}</div>
+                      </div>
                     </>
                   ) : (
                     <>
@@ -354,7 +371,7 @@ export default function Index() {
                     <div className="flex justify-end w-full -mr-4 sm:-mr-6 md:-mr-8 lg:-mr-12 xl:-mr-16" style={{ paddingRight: 0, marginRight: 0 }}>
                       <img 
                         src={dashboardDesktop} 
-                    alt="Lume retail management app interface showing billing and analytics" 
+                        alt="Retail POS billing software dashboard for Indian stores"
                         className="max-w-[200px] sm:max-w-[280px] md:max-w-[360px] lg:max-w-[440px] xl:max-w-[520px] drop-shadow-2xl"
                         style={{ 
                           zIndex: 1, 
@@ -505,6 +522,7 @@ export default function Index() {
                   src={point.icon} 
                   alt="" 
                   className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 mx-auto mb-3 object-contain group-hover:scale-110 transition-transform"
+                  role="presentation"
                 />
                 <p className="text-xs sm:text-sm font-medium" style={{ color: '#1b181f' }}>{t(point.key)}</p>
               </motion.div>

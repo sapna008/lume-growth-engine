@@ -21,6 +21,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useSEO } from "@/hooks/useSEO";
 
 const caseStudies = [
   {
@@ -171,6 +172,7 @@ const testimonials = [
 
 export default function CaseStudies() {
   const { language } = useLanguage();
+  useSEO('Case Studies – Retailers Growing with Lume', 'See how Indian retailers use Lume for digital billing, loyalty & growth. Real success stories.');
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Header />

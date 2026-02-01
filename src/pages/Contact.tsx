@@ -7,8 +7,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { toast } from "sonner";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function Contact() {
+  useSEO('Contact Us – Lume Support & Sales', 'Contact Lume for demo, pricing, or support. Email, phone, and form. We help Indian retailers grow.');
   const [formData, setFormData] = useState({
     name: "",
     email: "",

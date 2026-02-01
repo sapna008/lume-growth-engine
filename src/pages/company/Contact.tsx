@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { useSEO } from "@/hooks/useSEO";
 
 const contactMethods = [
   {
@@ -32,6 +33,7 @@ const contactMethods = [
 ];
 
 export default function Contact() {
+  useSEO('Contact – Lume & Apeiros AI', 'Contact Lume: email, phone, address. Sales, support, and partnerships.');
   return (
     <div className="min-h-screen bg-background">
       <Header />

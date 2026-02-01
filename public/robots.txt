@@ -12,3 +12,6 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Sitemap (generate with build or add sitemap.xml to public/)
+Sitemap: https://lume.apeiros.ai/sitemap.xml

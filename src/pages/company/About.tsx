@@ -7,9 +7,11 @@ import { Footer } from "@/components/layout/Footer";
 import gyanPhoto from "@/assets/about-us/gyan.jpg";
 import seemaPhoto from "@/assets/about-us/seema.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function About() {
   const { language } = useLanguage();
+  useSEO('About Us – Lume & Apeiros AI', 'Meet the team behind Lume. We build digital tools for Indian retailers. Billing, loyalty, growth – one platform.');
 
   return (
     <div className="min-h-screen bg-background">
@@ -421,12 +423,12 @@ export default function About() {
                 <div className="w-24 h-24 rounded-2xl overflow-hidden border border-[#146fb5]/20 bg-white flex-shrink-0">
                   <img
                     src={gyanPhoto}
-                    alt="Gyan – Founder & Director"
+                    alt="Gyanendra singh – Founder & Director"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="text-left">
-                  <h3 className="text-lg font-semibold text-[#1b181f]">Gyan</h3>
+                  <h3 className="text-lg font-semibold text-[#1b181f]">Gyanendra Singh</h3>
                   <p className="text-sm font-medium text-[#146fb5]">Founder & Director</p>
                   <p className="text-xs text-muted-foreground mt-1">
                     23+ years across Retail, POS, FinTech, Payments, Loyalty, Banking & Digital Platforms.
@@ -437,7 +439,7 @@ export default function About() {
                 {language === "HI" ? (
                   <>
                     <p>
-                      Gyan के पास रिटेल, POS, फ़िनटेक, पेमेंट्स, लॉयल्टी, बैंकिंग और डिजिटल प्लेटफ़ॉर्म्स
+                      Gyanendra singh के पास रिटेल, POS, फ़िनटेक, पेमेंट्स, लॉयल्टी, बैंकिंग और डिजिटल प्लेटफ़ॉर्म्स
                       में 23+ साल का डीप, हैंड्स‑ऑन अनुभव है।
                     </p>
                     <ul className="space-y-1.5">
@@ -477,7 +479,7 @@ export default function About() {
                 ) : (
                   <>
                     <p>
-                      Gyan brings over 23+ years of deep, hands-on experience across retail, POS,
+                      Gyanendra singh brings over 23+ years of deep, hands-on experience across retail, POS,
                       fintech, payments, loyalty, banking and digital platforms.
                     </p>
                     <ul className="space-y-1.5">
@@ -530,12 +532,12 @@ export default function About() {
                 <div className="w-24 h-24 rounded-2xl overflow-hidden border border-[#146fb5]/20 bg-white flex-shrink-0">
                   <img
                     src={seemaPhoto}
-                    alt="Seema – Director"
+                    alt="Seema Singh– Director"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="text-left">
-                  <h3 className="text-lg font-semibold text-[#1b181f]">Seema</h3>
+                  <h3 className="text-lg font-semibold text-[#1b181f]">Seema Singh</h3>
                   <p className="text-sm font-medium text-[#146fb5]">Director</p>
                   <p className="text-xs text-muted-foreground mt-1">
                     15+ years across QA, retail systems, POS, loyalty, FinTech & digital applications.
@@ -546,7 +548,7 @@ export default function About() {
                 {language === "HI" ? (
                   <>
                     <p>
-                      Seema के पास QA, रिटेल सिस्टम्स, POS प्लेटफ़ॉर्म, लॉयल्टी प्रोग्राम्स, फ़िनटेक और
+                      Seema Singh के पास QA, रिटेल सिस्टम्स, POS प्लेटफ़ॉर्म, लॉयल्टी प्रोग्राम्स, फ़िनटेक और
                       डिजिटल एप्लिकेशन्स में 15+ साल का अनुभव है।
                     </p>
                     <ul className="space-y-1.5">
@@ -564,7 +566,7 @@ export default function About() {
                       </li>
                     </ul>
                     <p>
-                      Apeiros AI में Seema एक्ज़ीक्यूशन एंकर की भूमिका निभाती हैं — यह सुनिश्चित करते हुए कि
+                      Apeiros AI में Seema Singh एक्ज़ीक्यूशन एंकर की भूमिका निभाती हैं — यह सुनिश्चित करते हुए कि
                       Lume स्थिर, स्केलेबल और प्रोडक्शन‑रेडी रहे। उनकी भूमिका में क्वालिटी इंजीनियरिंग,
                       सेल्स प्लानिंग सपोर्ट, कस्टमर ऑपरेशंस, गवर्नन्स, ऑडिट्स और डिलीवरी डिसिप्लिन शामिल हैं।
                     </p>
@@ -576,7 +578,7 @@ export default function About() {
                 ) : (
                   <>
                     <p>
-                      Seema brings 15+ years of experience across QA, retail systems, POS platforms,
+                      Seema Singh brings 15+ years of experience across QA, retail systems, POS platforms,
                       loyalty programs, fintech and digital applications.
                     </p>
                     <ul className="space-y-1.5">
@@ -594,7 +596,7 @@ export default function About() {
                       </li>
                     </ul>
                     <p>
-                      At Apeiros AI, Seema acts as the execution anchor — ensuring that Lume is stable,
+                      At Apeiros AI, Seema Singh acts as the execution anchor — ensuring that Lume is stable,
                       scalable and production‑ready. Her role spans quality engineering, sales planning
                       support, customer operations, governance, audits and delivery discipline.
                     </p>

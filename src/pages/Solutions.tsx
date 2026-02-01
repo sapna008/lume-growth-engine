@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useSEO } from "@/hooks/useSEO";
 
 const solutions = [
   {
@@ -173,8 +174,12 @@ const solutions = [
 ];
 
 export default function Solutions() {
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
   const { id } = useParams<{ id?: string }>();
+  useSEO(
+    'Solutions – Digital Billing, Loyalty & Analytics for Retail',
+    'Lume solutions: digital billing, customer loyalty, campaigns, analytics. Built for Indian retailers. One platform.'
+  );
 
   useEffect(() => {
     if (!id) {
@@ -298,7 +303,7 @@ export default function Solutions() {
 
                 <Button variant="cta" asChild>
                   <Link to={solution.href}>
-                    {language === "HI" ? "और जानें" : "Learn More"}
+                    {t('seo.link.exploreFeatures')}
                     <ArrowRight className="w-4 h-4 ml-1" />
                   </Link>
                 </Button>

@@ -27,9 +27,11 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function Guides() {
   const { language } = useLanguage();
+  useSEO('Guides – Lume Setup, Billing & Campaigns', 'Step-by-step Lume guides: getting started, billing, campaigns, loyalty. For Indian retailers.');
 
   const quickGuides = [
     {

@@ -16,6 +16,7 @@ import {
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useSEO } from "@/hooks/useSEO";
 
 // Billing guide images
 import billTabsImage from "@/assets/help-guide/billing-guides/step-1-bill-tabs.png";
@@ -32,6 +33,7 @@ type BillingTypeKey = "quick" | "pos" | "image" | "mpos" | "listing";
 export default function BillingGuide() {
   const [openSection, setOpenSection] = useState<BillingTypeKey | null>("quick");
   const { language } = useLanguage();
+  useSEO('Billing Guide – Quick Bill, POS Bill, Image Bill | Lume', 'How to create bills in Lume: Quick Bill, POS Bill, Image Bill, MPOS, E-Bill Listing. Step-by-step guide for retailers.');
 
   const toggleSection = (key: BillingTypeKey) => {
     setOpenSection((prev) => (prev === key ? null : key));

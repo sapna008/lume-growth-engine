@@ -245,13 +245,13 @@ export function Header() {
                   <Button 
                     variant="ghost" 
                     size="sm" 
-                    className={`gap-1 text-sm font-medium transition-colors ${
+                    className={`gap-1 text-base font-medium transition-colors ${
                       hoveredMenu === item.name 
                         ? isScrolled 
                           ? 'text-primary bg-primary/5' 
                           : 'text-[#1b181f] bg-white/10'
                         : isScrolled 
-                          ? 'text-foreground/80 hover:bg-primary/5' 
+                          ? 'text-foreground/80 hover:bg-primary/5 hover:text-[#1b181f]' 
                           : 'text-[#1b181f] hover:bg-white/10 hover:text-[#1b181f]'
                     }`}
                   >
@@ -285,7 +285,7 @@ export function Header() {
                               </div>
                               <div className="flex-1">
                                 <div className="flex items-center gap-2">
-                                  <p className="font-medium text-sm text-foreground">
+                                  <p className="font-medium text-base text-foreground">
                                     {language === "HI" && child.nameHI ? child.nameHI : child.name}
                                   </p>
                                   {child.comingSoon && (
@@ -311,11 +311,11 @@ export function Header() {
                   variant="ghost"
                   size="sm"
                   asChild
-                  className={`text-sm font-medium transition-colors ${
+                  className={`text-base font-medium transition-colors ${
                     isActive(item.href)
                       ? "text-[#146fb5]"
                       : isScrolled
-                        ? "text-foreground/80 hover:bg-primary/5"
+                        ? "text-foreground/80 hover:bg-primary/5 hover:text-[#1b181f]"
                         : "text-[#1b181f] hover:bg-white/10 hover:text-[#1b181f]"
                   }`}
                 >
@@ -671,7 +671,7 @@ export function Header() {
                     >
                       <button
                         type="button"
-                        className="w-full flex items-center justify-between px-3 py-3 min-h-[52px] text-sm font-medium text-[#1b181f]"
+                        className="w-full flex items-center justify-between px-3 py-3 min-h-[52px] text-base font-medium text-[#1b181f]"
                         onClick={() => {
                           if (hasChildren) {
                             setMobileExpandedMenu(isExpanded ? null : item.name);
@@ -708,7 +708,7 @@ export function Header() {
                                   setMobileMenuOpen(false);
                                 }
                               }}
-                              className={`flex items-center gap-2 px-3 py-2 text-sm ${
+                              className={`flex items-center gap-2 px-3 py-2 text-base ${
                                 child.comingSoon
                                   ? "text-muted-foreground/60 cursor-not-allowed"
                                   : "text-muted-foreground hover:text-foreground hover:bg-secondary/20"
@@ -738,7 +738,7 @@ export function Header() {
                   <Link
                     to="/help"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="w-full flex items-center gap-2 px-3 py-3 text-sm font-medium text-[#1b181f]"
+                    className="w-full flex items-center gap-2 px-3 py-3 text-base font-medium text-[#1b181f]"
                   >
                     <HelpCircle className="w-4 h-4 text-[#146fb5]" />
                     <span>{language === "HI" ? "मदद / हेल्प सेंटर" : "Help Center"}</span>

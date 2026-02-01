@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useSEO } from "@/hooks/useSEO";
 
 const categories = [
   { 
@@ -112,6 +113,7 @@ const faqs = [
 export default function Help() {
   const { language } = useLanguage();
   const [searchQuery, setSearchQuery] = useState("");
+  useSEO('Help Center – Lume Guides & Support', 'Get help with Lume: getting started, billing guide, FAQs. Setup in minutes. Support for Indian retailers.');
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (

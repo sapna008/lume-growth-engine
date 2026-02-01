@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useSEO } from "@/hooks/useSEO";
 
 // Generate time slots (9 AM to 6 PM, 30 min intervals)
 const generateTimeSlots = () => {
@@ -38,6 +39,7 @@ const getAvailableDates = () => {
 
 export default function BookDemo() {
   const { t } = useLanguage();
+  useSEO('Book a Demo – See Lume in Action', 'Schedule a free Lume demo. See digital billing, customer insights & campaigns. For Indian retailers.');
   const [formData, setFormData] = useState({
     name: '',
     phone: '',

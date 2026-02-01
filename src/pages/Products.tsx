@@ -18,6 +18,7 @@ import { Button } from "@/components/ui/button";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useSEO } from "@/hooks/useSEO";
 import dashboardDesktop from "@/assets/hero-banner/dashboard-hindii.png";
 import dashboardMobile from "@/assets/hero-banner/dashboard-mob-hindi.png";
 import lumeLogo from "@/assets/lume_logo.png";
@@ -35,7 +36,11 @@ import posImage from "@/assets/products/pos.png";
 export default function Products() {
   const { t, language } = useLanguage();
   const { id } = useParams<{ id?: string }>();
-  
+  useSEO(
+    'Products – Billing, POS, Loyalty & Analytics | Lume',
+    'Lume products: billing & POS integration, smart digital bills, customer loyalty, analytics & campaign manager. One retail platform.'
+  );
+
   useEffect(() => {
     if (!id) {
       window.scrollTo({ top: 0, behavior: "auto" });
@@ -318,31 +323,31 @@ export default function Products() {
                     {capability.title === t('products.coreCapabilities.billing.title') ? (
                       <img 
                         src={posImage} 
-                        alt="Billing & POS Integration" 
+                        alt="Retail POS billing software dashboard for Indian stores"
                         className="w-full max-w-md h-auto max-h-64 sm:max-h-80 rounded-lg object-contain"
                       />
                     ) : capability.title === t('products.coreCapabilities.loyalty.title') ? (
                       <img 
                         src={loyaltyImage} 
-                        alt="Customer & Loyalty Engine" 
+                        alt="Customer loyalty and rewards system in POS software"
                         className="w-full max-w-md h-auto max-h-64 sm:max-h-80 rounded-lg object-contain"
                       />
                     ) : capability.title === t('products.coreCapabilities.digitalBills.title') ? (
                       <img 
                         src={smartDigitalBillImage} 
-                        alt="Smart Digital Bills" 
+                        alt="Digital billing system for retail shops"
                         className="w-full max-w-md h-auto max-h-64 sm:max-h-80 rounded-lg object-contain"
                       />
                     ) : capability.title === t('products.coreCapabilities.analytics.title') ? (
                       <img 
                         src={analyticsReportImage} 
-                        alt="Analytics & Reports" 
+                        alt="Customer insights and sales analytics for retailers"
                         className="w-full max-w-md h-auto max-h-64 sm:max-h-80 rounded-lg object-contain"
                       />
                     ) : capability.title === t('products.coreCapabilities.campaign.title') ? (
                       <img 
                         src={campaignManagerImage} 
-                        alt="Campaign Manager" 
+                        alt="Retail marketing and SMS campaign tools"
                         className="w-full max-w-md h-auto max-h-64 sm:max-h-80 rounded-lg object-contain"
                       />
                     ) : (

@@ -17,10 +17,30 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.badge': 'Trusted by 250+ retailers across India',
     'hero.title': 'Grow Your Retail Business with',
     'hero.titleHighlight': 'Digital Tools',
-    'hero.description': 'Simple billing, smart customer management, and real-time insights — everything you need to compete with quick commerce and grow your store.',
+    'hero.titleHighlightLine1': 'Digital Tools',
+    'hero.titleHighlightLine2': '',
+    'hero.titleHighlightPart1': 'Digital Tools',
+    'hero.titleHighlightPart2': '',
+    'hero.titleHighlightBilling': '',
+    'hero.titleHighlightCTA': '',
+    'hero.description': 'Lume is smart retail POS software. Fast billing, customer insights, loyalty and marketing tools. Indian stores grow sales and retention.',
     'hero.download': 'Download',
     'hero.watchDemo': 'Book a Demo',
     'hero.rating': '4.8/5 from 250+ reviews',
+
+    // SEO H2 headings (unique, no duplicate)
+    'seo.h2.whatIsLume': 'What is Lume Retail POS?',
+    'seo.h2.smartBilling': 'Smart Billing Software for Indian Retailers',
+    'seo.h2.customerInsights': 'Customer Insights & Sales Analytics',
+    'seo.h2.digitalBillsLoyalty': 'Digital Bills, Loyalty & Marketing Tools',
+    'seo.h2.whyChooseLume': 'Why Indian Retailers Choose Lume',
+    'seo.h2.keyFeatures': 'Key Features of Lume POS Platform',
+    'seo.h2.useCases': 'Use Cases for Retail Stores',
+    'seo.h2.faq': 'Frequently Asked Questions',
+    'seo.link.exploreFeatures': 'Explore POS Features',
+    'seo.link.viewAnalytics': 'View Customer Analytics',
+    'seo.link.seeDemo': 'See Digital Billing Demo',
+    'seo.link.checkPricing': 'Check Pricing Plans',
     
     // Stats
     'stats.retailers': 'Retailers Trust Us',
@@ -306,14 +326,34 @@ const translations: Record<Language, Record<string, string>> = {
     'forRetailers.cta.viewPricing': 'Or view pricing plans',
   },
   HI: {
-    // Hero Section
+    // Hero Section (SEO: short sentences, unique Hindi)
     'hero.badge': 'भारत के 250+ दुकानदारों का भरोसा',
-    'hero.title': 'अपने दुकान के बिज़नेस को',
-    'hero.titleHighlight': 'डिजिटल टूल्स से बढ़ाइए',
-    'hero.description': 'बिलिंग से लेकर ग्राहकों की जानकारी और बिक्री की पूरी रिपोर्ट — सब कुछ एक ही मोबाइल ऐप में। अब बड़ी डिलीवरी ऐप्स से मुकाबला करना आसान।',
+    'hero.title': 'अपने रिटेल बिज़नेस को',
+    'hero.titleHighlight': 'स्मार्ट POS और डिजिटल बिलिंग से बढ़ाइए',
+    'hero.titleHighlightLine1': 'स्मार्ट POS और डिजिटल',
+    'hero.titleHighlightLine2': 'बिलिंग से बढ़ाइए',
+    'hero.titleHighlightPart1': 'स्मार्ट POS',
+    'hero.titleHighlightPart2': 'और डिजिटल',
+    'hero.titleHighlightBilling': 'बिलिंग',
+    'hero.titleHighlightCTA': 'से बढ़ाइए',
+    'hero.description': 'ल्यूम एक स्मार्ट रिटेल POS प्लेटफ़ॉर्म है। बिलिंग प्रोसेस फास्ट और सिंपल। ग्राहक इनसाइट्स, लॉयल्टी और मार्केटिंग टूल्स। इंडियन स्टोर्स सेल्स और कस्टमर रिटेंशन बढ़ाते हैं।',
     'hero.download': 'डाउनलोड करें',
     'hero.watchDemo': 'डेमो बुक करें',
     'hero.rating': '4.8/5 रेटिंग (250+ दुकानदारों की राय)',
+
+    // SEO H2 headings (Hindi – unique)
+    'seo.h2.whatIsLume': 'ल्यूम रिटेल POS क्या है?',
+    'seo.h2.smartBilling': 'भारतीय रिटेलर्स के लिए स्मार्ट बिलिंग सॉफ्टवेयर',
+    'seo.h2.customerInsights': 'कस्टमर इनसाइट्स और सेल्स एनालिटिक्स',
+    'seo.h2.digitalBillsLoyalty': 'डिजिटल बिल, लॉयल्टी और मार्केटिंग टूल्स',
+    'seo.h2.whyChooseLume': 'भारतीय रिटेलर्स ल्यूम क्यों चुनते हैं',
+    'seo.h2.keyFeatures': 'ल्यूम POS प्लेटफ़ॉर्म की मुख्य सुविधाएँ',
+    'seo.h2.useCases': 'रिटेल स्टोर्स के लिए यूज़ केस',
+    'seo.h2.faq': 'अक्सर पूछे जाने वाले सवाल',
+    'seo.link.exploreFeatures': 'POS फीचर्स देखें',
+    'seo.link.viewAnalytics': 'कस्टमर एनालिटिक्स देखें',
+    'seo.link.seeDemo': 'डिजिटल बिलिंग डेमो देखें',
+    'seo.link.checkPricing': 'प्लान और कीमत देखें',
     
     // Stats
     'stats.retailers': 'दुकानदार जुड़े हुए',
@@ -335,7 +375,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Benefits
     'benefit.fastBilling.title': 'तेज़ और आसान बिलिंग',
-    'benefit.fastBilling.desc': 'सेकंड्स में बिल बनाइए — टैक्स हो या बिना टैक्स। ग्राहक कम इंतज़ार करेंगे, लाइन छोटी होगी।',
+    'benefit.fastBilling.desc': 'स्मार्ट बिलिंग के साथ बिक्री एनालिटिक्स। सेकंड्स में बिल, कम इंतज़ार।',
     'benefit.posIntegration.title': 'आपके मौजूदा POS के साथ काम करता है',
     'benefit.posIntegration.desc': 'नई मशीन लेने की जरूरत नहीं। ल्यूम आपके पुराने सिस्टम के साथ भी चलता है।',
     'benefit.engagement.title': 'हर बिल से दोबारा बिक्री',
@@ -345,7 +385,7 @@ const translations: Record<Language, Record<string, string>> = {
     'benefit.smartOffers.title': 'स्मार्ट ऑफर जो बिल बढ़ाए',
     'benefit.smartOffers.desc': 'सही समय पर सही ऑफर — जैसे चाय के साथ बिस्किट, कपड़ों के साथ मैचिंग आइटम।',
     'benefit.dashboard.title': 'पूरी दुकान एक स्क्रीन पर',
-    'benefit.dashboard.desc': 'बिक्री, स्टॉक, ग्राहक और ऑफर — सब एक ही डैशबोर्ड में।',
+    'benefit.dashboard.desc': 'ग्राहकों की जानकारी और स्टोर परफॉर्मेंस रिपोर्ट एक ही डैशबोर्ड में।',
     
     // How It Works
     'howItWorks.title': '4 आसान स्टेप में शुरुआत',

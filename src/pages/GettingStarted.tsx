@@ -22,6 +22,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useSEO } from "@/hooks/useSEO";
 
 // Import images
 import loginImage from "@/assets/help-guide/login.png";
@@ -39,6 +40,7 @@ export default function GettingStarted() {
   const [expandedSection, setExpandedSection] = useState<string | null>("setup-options");
   const [expandedStep, setExpandedStep] = useState<number | null>(1);
   const { language } = useLanguage();
+  useSEO('Getting Started with Lume – Setup Guide', 'Step-by-step Lume setup: login, pricing, store creation, billing. Get started in minutes.');
 
   const toggleSection = (section: string) => {
     setExpandedSection(expandedSection === section ? null : section);
