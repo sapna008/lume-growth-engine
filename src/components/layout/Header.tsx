@@ -271,35 +271,51 @@ export function Header() {
                         onMouseLeave={handleMouseLeave}
                       >
                         <div className="bg-white rounded-xl shadow-xl border border-border/50 p-2 min-w-[280px]">
-                          {item.children.map((child) => (
-                            <Link
-                              key={child.name}
-                              to={child.href}
-                              onClick={(e) => child.comingSoon && e.preventDefault()}
-                              className={`flex items-start gap-3 p-3 rounded-lg transition-colors group ${
-                                child.comingSoon ? 'cursor-not-allowed opacity-60' : 'hover:bg-secondary/50'
-                              }`}
-                            >
-                              <div className="w-9 h-9 rounded-lg bg-[#146fb5]/10 flex items-center justify-center shrink-0 group-hover:bg-[#146fb5]/15">
-                                <child.icon className="w-4.5 h-4.5" style={{ color: '#146fb5' }} />
-                              </div>
-                              <div className="flex-1">
-                                <div className="flex items-center gap-2">
-                                  <p className="font-medium text-base text-foreground">
-                                    {language === "HI" && child.nameHI ? child.nameHI : child.name}
-                                  </p>
-                                  {child.comingSoon && (
+                          {item.children.map((child) =>
+                            child.comingSoon ? (
+                              <div
+                                key={child.name}
+                                className="flex items-start gap-3 p-3 rounded-lg cursor-not-allowed opacity-60"
+                              >
+                                <div className="w-9 h-9 rounded-lg bg-[#146fb5]/10 flex items-center justify-center shrink-0">
+                                  <child.icon className="w-4.5 h-4.5" style={{ color: '#146fb5' }} />
+                                </div>
+                                <div className="flex-1">
+                                  <div className="flex items-center gap-2">
+                                    <p className="font-medium text-base text-foreground">
+                                      {language === "HI" && child.nameHI ? child.nameHI : child.name}
+                                    </p>
                                     <span className="text-xs px-2 py-0.5 rounded-full bg-[#146fb5]/10 text-[#146fb5] font-medium">
                                       {language === "HI" ? "जल्द आ रहा है" : "Coming Soon"}
                                     </span>
-                                  )}
+                                  </div>
+                                  <p className="text-xs text-muted-foreground">
+                                    {language === "HI" && child.descHI ? child.descHI : child.desc}
+                                  </p>
                                 </div>
-                                <p className="text-xs text-muted-foreground">
-                                  {language === "HI" && child.descHI ? child.descHI : child.desc}
-                                </p>
                               </div>
-                            </Link>
-                          ))}
+                            ) : (
+                              <Link
+                                key={child.name}
+                                to={child.href}
+                                className="flex items-start gap-3 p-3 rounded-lg transition-colors group hover:bg-secondary/50"
+                              >
+                                <div className="w-9 h-9 rounded-lg bg-[#146fb5]/10 flex items-center justify-center shrink-0 group-hover:bg-[#146fb5]/15">
+                                  <child.icon className="w-4.5 h-4.5" style={{ color: '#146fb5' }} />
+                                </div>
+                                <div className="flex-1">
+                                  <div className="flex items-center gap-2">
+                                    <p className="font-medium text-base text-foreground">
+                                      {language === "HI" && child.nameHI ? child.nameHI : child.name}
+                                    </p>
+                                  </div>
+                                  <p className="text-xs text-muted-foreground">
+                                    {language === "HI" && child.descHI ? child.descHI : child.desc}
+                                  </p>
+                                </div>
+                              </Link>
+                            )
+                          )}
                         </div>
                       </motion.div>
                     )}
@@ -697,36 +713,34 @@ export function Header() {
 
                       {hasChildren && isExpanded && (
                         <div className="border-t border-border/50 bg-gradient-to-b from-white to-[#f5f8fc]">
-                          {item.children!.map((child) => (
-                            <Link
-                              key={child.name}
-                              to={child.href}
-                              onClick={(e) => {
-                                if (child.comingSoon) {
-                                  e.preventDefault();
-                                } else {
-                                  setMobileMenuOpen(false);
-                                }
-                              }}
-                              className={`flex items-center gap-2 px-3 py-2 text-base ${
-                                child.comingSoon
-                                  ? "text-muted-foreground/60 cursor-not-allowed"
-                                  : "text-muted-foreground hover:text-foreground hover:bg-secondary/20"
-                              }`}
-                            >
-                              <child.icon className="w-4 h-4" />
-                              <span>
-                                {language === "HI" && child.nameHI
-                                  ? child.nameHI
-                                  : child.name}
-                              </span>
-                              {child.comingSoon && (
+                          {item.children!.map((child) =>
+                            child.comingSoon ? (
+                              <div
+                                key={child.name}
+                                className="flex items-center gap-2 px-3 py-2 text-base text-muted-foreground/60 cursor-not-allowed"
+                              >
+                                <child.icon className="w-4 h-4" />
+                                <span>
+                                  {language === "HI" && child.nameHI ? child.nameHI : child.name}
+                                </span>
                                 <span className="ml-auto text-xs px-2 py-0.5 rounded-full bg-[#146fb5]/10 text-[#146fb5] font-medium">
                                   {language === "HI" ? "जल्द आ रहा है" : "Coming Soon"}
                                 </span>
-                              )}
-                            </Link>
-                          ))}
+                              </div>
+                            ) : (
+                              <Link
+                                key={child.name}
+                                to={child.href}
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="flex items-center gap-2 px-3 py-2 text-base text-muted-foreground hover:text-foreground hover:bg-secondary/20"
+                              >
+                                <child.icon className="w-4 h-4" />
+                                <span>
+                                  {language === "HI" && child.nameHI ? child.nameHI : child.name}
+                                </span>
+                              </Link>
+                            )
+                          )}
                         </div>
                       )}
                     </div>

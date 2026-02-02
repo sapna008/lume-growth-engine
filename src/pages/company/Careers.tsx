@@ -143,7 +143,7 @@ export default function Careers() {
                     </div>
                   </div>
                   <Button variant="cta" asChild>
-                    <Link to="/company/contact">
+                    <Link to="/contact">
                       Apply Now
                       <ArrowRight className="w-4 h-4 ml-1" />
                     </Link>
@@ -158,7 +158,7 @@ export default function Careers() {
               Don't see a role that fits? We're always looking for great talent.
             </p>
             <Button variant="outline" asChild>
-              <Link to="/company/contact">Send Us Your Resume</Link>
+              <Link to="/contact">Send Us Your Resume</Link>
             </Button>
           </div>
         </div>

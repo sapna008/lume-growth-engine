@@ -30,7 +30,9 @@ import { useMemo } from 'react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import dashboardDesktop from "@/assets/hero-banner/dashboard-hindii.png";
+import dashboardEnglish from "@/assets/hero-banner/dashboard-english.png";
 import mobileHeroVideo from "@/assets/hero-banner/mobile-hero.mp4";
+import mobileHeroVideoEnglish from "@/assets/hero-banner/mobile-hero-english.mp4";
 import billVideo from "@/assets/hero-banner/bill-vdoo.mp4";
 import bgImage from "@/assets/bg-1.avif";
 import smileIcon from "@/assets/smile.png";
@@ -364,13 +366,13 @@ export default function Index() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="relative"
               >
-                {/* Desktop / larger screens: layered desktop + video */}
-                <div className="relative z-10 mt-8 lg:mt-0 hidden sm:block">
+                {/* Desktop only (lg+): layered desktop image + video */}
+                <div className="relative z-10 mt-8 lg:mt-0 hidden lg:block">
                   <div className="relative -mt-16 lg:-mt-20 xl:-mt-24">
                     {/* Desktop Image - Background, positioned at right, moved up, aligned to right edge */}
                     <div className="flex justify-end w-full -mr-4 sm:-mr-6 md:-mr-8 lg:-mr-12 xl:-mr-16" style={{ paddingRight: 0, marginRight: 0 }}>
                       <img 
-                        src={dashboardDesktop} 
+                        src={language === 'EN' ? dashboardEnglish : dashboardDesktop} 
                         alt="Retail POS billing software dashboard for Indian stores"
                         className="max-w-[200px] sm:max-w-[280px] md:max-w-[360px] lg:max-w-[440px] xl:max-w-[520px] drop-shadow-2xl"
                         style={{ 
@@ -400,10 +402,10 @@ export default function Index() {
                   </div>
                 </div>
 
-                {/* Mobile: full width video */}
-                <div className="sm:hidden mt-2 w-full">
+                {/* Mobile + Tablet: full width video (same as mobile) */}
+                <div className="lg:hidden mt-2 w-full">
                   <video 
-                    src={mobileHeroVideo}
+                    src={language === 'EN' ? mobileHeroVideoEnglish : mobileHeroVideo}
                     autoPlay
                     loop
                     muted

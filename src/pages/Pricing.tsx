@@ -834,9 +834,17 @@ export default function Pricing() {
                 : "For multi-store chains with custom needs. Get API access, dedicated support, and custom integrations."}
             </p>
             <Button variant="outline" size="lg" asChild>
-              <Link to="/company/contact">
+              <a
+                href={`https://wa.me/919326601463?text=${encodeURIComponent(
+                  language === "HI"
+                    ? "नमस्ते! मुझे अपनी रिटेल दुकान के लिए Lume POS और बिलिंग प्लान में दिलचस्पी है। कृपया प्राइसिंग और सही प्लान चुनने में मदद करें।"
+                    : "Hi! I'm interested in Lume POS and billing solutions for my retail store. Please share pricing details and help me choose the right plan."
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {language === "HI" ? "सेल्स से संपर्क करें" : "Contact Sales"}
-              </Link>
+              </a>
             </Button>
           </motion.div>
         </div>

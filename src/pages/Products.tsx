@@ -20,6 +20,7 @@ import { Footer } from "@/components/layout/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useSEO } from "@/hooks/useSEO";
 import dashboardDesktop from "@/assets/hero-banner/dashboard-hindii.png";
+import dashboardEnglish from "@/assets/hero-banner/dashboard-english.png";
 import dashboardMobile from "@/assets/hero-banner/dashboard-mob-hindi.png";
 import lumeLogo from "@/assets/lume_logo.png";
 import loyaltyImage from "@/assets/products/loyalty.png";
@@ -226,7 +227,7 @@ export default function Products() {
             >
               <div className="relative">
                 <img 
-                  src={dashboardDesktop} 
+                  src={language === 'EN' ? dashboardEnglish : dashboardDesktop} 
                   alt="Lume retail management dashboard" 
                   className="w-full max-w-lg mx-auto drop-shadow-2xl rounded-lg"
                 />

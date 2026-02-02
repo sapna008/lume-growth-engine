@@ -23,7 +23,7 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.titleHighlightPart2': '',
     'hero.titleHighlightBilling': '',
     'hero.titleHighlightCTA': '',
-    'hero.description': 'Lume is smart retail POS software. Fast billing, customer insights, loyalty and marketing tools. Indian stores grow sales and retention.',
+    'hero.description': 'Lume is a smart retail POS software. Fast billing, customer insights, loyalty and marketing tools. Indian stores grow sales and retention.',
     'hero.download': 'Download',
     'hero.watchDemo': 'Book a Demo',
     'hero.rating': '4.8/5 from 250+ reviews',
@@ -646,9 +646,9 @@ const translations: Record<Language, Record<string, string>> = {
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguageState] = useState<Language>(() => {
-    // Get from localStorage or default to HI
+    // Get from localStorage or default to EN
     const saved = localStorage.getItem('language') as Language;
-    return saved && (saved === 'EN' || saved === 'HI') ? saved : 'HI';
+    return saved && (saved === 'EN' || saved === 'HI') ? saved : 'EN';
   });
 
   useEffect(() => {
