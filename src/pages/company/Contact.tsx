@@ -27,7 +27,7 @@ const contactMethods = [
     icon: MapPin,
     title: "Visit Us",
     description: "Our headquarters",
-    value: "Bengaluru, Karnataka, India",
+    value: "Ahmedabad, Gujarat, India",
     href: "#",
   },
 ];
