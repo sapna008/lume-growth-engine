@@ -48,9 +48,9 @@ export function Footer() {
               {t('footer.tagline')}
             </p>
             <div className="space-y-2">
-            <a href="mailto:info@apeiros.com" className="flex items-center gap-2 text-white/80 hover:text-white text-sm transition-colors">
+            <a href="mailto:info@apeirosai.com" className="flex items-center gap-2 text-white/80 hover:text-white text-sm transition-colors">
                 <Mail className="w-4 h-4" />
-                info@apeiros.com
+                info@apeirosai.com
               </a>
               <a href="tel:+919326601463" className="flex items-center gap-2 text-white/80 hover:text-white text-sm transition-colors">
                 <Phone className="w-4 h-4" />

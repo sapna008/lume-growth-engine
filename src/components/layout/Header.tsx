@@ -387,7 +387,7 @@ export function Header() {
                     <Input
                       ref={searchInputRef}
                       type="text"
-                      placeholder="Search pages..."
+                      placeholder={language === 'HI' ? 'पेज खोजें...' : 'Search pages...'}
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       onClick={(e) => e.stopPropagation()}
@@ -572,7 +572,7 @@ export function Header() {
                     <Input
                       ref={searchInputRef}
                       type="text"
-                      placeholder="Search pages..."
+                      placeholder={language === 'HI' ? 'पेज खोजें...' : 'Search pages...'}
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       onClick={(e) => e.stopPropagation()}

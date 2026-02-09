@@ -56,7 +56,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground">Email</h3>
-                    <p className="text-muted-foreground">info@apeiros.com</p>
+                    <p className="text-muted-foreground">info@apeirosai.com</p>
                   </div>
                 </div>
                 

@@ -92,6 +92,7 @@ const plans = [
     href: "/book-demo",
     popular: true,
     badge: "Recommended",
+    badgeHI: "सुझावित",
   },
 ];
 
@@ -614,7 +615,7 @@ export default function Pricing() {
                         : "bg-gradient-to-r from-[#146fb5] to-[#1a7fc7] text-white"
                     }`}
                   >
-                    {plan.badge}
+                    {language === "HI" && plan.badgeHI ? plan.badgeHI : plan.badge}
                   </div>
                 )}
                 <div className="mb-4">

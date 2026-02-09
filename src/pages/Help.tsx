@@ -248,7 +248,7 @@ export default function Help() {
               <h3 className="font-semibold text-foreground">
                 {language === "HI" ? "ईमेल" : "Email"}
               </h3>
-              <p className="text-sm text-muted-foreground">info@apeiros.com</p>
+              <p className="text-sm text-muted-foreground">info@apeirosai.com</p>
             </div>
           </div>
         </div>

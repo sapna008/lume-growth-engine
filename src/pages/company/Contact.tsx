@@ -13,8 +13,8 @@ const contactMethods = [
     icon: Mail,
     title: "Email Us",
     description: "For general inquiries and support",
-    value: "info@apeiros.com",
-    href: "mailto:info@apeiros.com",
+    value: "info@apeirosai.com",
+    href: "mailto:info@apeirosai.com",
   },
   {
     icon: Phone,
