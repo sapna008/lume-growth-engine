@@ -248,11 +248,11 @@ export function Header() {
                     className={`gap-1 text-base font-medium transition-colors ${
                       hoveredMenu === item.name 
                         ? isScrolled 
-                          ? 'text-primary bg-primary/5' 
-                          : 'text-[#1b181f] bg-white/10'
+                          ? 'text-foreground bg-muted/60' 
+                          : 'text-[#146fb5] bg-[#146fb5]/10'
                         : isScrolled 
-                          ? 'text-foreground/80 hover:bg-primary/5 hover:text-[#1b181f]' 
-                          : 'text-[#1b181f] hover:bg-white/10 hover:text-[#1b181f]'
+                          ? 'text-muted-foreground hover:bg-muted/60 hover:text-foreground' 
+                          : 'text-[#1b181f] hover:bg-[#146fb5]/10 hover:text-[#146fb5]'
                     }`}
                   >
                     {item.nameKey ? t(item.nameKey) : item.name}
@@ -331,8 +331,8 @@ export function Header() {
                     isActive(item.href)
                       ? "text-[#146fb5]"
                       : isScrolled
-                        ? "text-foreground/80 hover:bg-primary/5 hover:text-[#1b181f]"
-                        : "text-[#1b181f] hover:bg-white/10 hover:text-[#1b181f]"
+                        ? "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
+                        : "text-[#1b181f] hover:bg-[#146fb5]/10 hover:text-[#146fb5]"
                   }`}
                 >
                   <Link to={item.href}>{item.nameKey ? t(item.nameKey) : item.name}</Link>
@@ -358,8 +358,8 @@ export function Header() {
                   size="icon" 
                   className={`transition-colors h-9 w-9 ${
                     isScrolled 
-                      ? "text-muted-foreground hover:text-foreground" 
-                      : "text-[#1b181f] hover:text-[#146fb5]"
+                      ? "text-muted-foreground hover:text-foreground hover:bg-muted/60" 
+                      : "text-[#1b181f] hover:text-[#146fb5] hover:bg-[#146fb5]/10"
                   }`}
                   onClick={() => setSearchOpen(true)}
                 >
@@ -463,8 +463,8 @@ export function Header() {
               size="icon" 
               className={`transition-colors h-9 w-9 ${
                 isScrolled 
-                  ? "text-muted-foreground hover:text-foreground" 
-                  : "text-[#1b181f] hover:text-[#146fb5]"
+                  ? "text-muted-foreground hover:text-foreground hover:bg-muted/60" 
+                  : "text-[#1b181f] hover:text-[#146fb5] hover:bg-[#146fb5]/10"
               }`}
               asChild
             >
@@ -484,8 +484,8 @@ export function Header() {
                 size="sm" 
                 className={`gap-1 transition-colors h-9 px-2 ${
                   isScrolled 
-                    ? "text-muted-foreground" 
-                    : "text-[#1b181f] hover:text-[#146fb5]"
+                    ? "text-muted-foreground hover:text-foreground hover:bg-muted/60" 
+                    : "text-[#1b181f] hover:text-[#146fb5] hover:bg-[#146fb5]/10"
                 }`}
               >
                 <Globe className="w-4 h-4" />
@@ -543,8 +543,8 @@ export function Header() {
                   size="icon" 
                   className={`transition-colors ${
                     isScrolled 
-                      ? "text-muted-foreground hover:text-foreground" 
-                      : "text-[#1b181f] hover:text-[#146fb5]"
+                      ? "text-muted-foreground hover:text-foreground hover:bg-muted/60" 
+                      : "text-[#1b181f] hover:text-[#146fb5] hover:bg-[#146fb5]/10"
                   }`}
                   onClick={() => setSearchOpen(true)}
                 >
