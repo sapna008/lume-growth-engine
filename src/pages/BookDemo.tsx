@@ -20,6 +20,27 @@ const generateTimeSlots = () => {
   return slots;
 };
 
+const MIN_HOURS_FROM_NOW = 3;
+
+// For "Today" only show slots that start at least MIN_HOURS_FROM_NOW from now
+const getTimeSlotsForDate = (selectedDateISO: string, allSlots: string[]): string[] => {
+  if (!selectedDateISO) return [];
+  const selected = new Date(selectedDateISO);
+  const now = new Date();
+  const isToday =
+    selected.getFullYear() === now.getFullYear() &&
+    selected.getMonth() === now.getMonth() &&
+    selected.getDate() === now.getDate();
+  if (!isToday) return allSlots;
+  const cutoff = new Date(now.getTime() + MIN_HOURS_FROM_NOW * 60 * 60 * 1000);
+  return allSlots.filter((slot) => {
+    const [start] = slot.split(' - ');
+    const [h, m] = start.split(':').map(Number);
+    const slotStart = new Date(now.getFullYear(), now.getMonth(), now.getDate(), h, m);
+    return slotStart >= cutoff;
+  });
+};
+
 // Get dates for today, tomorrow, and day after tomorrow
 const getAvailableDates = () => {
   const dates = [];
@@ -71,7 +92,16 @@ export default function BookDemo() {
   };
 
   const handleChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData(prev => {
+      const next = { ...prev, [field]: value };
+      if (field === 'selectedDate') {
+        const allowed = getTimeSlotsForDate(value, timeSlots);
+        if (allowed.length > 0 && prev.selectedTime && !allowed.includes(prev.selectedTime)) {
+          next.selectedTime = '';
+        }
+      }
+      return next;
+    });
   };
 
   return (
@@ -208,7 +238,7 @@ export default function BookDemo() {
                           {t('demo.selectTime')}
                         </label>
                         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 max-h-60 overflow-y-auto">
-                          {timeSlots.map((slot, index) => (
+                          {getTimeSlotsForDate(formData.selectedDate, timeSlots).map((slot, index) => (
                             <button
                               key={index}
                               type="button"
