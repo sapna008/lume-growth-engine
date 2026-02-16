@@ -8,7 +8,7 @@ const YOUTUBE_SHORTS_EMBED_URL = "https://www.youtube.com/embed/ojflp89LdjE?si=y
 const MIN_WIDTH = 140;
 const MIN_HEIGHT = 249;
 const MAX_WIDTH = 280;
-const MAX_HEIGHT = 499;
+const MAX_HEIGHT = 498;
 const DEFAULT_WIDTH = 160;
 const DEFAULT_HEIGHT = 284;
 

@@ -10,6 +10,7 @@ import Index from "./pages/Index";
 import ForRetailers from "./pages/ForRetailers";
 import Products from "./pages/Products";
 import Solutions from "./pages/Solutions";
+import Features from "./pages/Features";
 import Resources from "./pages/Resources";
 import Guides from "./pages/resources/Guides";
 import CaseStudies from "./pages/resources/CaseStudies";
@@ -44,6 +45,8 @@ const App = () => (
             <Route path="/products/:id" element={<Products />} />
             <Route path="/solutions" element={<Solutions />} />
             <Route path="/solutions/:id" element={<Solutions />} />
+            <Route path="/features" element={<Features />} />
+            <Route path="/features/:id" element={<Features />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/resources/guides" element={<Guides />} />
             <Route path="/resources/case-studies" element={<CaseStudies />} />

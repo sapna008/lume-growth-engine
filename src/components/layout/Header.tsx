@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, Globe, Search, HelpCircle, Users, Gift, CreditCard, BarChart3, Smartphone, Cpu, ShoppingBag, Package, BookOpen, FileText, Video, Play } from "lucide-react";
+import { Menu, X, ChevronDown, Globe, Search, HelpCircle, Users, Gift, CreditCard, BarChart3, Smartphone, Cpu, ShoppingBag, Package, BookOpen, FileText, Video, Play, Star, Tag, Megaphone, MessageSquare } from "lucide-react";
 import { ReceiptIndianRupee } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -23,6 +23,23 @@ const navigation = [
       { name: "Campaign Management", nameHI: "अभियान प्रबंधन", href: "/solutions/campaign-management", icon: BarChart3, desc: "Multi-channel marketing", descHI: "बहु-चैनल मार्केटिंग" },
       { name: "Reports & Dashboard", nameHI: "रिपोर्ट्स और डैशबोर्ड", href: "/solutions/reports-dashboard", icon: BarChart3, desc: "Business insights", descHI: "व्यापारिक अंतर्दृष्टि" },
       { name: "Hyperlocal Commerce", nameHI: "स्थानीय वाणिज्य", href: "/solutions/hyperlocal-commerce", icon: ShoppingBag, desc: "Quick commerce ready", descHI: "त्वरित वाणिज्य के लिए तैयार" },
+    ],
+  },
+  {
+    name: "Features",
+    nameKey: "nav.features",
+    href: "/features",
+    children: [
+      { name: "ATTRACT", nameHI: "ATTRACT", isSectionLabel: true },
+      { name: "Reviews", nameHI: "समीक्षाएं", href: "/features/reviews", icon: Star, desc: "Earn more Google Reviews via digital bill", descHI: "डिजिटल बिल के माध्यम से अधिक Google समीक्षाएं प्राप्त करें" },
+      { name: "Referrals", nameHI: "रेफरल", href: "/features/referrals", icon: Gift, desc: "One-click referral on WhatsApp via digital bill", descHI: "डिजिटल बिल के माध्यम से WhatsApp पर एक-क्लिक रेफरल" },
+      { name: "ENGAGE & RETAIN", nameHI: "ENGAGE & RETAIN", isSectionLabel: true },
+      { name: "Digital Bills", nameHI: "डिजिटल बिल", href: "/features/digital-bills", icon: ReceiptIndianRupee, desc: "Send bills to your customers digitally on WhatsApp", descHI: "WhatsApp पर अपने ग्राहकों को डिजिटल रूप से बिल भेजें" },
+      { name: "Loyalty", nameHI: "वफादारी", href: "/features/loyalty", icon: Tag, desc: "Drive customer loyalty with coupons and latest offers", descHI: "कूपन और नवीनतम ऑफ़र के साथ ग्राहक वफादारी बढ़ाएं" },
+      { name: "Promotion", nameHI: "प्रचार", href: "/features/promotion", icon: Megaphone, desc: "Share offers, discounts and greetings on WhatsApp", descHI: "WhatsApp पर ऑफ़र, छूट और अभिवादन साझा करें" },
+      { name: "MANAGE", nameHI: "MANAGE", isSectionLabel: true },
+      { name: "Analytics", nameHI: "विश्लेषण", href: "/features/analytics", icon: BarChart3, desc: "Uncover trends and insights for multiple stores", descHI: "कई स्टोर के लिए रुझान और अंतर्दृष्टि खोजें" },
+      { name: "Surveys", nameHI: "सर्वेक्षण", href: "/features/surveys", icon: MessageSquare, desc: "Collect customer feedback via digital bill on WhatsApp", descHI: "WhatsApp पर डिजिटल बिल के माध्यम से ग्राहक प्रतिक्रिया एकत्र करें" },
     ],
   },
   {
@@ -220,9 +237,9 @@ export function Header() {
             : isScrolled
               ? "fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-md border-b border-border shadow-sm"
               : "absolute top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-sm"
-        } transition-all duration-300`}
+        } transition-all duration-300 overflow-visible`}
       >
-        <nav className="container-wide flex items-center justify-between h-16">
+        <nav className="container-wide flex items-center justify-between h-16 overflow-visible">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 shrink-0">
             <img 
@@ -233,12 +250,12 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation - Center */}
-          <div className="hidden lg:flex items-center gap-0.5">
+          <div className="hidden lg:flex items-center gap-0.5 overflow-visible">
             {navigation.map((item) =>
               item.children ? (
                 <div
                   key={item.name}
-                  className="relative"
+                  className="relative z-50"
                   onMouseEnter={() => handleMouseEnter(item.name)}
                   onMouseLeave={handleMouseLeave}
                 >
@@ -266,57 +283,163 @@ export function Header() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 8 }}
                         transition={{ duration: 0.15 }}
-                        className="absolute top-full left-0 pt-2"
+                        className="absolute top-full left-0 pt-2 z-[100]"
+                        style={{ position: 'absolute' }}
                         onMouseEnter={() => handleMouseEnter(item.name)}
                         onMouseLeave={handleMouseLeave}
                       >
-                        <div className="bg-white rounded-xl shadow-xl border border-border/50 p-2 min-w-[280px]">
-                          {item.children.map((child) =>
-                            child.comingSoon ? (
-                              <div
-                                key={child.name}
-                                className="flex items-start gap-3 p-3 rounded-lg cursor-not-allowed opacity-60"
-                              >
-                                <div className="w-9 h-9 rounded-lg bg-[#146fb5]/10 flex items-center justify-center shrink-0">
-                                  <child.icon className="w-4.5 h-4.5" style={{ color: '#146fb5' }} />
-                                </div>
-                                <div className="flex-1">
-                                  <div className="flex items-center gap-2">
-                                    <p className="font-medium text-base text-foreground">
-                                      {language === "HI" && child.nameHI ? child.nameHI : child.name}
-                                    </p>
-                                    <span className="text-xs px-2 py-0.5 rounded-full bg-[#146fb5]/10 text-[#146fb5] font-medium">
-                                      {language === "HI" ? "जल्द आ रहा है" : "Coming Soon"}
-                                    </span>
+                        {item.name === "Features" ? (
+                          // Features Mega Menu - 3 Column Layout
+                          <div className="bg-white rounded-xl shadow-xl border border-border/50 p-6 w-[720px]">
+                            <div className="grid grid-cols-3 gap-6">
+                              {(() => {
+                                // Group items by section
+                                const sections: { label: string; items: typeof item.children }[] = [];
+                                let currentSection: typeof sections[0] | null = null;
+                                
+                                item.children.forEach((child) => {
+                                  if (child.isSectionLabel) {
+                                    if (currentSection) {
+                                      sections.push(currentSection);
+                                    }
+                                    currentSection = { label: child.name, items: [] };
+                                  } else if (currentSection) {
+                                    currentSection.items.push(child);
+                                  }
+                                });
+                                if (currentSection) {
+                                  sections.push(currentSection);
+                                }
+                                
+                                return sections.map((section, sectionIndex) => (
+                                  <div key={section.label} className="flex flex-col">
+                                    <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">
+                                      {section.label}
+                                    </h3>
+                                    <div className="space-y-1">
+                                      {section.items.map((child) => {
+                                        if (child.comingSoon) {
+                                          return (
+                                            <div
+                                              key={child.name}
+                                              className="flex items-start gap-3 p-3 rounded-lg cursor-not-allowed opacity-60"
+                                            >
+                                              <div className="w-9 h-9 rounded-lg bg-[#146fb5]/10 flex items-center justify-center shrink-0">
+                                                <child.icon className="w-4.5 h-4.5" style={{ color: '#146fb5' }} />
+                                              </div>
+                                              <div className="flex-1 min-w-0">
+                                                <div className="flex items-center gap-2 flex-wrap">
+                                                  <p className="font-medium text-sm text-foreground">
+                                                    {language === "HI" && child.nameHI ? child.nameHI : child.name}
+                                                  </p>
+                                                  <span className="text-xs px-2 py-0.5 rounded-full bg-[#146fb5]/10 text-[#146fb5] font-medium">
+                                                    {language === "HI" ? "जल्द आ रहा है" : "Coming Soon"}
+                                                  </span>
+                                                </div>
+                                                <p className="text-xs text-muted-foreground mt-1">
+                                                  {language === "HI" && child.descHI ? child.descHI : child.desc}
+                                                </p>
+                                              </div>
+                                            </div>
+                                          );
+                                        }
+                                        
+                                        return (
+                                          <Link
+                                            key={child.name}
+                                            to={child.href}
+                                            className="flex items-start gap-3 p-3 rounded-lg transition-colors group hover:bg-secondary/50"
+                                          >
+                                            <div className="w-9 h-9 rounded-lg bg-[#146fb5]/10 flex items-center justify-center shrink-0 group-hover:bg-[#146fb5]/15">
+                                              <child.icon className="w-4.5 h-4.5" style={{ color: '#146fb5' }} />
+                                            </div>
+                                            <div className="flex-1 min-w-0">
+                                              <p className="font-medium text-sm text-foreground group-hover:text-[#146fb5]">
+                                                {language === "HI" && child.nameHI ? child.nameHI : child.name}
+                                              </p>
+                                              <p className="text-xs text-muted-foreground mt-1">
+                                                {language === "HI" && child.descHI ? child.descHI : child.desc}
+                                              </p>
+                                            </div>
+                                          </Link>
+                                        );
+                                      })}
+                                    </div>
                                   </div>
-                                  <p className="text-xs text-muted-foreground">
-                                    {language === "HI" && child.descHI ? child.descHI : child.desc}
-                                  </p>
-                                </div>
-                              </div>
-                            ) : (
-                              <Link
-                                key={child.name}
-                                to={child.href}
-                                className="flex items-start gap-3 p-3 rounded-lg transition-colors group hover:bg-secondary/50"
-                              >
-                                <div className="w-9 h-9 rounded-lg bg-[#146fb5]/10 flex items-center justify-center shrink-0 group-hover:bg-[#146fb5]/15">
-                                  <child.icon className="w-4.5 h-4.5" style={{ color: '#146fb5' }} />
-                                </div>
-                                <div className="flex-1">
-                                  <div className="flex items-center gap-2">
-                                    <p className="font-medium text-base text-foreground">
-                                      {language === "HI" && child.nameHI ? child.nameHI : child.name}
+                                ));
+                              })()}
+                            </div>
+                          </div>
+                        ) : (
+                          // Regular Dropdown - Vertical Stack
+                          <div className="bg-white rounded-xl shadow-xl border border-border/50 p-2 min-w-[280px]">
+                            {item.children.map((child, index) => {
+                              // Section label
+                              if (child.isSectionLabel) {
+                                return (
+                                  <div
+                                    key={child.name}
+                                    className={`text-xs font-semibold text-muted-foreground uppercase tracking-wider px-3 py-2 ${
+                                      index > 0 ? 'mt-2 border-t border-border/30 pt-3' : ''
+                                    }`}
+                                  >
+                                    {child.name}
+                                  </div>
+                                );
+                              }
+                              
+                              // Coming soon item
+                              if (child.comingSoon) {
+                                return (
+                                  <div
+                                    key={child.name}
+                                    className="flex items-start gap-3 p-3 rounded-lg cursor-not-allowed opacity-60"
+                                  >
+                                    <div className="w-9 h-9 rounded-lg bg-[#146fb5]/10 flex items-center justify-center shrink-0">
+                                      <child.icon className="w-4.5 h-4.5" style={{ color: '#146fb5' }} />
+                                    </div>
+                                    <div className="flex-1">
+                                      <div className="flex items-center gap-2">
+                                        <p className="font-medium text-base text-foreground">
+                                          {language === "HI" && child.nameHI ? child.nameHI : child.name}
+                                        </p>
+                                        <span className="text-xs px-2 py-0.5 rounded-full bg-[#146fb5]/10 text-[#146fb5] font-medium">
+                                          {language === "HI" ? "जल्द आ रहा है" : "Coming Soon"}
+                                        </span>
+                                      </div>
+                                      <p className="text-xs text-muted-foreground">
+                                        {language === "HI" && child.descHI ? child.descHI : child.desc}
+                                      </p>
+                                    </div>
+                                  </div>
+                                );
+                              }
+                              
+                              // Regular link item
+                              return (
+                                <Link
+                                  key={child.name}
+                                  to={child.href}
+                                  className="flex items-start gap-3 p-3 rounded-lg transition-colors group hover:bg-secondary/50"
+                                >
+                                  <div className="w-9 h-9 rounded-lg bg-[#146fb5]/10 flex items-center justify-center shrink-0 group-hover:bg-[#146fb5]/15">
+                                    <child.icon className="w-4.5 h-4.5" style={{ color: '#146fb5' }} />
+                                  </div>
+                                  <div className="flex-1">
+                                    <div className="flex items-center gap-2">
+                                      <p className="font-medium text-base text-foreground">
+                                        {language === "HI" && child.nameHI ? child.nameHI : child.name}
+                                      </p>
+                                    </div>
+                                    <p className="text-xs text-muted-foreground">
+                                      {language === "HI" && child.descHI ? child.descHI : child.desc}
                                     </p>
                                   </div>
-                                  <p className="text-xs text-muted-foreground">
-                                    {language === "HI" && child.descHI ? child.descHI : child.desc}
-                                  </p>
-                                </div>
-                              </Link>
-                            )
-                          )}
-                        </div>
+                                </Link>
+                              );
+                            })}
+                          </div>
+                        )}
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -713,21 +836,41 @@ export function Header() {
 
                       {hasChildren && isExpanded && (
                         <div className="border-t border-border/50 bg-gradient-to-b from-white to-[#f5f8fc]">
-                          {item.children!.map((child) =>
-                            child.comingSoon ? (
-                              <div
-                                key={child.name}
-                                className="flex items-center gap-2 px-3 py-2 text-base text-muted-foreground/60 cursor-not-allowed"
-                              >
-                                <child.icon className="w-4 h-4" />
-                                <span>
-                                  {language === "HI" && child.nameHI ? child.nameHI : child.name}
-                                </span>
-                                <span className="ml-auto text-xs px-2 py-0.5 rounded-full bg-[#146fb5]/10 text-[#146fb5] font-medium">
-                                  {language === "HI" ? "जल्द आ रहा है" : "Coming Soon"}
-                                </span>
-                              </div>
-                            ) : (
+                          {item.children!.map((child, index) => {
+                            // Section label
+                            if (child.isSectionLabel) {
+                              return (
+                                <div
+                                  key={child.name}
+                                  className={`text-xs font-semibold text-muted-foreground uppercase tracking-wider px-3 py-2 ${
+                                    index > 0 ? 'mt-2 border-t border-border/30 pt-3' : ''
+                                  }`}
+                                >
+                                  {child.name}
+                                </div>
+                              );
+                            }
+                            
+                            // Coming soon item
+                            if (child.comingSoon) {
+                              return (
+                                <div
+                                  key={child.name}
+                                  className="flex items-center gap-2 px-3 py-2 text-base text-muted-foreground/60 cursor-not-allowed"
+                                >
+                                  <child.icon className="w-4 h-4" />
+                                  <span>
+                                    {language === "HI" && child.nameHI ? child.nameHI : child.name}
+                                  </span>
+                                  <span className="ml-auto text-xs px-2 py-0.5 rounded-full bg-[#146fb5]/10 text-[#146fb5] font-medium">
+                                    {language === "HI" ? "जल्द आ रहा है" : "Coming Soon"}
+                                  </span>
+                                </div>
+                              );
+                            }
+                            
+                            // Regular link item
+                            return (
                               <Link
                                 key={child.name}
                                 to={child.href}
@@ -739,8 +882,8 @@ export function Header() {
                                   {language === "HI" && child.nameHI ? child.nameHI : child.name}
                                 </span>
                               </Link>
-                            )
-                          )}
+                            );
+                          })}
                         </div>
                       )}
                     </div>
