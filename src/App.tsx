@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import ScrollToTop from "@/components/ScrollToTop";
+import { FloatingYouTubeShorts } from "@/components/FloatingYouTubeShorts";
 import Index from "./pages/Index";
 import ForRetailers from "./pages/ForRetailers";
 import Products from "./pages/Products";
@@ -35,6 +36,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <ScrollToTop />
+          <FloatingYouTubeShorts />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/for-retailers" element={<ForRetailers />} />
