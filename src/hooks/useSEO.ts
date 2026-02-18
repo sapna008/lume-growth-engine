@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 const SITE_NAME = 'Lume Retail POS Software';
 const DEFAULT_DESCRIPTION =
-  'Lume is a smart retail POS software for Indian stores. Billing, customer insights, loyalty & marketing tools. Grow your store.';
+  'Leading customer engagement and marketing platform helping retailers grow faster and build strong relationships with their customers. Transforming the way India does retail.';
 
 /**
  * Set unique page title and optional meta description for SEO.

@@ -22,6 +22,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { FloatingYouTubeShorts } from "@/components/FloatingYouTubeShorts";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useSEO } from "@/hooks/useSEO";
 
@@ -570,6 +571,7 @@ export default function ForRetailers() {
       </section>
 
       <Footer />
+      <FloatingYouTubeShorts />
     </div>
   );
 }

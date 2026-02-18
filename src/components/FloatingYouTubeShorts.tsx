@@ -2,31 +2,69 @@ import { useState, useCallback, useRef, useEffect } from "react";
 import { Maximize2, Minimize2, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import lumeLogo from "@/assets/lumelogo.jpg";
 
-const YOUTUBE_SHORTS_EMBED_URL = "https://www.youtube.com/embed/ojflp89LdjE?si=yexUA-GgIrB1zeD9";
+// mute=1 required by browsers for autoplay; user can unmute in player
+const YOUTUBE_SHORTS_EMBED_URL =
+  "https://www.youtube.com/embed/ojflp89LdjE?si=yexUA-GgIrB1zeD9&autoplay=1&mute=1";
 
-const MIN_WIDTH = 140;
-const MIN_HEIGHT = 249;
-const MAX_WIDTH = 280;
-const MAX_HEIGHT = 498;
-const DEFAULT_WIDTH = 160;
-const DEFAULT_HEIGHT = 284;
+const INSTAGRAM_PROFILE_URL = "https://www.instagram.com/the_lume_app/";
+
+const DESKTOP_BREAKPOINT = 768;
+
+// Mobile (chhota) – left corner
+const MOBILE_DEFAULT_WIDTH = 180;
+const MOBILE_DEFAULT_HEIGHT = 298;
+const MOBILE_MIN_WIDTH = 150;
+const MOBILE_MIN_HEIGHT = 250;
+const MOBILE_MAX_WIDTH = 300;
+const MOBILE_MAX_HEIGHT = 500;
+
+// Desktop – left side (thoda chota taaki video upar se na kate)
+const DESKTOP_DEFAULT_WIDTH = 300;
+const DESKTOP_DEFAULT_HEIGHT = 508;
+const DESKTOP_MIN_WIDTH = 240;
+const DESKTOP_MIN_HEIGHT = 400;
+const DESKTOP_MAX_WIDTH = 400;
+const DESKTOP_MAX_HEIGHT = 710;
+
+function getDefaultSize(isDesktop: boolean) {
+  return isDesktop
+    ? { w: DESKTOP_DEFAULT_WIDTH, h: DESKTOP_DEFAULT_HEIGHT }
+    : { w: MOBILE_DEFAULT_WIDTH, h: MOBILE_DEFAULT_HEIGHT };
+}
+
+function getMinMax(isDesktop: boolean) {
+  return isDesktop
+    ? { minW: DESKTOP_MIN_WIDTH, minH: DESKTOP_MIN_HEIGHT, maxW: DESKTOP_MAX_WIDTH, maxH: DESKTOP_MAX_HEIGHT }
+    : { minW: MOBILE_MIN_WIDTH, minH: MOBILE_MIN_HEIGHT, maxW: MOBILE_MAX_WIDTH, maxH: MOBILE_MAX_HEIGHT };
+}
 
 export function FloatingYouTubeShorts() {
-  const [width, setWidth] = useState(DEFAULT_WIDTH);
-  const [height, setHeight] = useState(DEFAULT_HEIGHT);
+  const [isDesktop, setIsDesktop] = useState(() => typeof window !== "undefined" && window.innerWidth >= DESKTOP_BREAKPOINT);
+  const defaultSize = getDefaultSize(isDesktop);
+  const [width, setWidth] = useState(defaultSize.w);
+  const [height, setHeight] = useState(defaultSize.h);
   const [isExpanded, setIsExpanded] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [isResizing, setIsResizing] = useState(false);
   const startRef = useRef({ x: 0, y: 0, w: 0, h: 0 });
 
+  useEffect(() => {
+    const mql = window.matchMedia(`(min-width: ${DESKTOP_BREAKPOINT}px)`);
+    const handler = () => setIsDesktop(mql.matches);
+    mql.addEventListener("change", handler);
+    return () => mql.removeEventListener("change", handler);
+  }, []);
+
   const toggleExpand = useCallback(() => {
     if (isExpanded) {
-      setWidth(DEFAULT_WIDTH);
-      setHeight(DEFAULT_HEIGHT);
+      const { w, h } = getDefaultSize(isDesktop);
+      setWidth(w);
+      setHeight(h);
     }
     setIsExpanded(!isExpanded);
-  }, [isExpanded]);
+  }, [isExpanded, isDesktop]);
 
   const handleResizeStart = useCallback(
     (e: React.MouseEvent) => {
@@ -41,12 +79,13 @@ export function FloatingYouTubeShorts() {
   const handleMouseMove = useCallback(
     (e: MouseEvent) => {
       if (!isResizing) return;
+      const { minW, minH, maxW, maxH } = getMinMax(isDesktop);
       const dx = e.clientX - startRef.current.x;
       const dy = e.clientY - startRef.current.y;
-      setWidth((w) => Math.min(MAX_WIDTH, Math.max(MIN_WIDTH, startRef.current.w + dx)));
-      setHeight((h) => Math.min(MAX_HEIGHT, Math.max(MIN_HEIGHT, startRef.current.h + dy)));
+      setWidth((w) => Math.min(maxW, Math.max(minW, startRef.current.w + dx)));
+      setHeight((h) => Math.min(maxH, Math.max(minH, startRef.current.h + dy)));
     },
-    [isResizing]
+    [isResizing, isDesktop]
   );
 
   const handleMouseUp = useCallback(() => {
@@ -77,22 +116,63 @@ export function FloatingYouTubeShorts() {
       )}
       style={isExpanded ? undefined : { width, height }}
     >
-      {/* Header: title + controls */}
+      {/* Header: logo circle + name + blue tick (left) | View profile + controls (right) */}
       <div
         className={cn(
-          "flex shrink-0 items-center justify-between gap-1 border-b border-border bg-muted/50",
-          isExpanded ? "px-3 py-2" : "px-1.5 py-1"
+          "flex shrink-0 items-center justify-between gap-2 border-b border-border bg-muted/50",
+          isExpanded ? "min-h-10 px-3 py-2" : "min-h-8 px-2 py-1.5"
         )}
       >
-        <span
-          className={cn(
-            "truncate font-medium text-muted-foreground",
-            isExpanded ? "text-sm" : "text-[10px]"
+        <div className="flex min-w-0 flex-1 items-center gap-1.5">
+          {/* Lume logo in circle */}
+          <img
+            src={lumeLogo}
+            alt="Lume"
+            className={cn("shrink-0 rounded-full object-cover", isExpanded ? "h-7 w-7" : "h-5 w-5")}
+          />
+          <span
+            className={cn(
+              "truncate font-semibold text-foreground",
+              isExpanded ? "text-base" : "text-xs"
+            )}
+          >
+            the_lume_app
+          </span>
+          {/* Blue verified tick (Instagram style) */}
+          <span
+            className={cn(
+              "flex shrink-0 items-center justify-center rounded-full bg-[#0095F6] text-white",
+              isExpanded ? "h-4 w-4" : "h-3 w-3"
+            )}
+            aria-hidden
+          >
+            <svg
+              className={isExpanded ? "h-2.5 w-2.5" : "h-1.5 w-1.5"}
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M5 13l4 4L19 7" />
+            </svg>
+          </span>
+        </div>
+        <div className="flex shrink-0 items-center gap-1">
+          {isDesktop && (
+            <a
+              href={INSTAGRAM_PROFILE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(
+                "shrink-0 rounded bg-[#0095F6] font-semibold text-white transition hover:bg-[#0077C2] focus:outline-none focus:ring-2 focus:ring-[#0095F6] focus:ring-offset-1",
+                isExpanded ? "px-3 py-1.5 text-xs" : "px-2 py-1 text-[10px]"
+              )}
+            >
+              View profile
+            </a>
           )}
-        >
-          Short
-        </span>
-        <div className="flex items-center gap-0.5">
           <Button
             variant="ghost"
             size="icon"
