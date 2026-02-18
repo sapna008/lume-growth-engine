@@ -1,25 +1,16 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { 
-  Rocket, 
-  Users, 
-  Megaphone, 
-  BarChart3, 
-  HelpCircle,
   Download,
-  MessageSquare,
-  Mail,
-  Phone,
+  Play,
   CheckCircle2,
-  TrendingUp,
-  Gift,
-  FileText,
-  Zap,
-  ReceiptIndianRupee
+  Video,
+  HelpCircle,
+  FileText
 } from "lucide-react";
 import { motion } from "framer-motion";
-import lumeLogo from "@/assets/lume_logo.png";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import {
   Accordion,
   AccordionContent,
@@ -29,104 +20,146 @@ import {
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useSEO } from "@/hooks/useSEO";
 
+// Guide data configuration
+export const guideData = [
+  {
+    slug: "download-app",
+    type: "download" as const,
+    title: "Getting Started with Lume",
+    buttonLabel: "Download",
+    buttonLink: "https://play.google.com/store/apps/details?id=com.mhjs.retailerapp&hl=en",
+    bullets: [
+      "Download the Lume app from Play Store",
+      "Set up your store details and staff",
+      "Start billing within minutes",
+      "Send your first digital bill to a customer"
+    ]
+  },
+  {
+    slug: "onboarding",
+    type: "video" as const,
+    title: "Onboarding – Set Up Your Store & Start Billing",
+    videoUrl: "https://www.youtube.com/embed/fvolXdZDLxU?rel=0",
+    bullets: [
+      "Complete store registration in minutes",
+      "Add store details and configure preferences",
+      "Activate subscription and payment setup",
+      "Get ready to start billing instantly"
+    ]
+  },
+  {
+    slug: "dashboard",
+    type: "video" as const,
+    title: "Dashboard – Track Your Store Performance",
+    videoUrl: "https://www.youtube.com/embed/Qk_xRFe8lw0?rel=0",
+    bullets: [
+      "View daily sales and billing summary",
+      "Monitor customer visits and activity",
+      "Track revenue trends in real time",
+      "Get insights to improve store performance"
+    ]
+  },
+  {
+    slug: "create-bill",
+    type: "video" as const,
+    title: "Create & Send Digital Bills",
+    videoUrl: "https://www.youtube.com/embed/IDCfNJ3yRbE?rel=0",
+    bullets: [
+      "Generate GST and non-GST bills",
+      "Use quick billing for faster checkout",
+      "Send invoices instantly via WhatsApp",
+      "Automatically save billing records"
+    ]
+  },
+  {
+    slug: "credit-management",
+    type: "video" as const,
+    title: "Credit Management – Track & Settle Credits",
+    videoUrl: "https://www.youtube.com/embed/dtlGQOfM8fc?rel=0",
+    bullets: [
+      "View outstanding customer credits",
+      "Record and settle pending payments",
+      "Maintain clear credit history",
+      "Reduce billing discrepancies"
+    ]
+  },
+  {
+    slug: "ebill-listing",
+    type: "video" as const,
+    title: "eBill Listing – Manage All Your Bills",
+    videoUrl: "https://www.youtube.com/embed/4ANztwVu31o?rel=0",
+    bullets: [
+      "Access complete billing history",
+      "Search and filter bills quickly",
+      "Track transaction records easily",
+      "Maintain organized digital documentation"
+    ]
+  },
+  {
+    slug: "product-management",
+    type: "video" as const,
+    title: "Product Management – Control Your Inventory",
+    videoUrl: "https://www.youtube.com/embed/ivkiHcfe7V8?rel=0",
+    bullets: [
+      "Add and edit product details",
+      "Update stock levels instantly",
+      "Remove discontinued items",
+      "Maintain accurate pricing records"
+    ]
+  },
+  {
+    slug: "wallet",
+    type: "video" as const,
+    title: "Wallet – Recharge & Manage Credits",
+    videoUrl: "https://www.youtube.com/embed/I27PTe0r2SM?rel=0",
+    bullets: [
+      "Recharge SMS and WhatsApp credits",
+      "Track usage and transaction history",
+      "Monitor available balance in real time",
+      "Ensure uninterrupted customer communication"
+    ]
+  },
+  {
+    slug: "reports",
+    type: "video" as const,
+    title: "Reports – Analyze & Export Business Data",
+    videoUrl: "https://www.youtube.com/embed/V0t4fikzBTw?rel=0",
+    bullets: [
+      "Generate detailed sales reports",
+      "Access multiple report formats",
+      "Download and export master reports",
+      "Make data-driven decisions"
+    ]
+  },
+  {
+    slug: "customer-feedback",
+    type: "video" as const,
+    title: "Customer Feedback – Understand Your Customers",
+    videoUrl: "https://www.youtube.com/embed/iiSRtiwZPyA?rel=0",
+    bullets: [
+      "View customer reviews and feedback",
+      "Identify service improvement areas",
+      "Monitor satisfaction trends",
+      "Strengthen customer relationships"
+    ]
+  },
+  {
+    slug: "user-management",
+    type: "video" as const,
+    title: "User Management – Control Staff Access",
+    videoUrl: "https://www.youtube.com/embed/NE2ZFmO0CZg?rel=0",
+    bullets: [
+      "Add and manage store users",
+      "Assign role-based permissions",
+      "Update or remove staff accounts",
+      "Maintain secure access control"
+    ]
+  }
+];
+
 export default function Guides() {
   const { language } = useLanguage();
   useSEO('Guides – Lume Setup, Billing & Campaigns', 'Step-by-step Lume guides: getting started, billing, campaigns, loyalty. For Indian retailers.');
-
-  const quickGuides = [
-    {
-      icon: Rocket,
-      title: "Getting Started with Lume",
-      titleHI: "ल्यूम के साथ शुरुआत कैसे करें",
-      steps: [
-        "Download the Lume app from Play Store",
-        "Set up your store details and staff",
-        "Start billing within minutes",
-        "Send your first digital bill to a customer"
-      ],
-      stepsHI: [
-        "Google Play Store से ल्यूम ऐप डाउनलोड करें",
-        "अपनी दुकान और स्टाफ की जानकारी सेट करें",
-        "कुछ ही मिनटों में बिलिंग शुरू करें",
-        "पहला डिजिटल बिल अपने ग्राहक को भेजें"
-      ]
-    },
-    {
-      icon: ReceiptIndianRupee,
-      title: "How to Create & Send Digital Bills",
-      titleHI: "डिजिटल बिल कैसे बनाएँ और भेजें",
-      steps: [
-        "Create tax or non-tax bills",
-        "Use quick billing or image billing",
-        "Send bills via WhatsApp, SMS, or Email",
-        "Bills are stored automatically for reports"
-      ],
-      stepsHI: [
-        "टैक्स या नॉन-टैक्स बिल बनाएँ",
-        "क्विक बिलिंग या इमेज बिलिंग का उपयोग करें",
-        "WhatsApp, SMS या Email से बिल भेजें",
-        "रिपोर्ट्स के लिए बिल अपने आप सेव हो जाते हैं"
-      ]
-    },
-    {
-      icon: Users,
-      title: "Capturing & Managing Customers",
-      titleHI: "ग्राहक जोड़ना और संभालना",
-      steps: [
-        "Customer details are auto-captured from bills",
-        "View purchase history and feedback",
-        "Segment customers for better targeting"
-      ],
-      stepsHI: [
-        "बिल से ग्राहक की जानकारी अपने आप कैप्चर होती है",
-        "खरीदारी हिस्ट्री और फ़ीडबैक देखें",
-        "बेहतर टार्गेटिंग के लिए ग्राहकों को सेगमेंट करें"
-      ]
-    },
-    {
-      icon: Megaphone,
-      title: "Running Campaigns & Offers",
-      titleHI: "कैंपेन और ऑफ़र कैसे चलाएँ",
-      steps: [
-        "Create WhatsApp or SMS promotions",
-        "Run rewards, coupons, or loyalty programs",
-        "Track campaign performance"
-      ],
-      stepsHI: [
-        "WhatsApp या SMS पर प्रमोशन बनाएं",
-        "रिवॉर्ड, कूपन या लॉयल्टी प्रोग्राम चलाएँ",
-        "कैंपेन के रिज़ल्ट्स को ट्रैक करें"
-      ]
-    },
-    {
-      icon: BarChart3,
-      title: "Understanding Reports & Analytics",
-      titleHI: "रिपोर्ट्स और एनालिटिक्स समझें",
-      steps: [
-        "Track daily, weekly, and monthly sales",
-        "Understand customer buying behaviour",
-        "See product and timing insights"
-      ],
-      stepsHI: [
-        "रोज़ाना, साप्ताहिक और मासिक सेल्स ट्रैक करें",
-        "ग्राहकों की खरीदारी की आदतें समझें",
-        "प्रोडक्ट और टाइमिंग से जुड़े इनसाइट्स देखें"
-      ]
-    },
-    {
-      icon: HelpCircle,
-      title: "Need Help?",
-      titleHI: "मदद चाहिए?",
-      steps: [
-        "Reach out via WhatsApp or phone support",
-        "Get personalised assistance from the Lume team"
-      ],
-      stepsHI: [
-        "WhatsApp या फ़ोन सपोर्ट से हमसे जुड़ें",
-        "ल्यूम टीम से पर्सनल मदद प्राप्त करें"
-      ]
-    }
-  ];
 
   const faqs = [
     {
@@ -196,7 +229,7 @@ export default function Guides() {
       <Header />
       
       <main className="flex-1">
-        {/* Quick Guides Section */}
+        {/* Guides Grid Section */}
         <section className="section-spacing bg-white pt-24">
           <div className="container-wide">
             <motion.div
@@ -207,40 +240,64 @@ export default function Guides() {
               className="text-center mb-12"
             >
               <div className="inline-flex items-center gap-2 mb-4">
-                <Rocket className="w-6 h-6" style={{ color: '#146fb5' }} />
+                <Video className="w-6 h-6" style={{ color: '#146fb5' }} />
                 <h2 className="text-3xl sm:text-4xl font-bold" style={{ color: '#1b181f' }}>
-                  {language === "HI" ? "क्विक गाइड्स" : "Quick Guides"}
+                  {language === "HI" ? "गाइड्स" : "Guides"}
                 </h2>
               </div>
               <p className="text-lg" style={{ color: '#4f4f4f' }}>
                 {language === "HI"
-                  ? "छोटे‑छोटे आसान स्टेप्स जिनसे आप तुरंत शुरू कर सकते हैं"
-                  : "Short & actionable steps to get you started"}
+                  ? "Lume के साथ शुरुआत करने के लिए चरण-दर-चरण गाइड"
+                  : "Step-by-step guides to get started with Lume"}
               </p>
             </motion.div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {quickGuides.map((guide, i) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              {guideData.map((guide, i) => (
                 <motion.div
-                  key={guide.title}
+                  key={guide.slug}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-[#146fb5]/30"
+                  className="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-[#146fb5]/30 relative"
                 >
-                  <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 bg-gradient-to-br from-[#eaf2f8] to-white border-2 border-[#146fb5]/20">
-                    <guide.icon className="w-7 h-7" style={{ color: '#146fb5' }} />
+                  {/* Button positioned top-right */}
+                  <div className="absolute top-4 right-4">
+                    {guide.type === "download" ? (
+                      <Button
+                        size="sm"
+                        variant="cta"
+                        onClick={() => window.open(guide.buttonLink, '_blank')}
+                        className="text-xs sm:text-sm"
+                      >
+                        <Download className="w-4 h-4 mr-1" />
+                        {guide.buttonLabel}
+                      </Button>
+                    ) : (
+                      <Button
+                        size="sm"
+                        variant="cta"
+                        asChild
+                        className="text-xs sm:text-sm"
+                      >
+                        <Link to={`/guides/${guide.slug}`}>
+                          <Play className="w-4 h-4 mr-1" />
+                          Watch
+                        </Link>
+                      </Button>
+                    )}
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-bold mb-4" style={{ color: '#1b181f' }}>
-                    {language === "HI" && (guide as any).titleHI ? (guide as any).titleHI : guide.title}
+
+                  <h3 className="text-xl sm:text-2xl font-bold mb-4 pr-20" style={{ color: '#1b181f' }}>
+                    {guide.title}
                   </h3>
                   <ul className="space-y-3">
-                    {(language === "HI" && (guide as any).stepsHI ? (guide as any).stepsHI : guide.steps).map((step: string, stepIndex: number) => (
-                      <li key={stepIndex} className="flex items-start gap-3">
+                    {guide.bullets.map((bullet, bulletIndex) => (
+                      <li key={bulletIndex} className="flex items-start gap-3">
                         <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#146fb5' }} />
                         <span className="text-sm sm:text-base leading-relaxed" style={{ color: '#4f4f4f' }}>
-                          {step}
+                          {bullet}
                         </span>
                       </li>
                     ))}
@@ -304,52 +361,6 @@ export default function Guides() {
                 ))}
               </Accordion>
             </div>
-          </div>
-        </section>
-
-        {/* Closing Section */}
-        <section className="section-spacing bg-white">
-          <div className="container-wide">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="max-w-5xl mx-auto"
-            >
-              <div className="relative overflow-hidden rounded-lg sm:rounded-xl p-8 sm:p-12" style={{
-                background: 'linear-gradient(135deg, #146fb5 0%, #87CEEB 50%, #B0E0E6 100%)',
-                backgroundSize: '200% 200%',
-              }}>
-                <div className="relative z-10 flex flex-col items-start text-left">
-                  {/* Logo */}
-                  <div className="flex-shrink-0 mb-2">
-                    <img 
-                      src={lumeLogo} 
-                      alt="Lume" 
-                      className="w-24 h-24 sm:w-32 sm:h-32 object-contain"
-                    />
-                  </div>
-                  
-                  {/* Content */}
-                  <div className="max-w-2xl">
-                    <p className="text-lg sm:text-xl leading-relaxed text-white font-medium mb-4 sm:mb-6">
-                      {language === "HI"
-                        ? "Lume को ऐसे बनाया गया है कि यह दुकानदारों के लिए आसान रहे और बढ़ते बिज़नेस के लिए काफ़ी पावरफुल भी हो — पहले बेसिक से शुरू करें और जब तैयार हों तभी अगले स्टेप पर जाएँ।"
-                        : "Lume is built to be simple for retailers and powerful for growing businesses — start with basics and upgrade only when you're ready."}
-                    </p>
-                    
-                    {/* Get Started Button */}
-                    <Button
-                      onClick={() => window.open('https://r.apeirosai.com/en', '_blank')}
-                      className="bg-white text-[#146fb5] hover:bg-white/90 font-semibold px-6 py-3 rounded-lg shadow-lg"
-                    >
-                      {language === "HI" ? "शुरू करें" : "Get Started"}
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
           </div>
         </section>
       </main>
