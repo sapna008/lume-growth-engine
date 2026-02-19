@@ -29,7 +29,11 @@ import { Autoplay, Pagination } from 'swiper/modules';
 import { useMemo } from 'react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import heroBannerImage from "@/assets/hero-banner-image.png";
+import dashboardDesktop from "@/assets/hero-banner/dashboard-hindii.png";
+import dashboardEnglish from "@/assets/hero-banner/dashboard-english.png";
+import mobileHeroVideo from "@/assets/hero-banner/mobile-hero.mp4";
+import mobileHeroVideoEnglish from "@/assets/hero-banner/mobile-hero-english.mp4";
+import billVideo from "@/assets/hero-banner/bill-vdoo.mp4";
 import bgImage from "@/assets/bg-1.avif";
 import smileIcon from "@/assets/smile.png";
 import challengeIcon1 from "@/assets/home-icons/chalanges-icons/i-1.png";
@@ -364,42 +368,79 @@ export default function Index() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="relative"
               >
-                {/* Hero banner image - desktop & mobile */}
-                <div className="relative z-10 mt-4 lg:-mt-8 w-full">
-                  <img
-                    src={heroBannerImage}
-                    alt="Customer engagement and marketing platform for retail - referral sales, upsell, cross-sell and Google reviews"
-                    className="w-full h-auto max-w-3xl lg:max-w-4xl xl:max-w-5xl mx-auto lg:ml-auto lg:mr-0 drop-shadow-2xl rounded-xl"
-                  />
+                {/* Desktop only (lg+): layered desktop image + video overlay */}
+                <div className="relative z-10 mt-8 lg:mt-0 hidden lg:block">
+                  <div className="relative -mt-16 lg:-mt-20 xl:-mt-24">
+                    {/* Desktop Image - right-aligned */}
+                    <div className="flex justify-end w-full -mr-4 sm:-mr-6 md:-mr-8 lg:-mr-12 xl:-mr-16" style={{ paddingRight: 0, marginRight: 0 }}>
+                      <img
+                        src={language === 'EN' ? dashboardEnglish : dashboardDesktop}
+                        alt="Retail POS billing software dashboard for Indian stores"
+                        className="max-w-[200px] sm:max-w-[280px] md:max-w-[360px] lg:max-w-[440px] xl:max-w-[520px] drop-shadow-2xl"
+                        style={{
+                          zIndex: 1,
+                          marginRight: 0,
+                          paddingRight: 0,
+                          borderTopLeftRadius: '0.5rem',
+                          borderBottomLeftRadius: '0.5rem',
+                          borderTopRightRadius: 0,
+                          borderBottomRightRadius: 0
+                        }}
+                      />
+                    </div>
+                    {/* Bill video - foreground overlay bottom-left */}
+                    <div className="absolute -bottom-24 sm:-bottom-22 md:-bottom-20 lg:-bottom-18 xl:-bottom-16 -left-2 sm:left-0 md:left-2 lg:left-6" style={{ zIndex: 20 }}>
+                      <video
+                        src={billVideo}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-20 sm:w-24 md:w-28 lg:w-32 xl:w-40 drop-shadow-2xl rounded-lg border-2 border-white shadow-2xl"
+                        style={{ borderColor: 'rgba(255, 255, 255, 0.8)' }}
+                      />
+                    </div>
+                  </div>
                 </div>
 
-                {/* Mobile: testimonials below banner */}
-                <div className="lg:hidden mt-4 flex flex-col items-center gap-3">
-                  <div className="flex -space-x-3">
-                    {memoizedTestimonials.slice(0, 4).map((testimonial, i) => (
-                      <div key={`mobile-testimonial-${testimonial.author}-${i}`} className="w-10 h-10 rounded-full border-2 border-white shadow-lg overflow-hidden" style={{ borderColor: '#146fb5' }}>
-                        <img
-                          src={testimonial.image}
-                          alt={testimonial.author}
-                          className="w-full h-full object-cover"
-                          loading="lazy"
-                          decoding="async"
-                          fetchPriority="low"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                  <div className="text-sm text-center">
-                    <div className="flex items-center justify-center gap-1 mb-1" style={{ color: '#146fb5' }}>
-                      {[1, 2, 3, 4, 5].map((i) => (
-                        <Star key={i} className="w-4 h-4 fill-current" />
+                {/* Mobile + Tablet: full-width hero video */}
+                <div className="lg:hidden mt-2 w-full">
+                  <video
+                    src={language === 'EN' ? mobileHeroVideoEnglish : mobileHeroVideo}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-auto drop-shadow-2xl rounded-xl"
+                  />
+                  {/* Mobile: testimonials below video */}
+                  <div className="mt-4 flex flex-col items-center gap-3">
+                    <div className="flex -space-x-3">
+                      {memoizedTestimonials.slice(0, 4).map((testimonial, i) => (
+                        <div key={`mobile-testimonial-${testimonial.author}-${i}`} className="w-10 h-10 rounded-full border-2 border-white shadow-lg overflow-hidden" style={{ borderColor: '#146fb5' }}>
+                          <img
+                            src={testimonial.image}
+                            alt={testimonial.author}
+                            className="w-full h-full object-cover"
+                            loading="lazy"
+                            decoding="async"
+                            fetchPriority="low"
+                          />
+                        </div>
                       ))}
                     </div>
-                    <span style={{ color: '#4f4f4f' }}>{t('hero.rating')}</span>
+                    <div className="text-sm text-center">
+                      <div className="flex items-center justify-center gap-1 mb-1" style={{ color: '#146fb5' }}>
+                        {[1, 2, 3, 4, 5].map((i) => (
+                          <Star key={i} className="w-4 h-4 fill-current" />
+                        ))}
+                      </div>
+                      <span style={{ color: '#4f4f4f' }}>{t('hero.rating')}</span>
+                    </div>
                   </div>
                 </div>
 
-                <div className="absolute inset-0 bg-gradient-to-r from-[#146fb5]/30 to-primary/20 rounded-3xl blur-3xl pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#146fb5]/30 to-primary/20 rounded-3xl blur-3xl pointer-events-none -z-10" />
               </motion.div>
             </div>
           </div>
