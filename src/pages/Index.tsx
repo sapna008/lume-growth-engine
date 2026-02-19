@@ -29,11 +29,7 @@ import { Autoplay, Pagination } from 'swiper/modules';
 import { useMemo } from 'react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import dashboardDesktop from "@/assets/hero-banner/dashboard-hindii.png";
-import dashboardEnglish from "@/assets/hero-banner/dashboard-english.png";
-import mobileHeroVideo from "@/assets/hero-banner/mobile-hero.mp4";
-import mobileHeroVideoEnglish from "@/assets/hero-banner/mobile-hero-english.mp4";
-import billVideo from "@/assets/hero-banner/bill-vdoo.mp4";
+import heroBannerImage from "@/assets/hero-banner-image.png";
 import bgImage from "@/assets/bg-1.avif";
 import smileIcon from "@/assets/smile.png";
 import challengeIcon1 from "@/assets/home-icons/chalanges-icons/i-1.png";
@@ -271,8 +267,8 @@ export default function Index() {
           }}
         />
         <Header />
-        <div className={`relative z-10 ${language === 'HI' ? 'pt-10 sm:pt-18 lg:pt-20' : 'pt-12 sm:pt-14 lg:pt-16'}`}>
-          <div className={`container-wide relative z-10 ${language === 'HI' ? 'py-6 sm:py-14 lg:py-18' : 'py-8 sm:py-12 lg:py-16'}`}>
+        <div className={`relative z-10 ${language === 'HI' ? 'pt-10 sm:pt-18 lg:pt-20' : 'pt-10 sm:pt-12 lg:pt-14'}`}>
+          <div className={`container-wide relative z-10 ${language === 'HI' ? 'py-6 sm:py-14 lg:py-18' : 'py-6 sm:py-8 lg:py-10'}`}>
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -284,7 +280,7 @@ export default function Index() {
                   <span className={`font-medium ${language === 'HI' ? 'text-xs' : 'text-sm'}`} style={{ color: '#1b181f' }}>{t('hero.badge')}</span>
                 </div>
                 
-                <h1 className={`font-display font-bold ${language === 'HI' ? 'text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-5 sm:mb-7 leading-[1.5]' : 'text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 sm:mb-6 leading-tight'}`} style={{ color: '#1b181f' }}>
+                <h1 className={`font-display font-bold ${language === 'HI' ? 'text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-5 sm:mb-7 leading-[1.5]' : 'text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-3 sm:mb-4 leading-tight'}`} style={{ color: '#1b181f' }}>
                   {language === 'HI' ? (
                     <>
                       {/* Mobile: 2 lines — Line 1: title + स्मार्ट POS, Line 2: और डिजिटल बिलिंग से बढ़ाइए */}
@@ -294,14 +290,16 @@ export default function Index() {
                           <span style={{ color: '#146fb5' }}>{t('hero.titleHighlightPart1')}</span>
                         </div>
                         <div className="block pt-2" style={{ color: '#146fb5' }}>
-                          {t('hero.titleHighlightPart2')} {t('hero.titleHighlightLine2')}
+                          {t('hero.titleHighlightPart2') || t('hero.titleHighlightLine2')}
                         </div>
                       </div>
                       {/* Desktop: 3 lines — Line 1: title, Line 2: स्मार्ट POS और डिजिटल, Line 3: बिलिंग से बढ़ाइए */}
                       <div className="hidden sm:block">
                         <div className="block">{t('hero.title')}</div>
                         <div className="block pt-2 sm:pt-3" style={{ color: '#146fb5' }}>{t('hero.titleHighlightPart1')} {t('hero.titleHighlightPart2')}</div>
-                        <div className="block pt-1.5 sm:pt-2" style={{ color: '#146fb5' }}>{t('hero.titleHighlightLine2')}</div>
+                        {t('hero.titleHighlightLine2') ? (
+                          <div className="block pt-1.5 sm:pt-2" style={{ color: '#146fb5' }}>{t('hero.titleHighlightLine2')}</div>
+                        ) : null}
                       </div>
                     </>
                   ) : (
@@ -312,7 +310,7 @@ export default function Index() {
                   )}
                 </h1>
                 
-                <p className={`max-w-lg ${language === 'HI' ? 'text-sm sm:text-base md:text-lg mb-7 sm:mb-9' : 'text-base sm:text-lg md:text-xl mb-6 sm:mb-8'}`} style={{ color: '#4f4f4f' }}>
+                <p className={`max-w-lg ${language === 'HI' ? 'text-xs sm:text-sm md:text-base mb-7 sm:mb-9' : 'text-sm sm:text-base md:text-lg mb-4 sm:mb-6'}`} style={{ color: '#4f4f4f' }}>
                   {t('hero.description')}
                 </p>
                 
@@ -334,7 +332,7 @@ export default function Index() {
                 </div>
                 
                 {/* Desktop: testimonials above video */}
-                <div className="hidden sm:flex mt-6 sm:mt-8 flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+                <div className={`hidden sm:flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 ${language === 'HI' ? 'mt-6 sm:mt-8' : 'mt-4 sm:mt-6'}`}>
                   <div className="flex -space-x-3">
                     {memoizedTestimonials.slice(0, 4).map((testimonial, i) => (
                       <div key={`hero-testimonial-${testimonial.author}-${i}`} className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white shadow-lg overflow-hidden" style={{ borderColor: '#146fb5' }}>
@@ -366,81 +364,42 @@ export default function Index() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="relative"
               >
-                {/* Desktop only (lg+): layered desktop image + video */}
-                <div className="relative z-10 mt-8 lg:mt-0 hidden lg:block">
-                  <div className="relative -mt-16 lg:-mt-20 xl:-mt-24">
-                    {/* Desktop Image - Background, positioned at right, moved up, aligned to right edge */}
-                    <div className="flex justify-end w-full -mr-4 sm:-mr-6 md:-mr-8 lg:-mr-12 xl:-mr-16" style={{ paddingRight: 0, marginRight: 0 }}>
-                      <img 
-                        src={language === 'EN' ? dashboardEnglish : dashboardDesktop} 
-                        alt="Retail POS billing software dashboard for Indian stores"
-                        className="max-w-[200px] sm:max-w-[280px] md:max-w-[360px] lg:max-w-[440px] xl:max-w-[520px] drop-shadow-2xl"
-                        style={{ 
-                          zIndex: 1, 
-                          marginRight: 0,
-                          paddingRight: 0,
-                          borderTopLeftRadius: '0.5rem',
-                          borderBottomLeftRadius: '0.5rem',
-                          borderTopRightRadius: 0,
-                          borderBottomRightRadius: 0
-                        }}
-                      />
-                    </div>
-                    
-                    {/* Mobile Video - Foreground, positioned at bottom left, smaller, moved down more */}
-                    <div className="absolute -bottom-24 sm:-bottom-22 md:-bottom-20 lg:-bottom-18 xl:-bottom-16 -left-2 sm:left-0 md:left-2 lg:left-6" style={{ zIndex: 20 }}>
-                      <video 
-                        src={billVideo}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="w-20 sm:w-24 md:w-28 lg:w-32 xl:w-40 drop-shadow-2xl rounded-lg border-2 border-white shadow-2xl"
-                        style={{ borderColor: 'rgba(255, 255, 255, 0.8)' }}
-                      />
-                    </div>
-                  </div>
+                {/* Hero banner image - desktop & mobile */}
+                <div className="relative z-10 mt-4 lg:-mt-8 w-full">
+                  <img
+                    src={heroBannerImage}
+                    alt="Customer engagement and marketing platform for retail - referral sales, upsell, cross-sell and Google reviews"
+                    className="w-full h-auto max-w-3xl lg:max-w-4xl xl:max-w-5xl mx-auto lg:ml-auto lg:mr-0 drop-shadow-2xl rounded-xl"
+                  />
                 </div>
 
-                {/* Mobile + Tablet: full width video (same as mobile) */}
-                <div className="lg:hidden mt-2 w-full">
-                  <video 
-                    src={language === 'EN' ? mobileHeroVideoEnglish : mobileHeroVideo}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-auto drop-shadow-2xl rounded-xl"
-                  />
-                  
-                  {/* Mobile: testimonials below video */}
-                  <div className="mt-4 flex flex-col items-center gap-3">
-                    <div className="flex -space-x-3">
-                      {memoizedTestimonials.slice(0, 4).map((testimonial, i) => (
-                        <div key={`mobile-testimonial-${testimonial.author}-${i}`} className="w-10 h-10 rounded-full border-2 border-white shadow-lg overflow-hidden" style={{ borderColor: '#146fb5' }}>
-                          <img 
-                            src={testimonial.image} 
-                            alt={testimonial.author}
-                            className="w-full h-full object-cover"
-                            loading="lazy"
-                            decoding="async"
-                            fetchPriority="low"
-                          />
-                        </div>
+                {/* Mobile: testimonials below banner */}
+                <div className="lg:hidden mt-4 flex flex-col items-center gap-3">
+                  <div className="flex -space-x-3">
+                    {memoizedTestimonials.slice(0, 4).map((testimonial, i) => (
+                      <div key={`mobile-testimonial-${testimonial.author}-${i}`} className="w-10 h-10 rounded-full border-2 border-white shadow-lg overflow-hidden" style={{ borderColor: '#146fb5' }}>
+                        <img
+                          src={testimonial.image}
+                          alt={testimonial.author}
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                          decoding="async"
+                          fetchPriority="low"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                  <div className="text-sm text-center">
+                    <div className="flex items-center justify-center gap-1 mb-1" style={{ color: '#146fb5' }}>
+                      {[1, 2, 3, 4, 5].map((i) => (
+                        <Star key={i} className="w-4 h-4 fill-current" />
                       ))}
                     </div>
-                    <div className="text-sm text-center">
-                      <div className="flex items-center justify-center gap-1 mb-1" style={{ color: '#146fb5' }}>
-                        {[1, 2, 3, 4, 5].map((i) => (
-                          <Star key={i} className="w-4 h-4 fill-current" />
-                        ))}
-                      </div>
-                      <span style={{ color: '#4f4f4f' }}>{t('hero.rating')}</span>
-                    </div>
+                    <span style={{ color: '#4f4f4f' }}>{t('hero.rating')}</span>
                   </div>
                 </div>
 
-                <div className="absolute inset-0 bg-gradient-to-r from-[#146fb5]/30 to-primary/20 rounded-3xl blur-3xl" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#146fb5]/30 to-primary/20 rounded-3xl blur-3xl pointer-events-none" />
               </motion.div>
             </div>
           </div>
@@ -582,7 +541,7 @@ export default function Index() {
                   <>{t('hero.title')} <span style={{ color: '#146fb5' }}>{t('hero.titleHighlight')}</span></>
                 )}
               </h2>
-              <p className="text-base sm:text-lg" style={{ color: '#4f4f4f' }}>
+              <p className="text-sm sm:text-base" style={{ color: '#4f4f4f' }}>
                 {t('hero.description')}
               </p>
             </motion.div>

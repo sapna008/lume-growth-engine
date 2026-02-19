@@ -5,8 +5,11 @@ import { cn } from "@/lib/utils";
 import lumeLogo from "@/assets/lumelogo.jpg";
 
 // mute=1 required by browsers for autoplay; user can unmute in player
-const YOUTUBE_SHORTS_EMBED_URL =
-  "https://www.youtube.com/embed/ojflp89LdjE?si=yexUA-GgIrB1zeD9&autoplay=1&mute=1";
+const DEFAULT_VIDEO_ID = "ojflp89LdjE";
+
+function getEmbedUrl(videoId: string) {
+  return `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1`;
+}
 
 const INSTAGRAM_PROFILE_URL = "https://www.instagram.com/the_lume_app/";
 
@@ -40,7 +43,13 @@ function getMinMax(isDesktop: boolean) {
     : { minW: MOBILE_MIN_WIDTH, minH: MOBILE_MIN_HEIGHT, maxW: MOBILE_MAX_WIDTH, maxH: MOBILE_MAX_HEIGHT };
 }
 
-export function FloatingYouTubeShorts() {
+interface FloatingYouTubeShortsProps {
+  /** YouTube Shorts video ID (e.g. from youtube.com/shorts/VIDEO_ID). Default: For Retailers video */
+  videoId?: string;
+}
+
+export function FloatingYouTubeShorts({ videoId = DEFAULT_VIDEO_ID }: FloatingYouTubeShortsProps) {
+  const embedUrl = getEmbedUrl(videoId);
   const [isDesktop, setIsDesktop] = useState(() => typeof window !== "undefined" && window.innerWidth >= DESKTOP_BREAKPOINT);
   const defaultSize = getDefaultSize(isDesktop);
   const [width, setWidth] = useState(defaultSize.w);
@@ -197,7 +206,7 @@ export function FloatingYouTubeShorts() {
       {/* Iframe */}
       <div className="relative flex-1 min-h-0">
         <iframe
-          src={YOUTUBE_SHORTS_EMBED_URL}
+          src={embedUrl}
           title="YouTube Short"
           className={cn("absolute inset-0 h-full w-full", isExpanded ? "rounded-none" : "rounded-b-lg")}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

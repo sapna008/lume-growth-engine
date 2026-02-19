@@ -329,15 +329,15 @@ const translations: Record<Language, Record<string, string>> = {
   HI: {
     // Hero Section (SEO: short sentences, unique Hindi)
     'hero.badge': 'भारत के 250+ दुकानदारों का भरोसा',
-    'hero.title': 'अपने रिटेल बिज़नेस को',
-    'hero.titleHighlight': 'स्मार्ट POS और डिजिटल बिलिंग से बढ़ाइए',
-    'hero.titleHighlightLine1': 'स्मार्ट POS और डिजिटल',
-    'hero.titleHighlightLine2': 'बिलिंग से बढ़ाइए',
-    'hero.titleHighlightPart1': 'स्मार्ट POS',
-    'hero.titleHighlightPart2': 'और डिजिटल',
-    'hero.titleHighlightBilling': 'बिलिंग',
-    'hero.titleHighlightCTA': 'से बढ़ाइए',
-    'hero.description': 'ल्यूम एक स्मार्ट रिटेल POS प्लेटफ़ॉर्म है। बिलिंग प्रोसेस फास्ट और सिंपल। ग्राहक इनसाइट्स, लॉयल्टी और मार्केटिंग टूल्स। इंडियन स्टोर्स सेल्स और कस्टमर रिटेंशन बढ़ाते हैं।',
+    'hero.title': 'अपने रिटेल बिज़नेस को बढ़ाइए',
+    'hero.titleHighlight': 'स्मार्टर कस्टमर एंगेजमेंट टूल्स के साथ',
+    'hero.titleHighlightLine1': 'स्मार्टर कस्टमर एंगेजमेंट',
+    'hero.titleHighlightLine2': '',
+    'hero.titleHighlightPart1': 'स्मार्टर कस्टमर एंगेजमेंट',
+    'hero.titleHighlightPart2': 'टूल्स के साथ',
+    'hero.titleHighlightBilling': '',
+    'hero.titleHighlightCTA': '',
+    'hero.description': 'अग्रणी कस्टमर एंगेजमेंट और मार्केटिंग प्लेटफ़ॉर्म जो रिटेलर्स को तेज़ी से बढ़ने और ग्राहकों के साथ मजबूत रिश्ते बनाने में मदद करता है। भारत में रिटेल का तरीका बदल रहे हैं।',
     'hero.download': 'डाउनलोड करें',
     'hero.watchDemo': 'डेमो बुक करें',
     'hero.rating': '4.8/5 रेटिंग (250+ दुकानदारों की राय)',
@@ -662,7 +662,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   };
 
   const t = (key: string): string => {
-    return translations[language][key] || key;
+    const val = translations[language][key];
+    return (val !== undefined && val !== null) ? val : key;
   };
 
   return (
