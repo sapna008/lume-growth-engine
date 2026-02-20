@@ -388,8 +388,8 @@ export default function Index() {
                         }}
                       />
                     </div>
-                    {/* Bill video - foreground overlay bottom-left */}
-                    <div className="absolute -bottom-24 sm:-bottom-22 md:-bottom-20 lg:-bottom-18 xl:-bottom-16 -left-2 sm:left-0 md:left-2 lg:left-6" style={{ zIndex: 20 }}>
+                    {/* Bill video - foreground overlay bottom-left (2mm up) */}
+                    <div className="absolute -bottom-24 sm:-bottom-22 md:-bottom-20 lg:-bottom-18 xl:-bottom-16 -left-2 sm:left-0 md:left-2 lg:left-6 -translate-y-1" style={{ zIndex: 20 }}>
                       <video
                         src={billVideo}
                         autoPlay
@@ -404,7 +404,7 @@ export default function Index() {
                 </div>
 
                 {/* Mobile + Tablet: full-width hero video */}
-                <div className="lg:hidden mt-2 w-full">
+                <div className="lg:hidden mt-2 w-full -translate-y-0.5">
                   <video
                     src={language === 'EN' ? mobileHeroVideoEnglish : mobileHeroVideo}
                     autoPlay
