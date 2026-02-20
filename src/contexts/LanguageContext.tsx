@@ -329,12 +329,12 @@ const translations: Record<Language, Record<string, string>> = {
   HI: {
     // Hero Section (SEO: short sentences, unique Hindi)
     'hero.badge': 'भारत के 250+ दुकानदारों का भरोसा',
-    'hero.title': 'ग्राहक को वापस लाने वाला सिस्टम',
-    'hero.titleHighlight': '— सिर्फ बिलिंग सॉफ्टवेयर नहीं',
-    'hero.titleHighlightLine1': '— सिर्फ बिलिंग सॉफ्टवेयर नहीं',
-    'hero.titleHighlightLine2': '',
-    'hero.titleHighlightPart1': '— सिर्फ बिलिंग सॉफ्टवेयर नहीं',
-    'hero.titleHighlightPart2': '',
+    'hero.title': 'ग्राहक को वापस लाने',
+    'hero.titleHighlight': 'सॉफ्टवेयर नहीं',
+    'hero.titleHighlightLine1': 'वाला सिस्टम सिर्फ बिलिंग',
+    'hero.titleHighlightLine2': 'सॉफ्टवेयर नहीं',
+    'hero.titleHighlightPart1': 'वाला सिस्टम सिर्फ बिलिंग',
+    'hero.titleHighlightPart2': 'सॉफ्टवेयर नहीं',
     'hero.titleHighlightBilling': '',
     'hero.titleHighlightCTA': '',
     'hero.description': 'हर बिल पर कैशबैक, पॉइंट्स और स्मार्ट ऑफर मिलते ही ग्राहक दोबारा आता है और ज़्यादा खरीदता है। जो नहीं आ रहा उसे बुलाओ, जो आ रहा है उसका बिल बढ़ाओ — ऑटोमैटिक।',

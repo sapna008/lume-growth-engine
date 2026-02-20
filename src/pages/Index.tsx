@@ -271,39 +271,32 @@ export default function Index() {
           }}
         />
         <Header />
-        <div className={`relative z-10 ${language === 'HI' ? 'pt-10 sm:pt-18 lg:pt-20' : 'pt-10 sm:pt-12 lg:pt-14'}`}>
-          <div className={`container-wide relative z-10 ${language === 'HI' ? 'py-6 sm:py-14 lg:py-18' : 'py-6 sm:py-8 lg:py-10'}`}>
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className={`relative z-10 ${language === 'HI' ? 'pt-12 sm:pt-18 lg:pt-20' : 'pt-12 sm:pt-12 lg:pt-14'}`}>
+          <div className={`container-wide relative z-10 ${language === 'HI' ? 'py-4 sm:py-14 lg:py-18' : 'py-4 sm:py-8 lg:py-10'}`}>
+            <div className="grid lg:grid-cols-2 gap-4 lg:gap-12 items-center">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                <div className={`inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20 ${language === 'HI' ? 'mb-4 sm:mb-8' : 'mb-4 sm:mb-6'}`}>
+                <div className={`inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20 ${language === 'HI' ? 'mb-2 sm:mb-8' : 'mb-2 sm:mb-6'}`}>
                   <span className="w-2 h-2 rounded-full bg-[#146fb5] animate-pulse" />
                   <span className={`font-medium ${language === 'HI' ? 'text-xs' : 'text-sm'}`} style={{ color: '#1b181f' }}>{t('hero.badge')}</span>
                 </div>
                 
-                <h1 className={`font-display font-bold ${language === 'HI' ? 'text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-5 sm:mb-7 leading-[1.5]' : 'text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-3 sm:mb-4 leading-tight'}`} style={{ color: '#1b181f' }}>
+                <h1 className={`font-display font-bold ${language === 'HI' ? 'text-3xl sm:text-3xl md:text-4xl lg:text-5xl mb-3 sm:mb-7 leading-[1.5]' : 'text-[1.95rem] sm:text-4xl md:text-5xl lg:text-6xl mb-2 sm:mb-4 leading-tight'}`} style={{ color: '#1b181f' }}>
                   {language === 'HI' ? (
                     <>
-                      {/* Mobile: 2 lines — Line 1: title + स्मार्ट POS, Line 2: और डिजिटल बिलिंग से बढ़ाइए */}
-                      <div className="sm:hidden">
-                        <div className="block">
-                          {t('hero.title')}{" "}
-                          <span style={{ color: '#146fb5' }}>{t('hero.titleHighlightPart1')}</span>
-                        </div>
-                        <div className="block pt-2" style={{ color: '#146fb5' }}>
-                          {t('hero.titleHighlightPart2') || t('hero.titleHighlightLine2')}
-                        </div>
+                      {/* Hindi: Line 1 ग्राहक को वापस लाने, Line 2 वाला सिस्टम सिर्फ बिलिंग, Line 3 सॉफ्टवेयर नहीं (blue, slightly bigger) */}
+                      <div className="sm:hidden leading-tight">
+                        <div className="block">{t('hero.title')}</div>
+                        <div className="block pt-0.5">{t('hero.titleHighlightPart1')}</div>
+                        <div className="block pt-0.5 text-[1.05em]" style={{ color: '#146fb5' }}>{t('hero.titleHighlightPart2')}</div>
                       </div>
-                      {/* Desktop: 3 lines — Line 1: title, Line 2: स्मार्ट POS और डिजिटल, Line 3: बिलिंग से बढ़ाइए */}
                       <div className="hidden sm:block">
                         <div className="block">{t('hero.title')}</div>
-                        <div className="block pt-2 sm:pt-3" style={{ color: '#146fb5' }}>{t('hero.titleHighlightPart1')} {t('hero.titleHighlightPart2')}</div>
-                        {t('hero.titleHighlightLine2') ? (
-                          <div className="block pt-1.5 sm:pt-2" style={{ color: '#146fb5' }}>{t('hero.titleHighlightLine2')}</div>
-                        ) : null}
+                        <div className="block pt-2 sm:pt-3">{t('hero.titleHighlightPart1')}</div>
+                        <div className="block pt-1.5 sm:pt-2 text-[1.08em] sm:text-[1.1em]" style={{ color: '#146fb5' }}>{t('hero.titleHighlightPart2')}</div>
                       </div>
                     </>
                   ) : (
@@ -314,7 +307,7 @@ export default function Index() {
                   )}
                 </h1>
                 
-                <p className={`max-w-lg ${language === 'HI' ? 'text-xs sm:text-sm md:text-base mb-7 sm:mb-9' : 'text-sm sm:text-base md:text-lg mb-4 sm:mb-6'}`} style={{ color: '#4f4f4f' }}>
+                <p className={`max-w-lg ${language === 'HI' ? 'text-base sm:text-base md:text-lg mb-4 sm:mb-9' : 'text-base sm:text-base md:text-lg mb-3 sm:mb-6'}`} style={{ color: '#4f4f4f' }}>
                   {t('hero.description')}
                 </p>
                 
@@ -404,7 +397,7 @@ export default function Index() {
                 </div>
 
                 {/* Mobile + Tablet: full-width hero video */}
-                <div className="lg:hidden mt-2 w-full -translate-y-0.5">
+                <div className="lg:hidden mt-0 w-full -translate-y-0.5">
                   <video
                     src={language === 'EN' ? mobileHeroVideoEnglish : mobileHeroVideo}
                     autoPlay
@@ -414,7 +407,7 @@ export default function Index() {
                     className="w-full h-auto drop-shadow-2xl rounded-xl"
                   />
                   {/* Mobile: testimonials below video */}
-                  <div className="mt-4 flex flex-col items-center gap-3">
+                  <div className="mt-2 flex flex-col items-center gap-2">
                     <div className="flex -space-x-3">
                       {memoizedTestimonials.slice(0, 4).map((testimonial, i) => (
                         <div key={`mobile-testimonial-${testimonial.author}-${i}`} className="w-10 h-10 rounded-full border-2 border-white shadow-lg overflow-hidden" style={{ borderColor: '#146fb5' }}>
