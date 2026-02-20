@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useSEO } from "@/hooks/useSEO";
 import { Button } from "@/components/ui/button";
+import { FloatingYouTubeShorts } from "@/components/FloatingYouTubeShorts";
 import heroImage from "@/assets/refer/hero.png";
 import whatsappReferImage from "@/assets/refer/whatsapp-refer.png";
 import inStoreImage from "@/assets/refer/in-store.png";
@@ -252,6 +253,7 @@ export default function ReferralFeature() {
         </div>
       </section>
 
+      <FloatingYouTubeShorts videoId="SUCJEAmQwCo" />
       <Footer />
     </div>
   );
