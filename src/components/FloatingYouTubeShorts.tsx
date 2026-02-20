@@ -4,11 +4,11 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import lumeLogo from "@/assets/lumelogo.jpg";
 
-// mute=1 required by browsers for autoplay; user can unmute in player
+// Unmuted by default; some browsers may block autoplay with sound until user interaction
 const DEFAULT_VIDEO_ID = "ojflp89LdjE";
 
 function getEmbedUrl(videoId: string) {
-  return `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1`;
+  return `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0`;
 }
 
 const INSTAGRAM_PROFILE_URL = "https://www.instagram.com/the_lume_app/";
