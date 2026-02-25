@@ -40,7 +40,7 @@ export const guideData = [
     slug: "analytics-dashboard",
     type: "video" as const,
     title: "Analytics Dashboard – Sales, Customers & Products",
-    videoUrl: "https://www.youtube.com/embed/Qk_xRFe8lw0?rel=0",
+    videoUrl: "https://www.youtube.com/embed/wQ4f4bbpVOw?rel=0",
     bullets: [
       "Use Analysis → Know Your Sales for full sales & bill analysis",
       "Compare total sales and bill count with previous period",
@@ -78,7 +78,7 @@ export const guideData = [
     slug: "analytics-dashboard",
     type: "video" as const,
     title: "Analytics Dashboard – Sales, Customers & Products",
-    videoUrl: "https://www.youtube.com/embed/Qk_xRFe8lw0?rel=0",
+    videoUrl: "https://www.youtube.com/embed/wQ4f4bbpVOw?rel=0",
     bullets: [
       "Know Your Sales for full sales & bill analysis",
       "Compare total sales and bill count with previous period",
