@@ -60,6 +60,20 @@ export const guideData = [
     ]
   },
   {
+    slug: "analytics-dashboard",
+    type: "video" as const,
+    title: "Analytics Dashboard – Sales, Customers & Products",
+    videoUrl: "https://www.youtube.com/embed/Qk_xRFe8lw0?rel=0",
+    bullets: [
+      "Know Your Sales for full sales & bill analysis",
+      "Compare total sales and bill count with previous period",
+      "Track Daily Sales, Bills & Avg Bill Value",
+      "See Monthly & Hourly trends for peak time",
+      "Know Your Customer → visits, top spenders, segments",
+      "Product charts → top sellers, combos, repeat buys"
+    ]
+  },
+  {
     slug: "create-bill",
     type: "video" as const,
     title: "Create & Send Digital Bills",
@@ -154,6 +168,43 @@ export const guideData = [
       "Update or remove staff accounts",
       "Maintain secure access control"
     ]
+  },
+  {
+    slug: "basic-marketing-campaign",
+    type: "video" as const,
+    title: "Marketing Campaigns – Basics & Overview",
+    videoUrl: "https://www.youtube.com/embed/1MoOO5XbFgE?rel=0",
+    bullets: [
+      "Understand how marketing campaigns work inside Lume.",
+      "Pick the right customers and channels for each campaign.",
+      "Set clear goals and track basic campaign performance.",
+      "Use campaigns to bring back inactive customers and lift average bill value."
+    ]
+  },
+  {
+    slug: "promotions-on-ebills",
+    type: "video" as const,
+    title: "Promotions – Show Offers on eBills",
+    videoUrl: "https://www.youtube.com/embed/yWv2G8aNz3g?rel=0",
+    bullets: [
+      "Show offers directly on eBills so every customer sees active deals.",
+      "Create a promotion from Campaigns → Promotions → Add Promotion.",
+      "Add name, short description and expiry date for the offer.",
+      "Select image, text or video, upload the file and submit to go live."
+    ]
+  },
+  {
+    slug: "coupons-cashback",
+    type: "video" as const,
+    title: "Coupons – Cashback & Targeted Offers",
+    videoUrl: "https://www.youtube.com/embed/bYJHBM4c9ug?rel=0",
+    bullets: [
+      "Use coupons for cashback and targeted offers that drive traffic and sales.",
+      "Create a coupon from Campaigns → Coupons → Create Coupon.",
+      "Set name, short description and issuance type (bulk, personal or on-demand).",
+      "Choose issuance/redemption dates, discount type (amount or %) and discount value.",
+      "Add header, CQ code, banner image and terms file, then set how many coupons you need."
+    ]
   }
 ];
 
@@ -230,46 +281,71 @@ export default function Guides() {
       
       <main className="flex-1">
         {/* Guides Grid Section */}
-        <section className="section-spacing bg-white pt-24">
+        <section className="section-spacing bg-gradient-to-b from-white via-[#f4f7fb] to-white pt-24">
           <div className="container-wide">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-center mb-12"
+              className="text-center mb-10 sm:mb-12"
             >
               <div className="inline-flex items-center gap-2 mb-4">
                 <Video className="w-6 h-6" style={{ color: '#146fb5' }} />
-                <h2 className="text-3xl sm:text-4xl font-bold" style={{ color: '#1b181f' }}>
+                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight" style={{ color: '#1b181f' }}>
                   {language === "HI" ? "गाइड्स" : "Guides"}
                 </h2>
               </div>
-              <p className="text-lg" style={{ color: '#4f4f4f' }}>
+              <p className="text-base sm:text-lg max-w-2xl mx-auto" style={{ color: '#4f4f4f' }}>
                 {language === "HI"
                   ? "Lume के साथ शुरुआत करने के लिए चरण-दर-चरण गाइड"
                   : "Step-by-step guides to get started with Lume"}
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
               {guideData.map((guide, i) => (
                 <motion.div
                   key={guide.slug}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-[#146fb5]/30 relative"
+                  transition={{ duration: 0.4, delay: i * 0.05 }}
+                  className="bg-white rounded-xl sm:rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-[#146fb5]/30 flex flex-col"
                 >
-                  {/* Button positioned top-right */}
-                  <div className="absolute top-4 right-4">
+                  <div className="mb-3 flex items-center justify-between gap-2">
+                    <h3 className="text-lg sm:text-xl font-bold" style={{ color: '#1b181f' }}>
+                      {guide.title}
+                    </h3>
+                    <span className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-[10px] sm:text-xs font-semibold bg-[#146fb5]/5 text-[#146fb5]">
+                      {guide.type === "download" ? "Download" : "Video"}
+                    </span>
+                  </div>
+
+                  <ul className="space-y-2 text-sm sm:text-[0.95rem] flex-1">
+                    {guide.bullets.slice(0, 4).map((bullet, bulletIndex) => (
+                      <li key={bulletIndex} className="flex items-start gap-3">
+                        <CheckCircle2 className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: '#146fb5' }} />
+                        <span className="leading-relaxed" style={{ color: '#4f4f4f' }}>
+                          {bullet}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {guide.bullets.length > 4 && (
+                    <p className="mt-2 text-xs text-[#6b7280]">
+                      + {guide.bullets.length - 4} more points inside the guide
+                    </p>
+                  )}
+
+                  <div className="mt-4">
                     {guide.type === "download" ? (
                       <Button
                         size="sm"
                         variant="cta"
                         onClick={() => window.open(guide.buttonLink, '_blank')}
-                        className="text-xs sm:text-sm"
+                        className="w-full justify-center text-xs sm:text-sm"
                       >
                         <Download className="w-4 h-4 mr-1" />
                         {guide.buttonLabel}
@@ -279,29 +355,15 @@ export default function Guides() {
                         size="sm"
                         variant="cta"
                         asChild
-                        className="text-xs sm:text-sm"
+                        className="w-full justify-center text-xs sm:text-sm"
                       >
                         <Link to={`/guides/${guide.slug}`}>
                           <Play className="w-4 h-4 mr-1" />
-                          Watch
+                          Watch guide
                         </Link>
                       </Button>
                     )}
                   </div>
-
-                  <h3 className="text-xl sm:text-2xl font-bold mb-4 pr-20" style={{ color: '#1b181f' }}>
-                    {guide.title}
-                  </h3>
-                  <ul className="space-y-3">
-                    {guide.bullets.map((bullet, bulletIndex) => (
-                      <li key={bulletIndex} className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#146fb5' }} />
-                        <span className="text-sm sm:text-base leading-relaxed" style={{ color: '#4f4f4f' }}>
-                          {bullet}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
                 </motion.div>
               ))}
             </div>
