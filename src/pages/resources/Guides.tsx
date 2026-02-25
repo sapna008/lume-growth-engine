@@ -35,6 +35,21 @@ export const guideData = [
       "Send your first digital bill to a customer"
     ]
   },
+  // Analytics + campaigns module guides
+  {
+    slug: "analytics-dashboard",
+    type: "video" as const,
+    title: "Analytics Dashboard – Sales, Customers & Products",
+    videoUrl: "https://www.youtube.com/embed/Qk_xRFe8lw0?rel=0",
+    bullets: [
+      "Use Analysis → Know Your Sales for full sales & bill analysis",
+      "Compare total sales and bill count with previous period",
+      "Track Daily Sales, Bills & Avg Bill Value",
+      "See Monthly & Hourly trends for peak time",
+      "Know Your Customer → visits, top spenders, segments",
+      "Product charts → top sellers, combos, repeat buys"
+    ]
+  },
   {
     slug: "onboarding",
     type: "video" as const,
@@ -169,6 +184,7 @@ export const guideData = [
       "Maintain secure access control"
     ]
   },
+  // Campaign / marketing module guides
   {
     slug: "basic-marketing-campaign",
     type: "video" as const,
@@ -303,8 +319,14 @@ export default function Guides() {
               </p>
             </motion.div>
 
+            {/* Core guides – uniform cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-              {guideData.map((guide, i) => (
+              {guideData
+                .filter(
+                  (guide) =>
+                    !["basic-marketing-campaign", "promotions-on-ebills", "coupons-cashback"].includes(guide.slug)
+                )
+                .map((guide, i) => (
                 <motion.div
                   key={guide.slug}
                   initial={{ opacity: 0, y: 20 }}
@@ -366,6 +388,90 @@ export default function Guides() {
                   </div>
                 </motion.div>
               ))}
+            </div>
+
+            {/* Campaign / Marketing guides – same cards, inside a separate box */}
+            <div id="campaign-guides" className="mt-14 sm:mt-16">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="mb-4 sm:mb-6 text-center"
+              >
+                <div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#146fb5]/5 border border-[#146fb5]/20">
+                    <span className="w-2 h-2 rounded-full bg-[#146fb5]" />
+                    <span className="text-xs sm:text-sm font-semibold" style={{ color: "#146fb5" }}>
+                      {language === "HI" ? "कैंपेन और मार्केटिंग गाइड्स" : "Campaign & marketing guides"}
+                    </span>
+                  </div>
+                  <h3 className="mt-3 text-lg sm:text-xl font-bold tracking-tight" style={{ color: "#1b181f" }}>
+                    {language === "HI"
+                      ? "ऑफ़र, कूपन और कैंपेन की पूरी समझ"
+                      : "Master offers, coupons & campaigns"}
+                  </h3>
+                </div>
+              </motion.div>
+
+              <div className="rounded-2xl border border-[#e0e7ff] bg-white/90 p-4 sm:p-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+                  {guideData
+                    .filter((guide) =>
+                      ["basic-marketing-campaign", "promotions-on-ebills", "coupons-cashback"].includes(guide.slug)
+                    )
+                    .map((guide, i) => (
+                      <motion.div
+                        key={guide.slug}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: i * 0.05 }}
+                        className="bg-white rounded-xl sm:rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-[#146fb5]/30 flex flex-col"
+                      >
+                        <div className="mb-3 flex items-center justify-between gap-2">
+                          <h4 className="text-lg sm:text-xl font-bold" style={{ color: "#1b181f" }}>
+                            {guide.title}
+                          </h4>
+                          <span className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-[10px] sm:text-xs font-semibold bg-[#146fb5]/5 text-[#146fb5]">
+                            Video
+                          </span>
+                        </div>
+
+                        <ul className="space-y-2 text-sm sm:text-[0.95rem] flex-1">
+                          {guide.bullets.slice(0, 4).map((bullet, bulletIndex) => (
+                            <li key={bulletIndex} className="flex items-start gap-3">
+                              <CheckCircle2 className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: "#146fb5" }} />
+                              <span className="leading-relaxed" style={{ color: "#4f4f4f" }}>
+                                {bullet}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+
+                        {guide.bullets.length > 4 && (
+                          <p className="mt-2 text-xs text-[#6b7280]">
+                            + {guide.bullets.length - 4} more points inside the guide
+                          </p>
+                        )}
+
+                        <div className="mt-4">
+                          <Button
+                            size="sm"
+                            variant="cta"
+                            asChild
+                            className="w-full justify-center text-xs sm:text-sm"
+                          >
+                            <Link to={`/guides/${guide.slug}`}>
+                              <Play className="w-4 h-4 mr-1" />
+                              {language === "HI" ? "वीडियो देखें" : "Watch guide"}
+                            </Link>
+                          </Button>
+                        </div>
+                      </motion.div>
+                    ))}
+                </div>
+              </div>
             </div>
           </div>
         </section>
