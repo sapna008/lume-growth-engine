@@ -44,13 +44,16 @@ export function Footer() {
             <Link to="/" className="flex items-center gap-2 mb-3">
               <img src={apeirosLogo} alt="Apeiros AI" className="h-8 w-auto rounded" />
             </Link>
-            <p className="text-white/80 text-sm mb-4 max-w-xs leading-relaxed">
+            <p className="text-white/80 text-sm mb-1 max-w-xs leading-relaxed">
               {t('footer.tagline')}
             </p>
+            <p className="text-white/80 text-xs mb-3">
+              Apeiros AI · Retail Intelligence Platform
+            </p>
             <div className="space-y-2">
-            <a href="mailto:info@apeirosai.com" className="flex items-center gap-2 text-white/80 hover:text-white text-sm transition-colors">
+            <a href="mailto:contact@apeirosai.com" className="flex items-center gap-2 text-white/80 hover:text-white text-sm transition-colors">
                 <Mail className="w-4 h-4" />
-                info@apeirosai.com
+                contact@apeirosai.com
               </a>
               <a href="tel:+919326601463" className="flex items-center gap-2 text-white/80 hover:text-white text-sm transition-colors">
                 <Phone className="w-4 h-4" />
@@ -74,6 +77,11 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link to="/startup" className="text-white/80 hover:text-white text-sm transition-colors">
+                  Startup overview
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -128,16 +136,24 @@ export function Footer() {
             © {new Date().getFullYear()} Apeiros AI. {t('footer.copyright')}
           </p>
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-3">
-              {footerLinks.legal.map((link) => (
-                <Link 
-                  key={link.nameKey} 
-                  to={link.href} 
-                  className="text-white/80 hover:text-white text-xs transition-colors"
-                >
-                  {t(link.nameKey)}
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+              <div className="flex items-center gap-3">
+                <Link to="/privacy" className="text-white/80 hover:text-white text-xs transition-colors">
+                  Privacy
                 </Link>
-              ))}
+                <Link to="/terms" className="text-white/80 hover:text-white text-xs transition-colors">
+                  Terms
+                </Link>
+              </div>
+              <span className="hidden sm:inline text-white/40 text-xs">·</span>
+              <a
+                href="https://apeirosai.com"
+                target="_blank"
+                rel="noreferrer"
+                className="text-white/80 hover:text-white text-xs transition-colors"
+              >
+                apeirosai.com
+              </a>
             </div>
             <div className="flex items-center gap-3">
               <a

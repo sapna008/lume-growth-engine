@@ -23,6 +23,7 @@ import BillingGuide from "./pages/BillingGuide";
 import Contact from "./pages/Contact";
 import Admin from "./pages/Admin";
 import About from "./pages/company/About";
+import Startup from "./pages/Startup";
 import Careers from "./pages/company/Careers";
 import NotFound from "./pages/NotFound";
 import BookDemo from "./pages/BookDemo";
@@ -65,6 +66,11 @@ const App = () => (
             <Route path="/company/careers" element={<Careers />} />
             <Route path="/privacy-policy" element={<Privacy />} />
             <Route path="/terms-conditions" element={<Terms />} />
+            {/* Shorter legal URLs for reviewers */}
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/terms" element={<Terms />} />
+            {/* Startup overview page for Google reviewers */}
+            <Route path="/startup" element={<Startup />} />
             <Route path="/trial" element={<BookDemo />} />
             <Route path="/demo" element={<BookDemo />} />
             <Route path="/book-demo" element={<BookDemo />} />

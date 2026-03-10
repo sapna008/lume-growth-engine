@@ -15,15 +15,15 @@ const translations: Record<Language, Record<string, string>> = {
   EN: {
     // Hero Section
     'hero.badge': 'Trusted by 250+ retailers across India',
-    'hero.title': 'Turn Every Walk-In Customer into a ',
-    'hero.titleHighlight': 'Returning Customer',
+    'hero.title': 'AI-Powered Retail SaaS Platform for Smart Billing, Customer Engagement & Analytics',
+    'hero.titleHighlight': '',
     'hero.titleHighlightLine1': '',
     'hero.titleHighlightLine2': '',
     'hero.titleHighlightPart1': '',
     'hero.titleHighlightPart2': '',
     'hero.titleHighlightBilling': '',
     'hero.titleHighlightCTA': '',
-    'hero.description': 'Lume helps retail stores increase repeat visits and average bill value through automated loyalty, cashback and personalised offers. Identify inactive customers, bring them back, and encourage higher purchases — without changing your billing process.',
+    'hero.description': 'Lume connects billing, customer data, campaigns, and analytics into one intelligent retail platform that works with your existing systems.',
     'hero.download': 'Download',
     'hero.watchDemo': 'Book a Demo',
     'hero.rating': '4.8/5 from 250+ reviews',
