@@ -53,17 +53,23 @@ export default function Startup() {
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#0f172a] via-[#146fb5] to-[#eab308] bg-clip-text text-transparent">
                 AI-Powered Retail SaaS Platform for Billing, Customer Engagement & Analytics
               </h1>
+              <p className="text-sm sm:text-base text-slate-700 mb-3">
+                Cloud-native AI retail platform that converts billing data into customer intelligence and automated growth tools.
+              </p>
               <p className="text-base sm:text-lg text-slate-700 max-w-2xl">
                 Apeiros AI is a cloud-native SaaS startup building AI-powered software for retailers.
                 Our flagship platform Lume helps retailers manage billing, customer engagement, loyalty
                 programs, and analytics from a unified dashboard.
+              </p>
+              <p className="mt-2 text-sm sm:text-base text-slate-600">
+                Lume is designed to serve retailers ranging from single stores to multi-store retail chains.
               </p>
             </motion.div>
           </div>
         </section>
 
         {/* Company Overview */}
-        <section className="py-12 sm:py-16 bg-white">
+        <section className="py-10 sm:py-12 bg-white">
           <div className="container-wide max-w-5xl">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -89,7 +95,7 @@ export default function Startup() {
         </section>
 
         {/* Product Overview */}
-        <section className="py-12 sm:py-16 bg-slate-50">
+        <section className="py-10 sm:py-12 bg-slate-50">
           <div className="container-wide max-w-5xl">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -129,7 +135,7 @@ export default function Startup() {
         </section>
 
         {/* Product Screenshots */}
-        <section className="py-12 sm:py-16 bg-white">
+        <section className="py-10 sm:py-12 bg-white">
           <div className="container-wide max-w-6xl">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -171,7 +177,7 @@ export default function Startup() {
         </section>
 
         {/* Technical Architecture */}
-        <section className="py-12 sm:py-16 bg-slate-50">
+        <section className="py-10 sm:py-12 bg-slate-50">
           <div className="container-wide max-w-6xl">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -273,12 +279,130 @@ export default function Startup() {
                   </div>
                 </div>
               </div>
+
+              {/* Core Technology Stack */}
+              <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
+                <h3 className="text-lg sm:text-xl font-semibold text-slate-900 mb-3">
+                  Core Technology Stack
+                </h3>
+                <div className="grid sm:grid-cols-2 gap-4 text-xs sm:text-sm text-slate-700">
+                  <div>
+                    <div className="font-semibold text-slate-900 mb-1">Backend Services</div>
+                    <ul className="space-y-1">
+                      <li>• Node.js and Java microservices</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <div className="font-semibold text-slate-900 mb-1">Databases</div>
+                    <ul className="space-y-1">
+                      <li>• MongoDB, PostgreSQL, MySQL</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <div className="font-semibold text-slate-900 mb-1">Messaging &amp; Event Processing</div>
+                    <ul className="space-y-1">
+                      <li>• RabbitMQ, Google Pub/Sub</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <div className="font-semibold text-slate-900 mb-1">Real-time Communication</div>
+                    <ul className="space-y-1">
+                      <li>• WebSockets, gRPC APIs</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <div className="font-semibold text-slate-900 mb-1">Analytics &amp; Data Processing</div>
+                    <ul className="space-y-1">
+                      <li>• Python data pipelines and machine learning workflows</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <div className="font-semibold text-slate-900 mb-1">Frontend &amp; Mobile</div>
+                    <ul className="space-y-1">
+                      <li>• Next.js, React dashboards</li>
+                      <li>• Java-based mPOS applications with PostgreSQL/MySQL support</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Billing Data Ingestion */}
+        <section className="py-10 sm:py-12 bg-white">
+          <div className="container-wide max-w-5xl">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+            >
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">Billing Data Ingestion</h2>
+              <p className="text-slate-700 text-base sm:text-lg leading-relaxed mb-3">
+                Lume is designed to work with any retail billing environment.
+              </p>
+              <p className="text-slate-700 text-sm sm:text-base leading-relaxed mb-4">
+                Retailers can connect their existing POS systems using multiple ingestion methods:
+              </p>
+              <ul className="space-y-2 text-sm sm:text-base text-slate-700">
+                <li>• POS Plugin – lightweight software that reads billing events from existing POS systems</li>
+                <li>• API integrations for modern POS platforms</li>
+                <li>• OCR-based invoice reading for legacy POS systems</li>
+                <li>• File or image uploads for offline retailers</li>
+              </ul>
+              <p className="text-slate-700 text-sm sm:text-base leading-relaxed mt-4">
+                OCR pipelines use document understanding technologies to extract structured data from invoices
+                and convert them into transaction events for analytics and customer intelligence.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* AI & Data Intelligence */}
+        <section className="py-10 sm:py-12 bg-slate-50">
+          <div className="container-wide max-w-5xl">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+            >
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">AI &amp; Data Intelligence</h2>
+              <p className="text-slate-700 text-base sm:text-lg leading-relaxed mb-3">
+                Lume transforms retail billing transactions into deep business intelligence using AI and
+                advanced data analytics.
+              </p>
+              <p className="text-slate-700 text-sm sm:text-base leading-relaxed mb-4">
+                The platform analyzes both customer behavior and product performance to generate actionable
+                insights for retailers.
+              </p>
+              <p className="text-xs font-semibold tracking-[0.18em] uppercase text-slate-500 mb-3">
+                Key analytics capabilities include:
+              </p>
+              <ul className="grid md:grid-cols-2 gap-x-6 gap-y-2 text-sm sm:text-base text-slate-700">
+                <li>• Customer segmentation and repeat purchase prediction</li>
+                <li>• Customer lifetime value and retention analytics</li>
+                <li>• Product-level sales analytics and performance tracking</li>
+                <li>• Peak sales hours and demand pattern analysis</li>
+                <li>• Basket analysis and frequently bought-together product insights</li>
+                <li>• Combination product and cross-sell opportunity detection</li>
+                <li>• Reward optimization and campaign targeting</li>
+                <li>• Store-level and multi-store performance analytics</li>
+              </ul>
+              <p className="text-slate-700 text-sm sm:text-base leading-relaxed mt-4">
+                Machine learning pipelines process transaction data to identify high-value customers,
+                high-performing products, and growth opportunities. These insights help retailers optimize
+                pricing, inventory decisions, promotions, and customer engagement strategies. Over time, the
+                platform continuously learns from transaction patterns to improve campaign targeting and
+                promotional effectiveness.
+              </p>
             </motion.div>
           </div>
         </section>
 
         {/* Google Cloud Usage */}
-        <section className="py-12 sm:py-16 bg-white">
+        <section className="py-10 sm:py-12 bg-white">
           <div className="container-wide max-w-5xl">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -288,7 +412,8 @@ export default function Startup() {
             >
               <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">Planned Google Cloud Usage</h2>
               <p className="text-slate-700 text-base sm:text-lg leading-relaxed mb-4">
-                We plan to scale our infrastructure on Google Cloud using the following services:
+                We plan to scale Lume on Google Cloud infrastructure to support high-volume retail
+                transaction processing.
               </p>
               <div className="grid sm:grid-cols-2 gap-4 text-sm sm:text-base text-slate-700">
                 <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 flex gap-3">
@@ -296,18 +421,30 @@ export default function Startup() {
                   <div>
                     <div className="font-semibold text-slate-900">Compute &amp; Orchestration</div>
                     <ul className="mt-1 space-y-1 text-xs sm:text-sm">
-                      <li>• Google Compute Engine / Google Kubernetes Engine (GKE)</li>
-                      <li>• Autoscaling for microservices</li>
+                      <li>• Google Compute Engine</li>
+                      <li>• Google Kubernetes Engine (GKE)</li>
+                      <li>• Autoscaling microservices architecture</li>
                     </ul>
                   </div>
                 </div>
                 <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 flex gap-3">
                   <Database className="w-5 h-5 text-[#146fb5] mt-0.5" />
                   <div>
-                    <div className="font-semibold text-slate-900">Managed Data Stores</div>
+                    <div className="font-semibold text-slate-900">Data &amp; Messaging</div>
                     <ul className="mt-1 space-y-1 text-xs sm:text-sm">
                       <li>• Cloud SQL / managed Mongo-compatible databases</li>
-                      <li>• Cloud Storage for assets &amp; exports</li>
+                      <li>• Google Cloud Pub/Sub for event streaming</li>
+                      <li>• Cloud Storage for assets, reports and backups</li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 flex gap-3">
+                  <Cpu className="w-5 h-5 text-[#146fb5] mt-0.5" />
+                  <div>
+                    <div className="font-semibold text-slate-900">AI &amp; Document Processing</div>
+                    <ul className="mt-1 space-y-1 text-xs sm:text-sm">
+                      <li>• Google Document AI for invoice OCR and data extraction</li>
+                      <li>• AI services for customer intelligence and predictive analytics</li>
                     </ul>
                   </div>
                 </div>
@@ -317,7 +454,8 @@ export default function Startup() {
                     <div className="font-semibold text-slate-900">Networking &amp; Security</div>
                     <ul className="mt-1 space-y-1 text-xs sm:text-sm">
                       <li>• Cloud Load Balancing</li>
-                      <li>• Secret Manager for credentials</li>
+                      <li>• Secret Manager</li>
+                      <li>• IAM based access control</li>
                     </ul>
                   </div>
                 </div>
@@ -326,8 +464,9 @@ export default function Startup() {
                   <div>
                     <div className="font-semibold text-slate-900">DevOps &amp; Observability</div>
                     <ul className="mt-1 space-y-1 text-xs sm:text-sm">
-                      <li>• Cloud Build for CI/CD pipelines</li>
-                      <li>• Cloud Monitoring &amp; Logging</li>
+                      <li>• Cloud Build CI/CD pipelines</li>
+                      <li>• Cloud Monitoring</li>
+                      <li>• Cloud Logging</li>
                     </ul>
                   </div>
                 </div>
@@ -336,8 +475,37 @@ export default function Startup() {
           </div>
         </section>
 
+        {/* POS Compatibility */}
+        <section className="py-12 sm:py-16 bg-white">
+          <div className="container-wide max-w-5xl">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+            >
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">POS Compatibility</h2>
+              <p className="text-slate-700 text-base sm:text-lg leading-relaxed mb-3">
+                Lume is designed to integrate with existing retail billing environments.
+              </p>
+              <p className="text-slate-700 text-sm sm:text-base leading-relaxed mb-4">
+                Retailers can connect their POS through:
+              </p>
+              <ul className="space-y-2 text-sm sm:text-base text-slate-700">
+                <li>• Lume POS Plugin</li>
+                <li>• Direct API integrations</li>
+                <li>• OCR-based invoice ingestion</li>
+                <li>• Web billing system</li>
+              </ul>
+              <p className="text-slate-700 text-sm sm:text-base leading-relaxed mt-4">
+                This allows retailers to adopt Lume without replacing their existing POS infrastructure.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
         {/* Founding Team */}
-        <section className="py-12 sm:py-16 bg-slate-50">
+        <section className="py-10 sm:py-12 bg-slate-50">
           <div className="container-wide max-w-5xl">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -416,7 +584,7 @@ export default function Startup() {
         </section>
 
         {/* Vision */}
-        <section className="py-12 sm:py-16 bg-white">
+        <section className="py-10 sm:py-12 bg-white">
           <div className="container-wide max-w-5xl">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -436,7 +604,7 @@ export default function Startup() {
         </section>
 
         {/* Platform Capabilities */}
-        <section className="py-12 sm:py-16 bg-slate-50">
+        <section className="py-10 sm:py-12 bg-slate-50">
           <div className="container-wide max-w-5xl">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -449,14 +617,27 @@ export default function Startup() {
               </h2>
               <p className="text-slate-700 text-base sm:text-lg leading-relaxed mb-3">
                 Lume is already being used by retailers in production to run billing-linked engagement,
-                loyalty and analytics – the core capabilities of the platform are:
+                loyalty and analytics. The platform transforms everyday billing transactions into customer
+                intelligence and automated growth tools.
               </p>
-              <ul className="space-y-2 text-sm sm:text-base text-slate-700">
-                <li>• Cloud-based POS billing</li>
-                <li>• Digital customer receipts</li>
-                <li>• Automated loyalty rewards</li>
-                <li>• Customer segmentation</li>
-                <li>• Campaign automation</li>
+              <p className="text-xs font-semibold tracking-[0.18em] uppercase text-slate-500 mb-3">
+                Core capabilities include:
+              </p>
+              <ul className="grid md:grid-cols-2 gap-x-6 gap-y-2 text-sm sm:text-base text-slate-700">
+                <li>• Cloud-based POS billing and retail dashboards</li>
+                <li>• Smart digital receipts delivered via WhatsApp, SMS and email</li>
+                <li>• Automatic customer capture from every bill</li>
+                <li>• POS-agnostic billing ingestion using Lume Plugin</li>
+                <li>• OCR-based bill reading for legacy POS systems</li>
+                <li>• AI-driven customer segmentation and purchase insights</li>
+                <li>• Real-time campaign automation based on purchase events</li>
+                <li>• Smart promotions embedded inside digital bills</li>
+                <li>• Advanced loyalty and rewards engine</li>
+                <li>• Referral, event-based and purchase-based reward programs</li>
+                <li>• Conditional reward rules at bill level or line-item level</li>
+                <li>• Customer lifetime value and repeat purchase tracking</li>
+                <li>• Multi-store retailer management</li>
+                <li>• Retail analytics dashboards and automated reporting</li>
               </ul>
             </motion.div>
           </div>

@@ -51,9 +51,9 @@ export function Footer() {
               Apeiros AI · Retail Intelligence Platform
             </p>
             <div className="space-y-2">
-            <a href="mailto:contact@apeirosai.com" className="flex items-center gap-2 text-white/80 hover:text-white text-sm transition-colors">
+            <a href="mailto:support@apeirosai.com" className="flex items-center gap-2 text-white/80 hover:text-white text-sm transition-colors">
                 <Mail className="w-4 h-4" />
-                contact@apeirosai.com
+                support@apeirosai.com
               </a>
               <a href="tel:+919326601463" className="flex items-center gap-2 text-white/80 hover:text-white text-sm transition-colors">
                 <Phone className="w-4 h-4" />
