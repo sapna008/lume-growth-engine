@@ -381,3 +381,31 @@
   background: #146fb5 !important;
   border-radius: 5px !important;
 }
+
+/* Case Studies — Retailer slider pagination */
+.retailer-swiper-pagination .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background: #d1d5db;
+  margin: 0 5px;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+.retailer-swiper-pagination .swiper-pagination-bullet-active {
+  width: 32px;
+  height: 10px;
+  border-radius: 9999px;
+  background: #146fb5;
+}
+
+/* Case Studies — make slides equal height */
+.retailer-swiper .swiper-wrapper {
+  align-items: stretch;
+}
+.retailer-swiper .swiper-slide {
+  height: auto;
+  display: flex;
+}
+.retailer-swiper .swiper-slide > * {
+  width: 100%;
+}

@@ -62,6 +62,7 @@ const retailerLogos = [
   'BottomForGroom-removebg-preview.png',
   'CakePointPartySpot-removebg-preview.png',
   'Canon-removebg-preview.png',
+  'byondezines-log.png',
   'Golden-removebg-preview.png',
   'GopalDiary-removebg-preview.png',
   'Gunjan-removebg-preview.png',
@@ -87,6 +88,10 @@ const retailerLogos = [
   'TheCakeWay-removebg-preview.png',
   'Vastram-removebg-preview.png',
   'Veera-removebg-preview.png',
+  'dixit-removebg-preview.png',
+  'senorita-removebg-preview.png',
+  'shreesanskar-removebg-preview.png',
+  'tulsi-removebg-preview.png',
 ];
 
 // Stats will be translated in component
