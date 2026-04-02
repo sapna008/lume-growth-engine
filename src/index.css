@@ -314,20 +314,6 @@
     }
   }
 
-  /* Retailer Logos Scroll Animation */
-  @keyframes scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-
-  .animate-scroll {
-    animation: scroll 60s linear infinite;
-  }
-
   /* Text Scroll Animation */
   @keyframes scroll-text {
     0% {
@@ -341,6 +327,23 @@
   .animate-scroll-text {
     animation: scroll-text 30s linear infinite;
   }
+
+  /* Retailer Logos (simple reset scroll) */
+  /* Retailer Logos - Seamless Infinite Scroll */
+.logo-track {
+  display: flex;
+  width: max-content;
+  animation: scrollOnce 60s linear infinite;
+}
+
+@keyframes scrollOnce {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 
   /* Hide scrollbar for horizontal scroll */
   .scrollbar-hide {

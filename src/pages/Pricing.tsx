@@ -894,8 +894,8 @@ export default function Pricing() {
             </h2>
             <p className="text-lg text-white/80 mb-8">
               {language === "HI" 
-                ? "250+ रिटेलर्स जो अपने बिज़नेस के लिए ल्यूम पर भरोसा करते हैं, उनके साथ जुड़ें।"
-                : "Join 250+ retailers who trust Lume for their business."}
+                ? "285+ रिटेलर्स जो अपने बिज़नेस के लिए ल्यूम पर भरोसा करते हैं, उनके साथ जुड़ें।"
+                : "Join 285+ retailers who trust Lume for their business."}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="xl" variant="hero" asChild>

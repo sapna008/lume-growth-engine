@@ -534,11 +534,11 @@ export default function Products() {
             >
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-12">
                 <div>
-                  <div className="text-3xl sm:text-4xl font-bold mb-2" style={{ color: '#146fb5' }}>250+</div>
+                  <div className="text-3xl sm:text-4xl font-bold mb-2" style={{ color: '#146fb5' }}>285+</div>
                   <div className="text-sm sm:text-base" style={{ color: '#4f4f4f' }}>{t('products.trust.retailers')}</div>
                 </div>
                 <div>
-                  <div className="text-3xl sm:text-4xl font-bold mb-2" style={{ color: '#146fb5' }}>₹40Cr+</div>
+                  <div className="text-3xl sm:text-4xl font-bold mb-2" style={{ color: '#146fb5' }}>₹75Cr+</div>
                   <div className="text-sm sm:text-base" style={{ color: '#4f4f4f' }}>{t('products.trust.transactions')}</div>
                 </div>
                 <div>

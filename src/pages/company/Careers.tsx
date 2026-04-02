@@ -7,7 +7,7 @@ import { Footer } from "@/components/layout/Footer";
 import { useSEO } from "@/hooks/useSEO";
 
 const perks = [
-  { icon: Rocket, title: "High Impact Work", description: "Build products used by 250+ retailers daily" },
+  { icon: Rocket, title: "High Impact Work", description: "Build products used by 285+ retailers daily" },
   { icon: Heart, title: "Health & Wellness", description: "Comprehensive health insurance for you & family" },
   { icon: Users, title: "Great Team", description: "Work with passionate, talented people" },
   { icon: Zap, title: "Fast Growth", description: "Rapid learning and career progression" },

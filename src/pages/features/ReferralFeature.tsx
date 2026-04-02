@@ -241,7 +241,7 @@ export default function ReferralFeature() {
                 </div>
               </div>
               <h3 className="text-xl sm:text-2xl font-bold mb-3" style={{ color: "#1b181f" }}>{t("Ready to grow with referrals?", "रेफरल से ग्रोथ के लिए तैयार हैं?")}</h3>
-              <p className="text-base mb-6" style={{ color: "#4f4f4f" }}>{t("Join 250+ retailers using Lume for WhatsApp referrals and loyalty.", "250+ रिटेलर्स के साथ जुड़ें जो ल्यूम से WhatsApp रेफरल और लॉयल्टी इस्तेमाल कर रहे हैं।")}</p>
+              <p className="text-base mb-6" style={{ color: "#4f4f4f" }}>{t("Join 285+ retailers using Lume for WhatsApp referrals and loyalty.", "285+ रिटेलर्स के साथ जुड़ें जो ल्यूम से WhatsApp रेफरल और लॉयल्टी इस्तेमाल कर रहे हैं।")}</p>
               <Button size="lg" asChild variant="hero" className="rounded-xl px-8 py-6 font-semibold shadow-lg shadow-[#146fb5]/25 hover:shadow-xl hover:shadow-[#146fb5]/30 hover:-translate-y-0.5 transition-all duration-300">
                 <Link to="/book-demo" className="inline-flex items-center">
                   {t("Book a demo", "डेमो बुक करें")}

@@ -14,7 +14,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 const translations: Record<Language, Record<string, string>> = {
   EN: {
     // Hero Section
-    'hero.badge': 'Trusted by 250+ retailers across India',
+    'hero.badge': 'Trusted by 285+ retailers across India',
     'hero.title': 'AI-Powered Retail SaaS Platform for Smart Billing, Customer Engagement & Analytics',
     'hero.titleHighlight': '',
     'hero.titleHighlightLine1': '',
@@ -26,7 +26,7 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.description': 'Lume connects billing, customer data, campaigns, and analytics into one intelligent retail platform that works with your existing systems.',
     'hero.download': 'Download',
     'hero.watchDemo': 'Book a Demo',
-    'hero.rating': '4.8/5 from 250+ reviews',
+    'hero.rating': '4.8/5 from 285+ reviews',
 
     // SEO H2 headings (unique, no duplicate)
     'seo.h2.whatIsLume': 'What is Lume Retail POS?',
@@ -107,7 +107,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Final CTA
     'cta.title': 'Ready to Grow Your Retail Business?',
-    'cta.description': 'Join 250+ retailers who trust Lume. Book a demo today to see how it works.',
+    'cta.description': 'Join 285+ retailers who trust Lume. Book a demo today to see how it works.',
     'cta.startTrial': 'Book a Demo',
     'cta.contactSales': 'Contact Sales',
     
@@ -246,7 +246,7 @@ const translations: Record<Language, Record<string, string>> = {
     'demo.dayAfter': 'Day After',
     
     // For Retailers Page
-    'forRetailers.hero.badge': 'Rated 4.8/5 by 250+ retailers',
+    'forRetailers.hero.badge': 'Rated 4.8/5 by 285+ retailers',
     'forRetailers.hero.title': 'Turn Your Store into a',
     'forRetailers.hero.titleHighlight': 'Modern Business',
     'forRetailers.hero.description': 'Lume gives you everything you need to compete with quick commerce — digital billing, customer insights, and smart tools that work on any phone.',
@@ -328,7 +328,7 @@ const translations: Record<Language, Record<string, string>> = {
   },
   HI: {
     // Hero Section (SEO: short sentences, unique Hindi)
-    'hero.badge': 'भारत के 250+ दुकानदारों का भरोसा',
+    'hero.badge': 'भारत के 285+ दुकानदारों का भरोसा',
     'hero.title': 'ग्राहक को वापस लाने',
     'hero.titleHighlight': 'सॉफ्टवेयर नहीं',
     'hero.titleHighlightLine1': 'वाला सिस्टम सिर्फ बिलिंग',
@@ -340,7 +340,7 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.description': 'हर बिल पर कैशबैक, पॉइंट्स और स्मार्ट ऑफर मिलते ही ग्राहक दोबारा आता है और ज़्यादा खरीदता है। जो नहीं आ रहा उसे बुलाओ, जो आ रहा है उसका बिल बढ़ाओ — ऑटोमैटिक।',
     'hero.download': 'डाउनलोड करें',
     'hero.watchDemo': 'डेमो बुक करें',
-    'hero.rating': '4.8/5 रेटिंग (250+ दुकानदारों की राय)',
+    'hero.rating': '4.8/5 रेटिंग (285+ दुकानदारों की राय)',
 
     // SEO H2 headings (Hindi – unique)
     'seo.h2.whatIsLume': 'ल्यूम रिटेल POS क्या है?',
@@ -421,7 +421,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Final CTA
     'cta.title': 'अपने दुकान के बिज़नेस को बढ़ाने के लिए तैयार हैं?',
-    'cta.description': '250+ दुकानदारों के साथ जुड़ें जो ल्यूम पर भरोसा करते हैं। आज ही डेमो बुक करें और देखें कि यह कैसे काम करता है।',
+    'cta.description': '285+ दुकानदारों के साथ जुड़ें जो ल्यूम पर भरोसा करते हैं। आज ही डेमो बुक करें और देखें कि यह कैसे काम करता है।',
     'cta.startTrial': 'डेमो बुक करें',
     'cta.contactSales': 'सेल्स से संपर्क करें',
     
@@ -454,7 +454,7 @@ const translations: Record<Language, Record<string, string>> = {
     'demo.dayAfter': 'परसों',
     
     // For Retailers Page
-    'forRetailers.hero.badge': '250+ दुकानदारों का भरोसा | 4.8/5 रेटिंग',
+    'forRetailers.hero.badge': '285+ दुकानदारों का भरोसा | 4.8/5 रेटिंग',
     'forRetailers.hero.title': 'अपनी दुकान को बनाइए',
     'forRetailers.hero.titleMiddle': 'एक',
     'forRetailers.hero.titleHighlight': 'आधुनिक बिज़नेस',

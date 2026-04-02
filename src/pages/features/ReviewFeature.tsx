@@ -422,7 +422,7 @@ export default function ReviewFeature() {
                 {t("Ready to get more Google Reviews?", "अधिक Google समीक्षाएं पाने के लिए तैयार हैं?")}
               </h3>
               <p className="text-base mb-6" style={{ color: "#4f4f4f" }}>
-                {t("Join 250+ retailers using Lume to grow with digital bills and reviews.", "250+ रिटेलर्स के साथ जुड़ें जो ल्यूम से डिजिटल बिल और समीक्षाओं के साथ बढ़ रहे हैं।")}
+                {t("Join 285+ retailers using Lume to grow with digital bills and reviews.", "285+ रिटेलर्स के साथ जुड़ें जो ल्यूम से डिजिटल बिल और समीक्षाओं के साथ बढ़ रहे हैं।")}
               </p>
               <Button size="lg" asChild variant="hero" className="rounded-xl px-8 py-6 font-semibold shadow-lg shadow-[#146fb5]/25 hover:shadow-xl hover:shadow-[#146fb5]/30 hover:-translate-y-0.5 transition-all duration-300">
                 <Link to="/book-demo">
