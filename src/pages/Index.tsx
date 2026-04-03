@@ -57,14 +57,15 @@ import testimonialImg7 from "@/assets/testimonials/Testimonial-07.png";
 // Import retailer logos
 const retailerLogos = [
   // NEW logos (must appear first)
-  'AaraCouture-removebg-preview.png', // Aarti collection
-  'dixit-removebg-preview.png', // Dixit mobile
   'senorita-removebg-preview.png', // Senorita
   'shreesanskar-removebg-preview.png', // Sai sanskar
   'tulsi-removebg-preview.png', // Tulsi Footwear
-  'time prime.jpeg', // Time prime
+  'cottonking-removebg-preview.png',
 
   // Remaining logos
+  'AaraCouture-removebg-preview.png', // Aarti collection
+  'dixit-removebg-preview.png', // Dixit mobile
+  'time prime.jpeg', // Time prime
   'AMStaationers-removebg-preview.png',
   'Auction-removebg-preview.png',
   'BottomForGroom-removebg-preview.png',
@@ -90,7 +91,6 @@ const retailerLogos = [
   'PatelSareesPvt-removebg-preview.png',
   'RJHairBeauty-removebg-preview.png',
   'Salvi-removebg-preview.png',
-  'Sonika-removebg-preview.png',
   'Surabhi-removebg-preview.png',
   'TheCakeShop-removebg-preview.png',
   'TheCakeWay-removebg-preview.png',
@@ -101,12 +101,10 @@ const retailerLogos = [
 // IMPORTANT: Only these exact filenames should show the "NEW" badge.
 // Do NOT assign "NEW" based on index/position.
 const newLogos = [
-  'AaraCouture-removebg-preview.png',
-  'dixit-removebg-preview.png',
   'senorita-removebg-preview.png',
   'shreesanskar-removebg-preview.png',
   'tulsi-removebg-preview.png',
-  'time prime.jpeg',
+  'cottonking-removebg-preview.png',
 ] as const;
 
 // Stats will be translated in component
@@ -478,31 +476,34 @@ export default function Index() {
         </div>
         
         {/* Retailer Logos Banner */}
-        <div className="relative z-10 mt-4 sm:mt-6 md:mt-8 h-[64px] sm:h-[88px] md:h-[96px] py-0 overflow-hidden">
-          <div className="overflow-hidden h-full">
+      <div className="relative z-10 mt-1 sm:mt-3 md:mt-5 h-[80px] sm:h-[104px] md:h-[112px] py-0 overflow-hidden">
+        <div className="overflow-hidden h-full">
           <div className="logo-track flex w-max items-center gap-6 sm:gap-8 md:gap-10 h-full whitespace-nowrap">
             {[...retailerLogos, ...retailerLogos].map((logo, index) => (
               <div 
                 key={`logo-${index}`} 
                 className="flex-shrink-0 flex items-center justify-center"
               >
-                <div className="relative">
+                <div className="relative w-28 h-[80px] sm:w-32 sm:h-[96px] md:w-36 md:h-[100px] flex items-center justify-center"> 
+                  {/* ← Fixed size container - this is the main change */}
+                  
                   {newLogos.includes(logo as (typeof newLogos)[number]) && (
                     <span className="absolute -top-1 -right-1 z-10 rounded bg-red-600 px-1 py-0 text-[8px] font-bold leading-none text-white shadow-sm ring-1 ring-white/60 pointer-events-none">
                       NEW
                     </span>
                   )}
+                  
                   <img
                     src={new URL(`../assets/RetailersLogosTR/${logo}`, import.meta.url).href}
                     alt={logo.replace('-removebg-preview.png', '')}
-                    className="h-16 sm:h-18 md:h-20 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
+                    className="max-h-full max-w-full object-contain opacity-80 hover:opacity-100 transition-opacity"
                   />
                 </div>
               </div>
             ))}
           </div>
-          </div>
         </div>
+      </div>
       </section>
 
       {/* Problem Statement Section */}

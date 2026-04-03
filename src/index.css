@@ -333,7 +333,7 @@
 .logo-track {
   display: flex;
   width: max-content;
-  animation: scrollOnce 60s linear infinite;
+  animation: scrollOnce 80s linear infinite;
 }
 
 @keyframes scrollOnce {
