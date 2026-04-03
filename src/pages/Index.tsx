@@ -65,7 +65,7 @@ const retailerLogos = [
   // Remaining logos
   'AaraCouture-removebg-preview.png', // Aarti collection
   'dixit-removebg-preview.png', // Dixit mobile
-  'time prime.jpeg', // Time prime
+  'time prime.png', // Time prime
   'AMStaationers-removebg-preview.png',
   'Auction-removebg-preview.png',
   'BottomForGroom-removebg-preview.png',
