@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, Globe, Search, HelpCircle, Users, Gift, CreditCard, BarChart3, Smartphone, Cpu, ShoppingBag, Package, BookOpen, FileText, Video, Play, Star, Tag, Megaphone, MessageSquare } from "lucide-react";
+import { Menu, X, ChevronDown, Globe, Search, HelpCircle, Users, Gift, CreditCard, BarChart3, Smartphone, Cpu, ShoppingBag, Package, BookOpen, FileText, Video, Play, Star, Tag, Megaphone, MessageSquare, Newspaper } from "lucide-react";
 import { ReceiptIndianRupee } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -58,6 +58,7 @@ const navigation = [
     children: [
       { name: "Guide and FAQs", nameHI: "मार्गदर्शिका और सवाल-जवाब", href: "/resources/guides", icon: BookOpen, desc: "Quick guides and FAQs", descHI: "त्वरित मार्गदर्शिका और सवाल-जवाब" },
       { name: "Case Studies", nameHI: "सफलता के उदाहरण", href: "/resources/case-studies", icon: FileText, desc: "Success stories", descHI: "सफलता की कहानियाँ" },
+      { name: "Blog", nameHI: "ब्लॉग", href: "/resources/blog", icon: Newspaper, desc: "Retail tips and news", descHI: "रिटेल टिप्स और ख़बरें" },
     ],
   },
   { name: "Pricing", nameKey: "nav.pricing", href: "/pricing" },
@@ -94,6 +95,7 @@ const searchablePages = [
   // Resources
   { name: "Guides & FAQs", href: "/resources/guides", keywords: ["guides", "faqs", "quick guides", "resource", "help articles"] },
   { name: "Case Studies", href: "/resources/case-studies", keywords: ["case studies", "success stories", "customer success", "stories"] },
+  { name: "Blog", href: "/resources/blog", keywords: ["blog", "articles", "retail tips", "news", "insights"] },
 
   // Company
   { name: "About Us", href: "/company/about", keywords: ["about", "about us", "apeiros", "हमारे बारे में"] },

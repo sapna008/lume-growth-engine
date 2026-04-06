@@ -16,6 +16,8 @@ import Resources from "./pages/Resources";
 import Guides from "./pages/resources/Guides";
 import GuideDetail from "./pages/resources/GuideDetail";
 import CaseStudies from "./pages/resources/CaseStudies";
+import Blog from "./pages/resources/Blog";
+import BlogPost from "./pages/resources/BlogPost";
 import Pricing from "./pages/Pricing";
 import Help from "./pages/Help";
 import GettingStarted from "./pages/GettingStarted";
@@ -54,6 +56,8 @@ const App = () => (
             <Route path="/resources" element={<Resources />} />
             <Route path="/resources/guides" element={<Guides />} />
             <Route path="/resources/case-studies" element={<CaseStudies />} />
+            <Route path="/resources/blog" element={<Blog />} />
+            <Route path="/resources/blog/:slug" element={<BlogPost />} />
             <Route path="/resources/:id" element={<Resources />} />
             <Route path="/guides/:slug" element={<GuideDetail />} />
             <Route path="/pricing" element={<Pricing />} />
