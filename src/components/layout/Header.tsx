@@ -1,21 +1,137 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, Fragment } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, Globe, Search, HelpCircle, Users, Gift, CreditCard, BarChart3, Smartphone, Cpu, ShoppingBag, Package, BookOpen, FileText, Video, Play, Star, Tag, Megaphone, MessageSquare } from "lucide-react";
+import { Menu, X, ChevronDown, Globe, Search, HelpCircle, Users, Gift, CreditCard, BarChart3, Smartphone, Cpu, ShoppingBag, Package, BookOpen, FileText, Video, Play, Star, Tag, Megaphone, MessageSquare, Store, Shirt, Gem, PlugZap, Glasses, Croissant, Sparkles, Footprints, ShoppingCart, Refrigerator, PenLine, Warehouse, Watch } from "lucide-react";
 import { ReceiptIndianRupee } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useLanguage } from "@/contexts/LanguageContext";
 import apeirosLogo from "@/assets/apeiros-logo.png";
 
+/** 5+4+3 in 3 columns; priority items at top of first column; mega menu + flat mobile order */
+const industriesMegaColumns = [
+  [
+    {
+      name: "Fashion",
+      nameHI: "फैशन",
+      href: "/industries/fashion",
+      icon: Shirt,
+      desc: "Apparel, trends, and seasonal retail",
+      descHI: "कपड़े, ट्रेंड और मौसमी रिटेल",
+    },
+    {
+      name: "Jewellery",
+      nameHI: "ज्वैलरी",
+      href: "/industries/jewellery",
+      icon: Gem,
+      desc: "Gold, silver, and fine jewellery stores",
+      descHI: "सोना, चाँदी और ज़ेवरात की दुकानें",
+    },
+    {
+      name: "Electricals & Electronics",
+      nameHI: "इलेक्ट्रिकल्स और इलेक्ट्रॉनिक्स",
+      href: "/industries/electronics",
+      icon: PlugZap,
+      desc: "Gadgets, wiring, and consumer electronics",
+      descHI: "गैजेट, वायरिंग और उपभोक्ता इलेक्ट्रॉनिक्स",
+    },
+    {
+      name: "Accessories",
+      nameHI: "एक्सेसरीज़",
+      href: "/industries/accessories",
+      icon: Glasses,
+      desc: "Bags, belts, and lifestyle add-ons",
+      descHI: "बैग, बेल्ट और लाइफ़स्टाइल सामान",
+    },
+    {
+      name: "Bakery",
+      nameHI: "बेकरी",
+      href: "/industries/bakery",
+      icon: Croissant,
+      desc: "Fresh goods and daily bakery retail",
+      descHI: "ताज़ा सामान और रोज़ाना बेकरी रिटेल",
+    },
+  ],
+  [
+    {
+      name: "Cosmetics",
+      nameHI: "कॉस्मेटिक्स",
+      href: "/industries/cosmetics",
+      icon: Sparkles,
+      desc: "Beauty, skincare, and personal care",
+      descHI: "ब्यूटी, स्किनकेयर और व्यक्तिगत देखभाल",
+    },
+    {
+      name: "Footwear",
+      nameHI: "फुटवियर",
+      href: "/industries/footwear",
+      icon: Footprints,
+      desc: "Shoes, sandals, and sports footwear",
+      descHI: "जूते, चप्पल और खेल जूते",
+    },
+    {
+      name: "Grocery",
+      nameHI: "किराना / ग्रोसरी",
+      href: "/industries/grocery",
+      icon: ShoppingCart,
+      desc: "Kirana, staples, and packaged foods",
+      descHI: "किराना, रोज़मर्रा और पैक्ड फ़ूड",
+    },
+    {
+      name: "Home Appliances",
+      nameHI: "होम अप्लायंसेज़",
+      href: "/industries/home-appliances",
+      icon: Refrigerator,
+      desc: "TVs, fridges, and white goods",
+      descHI: "TV, फ्रिज और घरेलू उपकरण",
+    },
+  ],
+  [
+    {
+      name: "Stationery",
+      nameHI: "स्टेशनरी",
+      href: "/industries/stationery",
+      icon: PenLine,
+      desc: "Books, office, and school supplies",
+      descHI: "किताबें, ऑफ़िस और स्कूल सामान",
+    },
+    {
+      name: "Supermarket",
+      nameHI: "सुपरमार्केट",
+      href: "/industries/supermarket",
+      icon: Warehouse,
+      desc: "Multi-category modern retail",
+      descHI: "बहु-श्रेणी आधुनिक रिटेल",
+    },
+    {
+      name: "Watches",
+      nameHI: "घड़ियाँ",
+      href: "/industries/watches",
+      icon: Watch,
+      desc: "Timepieces and wearable retail",
+      descHI: "घड़ियाँ और वियरेबल रिटेल",
+    },
+  ],
+] as const;
+
+const industriesNavChildren = industriesMegaColumns.flat();
+
 // Navigation items with translation keys
 const navigation = [
-  { name: "For Retailers", nameKey: "nav.forRetailers", href: "/for-retailers" },
   {
     name: "Solutions",
     nameKey: "nav.solutions",
     href: "/solutions",
     children: [
+      {
+        name: "For Retailers",
+        nameHI: "दुकानदारों के लिए",
+        href: "/for-retailers",
+        icon: Store,
+        desc: "How Lume helps your store grow",
+        descHI: "ल्यूम आपकी दुकान को कैसे बढ़ाता है",
+        isPrimaryEntry: true,
+      },
       { name: "Smart Billing", nameHI: "बुद्धिमान बिलिंग", href: "/solutions/smart-billing", icon: ReceiptIndianRupee, desc: "Digital billing with engagement", descHI: "जुड़ाव के साथ डिजिटल बिलिंग" },
       { name: "POS Integration", nameHI: "POS एकीकरण", href: "/solutions/pos-integration", icon: Cpu, desc: "Connect any existing POS", descHI: "किसी भी मौजूदा POS को जोड़ें" },
       { name: "Customer Analytics", nameHI: "ग्राहक विश्लेषण", href: "/solutions/customer-analytics", icon: Users, desc: "Understand your customers", descHI: "अपने ग्राहकों को समझें" },
@@ -24,6 +140,12 @@ const navigation = [
       { name: "Reports & Dashboard", nameHI: "रिपोर्ट्स और डैशबोर्ड", href: "/solutions/reports-dashboard", icon: BarChart3, desc: "Business insights", descHI: "व्यापारिक अंतर्दृष्टि" },
       { name: "Hyperlocal Commerce", nameHI: "स्थानीय वाणिज्य", href: "/solutions/hyperlocal-commerce", icon: ShoppingBag, desc: "Quick commerce ready", descHI: "त्वरित वाणिज्य के लिए तैयार" },
     ],
+  },
+  {
+    name: "Industries",
+    nameKey: "nav.industries",
+    href: "/industries",
+    children: industriesNavChildren,
   },
   {
     name: "Features",
@@ -370,10 +492,70 @@ export function Header() {
                               })()}
                             </div>
                           </div>
+                        ) : item.name === "Industries" ? (
+                          <div className="bg-white rounded-xl shadow-xl border border-border/50 p-6 w-[min(900px,calc(100vw-2rem))] max-w-[calc(100vw-1.5rem)]">
+                            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
+                              {industriesMegaColumns.map((column, columnIndex) => (
+                                <div
+                                  key={column[0].name}
+                                  className={`space-y-1 min-w-0 ${
+                                    columnIndex === 2 ? "sm:col-span-2 xl:col-span-1" : ""
+                                  }`}
+                                >
+                                  {column.map((row) => (
+                                    <Link
+                                      key={row.name}
+                                      to={row.href}
+                                      className="flex items-start gap-3 p-3 rounded-lg transition-colors group hover:bg-secondary/50"
+                                    >
+                                      <div className="w-9 h-9 rounded-lg bg-[#146fb5]/10 flex items-center justify-center shrink-0 group-hover:bg-[#146fb5]/15">
+                                        <row.icon className="w-4.5 h-4.5" style={{ color: "#146fb5" }} />
+                                      </div>
+                                      <div className="flex-1 min-w-0">
+                                        <p className="font-medium text-sm text-foreground group-hover:text-[#146fb5]">
+                                          {language === "HI" ? row.nameHI : row.name}
+                                        </p>
+                                        <p className="text-xs text-muted-foreground mt-1">
+                                          {language === "HI" ? row.descHI : row.desc}
+                                        </p>
+                                      </div>
+                                    </Link>
+                                  ))}
+                                </div>
+                              ))}
+                            </div>
+                          </div>
                         ) : (
                           // Regular Dropdown - Vertical Stack
                           <div className="bg-white rounded-xl shadow-xl border border-border/50 p-2 min-w-[280px]">
                             {item.children.map((child, index) => {
+                              // Primary entry (e.g. For Retailers under Solutions)
+                              if ("isPrimaryEntry" in child && child.isPrimaryEntry && child.icon) {
+                                return (
+                                  <Fragment key={child.name}>
+                                    <Link
+                                      to={child.href}
+                                      className="flex items-start gap-3 p-3 rounded-lg transition-colors group hover:bg-secondary/50"
+                                    >
+                                      <div className="w-9 h-9 rounded-lg bg-[#146fb5]/10 flex items-center justify-center shrink-0 group-hover:bg-[#146fb5]/15">
+                                        <child.icon className="w-4.5 h-4.5" style={{ color: "#146fb5" }} />
+                                      </div>
+                                      <div className="flex-1">
+                                        <div className="flex items-center gap-2">
+                                          <p className="font-semibold text-base text-[#146fb5]">
+                                            {language === "HI" && child.nameHI ? child.nameHI : child.name}
+                                          </p>
+                                        </div>
+                                        <p className="text-xs text-muted-foreground mt-0.5">
+                                          {language === "HI" && child.descHI ? child.descHI : child.desc}
+                                        </p>
+                                      </div>
+                                    </Link>
+                                    <div className="mx-2 my-1.5 border-b border-border/50" aria-hidden />
+                                  </Fragment>
+                                );
+                              }
+
                               // Section label
                               if (child.isSectionLabel) {
                                 return (
@@ -837,6 +1019,25 @@ export function Header() {
                       {hasChildren && isExpanded && (
                         <div className="border-t border-border/50 bg-gradient-to-b from-white to-[#f5f8fc]">
                           {item.children!.map((child, index) => {
+                            // Primary entry (e.g. For Retailers under Solutions)
+                            if ("isPrimaryEntry" in child && child.isPrimaryEntry && child.icon) {
+                              return (
+                                <Fragment key={child.name}>
+                                  <Link
+                                    to={child.href}
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="flex items-center gap-2 px-3 py-2.5 text-base font-semibold text-[#146fb5] hover:text-[#146fb5] hover:bg-secondary/20"
+                                  >
+                                    <child.icon className="w-4 h-4 shrink-0" />
+                                    <span>
+                                      {language === "HI" && child.nameHI ? child.nameHI : child.name}
+                                    </span>
+                                  </Link>
+                                  <div className="mx-3 my-1 border-b border-border/50" aria-hidden />
+                                </Fragment>
+                              );
+                            }
+
                             // Section label
                             if (child.isSectionLabel) {
                               return (
@@ -877,7 +1078,9 @@ export function Header() {
                                 onClick={() => setMobileMenuOpen(false)}
                                 className="flex items-center gap-2 px-3 py-2 text-base text-muted-foreground hover:text-foreground hover:bg-secondary/20"
                               >
-                                <child.icon className="w-4 h-4" />
+                                {"icon" in child && child.icon ? (
+                                  <child.icon className="w-4 h-4" />
+                                ) : null}
                                 <span>
                                   {language === "HI" && child.nameHI ? child.nameHI : child.name}
                                 </span>

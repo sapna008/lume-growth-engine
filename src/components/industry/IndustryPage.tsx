@@ -1,0 +1,328 @@
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
+import { Button } from "@/components/ui/button";
+import { useSEO } from "@/hooks/useSEO";
+import type { IndustryPageConfig } from "@/data/industryPages";
+import { cn } from "@/lib/utils";
+
+export type { IndustryPageConfig };
+
+/** Replace with actual image when assets are ready */
+function ImagePlaceholder({ className, label }: { className?: string; label: string }) {
+  return (
+    <div
+      className={cn(
+        "rounded-xl border border-border bg-muted/80 flex flex-col items-center justify-center text-center p-6 min-h-[200px] text-muted-foreground",
+        className
+      )}
+      aria-hidden
+    >
+      <span className="text-xs font-medium uppercase tracking-wide mb-1">Image placeholder</span>
+      <span className="text-sm">{label}</span>
+    </div>
+  );
+}
+
+function HeroImageComposition({
+  mainSrc,
+  secondarySrc1,
+  secondarySrc2,
+  alt,
+}: {
+  mainSrc: string;
+  secondarySrc1: string;
+  secondarySrc2: string;
+  alt: string;
+}) {
+  return (
+    <div className="relative z-20 isolate w-full max-w-[22rem] sm:max-w-sm lg:max-w-md xl:max-w-lg py-5 sm:py-7">
+      {/* z-0: soft blue glow behind backplate (readable on light hero bg) */}
+      <div
+        className="absolute z-0 right-[-12%] top-[2%] h-[92%] w-[108%] rounded-[2rem] blur-2xl opacity-50"
+        style={{
+          background: "radial-gradient(circle at 65% 42%, rgba(59,130,246,0.28), transparent 68%)",
+        }}
+        aria-hidden
+      />
+      {/* z-0: bright backplate — clearly visible under images */}
+      <div
+        className="absolute z-0 right-[-9%] top-[5%] h-[90%] w-[100%] rounded-[2rem] shadow-2xl shadow-blue-600/40 ring-1 ring-white/35"
+        style={{
+          background: "linear-gradient(135deg, #2563eb 0%, #3b82f6 50%, #60a5fa 100%)",
+        }}
+        aria-hidden
+      />
+      <div
+        className="absolute z-0 right-[-5%] top-[9%] h-[82%] w-[92%] rounded-[2rem] opacity-95 blur-xl"
+        style={{
+          background: "radial-gradient(ellipse 80% 60% at 70% 40%, rgba(255,255,255,0.5) 0%, rgba(96,165,250,0.12) 40%, transparent 65%)",
+        }}
+        aria-hidden
+      />
+
+      {/* z-10: decorative patterns AROUND the cluster (partially outside image bounds) */}
+      <div
+        className="pointer-events-none absolute z-10 -top-3 -right-5 h-32 w-32 rounded-full border-[3px] border-[#3b82f6]/85 shadow-[0_0_28px_rgba(59,130,246,0.45)] sm:h-36 sm:w-36"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute z-10 top-1/4 -right-9 h-[4.5rem] w-[4.5rem] rounded-full bg-[#60a5fa]/60 shadow-[0_0_24px_rgba(37,99,235,0.45)] blur-[1px] sm:-right-11 sm:h-24 sm:w-24"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute z-10 -bottom-5 -left-7 h-40 w-40 rounded-full border-[3px] border-dashed border-[#2563eb]/80 shadow-[0_0_22px_rgba(37,99,235,0.35)] sm:h-44 sm:w-44"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute z-10 bottom-[16%] -left-11 h-3 w-28 rotate-[-25deg] rounded-full bg-gradient-to-r from-[#60a5fa]/70 to-transparent shadow-sm sm:w-36"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute z-10 top-[10%] -left-6 h-24 w-24 opacity-80 sm:h-28 sm:w-28"
+        style={{
+          backgroundImage: "radial-gradient(circle at 1px 1px, rgba(37,99,235,0.55) 1.75px, transparent 0)",
+          backgroundSize: "11px 11px",
+        }}
+        aria-hidden
+      />
+
+      {/* z-20: images on top */}
+      {/* Desktop / large screens: layered composition */}
+      <div className="relative z-20 hidden sm:block">
+        <div className="relative z-10 rounded-2xl overflow-hidden border-2 border-white/80 bg-white shadow-2xl shadow-black/20">
+          <img
+            src={mainSrc}
+            alt={alt}
+            loading="lazy"
+            decoding="async"
+            className="w-full h-auto object-cover aspect-[4/3]"
+          />
+        </div>
+
+        <div className="absolute -top-4 -left-4 z-30 w-[38%] origin-center rounded-2xl overflow-hidden border-2 border-white bg-white shadow-2xl shadow-black/30 ring-2 ring-[#146fb5]/15 -rotate-[1.5deg] scale-[0.97]">
+          <img
+            src={secondarySrc1}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            className="w-full h-auto object-cover aspect-[4/3]"
+          />
+        </div>
+
+        <div className="absolute -bottom-4 -right-4 z-30 w-[36%] origin-center rounded-2xl overflow-hidden border-2 border-white bg-white shadow-2xl shadow-black/30 ring-2 ring-[#146fb5]/15 rotate-[1.5deg] scale-[0.97]">
+          <img
+            src={secondarySrc2}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            className="w-full h-auto object-cover aspect-[4/3]"
+          />
+        </div>
+      </div>
+
+      {/* Small screens: stack for clarity */}
+      <div className="relative z-20 sm:hidden space-y-3">
+        <div className="rounded-2xl overflow-hidden border-2 border-white/80 bg-white shadow-2xl shadow-black/15">
+          <img
+            src={mainSrc}
+            alt={alt}
+            loading="lazy"
+            decoding="async"
+            className="w-full h-auto object-cover aspect-[4/3]"
+          />
+        </div>
+        <div className="grid grid-cols-2 gap-3">
+          <div className="origin-center rounded-xl overflow-hidden border-2 border-white bg-white shadow-2xl shadow-black/25 ring-1 ring-[#146fb5]/10 -rotate-[1deg] scale-[0.98]">
+            <img
+              src={secondarySrc1}
+              alt=""
+              loading="lazy"
+              decoding="async"
+              className="w-full h-auto object-cover aspect-[4/3]"
+            />
+          </div>
+          <div className="origin-center rounded-xl overflow-hidden border-2 border-white bg-white shadow-2xl shadow-black/25 ring-1 ring-[#146fb5]/10 rotate-[1deg] scale-[0.98]">
+            <img
+              src={secondarySrc2}
+              alt=""
+              loading="lazy"
+              decoding="async"
+              className="w-full h-auto object-cover aspect-[4/3]"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function IndustryPage({ config }: { config: IndustryPageConfig }) {
+  useSEO(config.seoTitle, config.seoDescription);
+
+  return (
+    <div className="min-h-screen bg-background">
+      <Header />
+
+      {/* Hero — soft blue-tinted gradient (homepage-adjacent); subtle radial depth near images */}
+      <section className="relative overflow-x-hidden overflow-y-visible pt-24 lg:pt-28 pb-12 lg:pb-20">
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            background:
+              "radial-gradient(circle at 75% 40%, rgba(59,130,246,0.08), transparent 60%), linear-gradient(to bottom, #f8fafc 0%, #eef4ff 50%, #e6f0ff 100%)",
+          }}
+          aria-hidden
+        />
+        <div className="container-wide relative z-10">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45 }}
+            >
+              <h1 className="text-3xl sm:text-4xl lg:text-[2.25rem] font-display font-bold leading-tight mb-5 tracking-tight text-gray-900">
+                {config.heroTitle}
+              </h1>
+              <p className="text-base sm:text-lg leading-relaxed mb-8 max-w-xl text-gray-600">
+                {config.heroSubtext}
+              </p>
+              <Button size="lg" variant="hero" className="rounded-xl px-8 shadow-lg" asChild>
+                <Link to="/book-demo" className="inline-flex items-center gap-2">
+                  Request a Demo
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+              </Button>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: 0.08 }}
+              className="relative z-20 flex justify-center lg:justify-end"
+            >
+              {config.heroMainImage && config.secondaryImage1 && config.secondaryImage2 ? (
+                <HeroImageComposition
+                  mainSrc={config.heroMainImage}
+                  secondarySrc1={config.secondaryImage1}
+                  secondarySrc2={config.secondaryImage2}
+                  alt={`${config.categoryLabel} store visual`}
+                />
+              ) : (
+                // replace with actual image
+                <ImagePlaceholder
+                  className="w-full max-w-sm lg:max-w-md aspect-[4/3]"
+                  label={`${config.categoryLabel} hero visual`}
+                />
+              )}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits */}
+      <section className="py-14 lg:py-20 bg-white border-b border-border/60">
+        <div className="container-wide">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-display font-bold text-foreground mb-8" style={{ color: "#1b181f" }}>
+                {config.benefitsHeading}
+              </h2>
+              <div className="grid sm:grid-cols-2 gap-5">
+                {config.benefitBlocks.map((b) => (
+                  <div
+                    key={b.title}
+                    className="rounded-xl border border-border/60 bg-secondary/30 p-5 transition-colors hover:bg-[#146fb5]/5 hover:border-[#146fb5]/20"
+                  >
+                    <p className="text-2xl font-bold text-[#146fb5] font-display mb-2">{b.metric}</p>
+                    <p className="font-semibold text-foreground mb-2">{b.title}</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{b.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="lg:sticky lg:top-28">
+              {/* replace with actual image */}
+              <ImagePlaceholder className="w-full aspect-[4/3]" label={`${config.categoryLabel} benefits visual`} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Industry overview */}
+      <section className="py-14 lg:py-20 bg-muted/40">
+        <div className="container-wide">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-display font-bold mb-6" style={{ color: "#1b181f" }}>
+                {config.overviewTitle}
+              </h2>
+              <div className="space-y-4 text-muted-foreground leading-relaxed">
+                {config.overviewParagraphs.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
+              <Link
+                to={config.overviewLearnMoreHref}
+                className="inline-flex items-center gap-1.5 mt-6 text-sm font-semibold text-[#146fb5] hover:underline"
+              >
+                Learn more
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+            <div>
+              {/* replace with actual image */}
+              <ImagePlaceholder className="w-full aspect-[4/3]" label={`${config.categoryLabel} overview visual`} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features grid */}
+      <section className="py-14 lg:py-20 bg-white">
+        <div className="container-wide">
+          <h2 className="text-2xl sm:text-3xl font-display font-bold text-center mb-10 lg:mb-14" style={{ color: "#1b181f" }}>
+            Features that fit your store
+          </h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {config.featureCards.map((f) => (
+              <Link
+                key={f.title}
+                to={f.learnMoreHref}
+                className="group flex flex-col rounded-xl border border-border/60 bg-card p-6 transition-colors hover:bg-secondary/40 hover:border-[#146fb5]/25"
+              >
+                <div className="w-12 h-12 rounded-xl bg-[#146fb5]/10 flex items-center justify-center text-[#146fb5] mb-4 group-hover:bg-[#146fb5]/15 transition-colors">
+                  <f.icon className="w-6 h-6" />
+                </div>
+                <h3 className="font-semibold text-foreground mb-2 group-hover:text-[#146fb5] transition-colors">{f.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-4">{f.description}</p>
+                <span className="text-sm font-semibold text-[#146fb5] inline-flex items-center gap-1">
+                  Learn more
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-14 lg:py-20 relative overflow-hidden bg-gradient-to-br from-[#146fb5] via-[#1a7fc7] to-[#0d5a94] text-white">
+        <div className="absolute inset-0 opacity-20 pointer-events-none bg-[radial-gradient(ellipse_at_top_right,_rgba(255,255,255,0.25),_transparent_50%)]" />
+        <div className="container-wide relative text-center max-w-3xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-display font-bold mb-4">{config.ctaTitle}</h2>
+          <p className="text-white/90 text-base sm:text-lg mb-8 leading-relaxed">{config.ctaSubtext}</p>
+          <Button size="lg" variant="secondary" className="rounded-xl bg-white text-[#146fb5] hover:bg-white/95 shadow-lg" asChild>
+            <Link to="/book-demo" className="inline-flex items-center gap-2">
+              Request a Demo
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </Button>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+}
