@@ -142,7 +142,7 @@ const navigation = [
     ],
   },
   {
-    name: "Industries",
+    name: "Category",
     nameKey: "nav.industries",
     href: "/industries",
     children: industriesNavChildren,
@@ -248,6 +248,11 @@ export function Header() {
   const menuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const isActive = (href: string) => location.pathname === href;
+
+  // Close any open header dropdown when route changes (prevents stuck mega menus)
+  useEffect(() => {
+    setHoveredMenu(null);
+  }, [location.pathname]);
 
   // Scroll detection for header styling
   useEffect(() => {
@@ -492,7 +497,7 @@ export function Header() {
                               })()}
                             </div>
                           </div>
-                        ) : item.name === "Industries" ? (
+                        ) : item.nameKey === "nav.industries" ? (
                           <div className="bg-white rounded-xl shadow-xl border border-border/50 p-6 w-[min(900px,calc(100vw-2rem))] max-w-[calc(100vw-1.5rem)]">
                             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
                               {industriesMegaColumns.map((column, columnIndex) => (
@@ -506,6 +511,7 @@ export function Header() {
                                     <Link
                                       key={row.name}
                                       to={row.href}
+                                      onClick={() => setHoveredMenu(null)}
                                       className="flex items-start gap-3 p-3 rounded-lg transition-colors group hover:bg-secondary/50"
                                     >
                                       <div className="w-9 h-9 rounded-lg bg-[#146fb5]/10 flex items-center justify-center shrink-0 group-hover:bg-[#146fb5]/15">

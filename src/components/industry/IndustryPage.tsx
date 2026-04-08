@@ -26,6 +26,108 @@ function ImagePlaceholder({ className, label }: { className?: string; label: str
   );
 }
 
+/** Benefits: main shape (subtle) + decor distributed around image edges — not hero */
+function IndustryBenefitsVisual({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div className="relative isolate ml-auto w-full max-w-[88%] overflow-visible sm:max-w-[92%] lg:sticky lg:top-28">
+      <div className="relative overflow-visible px-1 pb-2 pt-1 sm:px-2 sm:pb-3 sm:pt-2">
+        {/* L1 — main background (soft, slightly right-biased; not a full edge-to-edge block) */}
+        <div
+          className="pointer-events-none absolute right-[6%] top-[12%] z-0 h-[76%] w-[58%] rounded-[1.65rem] bg-gradient-to-br from-cyan-400/24 to-blue-500/16"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute left-[18%] top-[22%] z-0 h-[48%] w-[52%] rounded-full bg-cyan-300/18 blur-3xl"
+          aria-hidden
+        />
+
+        {/* Decoration — outside / beside image (z below image) */}
+        <div
+          className="pointer-events-none absolute -right-1 top-0 z-[1] h-[3.5rem] w-[3.5rem] rounded-full border-2 border-cyan-400/42 opacity-90 sm:h-14 sm:w-14"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute -left-2 bottom-0 z-[1] h-[6.25rem] w-[7rem] rounded-2xl opacity-[0.28] [background-image:radial-gradient(circle,rgba(34,211,238,0.55)_1px,transparent_1px)] [background-size:14px_14px] sm:h-28 sm:w-[7.5rem]"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute left-0 top-[46%] z-[1] h-2 w-2 -translate-y-1/2 rounded-full bg-cyan-400/55 sm:h-2.5 sm:w-2.5"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute bottom-[20%] right-1 z-[1] h-2 w-2 rounded-full bg-sky-400/55 sm:h-2.5 sm:w-2.5"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute bottom-[-2px] right-[18%] z-[1] h-2 w-2 rounded-full bg-blue-500/45"
+          aria-hidden
+        />
+        <div className="pointer-events-none absolute -bottom-1 -right-1 z-[1] h-14 w-14 overflow-visible opacity-50 sm:h-16 sm:w-16" aria-hidden>
+          <div className="absolute bottom-0 right-0 h-[5.25rem] w-[5.25rem] rounded-full border-2 border-dashed border-cyan-400/38 sm:h-[5.75rem] sm:w-[5.75rem]" />
+        </div>
+
+        <div className="relative z-10 mx-4 my-3 sm:mx-5 sm:my-4">
+          <div className="aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-2xl ring-1 ring-cyan-500/14">
+            <img src={src} alt={alt} className="h-full w-full object-cover" loading="lazy" decoding="async" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/** Overview: same language — purple palette; decor around edges, main shape soft left */
+function IndustryOverviewVisual({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div className="relative ml-auto w-full max-w-[88%] overflow-visible sm:max-w-[92%]">
+      <div className="relative overflow-visible px-1 pb-2 pt-1 sm:px-2 sm:pb-3 sm:pt-2">
+        <div
+          className="pointer-events-none absolute left-[8%] top-[14%] z-0 h-[74%] w-[56%] rounded-[1.5rem] bg-gradient-to-br from-violet-300/26 to-purple-400/18"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute right-[14%] top-[24%] z-0 h-[46%] w-[48%] rounded-full opacity-95 blur-3xl"
+          style={{
+            background:
+              "radial-gradient(circle at 50% 50%, rgba(236, 72, 153, 0.12), rgba(167, 139, 250, 0.14) 45%, transparent 70%)",
+          }}
+          aria-hidden
+        />
+
+        <div
+          className="pointer-events-none absolute -left-1 top-1 z-[1] h-[3.5rem] w-[3.5rem] rounded-full border-2 border-violet-400/42 opacity-90 sm:h-14 sm:w-14"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute -right-2 bottom-0 z-[1] h-[6.25rem] w-[7rem] rounded-2xl opacity-[0.28] [background-image:radial-gradient(circle,rgba(167,139,250,0.55)_1px,transparent_1px)] [background-size:14px_14px] sm:h-28 sm:w-[7.5rem]"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute right-0 top-[40%] z-[1] h-2 w-2 -translate-y-1 rounded-full bg-fuchsia-400/55 sm:h-2.5 sm:w-2.5"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute bottom-[28%] left-1 z-[1] h-2 w-2 rounded-full bg-violet-500/55 sm:h-2.5 sm:w-2.5"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute bottom-[10%] right-[8%] z-[1] h-2 w-2 rounded-full bg-purple-500/45"
+          aria-hidden
+        />
+        <div className="pointer-events-none absolute -left-1 bottom-0 z-[1] h-14 w-14 overflow-visible opacity-50 sm:h-16 sm:w-16" aria-hidden>
+          <div className="absolute -bottom-1 -left-1 h-[5.25rem] w-[5.25rem] rounded-full border-2 border-dashed border-violet-400/38 sm:h-[5.75rem] sm:w-[5.75rem]" />
+        </div>
+
+        <div className="relative z-10 mx-4 my-3 sm:mx-5 sm:my-4">
+          <div className="aspect-[4/3] w-full overflow-hidden rounded-xl shadow-2xl ring-1 ring-violet-400/18">
+            <img src={src} alt={alt} className="h-full w-full object-cover" loading="lazy" decoding="async" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function HeroImageComposition({
   mainSrc,
   secondarySrc1,
@@ -242,9 +344,17 @@ export function IndustryPage({ config }: { config: IndustryPageConfig }) {
                 ))}
               </div>
             </div>
-            <div className="lg:sticky lg:top-28">
-              {/* replace with actual image */}
-              <ImagePlaceholder className="w-full aspect-[4/3]" label={`${config.categoryLabel} benefits visual`} />
+            <div>
+              {config.benefitsImage ? (
+                <IndustryBenefitsVisual
+                  src={config.benefitsImage}
+                  alt={`${config.categoryLabel} retail — benefits`}
+                />
+              ) : (
+                <div className="lg:sticky lg:top-28">
+                  <ImagePlaceholder className="w-full aspect-[4/3]" label={`${config.categoryLabel} benefits visual`} />
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -272,8 +382,14 @@ export function IndustryPage({ config }: { config: IndustryPageConfig }) {
               </Link>
             </div>
             <div>
-              {/* replace with actual image */}
-              <ImagePlaceholder className="w-full aspect-[4/3]" label={`${config.categoryLabel} overview visual`} />
+              {config.overviewImage ? (
+                <IndustryOverviewVisual
+                  src={config.overviewImage}
+                  alt={`${config.categoryLabel} retail — overview`}
+                />
+              ) : (
+                <ImagePlaceholder className="w-full aspect-[4/3]" label={`${config.categoryLabel} overview visual`} />
+              )}
             </div>
           </div>
         </div>

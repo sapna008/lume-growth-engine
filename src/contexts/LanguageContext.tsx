@@ -184,7 +184,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Header Navigation
     'nav.forRetailers': 'For Retailers',
     'nav.solutions': 'Solutions',
-    'nav.industries': 'Industries',
+    'nav.industries': 'Category',
     'nav.features': 'Features',
     'nav.products': 'Products',
     'nav.resources': 'Resources',
@@ -567,7 +567,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Header Navigation
     'nav.forRetailers': 'दुकानदारों के लिए',
     'nav.solutions': 'समाधान',
-    'nav.industries': 'उद्योग',
+    'nav.industries': 'श्रेणी',
     'nav.features': 'फ़ीचर्स',
     'nav.products': 'प्रोडक्ट्स',
     'nav.resources': 'जानकारी',
