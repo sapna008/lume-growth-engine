@@ -302,7 +302,7 @@ export default function Index() {
                   <span className={`font-medium ${language === 'HI' ? 'text-xs' : 'text-sm'}`} style={{ color: '#1b181f' }}>{t('hero.badge')}</span>
                 </div>
                 
-                <h1 className={`font-display font-bold ${language === 'HI' ? 'text-3xl sm:text-3xl md:text-4xl lg:text-5xl mb-3 sm:mb-7 leading-[1.5]' : 'text-[1.95rem] sm:text-4xl md:text-5xl lg:text-6xl mb-2 sm:mb-4 leading-tight'}`} style={{ color: '#1b181f' }}>
+                <h1 className={`font-display font-bold ${language === 'HI' ? 'text-3xl sm:text-3xl md:text-4xl lg:text-5xl mb-3 sm:mb-7 leading-[1.5]' : 'text-3xl sm:text-3xl md:text-4xl lg:text-5xl mb-2 sm:mb-4 leading-snug'}`} style={{ color: '#1b181f' }}>
                   {language === 'HI' ? (
                     <>
                       {/* Hindi: Line 1 ग्राहक को वापस लाने, Line 2 वाला सिस्टम सिर्फ बिलिंग, Line 3 सॉफ्टवेयर नहीं (blue, slightly bigger) */}

@@ -15,7 +15,7 @@ const translations: Record<Language, Record<string, string>> = {
   EN: {
     // Hero Section
     'hero.badge': 'Trusted by 285+ retailers across India',
-    'hero.title': 'AI-Powered Retail SaaS Platform for Smart Billing, Customer Engagement & Analytics',
+    'hero.title': 'AI-First Retail Solution that Turns Billing into Repeat Customers & Continuous Sales Growth',
     'hero.titleHighlight': '',
     'hero.titleHighlightLine1': '',
     'hero.titleHighlightLine2': '',
