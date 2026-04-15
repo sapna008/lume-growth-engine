@@ -1059,14 +1059,6 @@ export default function CaseStudies() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button
                   asChild
-                  className="bg-[#146fb5] text-white hover:bg-[#115a94] font-semibold px-8 py-6 text-base rounded-lg shadow-md shadow-[#0f172a]/10"
-                >
-                  <Link to="/book-demo">
-                    {language === "HI" ? "डेमो बुक करें" : "Book a Demo"}
-                  </Link>
-                </Button>
-                <Button
-                  asChild
                   variant="outline"
                   className="border border-slate-300 text-slate-800 bg-white/70 hover:bg-white font-semibold px-8 py-6 text-base rounded-lg"
                 >

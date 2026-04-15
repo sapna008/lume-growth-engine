@@ -229,12 +229,6 @@ export default function ForRetailers() {
                 </p>
 
                 <div className="flex flex-row gap-3 sm:gap-4 w-full sm:w-auto">
-                  <Button size="xl" variant="hero" asChild className="shadow-lg hover:shadow-xl transition-shadow h-10 sm:h-12 text-sm sm:text-base px-4 sm:px-6 flex-1 sm:flex-initial">
-                    <Link to="/book-demo">
-                      {t('forRetailers.hero.bookDemo')}
-                      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-1" />
-                    </Link>
-                  </Button>
                   <Button size="xl" variant="hero-outline" asChild className="h-10 sm:h-12 text-sm sm:text-base px-4 sm:px-6 flex-1 sm:flex-initial">
                     <Link to="/pricing">{t('forRetailers.hero.viewPricing')}</Link>
                   </Button>
@@ -556,12 +550,6 @@ export default function ForRetailers() {
                   </li>
                 ))}
               </ul>
-              <Button size="xl" variant="cta" className="w-full" asChild>
-                  <Link to="/book-demo">
-                    {t('forRetailers.cta.bookDemo')}
-                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-1" />
-                  </Link>
-              </Button>
               <p className="text-center text-xs sm:text-sm mt-3 sm:mt-4" style={{ color: '#4f4f4f' }}>
                 <Link to="/pricing" className="font-medium hover:underline" style={{ color: '#146fb5' }}>{t('forRetailers.cta.viewPricing')}</Link>
               </p>

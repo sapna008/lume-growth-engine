@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { motion } from "framer-motion";
@@ -142,9 +141,6 @@ export default function Blog() {
               {ctaSubtitle}
             </p>
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4">
-              <Button size="lg" variant="cta" className="shadow-lg w-full sm:w-auto min-w-[200px]" asChild>
-                <Link to="/book-demo">{t("cta.startTrial")}</Link>
-              </Button>
               <Button size="lg" variant="hero-outline" className="w-full sm:w-auto min-w-[200px]" asChild>
                 <a href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer">
                   {t("hero.download")}

@@ -745,14 +745,6 @@ export default function About() {
                 ? "चाहे आप ग्रो करना चाहने वाले रिटेलर हों, रिटेल सॉल्यूशन बनाने वाले पार्टनर, लॉन्ग‑टर्म वैल्यू समझने वाले इन्वेस्टर, या असली प्रॉब्लम्स पर काम करना चाहने वाले बिल्डर — Apeiros AI आपके लिए खुला है।"
                 : "Whether you are a retailer looking to grow, a partner building retail solutions, an investor who understands long‑term value, or a builder who wants to work on real problems — Apeiros AI welcomes you."}
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
-              <Button size="lg" variant="hero" asChild>
-                <Link to="/book-demo">
-                  {language === "HI" ? "डेमो बुक करें" : "Book a Demo"}
-                  <ArrowRight className="w-5 h-5 ml-1" />
-                </Link>
-              </Button>
-            </div>
           </motion.div>
         </div>
       </section>

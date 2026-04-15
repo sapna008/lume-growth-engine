@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { Button } from "@/components/ui/button";
 import { useSEO } from "@/hooks/useSEO";
 import type { IndustryPageConfig } from "@/data/industryPages";
 import { cn } from "@/lib/utils";
@@ -291,12 +290,6 @@ export function IndustryPage({ config }: { config: IndustryPageConfig }) {
               <p className="text-base sm:text-lg leading-relaxed mb-8 max-w-xl text-gray-600">
                 {config.heroSubtext}
               </p>
-              <Button size="lg" variant="hero" className="rounded-xl px-8 shadow-lg" asChild>
-                <Link to="/book-demo" className="inline-flex items-center gap-2">
-                  Request a Demo
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-              </Button>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 12 }}
@@ -429,12 +422,6 @@ export function IndustryPage({ config }: { config: IndustryPageConfig }) {
         <div className="container-wide relative text-center max-w-3xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-display font-bold mb-4">{config.ctaTitle}</h2>
           <p className="text-white/90 text-base sm:text-lg mb-8 leading-relaxed">{config.ctaSubtext}</p>
-          <Button size="lg" variant="secondary" className="rounded-xl bg-white text-[#146fb5] hover:bg-white/95 shadow-lg" asChild>
-            <Link to="/book-demo" className="inline-flex items-center gap-2">
-              Request a Demo
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </Button>
         </div>
       </section>
 

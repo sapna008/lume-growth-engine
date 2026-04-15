@@ -81,12 +81,6 @@ export default function ReferralFeature() {
                 )}
               </p>
               <div className="flex flex-row flex-nowrap gap-2 sm:gap-3">
-                <Button size="lg" asChild variant="hero" className="rounded-xl px-4 py-4 sm:px-8 sm:py-6 text-sm sm:text-base font-semibold shadow-xl shadow-[#146fb5]/25 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 flex-1 sm:flex-initial min-w-0">
-                  <Link to="/book-demo" className="inline-flex items-center justify-center gap-1.5 sm:gap-2">
-                    <span className="truncate">{t("Book a demo", "डेमो बुक करें")}</span>
-                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
-                  </Link>
-                </Button>
                 <Button
                   size="lg"
                   variant="outline"
@@ -185,14 +179,6 @@ export default function ReferralFeature() {
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-display font-bold mb-3 leading-tight" style={{ color: "#1b181f" }}>{t(block.headingEN, block.headingHI)}</h3>
                 <p className="text-base leading-relaxed mb-4" style={{ color: "#4f4f4f" }}>{t(block.bodyEN, block.bodyHI)}</p>
-                <div className="flex justify-center lg:justify-start">
-                  <Button variant="outline" size="lg" asChild className="rounded-xl border-[#146fb5]/50 text-[#146fb5] hover:bg-[#146fb5]/10 font-semibold shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
-                    <Link to="/book-demo" className="inline-flex items-center">
-                      {t("Get Started", "शुरू करें")}
-                      <ArrowRight className="ml-2 w-5 h-5" />
-                    </Link>
-                  </Button>
-                </div>
               </div>
             </motion.div>
           ))}
@@ -242,12 +228,6 @@ export default function ReferralFeature() {
               </div>
               <h3 className="text-xl sm:text-2xl font-bold mb-3" style={{ color: "#1b181f" }}>{t("Ready to grow with referrals?", "रेफरल से ग्रोथ के लिए तैयार हैं?")}</h3>
               <p className="text-base mb-6" style={{ color: "#4f4f4f" }}>{t("Join 285+ retailers using Lume for WhatsApp referrals and loyalty.", "285+ रिटेलर्स के साथ जुड़ें जो ल्यूम से WhatsApp रेफरल और लॉयल्टी इस्तेमाल कर रहे हैं।")}</p>
-              <Button size="lg" asChild variant="hero" className="rounded-xl px-8 py-6 font-semibold shadow-lg shadow-[#146fb5]/25 hover:shadow-xl hover:shadow-[#146fb5]/30 hover:-translate-y-0.5 transition-all duration-300">
-                <Link to="/book-demo" className="inline-flex items-center">
-                  {t("Book a demo", "डेमो बुक करें")}
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
-              </Button>
             </div>
           </motion.div>
         </div>

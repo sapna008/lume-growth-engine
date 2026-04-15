@@ -897,14 +897,6 @@ export default function Pricing() {
                 ? "285+ रिटेलर्स जो अपने बिज़नेस के लिए ल्यूम पर भरोसा करते हैं, उनके साथ जुड़ें।"
                 : "Join 285+ retailers who trust Lume for their business."}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="xl" variant="hero" asChild>
-                <Link to="/book-demo">
-                  {language === "HI" ? "डेमो बुक करें" : "Book a Demo"}
-                  <ArrowRight className="w-5 h-5 ml-1" />
-                </Link>
-              </Button>
-            </div>
           </motion.div>
         </div>
       </section>

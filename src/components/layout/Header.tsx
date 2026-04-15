@@ -835,9 +835,6 @@ export function Header() {
               </AnimatePresence>
             </div>
             
-            <Button variant="cta" size="sm" className="ml-2" asChild>
-              <Link to="/book-demo">{t('cta.startTrial')}</Link>
-            </Button>
           </div>
 
           {/* Mobile */}
@@ -1133,11 +1130,6 @@ export function Header() {
                       ))}
                     </div>
                   </div>
-                  <Button variant="cta" className="w-full" asChild>
-                    <Link to="/book-demo" onClick={() => setMobileMenuOpen(false)}>
-                      {t('cta.startTrial')}
-                    </Link>
-                  </Button>
                 </div>
               </div>
             </motion.div>

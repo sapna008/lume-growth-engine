@@ -206,12 +206,6 @@ export default function Products() {
                 )}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="xl" variant="hero" className="w-full sm:w-auto" asChild>
-                  <Link to="/book-demo">
-                    {t('products.hero.bookDemo')}
-                    <ArrowRight className="w-5 h-5 ml-2" />
-                  </Link>
-                </Button>
                 <Button size="xl" variant="hero-outline" className="w-full sm:w-auto" asChild>
                   <Link to="#core">{t('products.hero.seeFeatures')}</Link>
                 </Button>
@@ -580,12 +574,6 @@ export default function Products() {
               {t('products.cta.title')}
             </h2>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="xl" variant="hero" className="w-full sm:w-auto" asChild>
-                <Link to="/book-demo">
-                  {t('products.cta.bookDemo')}
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Link>
-              </Button>
               <Button size="xl" variant="hero-outline" className="w-full sm:w-auto" asChild>
                 <Link to="/pricing">{t('products.cta.viewPricing')}</Link>
               </Button>

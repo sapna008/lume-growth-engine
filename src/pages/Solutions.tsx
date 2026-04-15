@@ -344,12 +344,6 @@ export default function Solutions() {
               </>
             )}
           </p>
-          <Button size="xl" variant="cta" asChild>
-            <Link to="/book-demo">
-              {language === "HI" ? "डेमो बुक करें" : "Book a Demo"}
-              <ArrowRight className="w-5 h-5 ml-1" />
-            </Link>
-          </Button>
         </div>
       </section>
 

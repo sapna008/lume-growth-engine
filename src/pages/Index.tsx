@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { 
   ArrowRight, 
-  Play, 
   Users, 
   TrendingUp, 
   Shield, 
@@ -347,12 +346,6 @@ export default function Index() {
                       </svg>
                       {t('hero.download')}
                     </a>
-                  </Button>
-                  <Button size="xl" variant="hero-outline" asChild className="h-10 sm:h-12 text-sm sm:text-base px-4 sm:px-6 flex-1 sm:flex-initial">
-                    <Link to="/demo">
-                      <Play className="w-4 h-4 sm:w-5 sm:h-5 mr-1" />
-                      {t('hero.watchDemo')}
-                    </Link>
                   </Button>
                 </div>
                 
@@ -733,14 +726,6 @@ export default function Index() {
             ))}
           </div>
 
-          <div className="text-center mt-12 sm:mt-16">
-            <Button size="lg" variant="cta" asChild className="shadow-lg">
-              <Link to="/book-demo">
-                {t('howItWorks.cta')}
-                <ArrowRight className="w-4 h-4 ml-1" />
-              </Link>
-            </Button>
-          </div>
         </div>
       </section>
 
@@ -922,14 +907,6 @@ export default function Index() {
             <p className="text-base sm:text-lg md:text-xl mb-8 sm:mb-10 max-w-2xl mx-auto" style={{ color: '#4f4f4f' }}>
               {t('cta.description')}
             </p>
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-                  <Button size="lg" variant="hero" asChild className="shadow-xl text-base sm:text-lg">
-                    <Link to="/book-demo">
-                      {t('cta.startTrial')}
-                      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-1" />
-                    </Link>
-                  </Button>
-                </div>
           </motion.div>
         </div>
       </section>
