@@ -50,11 +50,15 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Challenge Section
     'challenge.title': 'Why Local Retailers Are Losing Customers',
-    'challenge.subtitle': 'While apps deliver in 10 minutes, local stores still:',
-    'challenge.point1': 'Losing customers to quick commerce apps',
-    'challenge.point2': 'Manual billing wastes time & causes errors',
-    'challenge.point3': 'No way to track or engage customers',
-    'challenge.point4': 'No visibility into business performance',
+    'challenge.subtitle': 'Customer expectations are changing faster than ever.',
+    'challenge.point1': 'Customers expect instant convenience',
+    'challenge.point1Sub': 'Fast delivery and smooth shopping are now the norm.',
+    'challenge.point2': 'Slow billing hurts sales',
+    'challenge.point2Sub': 'Long queues and delays impact customer experience.',
+    'challenge.point3': 'Hard to retain repeat customers',
+    'challenge.point3Sub': 'Without engagement, loyal buyers are hard to keep.',
+    'challenge.point4': 'Limited visibility into sales',
+    'challenge.point4Sub': 'No clear insights makes growth harder to manage.',
     'challenge.solution': 'More than billing. A complete digital system for your store.',
     'challenge.solutionDesc': 'Lume connects billing, customers, offers, stock and insights into one simple retail intelligence platform.',
     'challenge.supportLine': '',
@@ -73,6 +77,8 @@ const translations: Record<Language, Record<string, string>> = {
     'benefit.smartOffers.desc': 'Give the right offer at the right time—like tea with milk or related items with clothes. This helps customers buy more in the same visit.',
     'benefit.dashboard.title': 'See Your Business in One Screen',
     'benefit.dashboard.desc': 'Check sales, stock, customers, and offers from one simple dashboard. You always know how your shop is doing.',
+    'featuresSection.title': 'Built to Simplify Every Part of Your Store',
+    'featuresSection.subtitle': 'From faster billing to smarter offers and customer insights — everything works together.',
     
     // How It Works
     'howItWorks.title': 'Start Selling Smarter in 4 Simple Steps',
@@ -365,11 +371,15 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Challenge Section
     'challenge.title': 'लोकल दुकानदार ग्राहक क्यों खो रहे हैं?',
-    'challenge.subtitle': 'आज जहाँ ऐप्स 10 मिनट में डिलीवरी दे रही हैं, वहीं लोकल दुकानों में अब भी:',
-    'challenge.point1': 'क्विक कॉमर्स ऐप्स से ग्राहक खो रहे हैं',
-    'challenge.point2': 'हाथ से बिल बनाना समय बर्बाद करता है और गलतियाँ होती हैं',
-    'challenge.point3': 'ग्राहकों को ट्रैक या जुड़ने का तरीका नहीं',
-    'challenge.point4': 'दुकान का सही हिसाब समझ नहीं आता',
+    'challenge.subtitle': 'ग्राहक की उम्मीदें पहले से कहीं तेजी से बदल रही हैं।',
+    'challenge.point1': 'Customers expect instant convenience',
+    'challenge.point1Sub': 'Fast delivery and smooth shopping are now the norm.',
+    'challenge.point2': 'Slow billing hurts sales',
+    'challenge.point2Sub': 'Long queues and delays impact customer experience.',
+    'challenge.point3': 'Hard to retain repeat customers',
+    'challenge.point3Sub': 'Without engagement, loyal buyers are hard to keep.',
+    'challenge.point4': 'Limited visibility into sales',
+    'challenge.point4Sub': 'No clear insights makes growth harder to manage.',
     'challenge.solution': 'अब सिर्फ बिलिंग नहीं — पूरी दुकान डिजिटल।',
     'challenge.solutionDesc': 'ल्यूम आपके बिल, ग्राहक, ऑफ़र, स्टॉक और रिपोर्ट्स को एक आसान सिस्टम में बदल देता है।',
     'challenge.supportLine': 'बिना महंगे मशीन • बिना टेक्निकल झंझट',
@@ -388,6 +398,8 @@ const translations: Record<Language, Record<string, string>> = {
     'benefit.smartOffers.desc': 'सही समय पर सही ऑफर — जैसे चाय के साथ बिस्किट, कपड़ों के साथ मैचिंग आइटम।',
     'benefit.dashboard.title': 'पूरी दुकान एक स्क्रीन पर',
     'benefit.dashboard.desc': 'ग्राहकों की जानकारी और स्टोर परफॉर्मेंस रिपोर्ट एक ही डैशबोर्ड में।',
+    'featuresSection.title': 'Built to Simplify Every Part of Your Store',
+    'featuresSection.subtitle': 'From faster billing to smarter offers and customer insights — everything works together.',
     
     // How It Works
     'howItWorks.title': '4 आसान स्टेप में शुरुआत',

@@ -126,10 +126,10 @@ const statsKeys = [
 
 // Pain points will be translated in component
 const painPointsKeys = [
-  { icon: challengeIcon1, key: "challenge.point1" },
-  { icon: challengeIcon2, key: "challenge.point2" },
-  { icon: challengeIcon3, key: "challenge.point3" },
-  { icon: challengeIcon4, key: "challenge.point4" },
+  { icon: challengeIcon1, key: "challenge.point1", subKey: "challenge.point1Sub" },
+  { icon: challengeIcon2, key: "challenge.point2", subKey: "challenge.point2Sub" },
+  { icon: challengeIcon3, key: "challenge.point3", subKey: "challenge.point3Sub" },
+  { icon: challengeIcon4, key: "challenge.point4", subKey: "challenge.point4Sub" },
 ];
 
 // Benefits will be translated in component
@@ -532,82 +532,69 @@ export default function Index() {
       </section>
 
       {/* Problem Statement Section */}
-      <section className="pt-4 sm:pt-6 pb-6 sm:pb-8 bg-white">
+      <section className="pt-2 sm:pt-4 pb-4 sm:pb-6 bg-white">
         <div className="container-wide px-4">
-          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <div className="grid lg:grid-cols-12 gap-4 sm:gap-5 lg:gap-6 items-start mb-6 sm:mb-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
+              className="lg:col-span-5 text-center lg:text-left max-w-3xl lg:max-w-none mx-auto lg:mx-0"
             >
-              <h2 className="text-3xl md:text-4xl font-display font-bold mb-4" style={{ color: '#1b181f' }}>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-3 sm:mb-4" style={{ color: '#1b181f' }}>
                 {t('challenge.title')}
               </h2>
-              <p className="text-lg" style={{ color: '#4f4f4f' }}>
+              <p className="text-base sm:text-lg" style={{ color: '#4f4f4f' }}>
                 {t('challenge.subtitle')}
               </p>
-            </motion.div>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12">
-            {painPointsKeys.map((point, i) => (
-              <motion.div
-                key={point.key}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-gradient-to-br from-[#eaf2f8] to-white border border-[#146fb5]/20 rounded-xl p-6 sm:p-8 text-center hover:shadow-xl transition-all hover:-translate-y-2 group"
+              <Button
+                asChild
+                size="sm"
+                variant="cta"
+                className="mt-4 sm:mt-5 h-10 px-5 shadow-md"
               >
-                <img 
-                  src={point.icon} 
-                  alt="" 
-                  className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 mx-auto mb-3 object-contain group-hover:scale-110 transition-transform"
-                  role="presentation"
-                />
-                <p className="text-xs sm:text-sm font-medium" style={{ color: '#1b181f' }}>{t(point.key)}</p>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="bg-gradient-to-r from-primary/10 via-primary/5 to-[#146fb5]/10 border border-primary/20 rounded-xl sm:rounded-2xl p-6 sm:p-8 lg:p-12 text-center relative overflow-hidden mt-6 sm:mt-8"
-          >
-            <div className="absolute inset-0 bg-grid-pattern opacity-5" />
-            <div className="relative z-10">
-              <h3 className="text-xl sm:text-2xl md:text-3xl font-display font-bold mb-3 sm:mb-4" style={{ color: '#146fb5' }}>
-                {t('challenge.solution')}
-              </h3>
-              <p className="text-sm sm:text-base max-w-2xl mx-auto mb-3 sm:mb-4" style={{ color: '#4f4f4f' }}>
-                {t('challenge.solutionDesc')}
-              </p>
-              {t('challenge.supportLine') && (
-                <p className="text-xs sm:text-sm mb-6 sm:mb-8" style={{ color: '#4f4f4f' }}>
-                  {t('challenge.supportLine')}
-                </p>
-              )}
-              <Button 
-                size="lg" 
-                variant="cta" 
-                asChild 
-                className={`shadow-lg w-full sm:w-auto ${language === 'HI' ? '!whitespace-normal text-xs sm:text-base !px-4 sm:!px-6' : ''}`}
-              >
-                <Link to="/for-retailers" className="flex items-center justify-center w-full">
-                  <span className={language === 'HI' ? 'text-center leading-tight' : ''}>{t('challenge.cta')}</span>
-                  <ArrowRight className={`${language === 'HI' ? 'w-3.5 h-3.5 sm:w-4 sm:h-4' : 'w-4 h-4'} ${language === 'HI' ? 'ml-1.5 sm:ml-1' : 'ml-1'} flex-shrink-0`} />
+                <Link to="/solutions" className="inline-flex items-center justify-center">
+                  <span>See Solutions</span>
+                  <ArrowRight className="w-4 h-4 ml-1.5" />
                 </Link>
               </Button>
+            </motion.div>
+
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
+              {painPointsKeys.map((point, i) => (
+                <motion.div
+                  key={point.key}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.08 }}
+                  className="bg-gradient-to-br from-[#eaf2f8] to-white border border-[#146fb5]/20 rounded-xl px-3.5 py-3 sm:px-4 sm:py-3.5 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 group min-h-[104px] sm:min-h-[112px] flex items-center gap-3.5"
+                >
+                  <img 
+                    src={point.icon} 
+                    alt="" 
+                    className="w-[4.1rem] h-[4.1rem] sm:w-[4.6rem] sm:h-[4.6rem] shrink-0 object-contain group-hover:scale-105 transition-transform"
+                    role="presentation"
+                  />
+                  <div className="min-w-0 text-left">
+                    <p className="text-xs sm:text-sm font-semibold leading-snug" style={{ color: '#1b181f' }}>
+                      {t(point.key)}
+                    </p>
+                    <p className="text-[11px] sm:text-xs leading-snug mt-1" style={{ color: '#4f4f4f' }}>
+                      {t(point.subKey)}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
             </div>
-          </motion.div>
+          </div>
+
         </div>
       </section>
 
       {/* Key Benefits Section */}
-      <section className="section-spacing bg-gradient-to-b from-slate-50 to-white">
+      <section id="solutions" className="section-spacing bg-gradient-to-b from-slate-50 to-white">
         <div className="container-wide px-4">
           <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
             <motion.div
@@ -616,40 +603,37 @@ export default function Index() {
               viewport={{ once: true }}
             >
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-3 sm:mb-4" style={{ color: '#1b181f' }}>
-                {language === 'HI' ? (
-                  <>{t('hero.title')} {t('hero.titleHighlight')}</>
-                ) : (
-                  <>{t('hero.title')} <span style={{ color: '#146fb5' }}>{t('hero.titleHighlight')}</span></>
-                )}
+                {t('featuresSection.title')}
               </h2>
               <p className="text-sm sm:text-base" style={{ color: '#4f4f4f' }}>
-                {t('hero.description')}
+                {t('featuresSection.subtitle')}
               </p>
             </motion.div>
           </div>
 
           <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
             {benefitsKeys.map((benefit, i) => (
-              <motion.div
-                key={benefit.titleKey}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-white rounded-xl p-4 sm:p-6 shadow-md border border-border hover:shadow-lg hover:-translate-y-1 transition-all group flex flex-col sm:flex-row gap-4 sm:gap-5 items-start"
-              >
-                <div className="flex-shrink-0 w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center bg-gradient-to-br from-[#eaf2f8] to-white rounded-lg border border-[#146fb5]/10 mx-auto sm:mx-0">
-                  <img 
-                    src={benefit.icon} 
-                    alt={t(benefit.titleKey)}
-                    className="w-14 h-14 sm:w-16 sm:h-16 object-contain group-hover:scale-110 transition-transform"
-                  />
-                </div>
-                <div className="flex-1 min-w-0 text-center sm:text-left">
-                  <h3 className="text-base sm:text-lg font-bold mb-2" style={{ color: '#1b181f' }}>{t(benefit.titleKey)}</h3>
-                  <p className="text-xs sm:text-sm leading-relaxed" style={{ color: '#4f4f4f' }}>{t(benefit.descKey)}</p>
-                </div>
-              </motion.div>
+              <Link key={benefit.titleKey} to="/features" className="block">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="bg-white rounded-xl p-4 sm:p-6 shadow-md border border-border hover:shadow-lg hover:-translate-y-1 transition-all group flex flex-col sm:flex-row gap-4 sm:gap-5 items-start cursor-pointer"
+                >
+                  <div className="flex-shrink-0 w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center bg-gradient-to-br from-[#eaf2f8] to-white rounded-lg border border-[#146fb5]/10 mx-auto sm:mx-0">
+                    <img 
+                      src={benefit.icon} 
+                      alt={t(benefit.titleKey)}
+                      className="w-14 h-14 sm:w-16 sm:h-16 object-contain group-hover:scale-110 transition-transform"
+                    />
+                  </div>
+                  <div className="flex-1 min-w-0 text-center sm:text-left">
+                    <h3 className="text-base sm:text-lg font-bold mb-2" style={{ color: '#1b181f' }}>{t(benefit.titleKey)}</h3>
+                    <p className="text-xs sm:text-sm leading-relaxed" style={{ color: '#4f4f4f' }}>{t(benefit.descKey)}</p>
+                  </div>
+                </motion.div>
+              </Link>
             ))}
           </div>
         </div>
