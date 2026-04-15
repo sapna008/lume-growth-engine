@@ -61,6 +61,7 @@ const retailerLogos = [
   'shreesanskar-removebg-preview.png', // Sai sanskar
   'tulsi-removebg-preview.png', // Tulsi Footwear
   'cottonking-removebg-preview.png',
+  'jumi.png',
 
   // Remaining logos
   'AaraCouture-removebg-preview.png', // Aarti collection
@@ -79,7 +80,7 @@ const retailerLogos = [
   'HeartyMart-removebg-preview.png',
   'HPWorld-removebg-preview.png',
   'JainTraders-removebg-preview.png',
-  'JohnNBrown-removebg-preview.png',
+  'JohnNBrown-removebg-preview.jpeg',
   'JyotiStores-removebg-preview.png',
   'Kirti-removebg-preview.png',
   'KrishnaFashion-removebg-preview.png',
@@ -105,7 +106,16 @@ const newLogos = [
   'shreesanskar-removebg-preview.png',
   'tulsi-removebg-preview.png',
   'cottonking-removebg-preview.png',
+  'jumi.png',
 ] as const;
+
+// Split logos for 2-row marquee
+const newLogoFiles = retailerLogos.filter(l => newLogos.includes(l as (typeof newLogos)[number]));
+const oldLogoFiles = retailerLogos.filter(l => !newLogos.includes(l as (typeof newLogos)[number]));
+// Row 1: all new logos + first 8 old logos so the row looks full
+const row1LogoFiles = [...newLogoFiles, ...oldLogoFiles.slice(0, 8)];
+// Row 2: remaining old logos
+const row2LogoFiles = oldLogoFiles.slice(8);
 
 // Stats will be translated in component
 const statsKeys = [
@@ -475,34 +485,56 @@ export default function Index() {
           </div>
         </div>
         
-        {/* Retailer Logos Banner */}
-      <div className="relative z-10 mt-1 sm:mt-3 md:mt-5 h-[80px] sm:h-[104px] md:h-[112px] py-0 overflow-hidden">
-        <div className="overflow-hidden h-full">
-          <div className="logo-track flex w-max items-center gap-6 sm:gap-8 md:gap-10 h-full whitespace-nowrap">
-            {[...retailerLogos, ...retailerLogos].map((logo, index) => (
-              <div 
-                key={`logo-${index}`} 
-                className="flex-shrink-0 flex items-center justify-center"
-              >
-                <div className="relative w-28 h-[80px] sm:w-32 sm:h-[96px] md:w-36 md:h-[100px] flex items-center justify-center"> 
-                  {/* ← Fixed size container - this is the main change */}
-                  
-                  {newLogos.includes(logo as (typeof newLogos)[number]) && (
-                    <span className="absolute -top-1 -right-1 z-10 rounded bg-red-600 px-1 py-0 text-[8px] font-bold leading-none text-white shadow-sm ring-1 ring-white/60 pointer-events-none">
-                      NEW
-                    </span>
-                  )}
-                  
-                  <img
-                    src={new URL(`../assets/RetailersLogosTR/${logo}`, import.meta.url).href}
-                    alt={logo.replace('-removebg-preview.png', '')}
-                    className="max-h-full max-w-full object-contain opacity-80 hover:opacity-100 transition-opacity"
-                  />
+        {/* Retailer Logos Banner - 2 Row Marquee */}
+      <div className="relative z-10 mt-0 py-0 overflow-hidden flex flex-col gap-0">
+
+        {/* Row 1: New stores — scrolls right to left */}
+        <div className="overflow-hidden py-0">
+          <div className="logo-marquee-rtl flex w-max items-center gap-3 sm:gap-4 md:gap-5 whitespace-nowrap">
+            {[...row1LogoFiles, ...row1LogoFiles].map((logo, index) => (
+              <div key={`r1-${index}`} className="flex-shrink-0 flex items-center justify-center">
+                <div className="relative w-[124px] h-[86px] sm:w-[140px] sm:h-[98px] md:w-[156px] md:h-[108px] flex items-center justify-center">
+                  <div className="relative flex h-[90%] w-[90%] items-center justify-center">
+                    <div className="relative inline-block max-h-full max-w-full leading-none overflow-hidden rounded-lg sm:rounded-xl">
+                      <img
+                        src={new URL(`../assets/RetailersLogosTR/${logo}`, import.meta.url).href}
+                        alt={logo.replace(/-removebg-preview\.(png|jpeg|jpg)$/, '').replace(/\.(png|jpeg|jpg)$/, '')}
+                        className="block max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-opacity"
+                      />
+                      {newLogos.includes(logo as (typeof newLogos)[number]) && (
+                        <div className="logo-new-ribbon" aria-hidden>
+                          <span className="logo-new-ribbon__strip">NEW</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
+
+        {/* Row 2: Existing stores — scrolls left to right */}
+        <div className="overflow-hidden py-0 -mt-2 sm:-mt-2.5 md:-mt-3">
+          <div className="logo-marquee-ltr flex w-max items-center gap-3 sm:gap-4 md:gap-5 whitespace-nowrap">
+            {[...row2LogoFiles, ...row2LogoFiles].map((logo, index) => (
+              <div key={`r2-${index}`} className="flex-shrink-0 flex items-center justify-center">
+                <div className="relative w-[124px] h-[86px] sm:w-[140px] sm:h-[98px] md:w-[156px] md:h-[108px] flex items-center justify-center">
+                  <div className="relative flex h-[90%] w-[90%] items-center justify-center">
+                    <div className="relative inline-block max-h-full max-w-full leading-none overflow-hidden rounded-lg sm:rounded-xl">
+                      <img
+                        src={new URL(`../assets/RetailersLogosTR/${logo}`, import.meta.url).href}
+                        alt={logo.replace(/-removebg-preview\.(png|jpeg|jpg)$/, '').replace(/\.(png|jpeg|jpg)$/, '')}
+                        className="block max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-opacity"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
       </div>
       </section>
 

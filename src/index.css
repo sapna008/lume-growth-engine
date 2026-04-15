@@ -328,22 +328,91 @@
     animation: scroll-text 30s linear infinite;
   }
 
-  /* Retailer Logos (simple reset scroll) */
-  /* Retailer Logos - Seamless Infinite Scroll */
-.logo-track {
+  /* Retailer Logos - 2-Row Seamless Marquee */
+.logo-marquee-rtl {
   display: flex;
   width: max-content;
-  animation: scrollOnce 80s linear infinite;
+  animation: marqueeRTL 45s linear infinite;
 }
 
-@keyframes scrollOnce {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+.logo-marquee-ltr {
+  display: flex;
+  width: max-content;
+  animation: marqueeLTR 90s linear infinite;
 }
+
+@keyframes marqueeRTL {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marqueeLTR {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+  /*
+   * Homepage retailer marquee — "NEW" top-right corner ribbon.
+   * Corner pocket (overflow + inherited top-right radius) masks the strip;
+   * trapezoid clip-path removes sharp tips from a rotated rectangle.
+   */
+  .logo-new-ribbon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    width: 2.65rem;
+    height: 2.65rem;
+    overflow: hidden;
+    pointer-events: none;
+    border-top-right-radius: inherit;
+  }
+
+  @media (min-width: 640px) {
+    .logo-new-ribbon {
+      width: 2.85rem;
+      height: 2.85rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .logo-new-ribbon {
+      width: 3rem;
+      height: 3rem;
+    }
+  }
+
+  .logo-new-ribbon__strip {
+    position: absolute;
+    display: block;
+    width: 4.125rem;
+    top: 0.6875rem;
+    right: -1.0625rem;
+    padding: 0.125rem 0 0.1875rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 7px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: linear-gradient(to bottom, #f87171, #b91c1c);
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.12);
+    transform: rotate(45deg) translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    /* Chamfered strip: slanted ends instead of blunt rectangle corners */
+    clip-path: polygon(14% 0, 86% 0, 100% 100%, 0% 100%);
+  }
+
+  @media (min-width: 640px) {
+    .logo-new-ribbon__strip {
+      font-size: 8px;
+      padding: 0.1875rem 0 0.1875rem;
+    }
+  }
 
   /* Hide scrollbar for horizontal scroll */
   .scrollbar-hide {
