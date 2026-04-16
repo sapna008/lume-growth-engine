@@ -116,6 +116,20 @@ const row1LogoFiles = [...newLogoFiles, ...oldLogoFiles.slice(0, 8)];
 // Row 2: remaining old logos
 const row2LogoFiles = oldLogoFiles.slice(8);
 
+const renderRatingStars = (sizeClass: string) => (
+  <>
+    {[0, 1, 2, 3].map((i) => (
+      <Star key={`full-star-${i}`} className={`${sizeClass} fill-current text-amber-400`} />
+    ))}
+    <span className={`relative inline-flex ${sizeClass}`}>
+      <Star className={`${sizeClass} fill-current text-slate-300`} />
+      <span className="absolute inset-0 overflow-hidden" style={{ clipPath: "inset(0 50% 0 0)" }}>
+        <Star className={`${sizeClass} fill-current text-amber-400`} />
+      </span>
+    </span>
+  </>
+);
+
 // Stats will be translated in component
 const statsKeys = [
   { value: "285+", key: "stats.retailers" },
@@ -366,10 +380,8 @@ export default function Index() {
                     ))}
                   </div>
                   <div className="text-xs sm:text-sm">
-                    <div className="flex items-center gap-1" style={{ color: '#146fb5' }}>
-                      {[1, 2, 3, 4, 5].map((i) => (
-                        <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 fill-current" />
-                      ))}
+                    <div className="flex items-center gap-1">
+                      {renderRatingStars("w-3 h-3 sm:w-4 sm:h-4")}
                     </div>
                     <span style={{ color: '#4f4f4f' }}>{t('hero.rating')}</span>
                   </div>
@@ -444,10 +456,8 @@ export default function Index() {
                       ))}
                     </div>
                     <div className="text-sm text-center">
-                      <div className="flex items-center justify-center gap-1 mb-1" style={{ color: '#146fb5' }}>
-                        {[1, 2, 3, 4, 5].map((i) => (
-                          <Star key={i} className="w-4 h-4 fill-current" />
-                        ))}
+                      <div className="flex items-center justify-center gap-1 mb-1">
+                        {renderRatingStars("w-4 h-4")}
                       </div>
                       <span style={{ color: '#4f4f4f' }}>{t('hero.rating')}</span>
                     </div>
