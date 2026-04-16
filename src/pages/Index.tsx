@@ -152,31 +152,37 @@ const benefitsKeys = [
     icon: benefitIcon1,
     titleKey: "benefit.fastBilling.title",
     descKey: "benefit.fastBilling.desc",
+    href: "/features/digital-bills",
   },
   {
     icon: benefitIcon2,
     titleKey: "benefit.posIntegration.title",
     descKey: "benefit.posIntegration.desc",
+    href: "/features/pos-billing",
   },
   {
     icon: benefitIcon3,
     titleKey: "benefit.engagement.title",
     descKey: "benefit.engagement.desc",
+    href: "/features/reviews",
   },
   {
     icon: benefitIcon4,
     titleKey: "benefit.customerCapture.title",
     descKey: "benefit.customerCapture.desc",
+    href: "/features/analytics",
   },
   {
     icon: benefitIcon5,
     titleKey: "benefit.smartOffers.title",
     descKey: "benefit.smartOffers.desc",
+    href: "/features/promotion",
   },
   {
     icon: benefitIcon6,
     titleKey: "benefit.dashboard.title",
     descKey: "benefit.dashboard.desc",
+    href: "/features/analytics",
   },
 ];
 
@@ -623,7 +629,7 @@ export default function Index() {
 
           <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
             {benefitsKeys.map((benefit, i) => (
-              <Link key={benefit.titleKey} to="/features" className="block">
+              <Link key={benefit.titleKey} to={benefit.href} className="block cursor-pointer">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -774,7 +780,7 @@ export default function Index() {
       </section>
 
       {/* Testimonials */}
-      <section className="pt-8 sm:pt-10 lg:pt-12 pb-12 sm:pb-16 lg:pb-20 relative overflow-hidden bg-gradient-to-b from-[#eaf2f8] via-white to-[#eaf2f8]">
+      <section className="pt-8 sm:pt-10 lg:pt-12 pb-2 sm:pb-3 lg:pb-4 relative overflow-hidden bg-gradient-to-b from-[#eaf2f8] via-white to-[#eaf2f8]">
         {/* Decorative background element - Left Top */}
         <div className="absolute left-8 top-[100px] w-[250px] h-[250px] opacity-15 pointer-events-none hidden lg:block">
           <img 
@@ -827,14 +833,26 @@ export default function Index() {
           </div>
 
           {/* Swiper */}
-          <div className="max-w-5xl mx-auto px-4 sm:px-8 md:px-12 lg:px-20">
+          <div className="mx-auto w-full max-w-[1400px] px-1 sm:px-3 md:px-4 lg:px-2">
             <Swiper
               modules={[Autoplay, Pagination]}
-              spaceBetween={24}
+              spaceBetween={16}
               slidesPerView={1}
               breakpoints={{
+                640: {
+                  spaceBetween: 18,
+                },
                 768: {
                   slidesPerView: 2,
+                  spaceBetween: 20,
+                },
+                1024: {
+                  slidesPerView: 3,
+                  spaceBetween: 20,
+                },
+                1440: {
+                  slidesPerView: 4,
+                  spaceBetween: 20,
                 },
               }}
               autoplay={{
@@ -848,34 +866,34 @@ export default function Index() {
                 bulletClass: 'swiper-pagination-bullet !bg-gray-300 !opacity-100',
                 bulletActiveClass: 'swiper-pagination-bullet-active !bg-[#146fb5]',
               }}
-              className="!pb-12"
+              className="!pb-4 sm:!pb-5 [&_.swiper-wrapper]:items-stretch [&_.swiper-slide]:flex [&_.swiper-slide]:h-auto"
             >
             {memoizedTestimonials.map((testimonial, i) => (
-                <SwiperSlide key={`testimonial-${testimonial.author}-${i}`}>
+                <SwiperSlide key={`testimonial-${testimonial.author}-${i}`} className="!h-auto">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                    className="bg-white rounded-xl pt-6 px-6 pb-4 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all h-full flex flex-col min-h-[260px] sm:min-h-[280px] md:min-h-[320px]"
+                    className="bg-white rounded-xl pt-4 px-4 sm:px-5 pb-3.5 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all h-full w-full flex flex-col min-h-[200px] sm:min-h-[220px] lg:min-h-[235px]"
                   >
                     {/* Logo */}
-                    <div className="mb-3">
-                      <div className="text-xl font-bold" style={{ color: '#4b5563', fontFamily: 'Archivo, sans-serif' }}>
+                    <div className="mb-2">
+                      <div className="text-lg sm:text-xl font-bold leading-tight" style={{ color: '#4b5563', fontFamily: 'Archivo, sans-serif' }}>
                         {testimonial.logo}
                 </div>
-                      <div className="text-xs uppercase tracking-wider" style={{ color: '#9ca3af', fontFamily: 'Inter, sans-serif', letterSpacing: '1px' }}>
+                      <div className="text-[11px] uppercase tracking-wide mt-0.5" style={{ color: '#9ca3af', fontFamily: 'Inter, sans-serif', letterSpacing: '0.8px' }}>
                         {testimonial.logoSub}
                   </div>
                 </div>
 
                     {/* Quote */}
-                    <div className="text-lg font-bold mb-3" style={{ color: '#1b181f', fontFamily: 'Archivo, sans-serif', lineHeight: '1.4' }}>
+                    <div className="text-sm sm:text-base font-bold mb-2 leading-snug" style={{ color: '#1b181f', fontFamily: 'Archivo, sans-serif' }}>
                       {language === 'HI' && testimonial.quoteHI ? testimonial.quoteHI : testimonial.quote}
                     </div>
 
                     {/* Text */}
-                    <div className="text-sm mb-0 leading-relaxed flex-1" style={{ color: '#4b5563', fontFamily: 'Inter, sans-serif' }}>
+                    <div className="text-xs sm:text-sm mb-0 leading-snug" style={{ color: '#4b5563', fontFamily: 'Inter, sans-serif' }}>
                       {language === 'HI' && testimonial.textHI ? testimonial.textHI : testimonial.text}
                     </div>
               </motion.div>
@@ -887,7 +905,7 @@ export default function Index() {
       </section>
 
       {/* Final CTA */}
-      <section className="section-spacing hero-gradient relative overflow-hidden">
+      <section className="section-spacing !pt-1 sm:!pt-2 md:!pt-3 hero-gradient relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-[#146fb5]/10" />
         <div className="container-tight text-center relative z-10 px-4 sm:px-6">
           <motion.div

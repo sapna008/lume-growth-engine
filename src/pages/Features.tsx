@@ -78,6 +78,31 @@ const features = [
     ],
   },
   {
+    id: "pos-billing",
+    title: "Works with Your Current POS",
+    titleHI: "आपके मौजूदा POS के साथ काम करता है",
+    subtitle: "Connect your current billing setup without disruption.",
+    subtitleHI: "बिना किसी रुकावट के अपने मौजूदा बिलिंग सेटअप को कनेक्ट करें।",
+    overview:
+      "Use Lume alongside your existing POS and billing workflow with minimal setup. Lume reads billing records from your current process so you can unlock customer engagement, analytics, and campaign capabilities without replacing machines or retraining your staff.",
+    overviewHI:
+      "ल्यूम को अपने मौजूदा POS और बिलिंग वर्कफ़्लो के साथ आसानी से इस्तेमाल करें। ल्यूम आपके वर्तमान प्रोसेस से बिलिंग रिकॉर्ड पढ़ता है, जिससे आप मशीन बदले बिना या स्टाफ को दोबारा ट्रेन किए बिना कस्टमर एंगेजमेंट, एनालिटिक्स और कैंपेन फीचर्स का लाभ ले सकते हैं।",
+    benefits: [
+      "No POS replacement required",
+      "Simple onboarding with existing workflow",
+      "Compatible with current billing operations",
+      "Minimal staff retraining effort",
+      "Faster adoption across stores",
+    ],
+    benefitsHI: [
+      "POS बदलने की जरूरत नहीं",
+      "मौजूदा वर्कफ़्लो के साथ आसान ऑनबोर्डिंग",
+      "वर्तमान बिलिंग संचालन के साथ अनुकूलता",
+      "स्टाफ री-ट्रेनिंग की न्यूनतम जरूरत",
+      "स्टोर्स में तेज़ अपनाने की प्रक्रिया",
+    ],
+  },
+  {
     id: "loyalty",
     title: "Build Customer Loyalty That Drives Repeat Sales",
     titleHI: "ग्राहक वफादारी बनाएं जो दोहराई गई बिक्री को बढ़ावा देती है",
