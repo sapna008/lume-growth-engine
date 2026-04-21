@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Calendar, Clock, User, Phone, Mail, CheckCircle2 } from "lucide-react";
+import emailjs from "@emailjs/browser";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Header } from "@/components/layout/Header";
@@ -11,11 +12,16 @@ import { useSEO } from "@/hooks/useSEO";
 // Generate time slots (9 AM to 6 PM, 30 min intervals)
 const generateTimeSlots = () => {
   const slots = [];
-  for (let hour = 9; hour < 18; hour++) {
-    slots.push(`${hour.toString().padStart(2, '0')}:00 - ${hour.toString().padStart(2, '0')}:30`);
-    if (hour < 17) {
-      slots.push(`${hour.toString().padStart(2, '0')}:30 - ${(hour + 1).toString().padStart(2, '0')}:00`);
-    }
+  for (let minutes = 9 * 60 + 30; minutes < 18 * 60; minutes += 30) {
+    const startHour = Math.floor(minutes / 60);
+    const startMinute = minutes % 60;
+    const endMinutes = minutes + 30;
+    const endHour = Math.floor(endMinutes / 60);
+    const endMinute = endMinutes % 60;
+
+    slots.push(
+      `${startHour.toString().padStart(2, '0')}:${startMinute.toString().padStart(2, '0')} - ${endHour.toString().padStart(2, '0')}:${endMinute.toString().padStart(2, '0')}`
+    );
   }
   return slots;
 };
@@ -39,6 +45,15 @@ const getTimeSlotsForDate = (selectedDateISO: string, allSlots: string[]): strin
     const slotStart = new Date(now.getFullYear(), now.getMonth(), now.getDate(), h, m);
     return slotStart >= cutoff;
   });
+};
+
+const formatDateToDDMMYYYY = (isoDate: string): string => {
+  if (!isoDate) return '';
+  const date = new Date(isoDate);
+  const day = date.getDate().toString().padStart(2, '0');
+  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  const year = date.getFullYear().toString();
+  return `${day}-${month}-${year}`;
 };
 
 // Get dates for today, tomorrow, and day after tomorrow
@@ -65,39 +80,58 @@ export default function BookDemo() {
     name: '',
     phone: '',
     email: '',
-    selectedDate: '',
-    selectedTime: ''
+    date: '',
+    time: ''
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const timeSlots = generateTimeSlots();
   const availableDates = getAvailableDates();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the data to your backend
-    console.log('Demo booking submitted:', formData);
-    setSubmitted(true);
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setSubmitted(false);
+    setLoading(true);
+    setErrorMessage('');
+    setSubmitted(false);
+
+    try {
+      const templateParams = {
+        ...formData,
+        date: formatDateToDDMMYYYY(formData.date),
+      };
+
+      await emailjs.send(
+        'service_xiq2pva',
+        'template_1bnulym',
+        templateParams,
+        'IelFQbwyOKxBpHWFm'
+      );
+
+      setSubmitted(true);
       setFormData({
         name: '',
         phone: '',
         email: '',
-        selectedDate: '',
-        selectedTime: ''
+        date: '',
+        time: ''
       });
-    }, 3000);
+    } catch (error) {
+      console.error('Failed to send demo request via EmailJS:', error);
+      setErrorMessage(t('demo.errorMessage') || 'Something went wrong. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleChange = (field: string, value: string) => {
     setFormData(prev => {
       const next = { ...prev, [field]: value };
-      if (field === 'selectedDate') {
+      if (field === 'date') {
         const allowed = getTimeSlotsForDate(value, timeSlots);
-        if (allowed.length > 0 && prev.selectedTime && !allowed.includes(prev.selectedTime)) {
-          next.selectedTime = '';
+        if (allowed.length > 0 && prev.time && !allowed.includes(prev.time)) {
+          next.time = '';
         }
       }
       return next;
@@ -143,14 +177,25 @@ export default function BookDemo() {
                   {t('demo.formTitle')}
                 </h2>
                 
-                {submitted ? (
-                  <div className="text-center py-8">
-                    <CheckCircle2 className="w-16 h-16 mx-auto mb-4" style={{ color: '#146fb5' }} />
-                    <h3 className="text-xl font-bold mb-2" style={{ color: '#1b181f' }}>{t('demo.successTitle')}</h3>
-                    <p style={{ color: '#4f4f4f' }}>{t('demo.successMessage')}</p>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  {submitted && (
+                    <div className="rounded-lg border border-green-200 bg-green-50 p-4 text-green-700">
+                      <div className="flex items-start gap-2">
+                        <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0" />
+                        <div>
+                          <h3 className="font-semibold">{t('demo.successTitle')}</h3>
+                          <p className="text-sm">{t('demo.successMessage')}</p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {errorMessage && (
+                    <div className="rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+                      {errorMessage}
+                    </div>
+                  )}
+
                     {/* Name Field */}
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium mb-2" style={{ color: '#1b181f' }}>
@@ -213,14 +258,14 @@ export default function BookDemo() {
                           <button
                             key={index}
                             type="button"
-                            onClick={() => handleChange('selectedDate', dateOption.date.toISOString())}
+                            onClick={() => handleChange('date', dateOption.date.toISOString())}
                             className={`p-3 rounded-lg border-2 transition-all text-sm font-medium ${
-                              formData.selectedDate === dateOption.date.toISOString()
+                              formData.date === dateOption.date.toISOString()
                                 ? 'border-[#146fb5] bg-[#146fb5]/10'
                                 : 'border-border hover:border-[#146fb5]/50'
                             }`}
                             style={{
-                              color: formData.selectedDate === dateOption.date.toISOString() ? '#146fb5' : '#1b181f'
+                              color: formData.date === dateOption.date.toISOString() ? '#146fb5' : '#1b181f'
                             }}
                           >
                             <div className="font-bold">{dateOption.labelKey ? t(dateOption.labelKey) : dateOption.label}</div>
@@ -231,25 +276,25 @@ export default function BookDemo() {
                     </div>
 
                     {/* Time Selection */}
-                    {formData.selectedDate && (
+                    {formData.date && (
                       <div>
                         <label className="block text-sm font-medium mb-3" style={{ color: '#1b181f' }}>
                           <Clock className="w-4 h-4 inline mr-2" />
                           {t('demo.selectTime')}
                         </label>
                         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 max-h-60 overflow-y-auto">
-                          {getTimeSlotsForDate(formData.selectedDate, timeSlots).map((slot, index) => (
+                          {getTimeSlotsForDate(formData.date, timeSlots).map((slot, index) => (
                             <button
                               key={index}
                               type="button"
-                              onClick={() => handleChange('selectedTime', slot)}
+                              onClick={() => handleChange('time', slot)}
                               className={`p-2 rounded-lg border transition-all text-sm ${
-                                formData.selectedTime === slot
+                                formData.time === slot
                                   ? 'border-[#146fb5] bg-[#146fb5]/10'
                                   : 'border-border hover:border-[#146fb5]/50'
                               }`}
                               style={{
-                                color: formData.selectedTime === slot ? '#146fb5' : '#1b181f'
+                                color: formData.time === slot ? '#146fb5' : '#1b181f'
                               }}
                             >
                               {slot}
@@ -265,12 +310,18 @@ export default function BookDemo() {
                       size="lg"
                       variant="cta"
                       className="w-full shadow-lg"
-                      disabled={!formData.name || !formData.phone || !formData.email || !formData.selectedDate || !formData.selectedTime}
+                      disabled={
+                        loading ||
+                        !formData.name ||
+                        !formData.phone ||
+                        !formData.email ||
+                        !formData.date ||
+                        !formData.time
+                      }
                     >
-                      {t('demo.submit')}
+                      {loading ? 'Sending...' : t('demo.submit')}
                     </Button>
                   </form>
-                )}
               </motion.div>
 
               {/* Info Section */}
@@ -304,7 +355,7 @@ export default function BookDemo() {
                     {t('demo.officeHours')}
                   </h3>
                   <p className="mb-2" style={{ color: '#4f4f4f' }}>
-                    <strong>{t('demo.weekdays')}:</strong> 9:00 AM - 6:00 PM
+                    <strong>{t('demo.weekdays')}:</strong> 9:30 AM - 6:00 PM
                   </p>
                   <p style={{ color: '#4f4f4f' }}>
                     <strong>{t('demo.weekend')}:</strong> {t('demo.closed')}
