@@ -34,15 +34,6 @@ export const blogPosts: BlogPostPreview[] = [
     readTime: "6 min read (approx)",
   },
   {
-    slug: "gst-billing-basics-for-retail",
-    title: "GST Billing Basics Every Retailer Should Know",
-    titleHI: "हर रिटेलर को पता होनी चाहिए GST बिलिंग की बुनियादी बातें",
-    description:
-      "Understand GST invoices, HSN codes, and how digital billing keeps your store compliant without slowing checkout.",
-    descriptionHI:
-      "GST इनवॉइस, HSN कोड और डिजिटल बिलिंग से कैसे कम्प्लायंस बनी रहती है — बिना चेकआउट धीमी किए।",
-  },
-  {
     slug: "why-smart-pos-beats-manual-billing-busy-stores",
     title: "Why Smart POS Beats Manual Billing in Busy Stores (2026 Guide)",
     titleHI: "भीड़ वाली दुकानों में स्मार्ट POS मैनुअल बिलिंग से क्यों आगे है (2026 गाइड)",
@@ -57,15 +48,6 @@ export const blogPosts: BlogPostPreview[] = [
     category: "POS",
     readTime: "7 min read",
     imageSrc: "",
-  },
-  {
-    slug: "whatsapp-digital-bills",
-    title: "Turn Every Digital Bill Into a WhatsApp Touchpoint",
-    titleHI: "हर डिजिटल बिल को WhatsApp टचपॉइंट कैसे बनाएँ",
-    description:
-      "Learn how sending bills on WhatsApp improves recall, feedback, and repeat visits for local retailers.",
-    descriptionHI:
-      "WhatsApp पर बिल भेजने से रिकॉल, फ़ीडबैक और दोबारा विज़िट कैसे बढ़ते हैं — स्थानीय रिटेलर्स के लिए।",
   },
   {
     slug: "loyalty-without-complexity",
@@ -93,6 +75,22 @@ export const blogPosts: BlogPostPreview[] = [
       "Short surveys, rating links on bills, and how to act on insights without overwhelming your staff.",
     descriptionHI:
       "छोटे सर्वे, बिल पर रेटिंग लिंक और स्टाफ़ पर बोझ बढ़ाए बिना इनसाइट पर काम करना।",
+  },
+  {
+    slug: "turn-digital-bill-into-whatsapp-touchpoint",
+    title: "Turn Every Digital Bill into a WhatsApp Touchpoint (2026 Retail Guide)",
+    titleHI: "हर डिजिटल बिल को WhatsApp टचपॉइंट में बदलें (2026 रिटेल गाइड)",
+    excerpt:
+      "Learn how sending digital bills on WhatsApp can boost customer engagement, feedback, and repeat sales for retail businesses in India.",
+    excerptHI:
+      "जानें कैसे WhatsApp पर डिजिटल बिल भेजना भारत के रिटेल व्यवसायों के लिए ग्राहक जुड़ाव, फ़ीडबैक और दोबारा बिक्री बढ़ा सकता है।",
+    description:
+      "Learn how sending digital bills on WhatsApp can boost customer engagement, feedback, and repeat sales for retail businesses in India.",
+    descriptionHI:
+      "जानें कैसे WhatsApp पर डिजिटल बिल भेजना भारत के रिटेल व्यवसायों के लिए ग्राहक जुड़ाव, फ़ीडबैक और दोबारा बिक्री बढ़ा सकता है।",
+    category: "Growth",
+    readTime: "6-7 min read",
+    imageSrc: "",
   },
 ];
 

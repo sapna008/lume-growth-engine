@@ -7,6 +7,7 @@ import { useSEO } from "@/hooks/useSEO";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { FeaturedBlog } from "@/components/blog/FeaturedBlog";
 import { blogPosts } from "@/data/blogPosts";
+import { getBlogPostBody } from "@/components/blog/postBodies/registry";
 import { Button } from "@/components/ui/button";
 
 const PLAY_STORE_URL =
@@ -20,7 +21,11 @@ export default function Blog() {
   );
 
   const featuredPost = blogPosts[0];
-  const gridPosts = blogPosts.slice(1);
+  const gridPosts = blogPosts.slice(1).sort((a, b) => {
+    const aHasFullArticle = Boolean(getBlogPostBody(a.slug));
+    const bHasFullArticle = Boolean(getBlogPostBody(b.slug));
+    return Number(bHasFullArticle) - Number(aHasFullArticle);
+  });
 
   const heroTitle =
     language === "HI"
