@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Calendar, Clock, User, Phone, Mail, CheckCircle2 } from "lucide-react";
 import emailjs from "@emailjs/browser";
@@ -8,6 +8,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useSEO } from "@/hooks/useSEO";
+import { ensureLeadDatabaseStructure, saveBookDemoLead } from "@/lib/leadStore";
 
 // Generate time slots (9 AM to 6 PM, 30 min intervals)
 const generateTimeSlots = () => {
@@ -87,6 +88,10 @@ export default function BookDemo() {
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
+  useEffect(() => {
+    void ensureLeadDatabaseStructure();
+  }, []);
+
   const timeSlots = generateTimeSlots();
   const availableDates = getAvailableDates();
 
@@ -108,6 +113,8 @@ export default function BookDemo() {
         templateParams,
         'IelFQbwyOKxBpHWFm'
       );
+
+      await saveBookDemoLead(formData);
 
       setSubmitted(true);
       setFormData({
