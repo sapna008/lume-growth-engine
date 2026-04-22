@@ -11,6 +11,7 @@ type DemoLeadInput = {
 
 const LEADS_PATH = "leads";
 const METRICS_PATH = "leadsMeta";
+const CLICK_METRICS_PATH = "websiteClickMetrics";
 
 export const ensureLeadDatabaseStructure = async () => {
   const leadsRef = ref(realtimeDb, LEADS_PATH);
@@ -54,4 +55,23 @@ export const saveBookDemoLead = async (lead: DemoLeadInput) => {
       updatedAt: serverTimestamp(),
     };
   });
+};
+
+const incrementClickCounter = async (key: string) => {
+  await runTransaction(ref(realtimeDb, `${CLICK_METRICS_PATH}/${key}`), (currentValue) => {
+    const existing = currentValue ?? {};
+    return {
+      ...existing,
+      count: (existing.count ?? 0) + 1,
+      updatedAt: serverTimestamp(),
+    };
+  });
+};
+
+export const trackDownloadClick = async () => {
+  await incrementClickCounter("downloadButton");
+};
+
+export const trackBookDemoClick = async () => {
+  await incrementClickCounter("bookDemoButton");
 };
