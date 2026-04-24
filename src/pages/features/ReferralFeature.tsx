@@ -1,11 +1,9 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { MessageCircle, Gift, Megaphone, ArrowRight, CheckCircle2 } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useSEO } from "@/hooks/useSEO";
-import { Button } from "@/components/ui/button";
 import { FloatingYouTubeShorts } from "@/components/FloatingYouTubeShorts";
 import heroImage from "@/assets/refer/hero.png";
 import whatsappReferImage from "@/assets/refer/whatsapp-refer.png";
@@ -74,24 +72,12 @@ export default function ReferralFeature() {
                 <span style={{ color: "#146fb5" }}>{t("life-long fans", "जीवन भर के फैन")}</span>
                 {t(" of your store", " बनाएं")}
               </h1>
-              <p className="text-base sm:text-lg mb-8 max-w-lg leading-relaxed" style={{ color: "#4f4f4f" }}>
+              <p className="text-base sm:text-lg mb-4 sm:mb-5 max-w-lg leading-relaxed" style={{ color: "#4f4f4f" }}>
                 {t(
                   "Enable one-click referrals via WhatsApp and reward your most loyal customers with perks. Turn your advocates into revenue-drivers.",
                   "WhatsApp से एक-क्लिक रेफरल चालू करें और वफादार ग्राहकों को इनाम दें। अपने अडवोकेट्स को रेवेन्यू ड्राइवर बनाएं।"
                 )}
               </p>
-              <div className="flex flex-row flex-nowrap gap-2 sm:gap-3">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  type="button"
-                  className="rounded-xl px-4 py-4 sm:px-8 sm:py-6 text-sm sm:text-base border-2 border-[#146fb5]/40 hover:bg-[#146fb5]/10 hover:border-[#146fb5]/60 transition-all duration-300 flex-1 sm:flex-initial min-w-0"
-                  style={{ color: "#146fb5" }}
-                  onClick={() => document.getElementById("referral-features")?.scrollIntoView({ behavior: "smooth", block: "start" })}
-                >
-                  <span className="truncate block">{t("See all features", "सभी फ़ीचर्स देखें")}</span>
-                </Button>
-              </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.15 }} className="order-1 lg:order-2 flex justify-center lg:justify-end">
               <motion.div className="relative" whileHover={{ scale: 1.02 }} transition={{ type: "spring", stiffness: 300 }}>

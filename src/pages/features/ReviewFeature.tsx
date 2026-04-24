@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Star, Zap, TrendingUp, MessageCircle, ArrowRight, CheckCircle2, ThumbsUp, BarChart3, Search } from "lucide-react";
 import { Header } from "@/components/layout/Header";
@@ -6,7 +5,6 @@ import { Footer } from "@/components/layout/Footer";
 import { FloatingYouTubeShorts } from "@/components/FloatingYouTubeShorts";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useSEO } from "@/hooks/useSEO";
-import { Button } from "@/components/ui/button";
 import gReviewImage from "@/assets/g-review.png";
 import review1 from "@/assets/review/review-1.png";
 import review2 from "@/assets/review/review-2.png";
@@ -105,24 +103,12 @@ export default function ReviewFeature() {
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[2.75rem] font-display font-bold leading-[1.15] mb-5 tracking-tight" style={{ color: "#1b181f" }}>
                 {t("Grow Your Customer Base with Smart Google Reviews", "स्मार्ट Google समीक्षाओं से अपना ग्राहक आधार बढ़ाएं")}
               </h1>
-              <p className="text-base sm:text-lg mb-8 max-w-lg leading-relaxed" style={{ color: "#4f4f4f" }}>
+              <p className="text-base sm:text-lg mb-4 sm:mb-5 max-w-lg leading-relaxed" style={{ color: "#4f4f4f" }}>
                 {t(
                   "Encourage Google Reviews with Every Digital Bill You Send to customer. Get more reviews, build trust, and rank higher in Google search results.",
                   "हर डिजिटल बिल के साथ ग्राहकों को Google समीक्षा देने के लिए प्रोत्साहित करें। अधिक समीक्षाएं पाएं, विश्वास बनाएं और Google खोज में ऊपर रैंक करें।"
                 )}
               </p>
-              <div className="flex flex-row flex-nowrap gap-2 sm:gap-3">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  type="button"
-                  className="rounded-xl px-4 py-4 sm:px-8 sm:py-6 text-sm sm:text-base border-2 border-[#146fb5]/40 hover:bg-[#146fb5]/10 hover:border-[#146fb5]/60 transition-all duration-300 flex-1 sm:flex-initial min-w-0"
-                  style={{ color: "#146fb5" }}
-                  onClick={() => document.getElementById("review-features")?.scrollIntoView({ behavior: "smooth", block: "start" })}
-                >
-                  <span className="truncate block">{t("See all features", "सभी फ़ीचर्स देखें")}</span>
-                </Button>
-              </div>
             </motion.div>
 
             <motion.div
