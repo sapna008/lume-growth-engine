@@ -56,11 +56,12 @@ import testimonialImg7 from "@/assets/testimonials/Testimonial-07.png";
 // Import retailer logos
 const retailerLogos = [
   // NEW logos (must appear first)
-  'senorita-removebg-preview.png', // Senorita
   'shreesanskar-removebg-preview.png', // Sai sanskar
   'tulsi-removebg-preview.png', // Tulsi Footwear
   'cottonking-removebg-preview.png',
   'jumi.png',
+  'fashionhub.png',
+  'cookiesnuts.png',
 
   // Remaining logos
   'AaraCouture-removebg-preview.png', // Aarti collection
@@ -91,6 +92,7 @@ const retailerLogos = [
   'PatelSareesPvt-removebg-preview.png',
   'RJHairBeauty-removebg-preview.png',
   'Salvi-removebg-preview.png',
+  'senorita-removebg-preview.png', // Senorita
   'Surabhi-removebg-preview.png',
   'TheCakeShop-removebg-preview.png',
   'TheCakeWay-removebg-preview.png',
@@ -101,11 +103,12 @@ const retailerLogos = [
 // IMPORTANT: Only these exact filenames should show the "NEW" badge.
 // Do NOT assign "NEW" based on index/position.
 const newLogos = [
-  'senorita-removebg-preview.png',
   'shreesanskar-removebg-preview.png',
   'tulsi-removebg-preview.png',
   'cottonking-removebg-preview.png',
   'jumi.png',
+  'fashionhub.png',
+  'cookiesnuts.png',
 ] as const;
 
 // Split logos for 2-row marquee
@@ -210,7 +213,7 @@ const industriesKeys = [
 
 const testimonials = [
   {
-    logo: "ELECTRONICS",
+    logo: "MOBILE SHOP",
     logoSub: "K K Telecome",
     quote: "Sales increased by 40% in just 3 months!",
     quoteHI: "सिर्फ 3 महीने में 40% ज़्यादा सेल्स!",
@@ -221,7 +224,7 @@ const testimonials = [
     image: testimonialImg1,
   },
   {
-    logo: "ELECTRONICS",
+    logo: "ELECTRONICS STORE",
     logoSub: "Lotus Enterprises",
     quote: "Best retail management solution we've used!",
     quoteHI: "अब तक का सबसे बढ़िया रिटेल मैनेजमेंट सॉल्यूशन!",
@@ -276,7 +279,7 @@ const testimonials = [
     image: testimonialImg6,
   },
   {
-    logo: "ELECTRONICS",
+    logo: "TECH STORE",
     logoSub: "GEONET HP WORLD",
     quote: "Best investment for our business!",
     quoteHI: "हमारे बिज़नेस के लिए अब तक का सबसे अच्छा निवेश!",
@@ -287,6 +290,9 @@ const testimonials = [
     image: testimonialImg7,
   },
 ];
+
+/** Swiper-only order: interleave categories so the same type rarely appears back-to-back (hero still uses canonical `testimonials` order). */
+const testimonialSliderIndices = [0, 2, 3, 1, 4, 6, 5] as const;
 
 export default function Index() {
   const { t, language } = useLanguage();
@@ -868,8 +874,10 @@ export default function Index() {
               }}
               className="!pb-4 sm:!pb-5 [&_.swiper-wrapper]:items-stretch [&_.swiper-slide]:flex [&_.swiper-slide]:h-auto"
             >
-            {memoizedTestimonials.map((testimonial, i) => (
-                <SwiperSlide key={`testimonial-${testimonial.author}-${i}`} className="!h-auto">
+            {testimonialSliderIndices.map((ti, i) => {
+              const testimonial = memoizedTestimonials[ti];
+              return (
+                <SwiperSlide key={`testimonial-${testimonial.author}-${ti}`} className="!h-auto">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -898,7 +906,8 @@ export default function Index() {
                     </div>
               </motion.div>
                 </SwiperSlide>
-            ))}
+              );
+            })}
             </Swiper>
           </div>
         </div>
