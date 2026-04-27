@@ -209,6 +209,15 @@ const searchablePages = [
   // Pricing & plans
   { name: "Pricing", href: "/pricing", keywords: ["pricing", "plans", "cost", "price", "free", "कीमत", "standard", "advance", "premium"] },
 
+  // Dedicated feature pages
+  { name: "Reviews Feature", href: "/features/reviews", keywords: ["reviews", "google reviews", "rating", "feature reviews"] },
+  { name: "Referrals Feature", href: "/features/referrals", keywords: ["referrals", "word of mouth", "feature referrals"] },
+  { name: "Digital Bills Feature", href: "/features/digital-bills", keywords: ["digital bills", "whatsapp bill", "invoice", "paperless billing"] },
+  { name: "Loyalty Feature", href: "/features/loyalty", keywords: ["loyalty", "points", "cashback", "retention"] },
+  { name: "Promotion Feature", href: "/features/promotion", keywords: ["promotion", "offers", "discounts", "campaign", "whatsapp promotion"] },
+  { name: "Analytics Feature", href: "/features/analytics", keywords: ["analytics", "reports", "insights", "trends", "multi store"] },
+  { name: "Surveys Feature", href: "/features/surveys", keywords: ["surveys", "feedback", "satisfaction", "customer survey"] },
+
   // Help & Guides
   { name: "Help Center", href: "/help", keywords: ["help", "support", "faq", "tutorial", "guide center"] },
   { name: "Getting Started Guide", href: "/help/getting-started", keywords: ["getting started", "onboarding", "setup", "ल्यूम के साथ शुरुआत"] },

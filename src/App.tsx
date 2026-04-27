@@ -13,6 +13,11 @@ import Solutions from "./pages/Solutions";
 import Features from "./pages/Features";
 import ReviewFeature from "./pages/features/ReviewFeature";
 import ReferralFeature from "./pages/features/ReferralFeature";
+import DigitalBillsFeature from "./pages/features/DigitalBillsFeature";
+import LoyaltyFeature from "./pages/features/LoyaltyFeature";
+import PromotionFeature from "./pages/features/PromotionFeature";
+import AnalyticsFeature from "./pages/features/AnalyticsFeature";
+import SurveysFeature from "./pages/features/SurveysFeature";
 import Resources from "./pages/Resources";
 import Guides from "./pages/resources/Guides";
 import GuideDetail from "./pages/resources/GuideDetail";
@@ -57,6 +62,11 @@ const App = () => (
             <Route path="/features" element={<Features />} />
             <Route path="/features/reviews" element={<ReviewFeature />} />
             <Route path="/features/referrals" element={<ReferralFeature />} />
+            <Route path="/features/digital-bills" element={<DigitalBillsFeature />} />
+            <Route path="/features/loyalty" element={<LoyaltyFeature />} />
+            <Route path="/features/promotion" element={<PromotionFeature />} />
+            <Route path="/features/analytics" element={<AnalyticsFeature />} />
+            <Route path="/features/surveys" element={<SurveysFeature />} />
             <Route path="/features/:id" element={<Features />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/resources/guides" element={<Guides />} />
