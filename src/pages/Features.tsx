@@ -223,7 +223,7 @@ export default function Features() {
       <Header />
 
       {/* Hero Section - Matching Solutions page */}
-      <section className="pt-24 lg:pt-32 pb-16 hero-gradient text-white">
+      <section className="pt-16 lg:pt-20 pb-8 lg:pb-10 hero-gradient text-white">
         <div className="container-wide text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -243,8 +243,8 @@ export default function Features() {
       </section>
 
       {/* Features List - Matching Solutions page structure */}
-      <section className="section-spacing bg-white">
-        <div className="container-wide space-y-16">
+      <section className="py-8 lg:py-10 bg-white">
+        <div className="container-wide space-y-10 lg:space-y-12">
           {features.map((feature, i) => (
             <motion.div
               key={feature.id}
@@ -253,14 +253,14 @@ export default function Features() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="grid lg:grid-cols-2 gap-12 items-start"
+              className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-start"
             >
               {/* Left Side - Title, Subtitle, Overview */}
               <div>
                 <h2 className="text-2xl font-bold mb-3" style={{ color: '#1b181f' }}>
                   {language === "HI" && feature.titleHI ? feature.titleHI : feature.title}
                 </h2>
-                <p className="text-lg font-medium mb-4" style={{ color: '#146fb5' }}>
+                <p className="text-lg font-medium mb-3" style={{ color: '#146fb5' }}>
                   {language === "HI" && feature.subtitleHI ? feature.subtitleHI : feature.subtitle}
                 </p>
                 <div className="rounded-lg p-4" style={{ background: '#eaf2f8' }}>
@@ -274,11 +274,11 @@ export default function Features() {
               </div>
 
               {/* Right Side - Key Benefits */}
-              <div className="rounded-2xl p-8" style={{ background: '#eaf2f8' }}>
+              <div className="rounded-2xl p-6" style={{ background: '#eaf2f8' }}>
                 <h3 className="font-semibold mb-4" style={{ color: '#1b181f' }}>
                   {language === "HI" ? "मुख्य लाभ" : "Key Benefits"}
                 </h3>
-                <ul className="space-y-3">
+                <ul className="space-y-2">
                   {(language === "HI" ? feature.benefitsHI : feature.benefits).map((benefit, idx) => (
                     <li key={idx} className="flex items-center gap-3">
                       <CheckCircle2 className="w-5 h-5" style={{ color: '#146fb5' }} />

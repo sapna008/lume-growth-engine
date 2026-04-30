@@ -1,6 +1,20 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import {
+  Megaphone,
+  Boxes,
+  MessageCircle,
+  ReceiptIndianRupee,
+  HeartHandshake,
+  Sparkles,
+  ShoppingCart,
+  ShieldCheck,
+  Repeat,
+  BarChart3,
+  PackageCheck,
+  Store,
+} from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { useSEO } from "@/hooks/useSEO";
@@ -8,6 +22,53 @@ import type { IndustryPageConfig } from "@/data/industryPages";
 import { cn } from "@/lib/utils";
 
 export type { IndustryPageConfig };
+
+const heroHighlightPalette = [
+  {
+    bg: "linear-gradient(135deg, rgba(196,181,253,0.32), rgba(233,213,255,0.46))",
+    border: "rgba(139,92,246,0.25)",
+    iconBg: "rgba(139,92,246,0.16)",
+    iconColor: "#7c3aed",
+    shadow: "0 10px 22px rgba(124,58,237,0.12)",
+  },
+  {
+    bg: "linear-gradient(135deg, rgba(153,246,228,0.35), rgba(204,251,241,0.5))",
+    border: "rgba(13,148,136,0.22)",
+    iconBg: "rgba(13,148,136,0.14)",
+    iconColor: "#0f766e",
+    shadow: "0 10px 22px rgba(15,118,110,0.11)",
+  },
+  {
+    bg: "linear-gradient(135deg, rgba(253,186,116,0.34), rgba(254,215,170,0.5))",
+    border: "rgba(234,88,12,0.2)",
+    iconBg: "rgba(234,88,12,0.13)",
+    iconColor: "#c2410c",
+    shadow: "0 10px 22px rgba(194,65,12,0.1)",
+  },
+  {
+    bg: "linear-gradient(135deg, rgba(251,207,232,0.35), rgba(254,226,226,0.5))",
+    border: "rgba(225,29,72,0.2)",
+    iconBg: "rgba(225,29,72,0.12)",
+    iconColor: "#be123c",
+    shadow: "0 10px 22px rgba(190,18,60,0.1)",
+  },
+] as const;
+
+function getHeroHighlightIcon(label: string) {
+  const key = label.toLowerCase();
+  if (key.includes("promotion") || key.includes("offer") || key.includes("retarget")) return Megaphone;
+  if (key.includes("inventory") || key.includes("stock")) return Boxes;
+  if (key.includes("whatsapp")) return MessageCircle;
+  if (key.includes("billing") || key.includes("checkout")) return ReceiptIndianRupee;
+  if (key.includes("loyalty")) return HeartHandshake;
+  if (key.includes("bundle") || key.includes("combo")) return Sparkles;
+  if (key.includes("buyer") || key.includes("customer")) return Repeat;
+  if (key.includes("warranty")) return ShieldCheck;
+  if (key.includes("sales") || key.includes("value")) return BarChart3;
+  if (key.includes("item")) return PackageCheck;
+  if (key.includes("kirana")) return Store;
+  return ShoppingCart;
+}
 
 /** Replace with actual image when assets are ready */
 function ImagePlaceholder({ className, label }: { className?: string; label: string }) {
@@ -290,6 +351,44 @@ export function IndustryPage({ config }: { config: IndustryPageConfig }) {
               <p className="text-base sm:text-lg leading-relaxed mb-8 max-w-xl text-gray-600">
                 {config.heroSubtext}
               </p>
+              <div className="grid grid-cols-2 gap-2.5 sm:gap-3 max-w-xl">
+                {config.heroHighlights.map((item, idx) => {
+                  const Icon = getHeroHighlightIcon(item);
+                  const palette = heroHighlightPalette[idx % heroHighlightPalette.length];
+                  return (
+                  <div
+                    key={item}
+                    className="rounded-xl border px-3 py-3 sm:px-3.5 sm:py-3.5 shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300 min-h-[102px] sm:min-h-[110px]"
+                    style={{
+                      background: palette.bg,
+                      borderColor: palette.border,
+                      boxShadow: palette.shadow,
+                    }}
+                  >
+                    <div className="flex items-start gap-2.5 mb-1.5">
+                      <span
+                        className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg flex items-center justify-center shrink-0"
+                        style={{ backgroundColor: palette.iconBg }}
+                      >
+                        <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" style={{ color: palette.iconColor }} />
+                      </span>
+                      <p className="text-xs sm:text-sm font-bold leading-snug text-[#1b181f] pt-0.5">
+                        {item}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-[11px] sm:text-xs leading-snug text-[#4f4f4f]" style={{
+                        display: "-webkit-box",
+                        WebkitLineClamp: 2,
+                        WebkitBoxOrient: "vertical",
+                        overflow: "hidden",
+                      }}>
+                        {config.heroHighlightLines[idx] ?? "Built to support high-velocity retail"}
+                      </p>
+                    </div>
+                  </div>
+                )})}
+              </div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 12 }}

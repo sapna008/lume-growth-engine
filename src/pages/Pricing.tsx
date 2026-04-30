@@ -557,7 +557,7 @@ export default function Pricing() {
       </div>
 
       {/* Hero */}
-      <section className="pt-24 lg:pt-32 pb-16 relative z-10">
+      <section className="pt-16 lg:pt-20 pb-8 lg:pb-10 relative z-10">
         <div className="container-wide text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -592,16 +592,16 @@ export default function Pricing() {
       </section>
 
       {/* Pricing Cards */}
-      <section className="6 relative z-10">
+      <section className="relative z-10">
         <div className="container-wide max-w-5xl">
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-4 lg:gap-5">
             {plans.map((plan, i) => (
               <motion.div
                 key={plan.name}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className={`relative rounded-2xl p-6 transition-all duration-300 flex flex-col h-full ${
+                className={`relative rounded-2xl p-5 transition-all duration-300 flex flex-col h-full ${
                   plan.popular
                     ? "bg-gradient-to-br from-[#eaf2f8] via-[#d4e6f3]/50 to-white border-2 border-[#146fb5] shadow-2xl shadow-[#146fb5]/20"
                     : "bg-white border border-border shadow-lg hover:shadow-xl hover:-translate-y-1"
@@ -673,7 +673,7 @@ export default function Pricing() {
                         : "एडवांस में जो है, उसके साथ:"
                       : plan.highlightLine}
                   </p>
-                  <ul className="space-y-2.5">
+                  <ul className="space-y-2">
                     {(language === "HI" && plan.featuresHI ? plan.featuresHI : plan.features).map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-2 text-sm">
                         <CheckCircle2 className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: '#146fb5' }} />
@@ -684,7 +684,7 @@ export default function Pricing() {
                 </div>
 
                 {/* Footer Badge */}
-                <div className="mt-auto pt-4 border-t border-border">
+                <div className="mt-auto pt-3 border-t border-border">
                   <div className={`rounded-lg overflow-hidden ${plan.popular ? "ring-1 ring-[#146fb5]/30" : ""}`}>
                     <div className="py-2 px-3 text-xs font-bold flex items-center gap-2 text-white" style={{ background: 'linear-gradient(135deg, #146fb5 0%, #1a7fc7 100%)' }}>
                       <Sparkles className="w-3 h-3" />
@@ -699,7 +699,7 @@ export default function Pricing() {
       </section>
 
       {/* Plan Comparison */}
-      <section className="section-spacing relative z-10">
+      <section className="py-8 lg:py-10 relative z-10">
         <div className="container-wide max-w-5xl">
           <div className="flex justify-center mb-4">
             <label className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white border border-border shadow-sm cursor-pointer">
@@ -723,7 +723,7 @@ export default function Pricing() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-center mb-4"
+                className="text-center mb-3"
               >
                 <h2 className="text-2xl font-bold mb-2" style={{ color: "#1b181f" }}>
                   {language === "HI" ? "प्लान तुलना" : "Plan comparison"}
@@ -824,7 +824,7 @@ export default function Pricing() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="mt-8 bg-gradient-to-r from-primary/5 via-white to-accent/5 rounded-2xl p-8 border border-border text-center"
+            className="mt-6 bg-gradient-to-r from-primary/5 via-white to-accent/5 rounded-2xl p-6 border border-border text-center"
           >
             <h3 className="text-xl font-bold mb-2" style={{ color: '#1b181f' }}>
               {language === "HI" ? "एंटरप्राइज़" : "Enterprise"}
@@ -852,9 +852,9 @@ export default function Pricing() {
       </section>
 
       {/* FAQs */}
-      <section className="section-spacing relative z-10">
+      <section className="py-8 lg:py-10 relative z-10">
         <div className="container-tight">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <HelpCircle className="w-12 h-12 mx-auto mb-4" style={{ color: '#146fb5' }} />
             <h2 className="text-3xl font-bold" style={{ color: '#1b181f' }}>
               {language === "HI" ? "अक्सर पूछे जाने वाले सवाल" : "Frequently Asked Questions"}
@@ -866,7 +866,7 @@ export default function Pricing() {
               <AccordionItem
                 key={i}
                 value={`item-${i}`}
-                className="bg-white rounded-xl border border-border px-6 shadow-sm"
+                className="bg-white rounded-xl border border-border px-5 shadow-sm"
               >
                 <AccordionTrigger className="text-left font-semibold hover:no-underline" style={{ color: '#1b181f' }}>
                   {language === "HI" && faq.questionHI ? faq.questionHI : faq.question}
@@ -881,13 +881,13 @@ export default function Pricing() {
       </section>
 
       {/* CTA */}
-      <section className="section-spacing relative z-10">
+      <section className="py-8 lg:py-10 relative z-10">
         <div className="container-tight text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-r from-primary to-blue-600 rounded-2xl p-12 text-white"
+            className="bg-gradient-to-r from-primary to-blue-600 rounded-2xl p-8 lg:p-9 text-white"
           >
             <h2 className="text-3xl font-bold mb-4">
               {language === "HI" ? "शुरू करने के लिए तैयार हैं?" : "Ready to Get Started?"}

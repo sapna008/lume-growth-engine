@@ -159,9 +159,9 @@ export default function Products() {
         <Header />
         
       {/* 1. PRODUCT HERO */}
-      <section id="overview" className="pt-20 lg:pt-24 pb-12 lg:pb-16 bg-gradient-to-b from-white via-[#eaf2f8]/30 to-white">
+      <section id="overview" className="pt-14 lg:pt-[4.5rem] pb-8 lg:pb-10 bg-gradient-to-b from-white via-[#eaf2f8]/30 to-white">
         <div className="container-wide">
-          <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-8 lg:gap-12 items-center">
+          <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-6 lg:gap-8 items-center">
             {/* Left: Clear product explanation */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -175,7 +175,7 @@ export default function Products() {
                   className="h-12 sm:h-16 md:h-20 w-auto"
                 />
               </div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 leading-tight">
                 {language === 'HI' ? (
                   <>
                     <div style={{ color: '#1b181f' }} className="leading-[1.4]">{t('products.hero.titleLine1')}</div>
@@ -194,7 +194,7 @@ export default function Products() {
                   </>
                 )}
               </h1>
-              <p className="text-lg sm:text-xl mb-6 sm:mb-8 leading-relaxed" style={{ color: '#4f4f4f' }}>
+              <p className="text-lg sm:text-xl mb-4 sm:mb-6 leading-relaxed" style={{ color: '#4f4f4f' }}>
                 {language === 'HI' ? (
                   <>
                     {t('products.hero.titleLine2')}<br />
@@ -232,7 +232,7 @@ export default function Products() {
       </section>
 
       {/* 2. WHAT IS LUME? */}
-      <section id="what-is-lume" className="section-spacing bg-gradient-to-b from-white via-[#eaf2f8]/30 to-white">
+      <section id="what-is-lume" className="py-8 lg:py-10 bg-gradient-to-b from-white via-[#eaf2f8]/30 to-white">
           <div className="container-wide">
           <div className="max-w-5xl mx-auto">
             <motion.div
@@ -240,12 +240,12 @@ export default function Products() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-gradient-to-r from-primary/5 via-white to-accent/5 rounded-2xl p-8 border border-border"
+              className="bg-gradient-to-r from-primary/5 via-white to-accent/5 rounded-2xl p-6 border border-border"
             >
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 text-center" style={{ color: '#1b181f' }}>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-center" style={{ color: '#1b181f' }}>
                 {t('products.whatIsLume.title')}
               </h2>
-              <div className="space-y-6 text-lg sm:text-xl leading-relaxed" style={{ color: '#4f4f4f' }}>
+              <div className="space-y-4 text-lg sm:text-xl leading-relaxed" style={{ color: '#4f4f4f' }}>
                 <div className="flex items-start gap-4">
                   <div className="w-2 h-2 rounded-full mt-3 flex-shrink-0" style={{ background: '#146fb5' }}></div>
                   <p className="font-medium" style={{ color: '#1b181f' }}>
@@ -267,7 +267,7 @@ export default function Products() {
       {/* 3. CORE CAPABILITIES */}
       <section
         id="core"
-        className="section-spacing bg-gradient-to-b from-white via-[#eaf2f8]/20 to-white"
+        className="py-8 lg:py-10 bg-gradient-to-b from-white via-[#eaf2f8]/20 to-white"
       >
           <div className="container-wide">
           <motion.div
@@ -275,14 +275,14 @@ export default function Products() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12 sm:mb-16"
+            className="text-center mb-8 sm:mb-10"
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ color: '#1b181f' }}>
               {t('products.coreCapabilities.title')}
             </h2>
           </motion.div>
 
-          <div className="space-y-8 sm:space-y-12">
+          <div className="space-y-6 sm:space-y-8">
             {coreCapabilities.map((capability, i) => (
               <motion.div
                 key={capability.title}
@@ -290,9 +290,9 @@ export default function Products() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="bg-white rounded-2xl p-6 sm:p-8 lg:p-10 shadow-sm hover:shadow-lg transition-shadow border border-gray-100"
+                className="bg-white rounded-2xl p-5 sm:p-6 lg:p-7 shadow-sm hover:shadow-lg transition-shadow border border-gray-100"
               >
-                <div className={`grid lg:grid-cols-2 gap-8 items-center ${i % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
+                <div className={`grid lg:grid-cols-2 gap-6 items-center ${i % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
               <div className={i % 2 === 1 ? 'lg:col-start-2' : ''}>
                     <div className="flex items-center gap-4 mb-4">
                       <div className="w-14 h-14 rounded-xl flex items-center justify-center" style={{ background: '#eaf2f8' }}>
@@ -364,7 +364,7 @@ export default function Products() {
       {/* 4. HOW LUME WORKS */}
       <section
         id="how-it-works"
-        className="section-spacing bg-white"
+        className="py-8 lg:py-10 bg-white"
       >
         <div className="container-wide">
           <motion.div
@@ -372,7 +372,7 @@ export default function Products() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12 sm:mb-16"
+            className="text-center mb-8 sm:mb-10"
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ color: '#1b181f' }}>
               {t('products.howItWorks.title')}
@@ -420,7 +420,7 @@ export default function Products() {
       {/* 5. WHO IS LUME FOR? */}
       <section
         id="who-is-lume-for"
-        className="section-spacing bg-gradient-to-b from-white via-[#eaf2f8]/20 to-white"
+        className="py-8 lg:py-10 bg-gradient-to-b from-white via-[#eaf2f8]/20 to-white"
       >
         <div className="container-wide">
           <motion.div
@@ -428,7 +428,7 @@ export default function Products() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12 sm:mb-16"
+            className="text-center mb-8 sm:mb-10"
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ color: '#1b181f' }}>
               {t('products.whoIsLumeFor.title')}
@@ -443,7 +443,7 @@ export default function Products() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-[#146fb5]/30"
+                className="bg-white rounded-xl sm:rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-[#146fb5]/30"
               >
               <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl flex items-center justify-center mb-6 bg-gradient-to-br from-[#eaf2f8] to-white border-2 border-[#146fb5]/20 shadow-sm mx-auto">
                   <img 
@@ -467,7 +467,7 @@ export default function Products() {
       {/* 6. LUME + LUME SHOP CONNECTION */}
       <section
         id="lume-shop"
-        className="section-spacing bg-white"
+        className="py-8 lg:py-10 bg-white"
       >
         <div className="container-wide">
           <div className="max-w-4xl mx-auto">
@@ -476,7 +476,7 @@ export default function Products() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-gradient-to-br from-[#eaf2f8] to-white rounded-2xl p-8 sm:p-12 border-2" style={{ borderColor: '#146fb5' }}
+              className="bg-gradient-to-br from-[#eaf2f8] to-white rounded-2xl p-6 sm:p-8 border-2" style={{ borderColor: '#146fb5' }}
             >
               <div className="grid lg:grid-cols-2 gap-8 items-center">
                 <div>
@@ -515,7 +515,7 @@ export default function Products() {
       {/* 7. TRUST (LIGHT VERSION) */}
       <section
         id="trust"
-        className="section-spacing bg-gradient-to-b from-white via-[#eaf2f8]/20 to-white"
+        className="py-8 lg:py-10 bg-gradient-to-b from-white via-[#eaf2f8]/20 to-white"
       >
         <div className="container-wide">
           <div className="max-w-4xl mx-auto">
@@ -526,7 +526,7 @@ export default function Products() {
               transition={{ duration: 0.6 }}
               className="text-center"
             >
-              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-12">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 mb-8">
                 <div>
                   <div className="text-3xl sm:text-4xl font-bold mb-2" style={{ color: '#146fb5' }}>285+</div>
                   <div className="text-sm sm:text-base" style={{ color: '#4f4f4f' }}>{t('products.trust.retailers')}</div>
@@ -560,7 +560,7 @@ export default function Products() {
       {/* 8. FINAL CTA */}
       <section
         id="cta"
-        className="section-spacing bg-white"
+        className="py-8 lg:py-10 bg-white"
       >
         <div className="container-wide">
           <motion.div

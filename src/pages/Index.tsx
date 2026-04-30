@@ -307,7 +307,7 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative overflow-hidden min-h-[500px] sm:min-h-[600px] lg:min-h-[700px]">
+      <section className="relative overflow-hidden min-h-[500px] sm:min-h-[560px] lg:min-h-[620px]">
         {/* Background Image */}
         <img 
           src={bgImage}
@@ -324,8 +324,8 @@ export default function Index() {
           }}
         />
         <Header />
-        <div className={`relative z-10 ${language === 'HI' ? 'pt-12 sm:pt-18 lg:pt-20' : 'pt-12 sm:pt-12 lg:pt-14'}`}>
-          <div className={`container-wide relative z-10 ${language === 'HI' ? 'py-4 sm:py-14 lg:py-18' : 'py-4 sm:py-8 lg:py-10'}`}>
+        <div className={`relative z-10 ${language === 'HI' ? 'pt-12 sm:pt-14 lg:pt-12' : 'pt-12 sm:pt-10 lg:pt-10'}`}>
+          <div className={`container-wide relative z-10 ${language === 'HI' ? 'py-4 sm:py-10 lg:py-6' : 'py-4 sm:py-6 lg:py-6'}`}>
             <div className="grid lg:grid-cols-2 gap-4 lg:gap-12 items-center">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -337,7 +337,7 @@ export default function Index() {
                   <span className={`font-medium ${language === 'HI' ? 'text-xs' : 'text-sm'}`} style={{ color: '#1b181f' }}>{t('hero.badge')}</span>
                 </div>
                 
-                <h1 className={`font-display font-bold ${language === 'HI' ? 'text-3xl sm:text-3xl md:text-4xl lg:text-5xl mb-3 sm:mb-7 leading-[1.5]' : 'text-3xl sm:text-3xl md:text-4xl lg:text-5xl mb-2 sm:mb-4 leading-snug'}`} style={{ color: '#1b181f' }}>
+                <h1 className={`font-display font-bold ${language === 'HI' ? 'text-3xl sm:text-3xl md:text-4xl lg:text-5xl mb-3 sm:mb-5 leading-[1.5]' : 'text-3xl sm:text-3xl md:text-4xl lg:text-5xl mb-2 sm:mb-3 leading-snug'}`} style={{ color: '#1b181f' }}>
                   {language === 'HI' ? (
                     <>
                       {/* Hindi: Line 1 ग्राहक को वापस लाने, Line 2 वाला सिस्टम सिर्फ बिलिंग, Line 3 सॉफ्टवेयर नहीं (blue, slightly bigger) */}
@@ -360,7 +360,7 @@ export default function Index() {
                   )}
                 </h1>
                 
-                <p className={`max-w-lg ${language === 'HI' ? 'text-base sm:text-base md:text-lg mb-4 sm:mb-9' : 'text-base sm:text-base md:text-lg mb-3 sm:mb-6'}`} style={{ color: '#4f4f4f' }}>
+                <p className={`max-w-lg ${language === 'HI' ? 'text-base sm:text-base md:text-lg mb-4 sm:mb-6' : 'text-base sm:text-base md:text-lg mb-3 sm:mb-4'}`} style={{ color: '#4f4f4f' }}>
                   {t('hero.description')}
                 </p>
                 
@@ -376,8 +376,12 @@ export default function Index() {
                 </div>
                 
                 {/* Desktop: testimonials above video */}
-                <div className={`hidden sm:flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 ${language === 'HI' ? 'mt-6 sm:mt-8' : 'mt-4 sm:mt-6'}`}>
-                  <div className="flex -space-x-3">
+                <div
+                  className={`hidden sm:flex flex-wrap items-center gap-2 sm:gap-3 relative z-20 mb-2 sm:mb-3 ${
+                    language === 'HI' ? 'mt-4 sm:mt-5' : 'mt-3 sm:mt-4'
+                  }`}
+                >
+                  <div className="flex -space-x-3 shrink-0">
                     {memoizedTestimonials.slice(0, 4).map((testimonial, i) => (
                       <div key={`hero-testimonial-${testimonial.author}-${i}`} className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white shadow-lg overflow-hidden" style={{ borderColor: '#146fb5' }}>
                         <img 
@@ -391,12 +395,12 @@ export default function Index() {
                       </div>
                     ))}
                   </div>
-                  <div className="text-xs sm:text-sm">
-                    <div className="flex items-center gap-1">
-                      {renderRatingStars("w-3 h-3 sm:w-4 sm:h-4")}
-                    </div>
-                    <span style={{ color: '#4f4f4f' }}>{t('hero.rating')}</span>
+                  <div className="flex items-center gap-1 shrink-0">
+                    {renderRatingStars("w-3 h-3 sm:w-4 sm:h-4")}
                   </div>
+                  <span className="text-xs sm:text-sm leading-snug" style={{ color: '#4f4f4f' }}>
+                    {t('hero.rating')}
+                  </span>
                 </div>
               </motion.div>
               
@@ -554,7 +558,7 @@ export default function Index() {
       </section>
 
       {/* Problem Statement Section */}
-      <section className="pt-2 sm:pt-4 pb-4 sm:pb-6 bg-white">
+      <section className="pt-1 sm:pt-2 pb-3 sm:pb-4 bg-white">
         <div className="container-wide px-4">
           <div className="grid lg:grid-cols-12 gap-4 sm:gap-5 lg:gap-6 items-start mb-6 sm:mb-8">
             <motion.div
@@ -618,7 +622,7 @@ export default function Index() {
       {/* Key Benefits Section */}
       <section id="solutions" className="section-spacing bg-gradient-to-b from-slate-50 to-white">
         <div className="container-wide px-4">
-          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -664,7 +668,7 @@ export default function Index() {
       {/* How It Works */}
       <section className="section-spacing bg-gradient-to-b from-white to-slate-50">
         <div className="container-wide px-4">
-          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -815,7 +819,7 @@ export default function Index() {
 
         <div className="container-wide px-4 relative z-10">
           {/* Header */}
-          <div className="text-center mb-12 sm:mb-16">
+          <div className="text-center mb-8 sm:mb-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -883,26 +887,60 @@ export default function Index() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                    className="bg-white rounded-xl pt-4 px-4 sm:px-5 pb-3.5 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all h-full w-full flex flex-col min-h-[200px] sm:min-h-[220px] lg:min-h-[235px]"
+                    className="bg-white rounded-xl p-4 sm:p-5 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all h-full w-full flex flex-col min-h-[200px] sm:min-h-[220px] lg:min-h-[235px] relative overflow-hidden"
                   >
-                    {/* Logo */}
-                    <div className="mb-2">
-                      <div className="text-lg sm:text-xl font-bold leading-tight" style={{ color: '#4b5563', fontFamily: 'Archivo, sans-serif' }}>
-                        {testimonial.logo}
-                </div>
-                      <div className="text-[11px] uppercase tracking-wide mt-0.5" style={{ color: '#9ca3af', fontFamily: 'Inter, sans-serif', letterSpacing: '0.8px' }}>
-                        {testimonial.logoSub}
-                  </div>
-                </div>
-
-                    {/* Quote */}
-                    <div className="text-sm sm:text-base font-bold mb-2 leading-snug" style={{ color: '#1b181f', fontFamily: 'Archivo, sans-serif' }}>
-                      {language === 'HI' && testimonial.quoteHI ? testimonial.quoteHI : testimonial.quote}
+                    <span
+                      aria-hidden
+                      className="absolute right-3 top-1 text-5xl sm:text-6xl leading-none select-none pointer-events-none"
+                      style={{ color: '#146fb5', opacity: 0.06, fontFamily: 'Archivo, sans-serif' }}
+                    >
+                      "
+                    </span>
+                    {/* Primary headline */}
+                    <div className="mb-2 flex items-start justify-between gap-2">
+                      <div
+                        className="text-sm sm:text-base font-bold leading-snug pr-2 flex-1"
+                        style={{
+                          color: '#1b181f',
+                          fontFamily: 'Archivo, sans-serif',
+                          display: '-webkit-box',
+                          WebkitLineClamp: 2,
+                          WebkitBoxOrient: 'vertical',
+                          overflow: 'hidden',
+                        }}
+                      >
+                        "{language === 'HI' && testimonial.quoteHI ? testimonial.quoteHI : testimonial.quote}"
+                      </div>
+                      <span className="shrink-0 text-[10px] sm:text-xs px-2 py-0.5 rounded-full font-semibold" style={{ color: '#146fb5', backgroundColor: '#eaf2f8' }}>
+                        Verified
+                      </span>
                     </div>
 
-                    {/* Text */}
-                    <div className="text-xs sm:text-sm mb-0 leading-snug" style={{ color: '#4b5563', fontFamily: 'Inter, sans-serif' }}>
-                      {language === 'HI' && testimonial.textHI ? testimonial.textHI : testimonial.text}
+                    {/* Review text */}
+                    <div className="relative flex-1">
+                      <div
+                        className="text-xs sm:text-sm leading-relaxed"
+                        style={{
+                          color: '#4b5563',
+                          fontFamily: 'Inter, sans-serif',
+                          display: '-webkit-box',
+                          WebkitLineClamp: 6,
+                          WebkitBoxOrient: 'vertical',
+                          overflow: 'hidden',
+                        }}
+                      >
+                        {language === 'HI' && testimonial.textHI ? testimonial.textHI : testimonial.text}
+                      </div>
+                    </div>
+
+                    {/* Bottom metadata */}
+                    <div className="mt-3 pt-3 border-t border-border/60">
+                      <div className="text-sm sm:text-base font-semibold uppercase tracking-wide" style={{ color: '#4b5563', fontFamily: 'Archivo, sans-serif', letterSpacing: '0.6px' }}>
+                        {testimonial.logoSub}
+                      </div>
+                      <div className="text-[11px] sm:text-xs uppercase tracking-wide mt-0.5" style={{ color: '#9ca3af', fontFamily: 'Inter, sans-serif', letterSpacing: '0.8px' }}>
+                        {testimonial.logo}
+                      </div>
                     </div>
               </motion.div>
                 </SwiperSlide>

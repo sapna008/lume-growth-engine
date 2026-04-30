@@ -88,6 +88,8 @@ export type IndustryPageConfig = {
   categoryLabel: string;
   heroTitle: string;
   heroSubtext: string;
+  heroHighlights: string[];
+  heroHighlightLines: string[];
   heroMainImage?: string;
   secondaryImage1?: string;
   secondaryImage2?: string;
@@ -161,6 +163,8 @@ function cfg(
   slug: string,
   categoryLabel: string,
   heroSubtext: string,
+  heroHighlights: string[],
+  heroHighlightLines: string[],
   benefitBlocks: IndustryBenefitBlock[],
   overviewParagraphs: string[],
   seoDescription: string,
@@ -173,6 +177,8 @@ function cfg(
     categoryLabel,
     heroTitle,
     heroSubtext,
+    heroHighlights,
+    heroHighlightLines,
     benefitsHeading: BENEFITS_HEADING,
     benefitBlocks,
     overviewTitle: `${categoryLabel} retail, powered by Lume`,
@@ -192,6 +198,13 @@ export const industryPageBySlug: Record<string, IndustryPageConfig> = {
       "fashion",
       "Fashion",
       "Grow sales, run sharper campaigns, and keep customers engaged with digital billing and WhatsApp-first touchpoints built for apparel and lifestyle stores.",
+      ["Seasonal Promotions", "Inventory by Size/Style", "WhatsApp Retargeting", "Fast Billing"],
+      [
+        "Run festive campaigns quickly and boost repeat visits during sale windows.",
+        "Track fast-moving sizes daily and avoid stock gaps across key styles.",
+        "Reconnect shoppers instantly with personalized offers and timely reminders.",
+        "Cut queue time with faster checkout and smoother in-store flow.",
+      ],
       [
         { metric: "25%", title: "Higher repeat visits", description: "Loyalty and timely offers bring shoppers back for new collections." },
         { metric: "50x", title: "Faster outreach", description: "WhatsApp campaigns reach customers in seconds versus manual follow-ups." },
@@ -216,6 +229,13 @@ export const industryPageBySlug: Record<string, IndustryPageConfig> = {
       "jewellery",
       "Jewellery",
       "Build trust, streamline billing, and bring buyers back with WhatsApp-first engagement designed for high-value jewellery retail.",
+      ["Premium Billing", "Customer Loyalty", "High-Value Sales Insights", "Festive Promotions"],
+      [
+        "Deliver elegant digital bills that reinforce trust on every high-value sale.",
+        "Reward repeat buyers with targeted loyalty offers for life-event purchases.",
+        "Spot high-margin products faster and optimize premium inventory planning.",
+        "Launch festive campaigns quickly and drive higher footfall at peak times.",
+      ],
       [
         { metric: "25%", title: "Higher repeat purchases", description: "Loyalty and personalised offers encourage returns for anniversaries and gifting." },
         { metric: "50x", title: "Faster follow-ups", description: "Send festival campaigns and new collection updates on WhatsApp in seconds." },
@@ -240,6 +260,13 @@ export const industryPageBySlug: Record<string, IndustryPageConfig> = {
       "electronics",
       "Electricals & Electronics",
       "Sell faster, track performance, and drive repeat purchases with WhatsApp-first engagement built for electronics and electricals retailers.",
+      ["Warranty Tracking", "Product Inventory", "Repeat Buyers", "Smart Billing"],
+      [
+        "Keep warranty timelines visible so support and follow-ups stay proactive.",
+        "Monitor fast-moving SKUs daily and prevent costly stock-outs in demand.",
+        "Bring past buyers back with upgrade offers and accessory reminders.",
+        "Speed up billing with fewer errors during peak counter traffic hours.",
+      ],
       [
         { metric: "25%", title: "More add-on sales", description: "Targeted WhatsApp campaigns push accessories, upgrades, and bundles." },
         { metric: "50x", title: "Instant announcements", description: "New stock, festive offers, and flash deals go live in one click." },
@@ -264,6 +291,13 @@ export const industryPageBySlug: Record<string, IndustryPageConfig> = {
       "accessories",
       "Accessories",
       "Boost basket size and repeat purchases with digital bills and WhatsApp-first campaigns built for accessories retailers.",
+      ["Upsell Combos", "Fast Billing", "Repeat Customers", "Stock Tracking"],
+      [
+        "Promote smart add-on combos that increase value in every transaction.",
+        "Enable quick checkout to keep rush-hour counters smooth and efficient.",
+        "Re-engage past shoppers with timely drops and relevant style reminders.",
+        "Track top-selling items daily to restock faster and reduce misses.",
+      ],
       [
         { metric: "25%", title: "Higher basket size", description: "Bundles, add-ons, and coupons nudge shoppers to pick more." },
         { metric: "50x", title: "Faster retargeting", description: "WhatsApp campaigns reach past buyers in one click." },
@@ -288,6 +322,13 @@ export const industryPageBySlug: Record<string, IndustryPageConfig> = {
       "bakery",
       "Bakery",
       "Serve fresh demand with faster billing, daily campaigns, and loyalty that keeps customers choosing your bakery every morning.",
+      ["Fresh Stock Rotation", "Daily Sales Tracking", "Fast Checkout", "Combo Promotions"],
+      [
+        "Rotate fresh inventory by daypart and reduce end-of-day wastage smartly.",
+        "Track daily top sellers to plan batches and improve margin consistency.",
+        "Handle rush-hour billing quickly and keep queues moving during peaks.",
+        "Run pastry and snack combos that lift basket value with simple offers.",
+      ],
       [
         { metric: "25%", title: "More daily regulars", description: "Rewards and reminders encourage repeat morning visits." },
         { metric: "50x", title: "Same-day offers", description: "WhatsApp pushes for fresh batches and closing deals." },
@@ -312,6 +353,13 @@ export const industryPageBySlug: Record<string, IndustryPageConfig> = {
       "cosmetics",
       "Cosmetics",
       "Build loyalty in a crowded category with personalised follow-ups, reviews, and campaigns that match beauty and personal care buying cycles.",
+      ["Repeat Customer Loyalty", "Beauty Offers & Bundles", "Fast Checkout", "Product Inventory"],
+      [
+        "Turn one-time buyers into regulars with personalized loyalty journeys.",
+        "Launch curated beauty bundles that improve conversion and repeat spend.",
+        "Reduce checkout friction so advisors can focus more on customer care.",
+        "Track high-demand shades and SKUs to avoid stock gaps at peak demand.",
+      ],
       [
         { metric: "25%", title: "Higher loyalty", description: "Points and coupons reward repeat beauty purchases." },
         { metric: "50x", title: "Faster launches", description: "Announce new brands and SKUs on WhatsApp instantly." },
@@ -336,6 +384,13 @@ export const industryPageBySlug: Record<string, IndustryPageConfig> = {
       "footwear",
       "Footwear",
       "Sell more pairs with size-aware campaigns, loyalty, and digital billing that fits busy footwear floors.",
+      ["Size Variant Inventory", "Fast Billing", "Seasonal Offers", "Repeat Buyers"],
+      [
+        "Track size-level demand clearly and restock winning variants on time.",
+        "Accelerate billing at busy counters for a smoother purchase experience.",
+        "Push seasonal deals quickly to drive demand during key buying windows.",
+        "Convert first-time shoppers into repeat buyers with targeted follow-ups.",
+      ],
       [
         { metric: "25%", title: "More repeat buyers", description: "Seasonal reminders and loyalty bring families back." },
         { metric: "50x", title: "Faster stock pushes", description: "WhatsApp campaigns for new arrivals and clearance." },
@@ -360,6 +415,13 @@ export const industryPageBySlug: Record<string, IndustryPageConfig> = {
       "grocery",
       "Grocery",
       "Run a tighter kirana with faster billing, credit visibility, and WhatsApp campaigns that lift basket size without extra staff.",
+      ["Kirana Billing", "Daily Stock Control", "WhatsApp Offers", "Fast Checkout"],
+      [
+        "Bill everyday purchases quickly with reliable flow for kirana counters.",
+        "Track daily essentials in real time and prevent shelf-level stock-outs.",
+        "Send local offers instantly to drive regular footfall and repeat visits.",
+        "Keep checkout fast during rush hours and reduce waiting at the counter.",
+      ],
       [
         { metric: "25%", title: "Higher basket size", description: "Offers and reminders nudge customers to add more items." },
         { metric: "50x", title: "Instant announcements", description: "Price drops and new stock alerts on WhatsApp." },
@@ -384,6 +446,13 @@ export const industryPageBySlug: Record<string, IndustryPageConfig> = {
       "home-appliances",
       "Home Appliances",
       "Support high-ticket sales with clear digital bills, follow-ups for service and accessories, and campaigns that drive upgrades.",
+      ["Warranty Tracking", "Product Billing", "Inventory Control", "EMI/High Value Sales Ready"],
+      [
+        "Track warranty milestones clearly and support after-sales trust at scale.",
+        "Issue accurate digital bills for high-value products with full clarity.",
+        "Control appliance inventory better to reduce dead stock and delays.",
+        "Prepare offers around EMI and premium sales conversations confidently.",
+      ],
       [
         { metric: "25%", title: "More referrals", description: "Reviews and referrals grow after every digital bill." },
         { metric: "50x", title: "Faster follow-ups", description: "WhatsApp for EMI reminders, service, and schemes." },
@@ -408,6 +477,13 @@ export const industryPageBySlug: Record<string, IndustryPageConfig> = {
       "stationery",
       "Stationery",
       "Serve schools and offices with faster billing, loyalty for bulk buyers, and campaigns for seasonal demand.",
+      ["School Season Sales", "Fast Billing", "Item Inventory", "Bulk Order Management"],
+      [
+        "Capture school-season demand quickly and run timely campaign pushes.",
+        "Enable faster counters during peak parent and student purchase hours.",
+        "Track item movement daily and refill fast-moving essentials on time.",
+        "Manage bulk institutional orders with clearer billing and stock visibility.",
+      ],
       [
         { metric: "25%", title: "Higher repeat sales", description: "Loyalty rewards schools and businesses that buy often." },
         { metric: "50x", title: "Faster season pushes", description: "Back-to-school and exam season offers on WhatsApp." },
@@ -432,6 +508,13 @@ export const industryPageBySlug: Record<string, IndustryPageConfig> = {
       "supermarket",
       "Supermarket",
       "Unify promotions, loyalty, and customer data across categories so your supermarket competes with modern retail formats.",
+      ["Barcode Billing", "Daily Inventory", "Combo Offers", "Fast Checkout"],
+      [
+        "Speed up barcode checkout and reduce billing friction across every aisle.",
+        "Track category-level stock daily and improve replenishment decisions.",
+        "Run combo deals that improve basket value without heavy discounting.",
+        "Keep counters moving smoothly during evening and weekend peak traffic.",
+      ],
       [
         { metric: "25%", title: "Higher loyalty uptake", description: "Rewards and coupons increase registered customers." },
         { metric: "50x", title: "Faster campaigns", description: "WhatsApp drives footfall for weekly deals." },
@@ -456,6 +539,13 @@ export const industryPageBySlug: Record<string, IndustryPageConfig> = {
       "watches",
       "Watches",
       "Elevate premium service with digital bills, follow-ups for new collections, and loyalty that rewards long-term buyers.",
+      ["Premium Billing", "Inventory Control", "Customer Loyalty", "Seasonal Promotions"],
+      [
+        "Deliver premium digital billing that matches high-trust retail experiences.",
+        "Track collection movement and avoid stock gaps in key price segments.",
+        "Retain serious buyers with loyalty journeys and personalized outreach.",
+        "Promote seasonal launches quickly and increase event-driven showroom visits.",
+      ],
       [
         { metric: "25%", title: "Stronger repeat rate", description: "Loyalty and reminders bring buyers back for upgrades." },
         { metric: "50x", title: "Faster launch buzz", description: "WhatsApp campaigns for limited editions and events." },

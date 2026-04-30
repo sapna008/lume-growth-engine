@@ -192,9 +192,9 @@ export default function ForRetailers() {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-20 sm:pt-12 lg:pt-16 pb-12 sm:pb-16 lg:pb-24 hero-gradient text-white">
+      <section className="pt-14 sm:pt-10 lg:pt-14 pb-8 sm:pb-10 lg:pb-12 hero-gradient text-white">
         <div className="container-wide">
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-5 md:gap-6 lg:gap-8 items-center">
             {/* Left Side - Text Content */}
             <div className="text-center md:text-left order-2 md:order-1">
               <motion.div
@@ -207,7 +207,7 @@ export default function ForRetailers() {
                   <span className="text-xs sm:text-sm" style={{ color: '#1b181f' }}>{t('forRetailers.hero.badge')}</span>
                 </div>
 
-                <h1 className={`font-bold ${language === 'HI' ? 'text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-5 sm:mb-7 leading-[1.5]' : 'text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-3 sm:mb-4 leading-tight'}`} style={{ color: '#1b181f' }}>
+                <h1 className={`font-bold ${language === 'HI' ? 'text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 sm:mb-5 leading-[1.5]' : 'text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-3 sm:mb-4 leading-tight'}`} style={{ color: '#1b181f' }}>
                   {language === 'HI' ? (
                     <>
                       <div className="block">{t('forRetailers.hero.title')}</div>
@@ -224,7 +224,7 @@ export default function ForRetailers() {
                   )}
                 </h1>
 
-                <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8" style={{ color: '#4f4f4f' }}>
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-4 sm:mb-6" style={{ color: '#4f4f4f' }}>
                   {t('forRetailers.hero.description')}
                 </p>
 
@@ -257,9 +257,9 @@ export default function ForRetailers() {
       </section>
 
       {/* Pain Points → Solutions */}
-      <section className="section-spacing bg-white">
+      <section className="py-8 lg:py-10 bg-white">
         <div className="container-wide">
-          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 lg:mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8 lg:mb-10">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4" style={{ color: '#1b181f' }}>
               {t('forRetailers.problems.title')}
             </h2>
@@ -272,7 +272,7 @@ export default function ForRetailers() {
             {/* Center Vertical Line - Thinner */}
             <div className="hidden lg:block absolute left-1/2 top-4 bottom-4 w-0.5 bg-gradient-to-b from-[#146fb5]/40 via-[#146fb5] to-[#146fb5]/40 transform -translate-x-1/2 z-0" />
             
-            <div className="space-y-4 sm:space-y-6 lg:space-y-8">
+            <div className="space-y-3 sm:space-y-4 lg:space-y-5">
               {painPoints.map((item, i) => (
                 <motion.div
                   key={item.problem}
@@ -282,7 +282,7 @@ export default function ForRetailers() {
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                   className="relative"
                 >
-                  <div className="grid lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 items-center">
+                  <div className="grid lg:grid-cols-2 gap-3 sm:gap-4 lg:gap-5 items-center">
                     {/* Problem Box - Left Side */}
                     <div className="relative order-2 lg:order-1">
                       <div className="bg-gradient-to-br from-gray-50 to-white rounded-xl sm:rounded-2xl border border-gray-200/60 px-3 sm:px-4 py-1 sm:py-1.5 shadow-sm hover:shadow-md hover:border-gray-300 transition-all duration-300">
@@ -339,9 +339,9 @@ export default function ForRetailers() {
       </section>
 
       {/* How It Works */}
-      <section className="section-padding subtle-gradient">
+      <section className="py-8 lg:py-10 subtle-gradient">
         <div className="container-wide">
-          <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8 lg:mb-10">
+          <div className="text-center max-w-3xl mx-auto mb-5 sm:mb-6 lg:mb-8">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4" style={{ color: '#1b181f' }}>
               {t('forRetailers.howItWorks.title')}
             </h2>
@@ -357,7 +357,7 @@ export default function ForRetailers() {
                   transition={{ duration: 0.5, delay: i * 0.15 }}
                   className="relative"
                 >
-                  <div className="bg-white rounded-xl sm:rounded-2xl px-6 sm:px-8 py-4 sm:py-5 shadow-card text-center h-full relative pt-10 sm:pt-12">
+                  <div className="bg-white rounded-xl sm:rounded-2xl px-5 sm:px-6 py-4 shadow-card text-center h-full relative pt-10 sm:pt-11">
                     {/* Number Circle - Half inside, half outside */}
                     <div className="absolute -top-6 sm:-top-7 left-1/2 transform -translate-x-1/2 z-10">
                       <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full text-white text-lg sm:text-xl font-bold shadow-lg border-4 border-white" style={{ background: '#146fb5' }}>
@@ -398,9 +398,9 @@ export default function ForRetailers() {
       </section>
 
       {/* Industry Solutions */}
-      <section className="section-spacing bg-white">
+      <section className="py-8 lg:py-10 bg-white">
         <div className="container-wide">
-          <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8 lg:mb-10">
+          <div className="text-center max-w-3xl mx-auto mb-5 sm:mb-6 lg:mb-8">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4" style={{ color: '#1b181f' }}>
               {t('forRetailers.industries.title')}
             </h2>
@@ -442,9 +442,9 @@ export default function ForRetailers() {
       </section>
 
       {/* Success Stories */}
-      <section className="section-spacing hero-gradient text-white">
+      <section className="py-8 lg:py-10 hero-gradient text-white">
         <div className="container-wide">
-          <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8 lg:mb-10">
+          <div className="text-center max-w-3xl mx-auto mb-5 sm:mb-6 lg:mb-8">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4" style={{ color: '#1b181f' }}>
               {t('forRetailers.testimonials.title')}
             </h2>
@@ -474,9 +474,9 @@ export default function ForRetailers() {
       </section>
 
       {/* ROI Section */}
-      <section className="section-spacing bg-white">
+      <section className="py-8 lg:py-10 bg-white">
         <div className="container-wide">
-          <div className="grid md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-start md:items-center">
+          <div className="grid md:grid-cols-2 gap-5 sm:gap-6 lg:gap-8 items-start md:items-center">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -485,12 +485,12 @@ export default function ForRetailers() {
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6" style={{ color: '#1b181f' }}>
                 {t('forRetailers.roi.title')}
               </h2>
-              <p className="text-base sm:text-lg mb-6 sm:mb-8" style={{ color: '#4f4f4f' }}>
+              <p className="text-base sm:text-lg mb-4 sm:mb-6" style={{ color: '#4f4f4f' }}>
                 {t('forRetailers.roi.description')}
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 lg:gap-6">
-                <div className="rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6" style={{ background: '#eaf2f8' }}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 lg:gap-5">
+                <div className="rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5" style={{ background: '#eaf2f8' }}>
                   <div className="flex items-start gap-2 sm:gap-3">
                     <Calculator className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 flex-shrink-0" style={{ color: '#146fb5' }} />
                     <div>
@@ -499,7 +499,7 @@ export default function ForRetailers() {
                     </div>
                   </div>
                 </div>
-                <div className="rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6" style={{ background: '#eaf2f8' }}>
+                <div className="rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5" style={{ background: '#eaf2f8' }}>
                   <div className="flex items-start gap-2 sm:gap-3">
                     <CreditCard className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 flex-shrink-0" style={{ color: '#146fb5' }} />
                     <div>
@@ -508,7 +508,7 @@ export default function ForRetailers() {
                     </div>
                   </div>
                 </div>
-                <div className="rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6" style={{ background: '#eaf2f8' }}>
+                <div className="rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5" style={{ background: '#eaf2f8' }}>
                   <div className="flex items-start gap-2 sm:gap-3">
                     <Users className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 flex-shrink-0" style={{ color: '#146fb5' }} />
                     <div>
@@ -517,7 +517,7 @@ export default function ForRetailers() {
                     </div>
                   </div>
                 </div>
-                <div className="rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 text-white" style={{ background: '#146fb5' }}>
+                <div className="rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 text-white" style={{ background: '#146fb5' }}>
                   <div className="flex items-start gap-2 sm:gap-3">
                     <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 flex-shrink-0 text-white" />
                     <div>
@@ -533,7 +533,7 @@ export default function ForRetailers() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="rounded-xl sm:rounded-2xl p-6 sm:p-8" style={{ background: '#eaf2f8' }}
+              className="rounded-xl sm:rounded-2xl p-5 sm:p-6" style={{ background: '#eaf2f8' }}
             >
               <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6" style={{ color: '#1b181f' }}>{t('forRetailers.cta.title')}</h3>
               <ul className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">

@@ -109,7 +109,7 @@ export default function BookDemo() {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-24 lg:pt-32 pb-12 lg:pb-16 hero-gradient">
+      <section className="pt-14 lg:pt-20 pb-8 lg:pb-10 hero-gradient">
         <div className="container-wide px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -128,16 +128,16 @@ export default function BookDemo() {
       </section>
 
       {/* Booking Form Section */}
-      <section className="section-spacing bg-gradient-to-b from-white to-slate-50">
+      <section className="py-8 lg:py-10 bg-gradient-to-b from-white to-slate-50">
         <div className="container-wide px-4">
           <div className="max-w-4xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+            <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
               {/* Form */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="bg-white rounded-2xl p-6 sm:p-8 lg:p-10 shadow-xl border border-border"
+                className="bg-white rounded-2xl p-5 sm:p-6 lg:p-7 shadow-xl border border-border"
               >
                 <h2 className="text-2xl sm:text-3xl font-display font-bold mb-6" style={{ color: '#1b181f' }}>
                   {t('demo.formTitle')}
@@ -150,7 +150,7 @@ export default function BookDemo() {
                     <p style={{ color: '#4f4f4f' }}>{t('demo.successMessage')}</p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form onSubmit={handleSubmit} className="space-y-4">
                     {/* Name Field */}
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium mb-2" style={{ color: '#1b181f' }}>
@@ -280,7 +280,7 @@ export default function BookDemo() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="space-y-6"
               >
-                <div className="bg-gradient-to-br from-[#eaf2f8] to-white rounded-2xl p-6 sm:p-8 border border-[#146fb5]/20">
+                <div className="bg-gradient-to-br from-[#eaf2f8] to-white rounded-2xl p-5 sm:p-6 border border-[#146fb5]/20">
                   <h3 className="text-xl sm:text-2xl font-bold mb-4" style={{ color: '#1b181f' }}>
                     {t('demo.whatToExpect')}
                   </h3>
@@ -299,7 +299,7 @@ export default function BookDemo() {
                   </ul>
                 </div>
 
-                <div className="bg-white rounded-2xl p-6 sm:p-8 border border-border shadow-md">
+                <div className="bg-white rounded-2xl p-5 sm:p-6 border border-border shadow-md">
                   <h3 className="text-xl font-bold mb-4" style={{ color: '#1b181f' }}>
                     {t('demo.officeHours')}
                   </h3>
