@@ -329,7 +329,7 @@ export function IndustryPage({ config }: { config: IndustryPageConfig }) {
       <Header />
 
       {/* Hero — soft blue-tinted gradient (homepage-adjacent); subtle radial depth near images */}
-      <section className="relative overflow-x-hidden overflow-y-visible pt-24 lg:pt-28 pb-12 lg:pb-20">
+      <section className="hero-section relative overflow-x-hidden overflow-y-visible">
         <div
           className="absolute inset-0 z-0"
           style={{
@@ -338,7 +338,7 @@ export function IndustryPage({ config }: { config: IndustryPageConfig }) {
           }}
           aria-hidden
         />
-        <div className="container-wide relative z-10">
+        <div className="site-container relative z-10">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -416,8 +416,8 @@ export function IndustryPage({ config }: { config: IndustryPageConfig }) {
       </section>
 
       {/* Benefits */}
-      <section className="py-14 lg:py-20 bg-white border-b border-border/60">
-        <div className="container-wide">
+      <section className="section-spacing bg-white border-b border-border/60">
+        <div className="site-container">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
             <div>
               <h2 className="text-2xl sm:text-3xl font-display font-bold text-foreground mb-8" style={{ color: "#1b181f" }}>
@@ -453,8 +453,8 @@ export function IndustryPage({ config }: { config: IndustryPageConfig }) {
       </section>
 
       {/* Industry overview */}
-      <section className="py-14 lg:py-20 bg-muted/40">
-        <div className="container-wide">
+      <section className="section-spacing bg-muted/40">
+        <div className="site-container">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
             <div>
               <h2 className="text-2xl sm:text-3xl font-display font-bold mb-6" style={{ color: "#1b181f" }}>
@@ -488,8 +488,8 @@ export function IndustryPage({ config }: { config: IndustryPageConfig }) {
       </section>
 
       {/* Features grid */}
-      <section className="py-14 lg:py-20 bg-white">
-        <div className="container-wide">
+      <section className="section-spacing bg-white">
+        <div className="site-container">
           <h2 className="text-2xl sm:text-3xl font-display font-bold text-center mb-10 lg:mb-14" style={{ color: "#1b181f" }}>
             Features that fit your store
           </h2>
@@ -516,9 +516,9 @@ export function IndustryPage({ config }: { config: IndustryPageConfig }) {
       </section>
 
       {/* CTA */}
-      <section className="py-14 lg:py-20 relative overflow-hidden bg-gradient-to-br from-[#146fb5] via-[#1a7fc7] to-[#0d5a94] text-white">
+      <section className="section-spacing relative overflow-hidden bg-gradient-to-br from-[#146fb5] via-[#1a7fc7] to-[#0d5a94] text-white">
         <div className="absolute inset-0 opacity-20 pointer-events-none bg-[radial-gradient(ellipse_at_top_right,_rgba(255,255,255,0.25),_transparent_50%)]" />
-        <div className="container-wide relative text-center max-w-3xl mx-auto">
+        <div className="site-container relative text-center max-w-3xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-display font-bold mb-4">{config.ctaTitle}</h2>
           <p className="text-white/90 text-base sm:text-lg mb-8 leading-relaxed">{config.ctaSubtext}</p>
         </div>

@@ -47,8 +47,8 @@ export default function Careers() {
       <Header />
 
       {/* Hero */}
-      <section className="pt-24 lg:pt-32 pb-16 hero-gradient text-white">
-        <div className="container-wide">
+      <section className="hero-section hero-gradient text-white">
+        <div className="site-container">
           <div className="max-w-3xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -76,7 +76,7 @@ export default function Careers() {
 
       {/* Why Join Us */}
       <section className="section-spacing bg-white">
-        <div className="container-wide">
+        <div className="site-container">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl font-bold text-[#1b181f] mb-4">Why Join Apeiros AI?</h2>
             <p className="text-lg text-muted-foreground">
@@ -107,7 +107,7 @@ export default function Careers() {
 
       {/* Open Positions */}
       <section id="openings" className="section-spacing subtle-gradient">
-        <div className="container-wide">
+        <div className="site-container">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl font-bold text-[#1b181f] mb-4">Open Positions</h2>
             <p className="text-lg text-muted-foreground">

@@ -65,8 +65,8 @@ export default function Resources() {
       <div className="min-h-screen bg-background">
         <Header />
         
-        <section className="pt-20 lg:pt-24 pb-12 hero-gradient text-white">
-          <div className="container-wide">
+        <section className="hero-section hero-gradient text-white">
+          <div className="site-container">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
               <div className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center mb-4">
                 <selectedCategory.icon className="w-7 h-7" style={{ color: '#146fb5' }} />
@@ -78,7 +78,7 @@ export default function Resources() {
         </section>
 
         <section className="section-spacing bg-white">
-          <div className="container-wide">
+          <div className="site-container">
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {selectedCategory.items.map((item, i) => (
                 <motion.div
@@ -115,8 +115,8 @@ export default function Resources() {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <section className="pt-20 lg:pt-24 pb-12 hero-gradient text-white">
-        <div className="container-wide text-center">
+      <section className="hero-section hero-gradient text-white">
+        <div className="site-container text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <h1 className="text-3xl md:text-4xl font-display font-bold mb-3" style={{ color: '#1b181f' }}>
               Resources
@@ -128,8 +128,8 @@ export default function Resources() {
         </div>
       </section>
 
-      <section className="section-padding bg-white">
-        <div className="container-wide">
+      <section className="section-spacing bg-white">
+        <div className="site-container">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {resourceCategories.map((category, i) => (
               <motion.div

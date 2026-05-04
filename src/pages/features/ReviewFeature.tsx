@@ -48,7 +48,7 @@ export default function ReviewFeature() {
       <Header />
 
       {/* Hero – attractive bg + stars */}
-      <section className="relative overflow-hidden pt-24 lg:pt-28 pb-12 lg:pb-16">
+      <section className="hero-section relative overflow-hidden">
         {/* Base gradient – soft lavender to blue */}
         <div
           className="absolute inset-0 -z-10"
@@ -81,7 +81,7 @@ export default function ReviewFeature() {
           <Star className="w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 fill-[#94c8e8] text-[#94c8e8]" strokeWidth={0} />
         </div>
 
-        <div className="container-wide relative z-10">
+        <div className="site-container relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
@@ -130,9 +130,9 @@ export default function ReviewFeature() {
       </section>
 
       {/* Stats + Heading + 3 benefits – premium cards */}
-      <section className="pt-16 lg:pt-24 pb-12 lg:pb-16 bg-white relative">
+      <section className="section-spacing bg-white relative">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
-        <div className="container-wide relative">
+        <div className="site-container relative">
           {/* Top row – 3 stat cards with hover lift */}
           <div className="grid sm:grid-cols-3 gap-5 lg:gap-6 mb-14 lg:mb-20">
             {[
@@ -235,9 +235,9 @@ export default function ReviewFeature() {
       </section>
 
       {/* 3 feature blocks – premium image hover + pill + CTA (Generate more reviews, automatically) */}
-      <section id="review-features" className="pt-8 lg:pt-12 pb-8 lg:pb-12 bg-gradient-to-b from-primary/30 to-white relative overflow-hidden scroll-mt-24">
+      <section id="review-features" className="section-spacing bg-gradient-to-b from-primary/30 to-white relative overflow-hidden scroll-mt-24">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_0%,rgba(20,111,181,0.06),transparent)] pointer-events-none" />
-        <div className="container-wide relative space-y-12 lg:space-y-16">
+        <div className="site-container relative space-y-12 lg:space-y-16">
           {[
             { image: review1, imageAlt: "Retail store with one-click Google review prompt on digital bill", pillEN: "One-click Google Reviews", pillHI: "एक-क्लिक Google समीक्षाएं", headingEN: "Generate more reviews, automatically", headingHI: "ज्यादा समीक्षाएं ऑटोमेटिक जनरेट करें", bodyEN: "Collect customer ratings and reviews on Google via one-click review requests on the digital bill.", bodyHI: "डिजिटल बिल पर एक-क्लिक समीक्षा अनुरोध से Google पर ग्राहक रेटिंग और समीक्षाएं इकट्ठा करें।", imageFirst: true },
             { image: review2, imageAlt: "Review analytics and trends on map with Google Reviews chart", pillEN: "Review Analytics", pillHI: "समीक्षा एनालिटिक्स", headingEN: "View Reviews trends and performance", headingHI: "समीक्षाओं के ट्रेंड और परफॉर्मेंस देखें", bodyEN: "Track the review's performance in one place and establish actionable trends and insights.", bodyHI: "समीक्षाओं का परफॉर्मेंस एक जगह ट्रैक करें और एक्शन योग्य ट्रेंड और इनसाइट्स बनाएं।", imageFirst: false },
@@ -275,8 +275,8 @@ export default function ReviewFeature() {
       </section>
 
       {/* Benefits – 3 cards with hover lift + gradient border */}
-      <section className="pt-12 lg:pt-16 pb-12 lg:pb-16 bg-gradient-to-b from-primary/25 to-white relative">
-        <div className="container-wide">
+      <section className="section-spacing bg-gradient-to-b from-primary/25 to-white relative">
+        <div className="site-container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -318,8 +318,8 @@ export default function ReviewFeature() {
       </section>
 
       {/* How it works – card layout like Products "How Lume Fits" */}
-      <section className="pt-12 lg:pt-16 pb-12 lg:pb-16 bg-white">
-        <div className="container-wide">
+      <section className="section-spacing bg-white">
+        <div className="site-container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -374,9 +374,9 @@ export default function ReviewFeature() {
       </section>
 
       {/* CTA strip – stronger gradient + pattern + button hover */}
-      <section className="pt-6 lg:pt-8 pb-12 lg:pb-16 bg-white border-t border-border relative overflow-hidden">
+      <section className="section-spacing bg-white border-t border-border relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_100%,rgba(20,111,181,0.06),transparent)] pointer-events-none" />
-        <div className="container-wide relative">
+        <div className="site-container relative">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}

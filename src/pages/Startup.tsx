@@ -33,14 +33,14 @@ export default function Startup() {
 
       <main className="flex-1">
         {/* Hero / Company Header */}
-        <section className="relative overflow-hidden pt-24 pb-16">
+        <section className="hero-section relative overflow-hidden">
           <img
             src={bgImage}
             alt="Retail technology background"
             className="absolute inset-0 w-full h-full object-cover opacity-40"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-white via-white/90 to-[#e0f2fe]/70" />
-          <div className="container-wide relative z-10">
+          <div className="site-container relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -69,8 +69,8 @@ export default function Startup() {
         </section>
 
         {/* Company Overview */}
-        <section className="py-10 sm:py-12 bg-white">
-          <div className="container-wide max-w-5xl">
+        <section className="section-spacing bg-white">
+          <div className="site-container max-w-5xl">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -95,8 +95,8 @@ export default function Startup() {
         </section>
 
         {/* Product Overview */}
-        <section className="py-10 sm:py-12 bg-slate-50">
-          <div className="container-wide max-w-5xl">
+        <section className="section-spacing bg-slate-50">
+          <div className="site-container max-w-5xl">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -135,8 +135,8 @@ export default function Startup() {
         </section>
 
         {/* Product Screenshots */}
-        <section className="py-10 sm:py-12 bg-white">
-          <div className="container-wide max-w-6xl">
+        <section className="section-spacing bg-white">
+          <div className="site-container max-w-6xl">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -177,8 +177,8 @@ export default function Startup() {
         </section>
 
         {/* Technical Architecture */}
-        <section className="py-10 sm:py-12 bg-slate-50">
-          <div className="container-wide max-w-6xl">
+        <section className="section-spacing bg-slate-50">
+          <div className="site-container max-w-6xl">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -330,8 +330,8 @@ export default function Startup() {
         </section>
 
         {/* Billing Data Ingestion */}
-        <section className="py-10 sm:py-12 bg-white">
-          <div className="container-wide max-w-5xl">
+        <section className="section-spacing bg-white">
+          <div className="site-container max-w-5xl">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -360,8 +360,8 @@ export default function Startup() {
         </section>
 
         {/* AI & Data Intelligence */}
-        <section className="py-10 sm:py-12 bg-slate-50">
-          <div className="container-wide max-w-5xl">
+        <section className="section-spacing bg-slate-50">
+          <div className="site-container max-w-5xl">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -402,8 +402,8 @@ export default function Startup() {
         </section>
 
         {/* Google Cloud Usage */}
-        <section className="py-10 sm:py-12 bg-white">
-          <div className="container-wide max-w-5xl">
+        <section className="section-spacing bg-white">
+          <div className="site-container max-w-5xl">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -477,7 +477,7 @@ export default function Startup() {
 
         {/* POS Compatibility */}
         <section className="py-12 sm:py-16 bg-white">
-          <div className="container-wide max-w-5xl">
+          <div className="site-container max-w-5xl">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -505,8 +505,8 @@ export default function Startup() {
         </section>
 
         {/* Founding Team */}
-        <section className="py-10 sm:py-12 bg-slate-50">
-          <div className="container-wide max-w-5xl">
+        <section className="section-spacing bg-slate-50">
+          <div className="site-container max-w-5xl">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -584,8 +584,8 @@ export default function Startup() {
         </section>
 
         {/* Vision */}
-        <section className="py-10 sm:py-12 bg-white">
-          <div className="container-wide max-w-5xl">
+        <section className="section-spacing bg-white">
+          <div className="site-container max-w-5xl">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -604,8 +604,8 @@ export default function Startup() {
         </section>
 
         {/* Platform Capabilities */}
-        <section className="py-10 sm:py-12 bg-slate-50">
-          <div className="container-wide max-w-5xl">
+        <section className="section-spacing bg-slate-50">
+          <div className="site-container max-w-5xl">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}

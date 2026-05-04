@@ -223,8 +223,8 @@ export default function Features() {
       <Header />
 
       {/* Hero Section - Matching Solutions page */}
-      <section className="pt-16 lg:pt-20 pb-8 lg:pb-10 hero-gradient text-white">
-        <div className="container-wide text-center">
+      <section className="hero-section hero-gradient text-white">
+        <div className="site-container text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -243,8 +243,8 @@ export default function Features() {
       </section>
 
       {/* Features List - Matching Solutions page structure */}
-      <section className="py-8 lg:py-10 bg-white">
-        <div className="container-wide space-y-10 lg:space-y-12">
+      <section className="section-spacing bg-white">
+        <div className="site-container space-y-10 lg:space-y-12">
           {features.map((feature, i) => (
             <motion.div
               key={feature.id}

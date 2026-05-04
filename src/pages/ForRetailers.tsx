@@ -192,8 +192,8 @@ export default function ForRetailers() {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-14 sm:pt-10 lg:pt-14 pb-8 sm:pb-10 lg:pb-12 hero-gradient text-white">
-        <div className="container-wide">
+      <section className="hero-section hero-gradient text-white">
+        <div className="site-container">
           <div className="grid md:grid-cols-2 gap-5 md:gap-6 lg:gap-8 items-center">
             {/* Left Side - Text Content */}
             <div className="text-center md:text-left order-2 md:order-1">
@@ -257,8 +257,8 @@ export default function ForRetailers() {
       </section>
 
       {/* Pain Points → Solutions */}
-      <section className="py-8 lg:py-10 bg-white">
-        <div className="container-wide">
+      <section className="section-spacing bg-white">
+        <div className="site-container">
           <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8 lg:mb-10">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4" style={{ color: '#1b181f' }}>
               {t('forRetailers.problems.title')}
@@ -339,8 +339,8 @@ export default function ForRetailers() {
       </section>
 
       {/* How It Works */}
-      <section className="py-8 lg:py-10 subtle-gradient">
-        <div className="container-wide">
+      <section className="section-spacing subtle-gradient">
+        <div className="site-container">
           <div className="text-center max-w-3xl mx-auto mb-5 sm:mb-6 lg:mb-8">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4" style={{ color: '#1b181f' }}>
               {t('forRetailers.howItWorks.title')}
@@ -398,8 +398,8 @@ export default function ForRetailers() {
       </section>
 
       {/* Industry Solutions */}
-      <section className="py-8 lg:py-10 bg-white">
-        <div className="container-wide">
+      <section className="section-spacing bg-white">
+        <div className="site-container">
           <div className="text-center max-w-3xl mx-auto mb-5 sm:mb-6 lg:mb-8">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4" style={{ color: '#1b181f' }}>
               {t('forRetailers.industries.title')}
@@ -442,8 +442,8 @@ export default function ForRetailers() {
       </section>
 
       {/* Success Stories */}
-      <section className="py-8 lg:py-10 hero-gradient text-white">
-        <div className="container-wide">
+      <section className="section-spacing hero-gradient text-white">
+        <div className="site-container">
           <div className="text-center max-w-3xl mx-auto mb-5 sm:mb-6 lg:mb-8">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4" style={{ color: '#1b181f' }}>
               {t('forRetailers.testimonials.title')}
@@ -474,8 +474,8 @@ export default function ForRetailers() {
       </section>
 
       {/* ROI Section */}
-      <section className="py-8 lg:py-10 bg-white">
-        <div className="container-wide">
+      <section className="section-spacing bg-white">
+        <div className="site-container">
           <div className="grid md:grid-cols-2 gap-5 sm:gap-6 lg:gap-8 items-start md:items-center">
             <motion.div
               initial={{ opacity: 0, x: -20 }}

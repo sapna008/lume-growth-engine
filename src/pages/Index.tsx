@@ -133,6 +133,55 @@ const renderRatingStars = (sizeClass: string) => (
   </>
 );
 
+// const statsCards = [
+//   {
+//     value: "285+",
+//     title: "Retailers Trust Us",
+//     description:
+//       "Growing businesses across India rely on Lume to simplify billing and boost repeat customers.",
+//     icon: Users,
+//     cardClass:
+//       "bg-gradient-to-br from-violet-50 via-indigo-50 to-purple-50 border-violet-200/60",
+//     iconClass: "text-violet-600",
+//     valueClass: "text-violet-700",
+//   },
+//   {
+//     value: "₹75Cr+",
+//     title: "Transactions Processed",
+//     description:
+//       "Handle high-volume billing seamlessly with a fast, reliable, and scalable POS system.",
+//     icon: CreditCard,
+//     cardClass:
+//       "bg-gradient-to-br from-sky-50 via-blue-50 to-indigo-50 border-sky-200/60",
+//     iconClass: "text-blue-600",
+//     valueClass: "text-blue-700",
+//   },
+//   {
+//     value: "25%",
+//     title: "Average Revenue Increase",
+//     description:
+//       "Retailers see measurable growth through better customer engagement and smarter campaigns.",
+//     icon: TrendingUp,
+//     cardClass:
+//       "bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 border-emerald-200/60",
+//     iconClass: "text-emerald-600",
+//     valueClass: "text-emerald-700",
+//   },
+//   {
+//     value: "4.8/5",
+//     title: "Customer Rating",
+//     description:
+//       "Loved by business owners for ease of use, speed, and powerful features.",
+//     icon: Star,
+//     cardClass:
+//       "bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 border-amber-200/60",
+//     iconClass: "text-amber-600",
+//     valueClass: "text-amber-700",
+//   },
+// ];
+
+// Pain points will be translated in component
+
 // Stats will be translated in component
 const statsKeys = [
   { value: "285+", key: "stats.retailers" },
@@ -141,7 +190,6 @@ const statsKeys = [
   { value: "4.8/5", key: "stats.rating" },
 ];
 
-// Pain points will be translated in component
 const painPointsKeys = [
   { icon: challengeIcon1, key: "challenge.point1", subKey: "challenge.point1Sub" },
   { icon: challengeIcon2, key: "challenge.point2", subKey: "challenge.point2Sub" },
@@ -307,7 +355,7 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative overflow-hidden min-h-[500px] sm:min-h-[560px] lg:min-h-[620px]">
+      <section className="hero-section !pb-4 sm:!pb-5 relative overflow-visible">
         {/* Background Image */}
         <img 
           src={bgImage}
@@ -324,13 +372,14 @@ export default function Index() {
           }}
         />
         <Header />
-        <div className={`relative z-10 ${language === 'HI' ? 'pt-12 sm:pt-14 lg:pt-12' : 'pt-12 sm:pt-10 lg:pt-10'}`}>
-          <div className={`container-wide relative z-10 ${language === 'HI' ? 'py-4 sm:py-10 lg:py-6' : 'py-4 sm:py-6 lg:py-6'}`}>
+        <div className="relative z-10">
+          <div className="site-container relative z-10">
             <div className="grid lg:grid-cols-2 gap-4 lg:gap-12 items-center">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
+                className="relative z-20"
               >
                 <div className={`inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20 ${language === 'HI' ? 'mb-2 sm:mb-8' : 'mb-2 sm:mb-6'}`}>
                   <span className="w-2 h-2 rounded-full bg-[#146fb5] animate-pulse" />
@@ -375,9 +424,9 @@ export default function Index() {
                   </Button>
                 </div>
                 
-                {/* Desktop: testimonials above video */}
+                {/* Rating row: directly below CTA, in normal flow */}
                 <div
-                  className={`hidden sm:flex flex-wrap items-center gap-2 sm:gap-3 relative z-20 mb-2 sm:mb-3 ${
+                  className={`flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-3 mb-1 sm:mb-2 ${
                     language === 'HI' ? 'mt-4 sm:mt-5' : 'mt-3 sm:mt-4'
                   }`}
                 >
@@ -408,11 +457,11 @@ export default function Index() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="relative"
+                className="relative z-10"
               >
                 {/* Desktop only (lg+): layered desktop image + video overlay */}
-                <div className="relative z-10 mt-8 lg:mt-0 hidden lg:block">
-                  <div className="relative -mt-16 lg:-mt-20 xl:-mt-24">
+                <div className="relative z-10 mt-4 lg:mt-0 hidden lg:block">
+                  <div className="relative">
                     {/* Desktop Image - right-aligned */}
                     <div className="flex justify-end w-full -mr-4 sm:-mr-6 md:-mr-8 lg:-mr-12 xl:-mr-16" style={{ paddingRight: 0, marginRight: 0 }}>
                       <img
@@ -431,7 +480,7 @@ export default function Index() {
                       />
                     </div>
                     {/* Bill video - foreground overlay bottom-left (2mm up) */}
-                    <div className="absolute -bottom-24 sm:-bottom-22 md:-bottom-20 lg:-bottom-18 xl:-bottom-16 -left-2 sm:left-0 md:left-2 lg:left-6 -translate-y-1" style={{ zIndex: 20 }}>
+                    <div className="absolute bottom-2 sm:bottom-3 md:bottom-4 lg:bottom-5 xl:bottom-6 -left-2 sm:left-0 md:left-2 lg:left-6" style={{ zIndex: 5 }}>
                       <video
                         src={billVideo}
                         autoPlay
@@ -455,29 +504,6 @@ export default function Index() {
                     playsInline
                     className="w-full h-auto drop-shadow-2xl rounded-xl"
                   />
-                  {/* Mobile: testimonials below video */}
-                  <div className="mt-2 flex flex-col items-center gap-2">
-                    <div className="flex -space-x-3">
-                      {memoizedTestimonials.slice(0, 4).map((testimonial, i) => (
-                        <div key={`mobile-testimonial-${testimonial.author}-${i}`} className="w-10 h-10 rounded-full border-2 border-white shadow-lg overflow-hidden" style={{ borderColor: '#146fb5' }}>
-                          <img
-                            src={testimonial.image}
-                            alt={testimonial.author}
-                            className="w-full h-full object-cover"
-                            loading="lazy"
-                            decoding="async"
-                            fetchPriority="low"
-                          />
-                        </div>
-                      ))}
-                    </div>
-                    <div className="text-sm text-center">
-                      <div className="flex items-center justify-center gap-1 mb-1">
-                        {renderRatingStars("w-4 h-4")}
-                      </div>
-                      <span style={{ color: '#4f4f4f' }}>{t('hero.rating')}</span>
-                    </div>
-                  </div>
                 </div>
 
                 <div className="absolute inset-0 bg-gradient-to-r from-[#146fb5]/30 to-primary/20 rounded-3xl blur-3xl pointer-events-none -z-10" />
@@ -487,7 +513,7 @@ export default function Index() {
         </div>
         
         {/* Stats Bar */}
-        <div className="bg-white shadow-xl relative z-10 -mt-6 sm:-mt-8 mx-4 sm:mx-6 lg:mx-auto max-w-5xl rounded-xl sm:rounded-2xl border border-border">
+        <div className="bg-white shadow-xl relative z-10 mt-4 sm:mt-6 lg:mt-8 mx-4 sm:mx-6 lg:mx-auto max-w-5xl rounded-xl sm:rounded-2xl border border-border">
           <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-border">
             {statsKeys.map((stat, i) => (
               <motion.div
@@ -495,17 +521,27 @@ export default function Index() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
-                className="p-4 sm:p-6 text-center group hover:bg-primary/5 transition-colors rounded-xl"
+                className="p-4 sm:p-6 text-center group hover:bg-primary/5 transition-colors"
               >
-                <div className="text-xl sm:text-2xl md:text-3xl font-bold group-hover:scale-110 transition-transform" style={{ color: '#146fb5' }}>{stat.value}</div>
-                <div className="text-xs sm:text-sm mt-1" style={{ color: '#4f4f4f' }}>{t(stat.key)}</div>
+                <div
+                  className="text-xl sm:text-2xl md:text-3xl font-bold group-hover:scale-110 transition-transform"
+                  style={{ color: '#146fb5' }}
+                >
+                  {stat.value}
+                </div>
+                <div
+                  className="text-xs sm:text-sm mt-1"
+                  style={{ color: '#4f4f4f' }}
+                >
+                  {t(stat.key)}
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
         
         {/* Retailer Logos Banner - 2 Row Marquee */}
-      <div className="relative z-10 mt-0 py-0 overflow-hidden flex flex-col gap-0">
+      <div className="relative z-10 mt-3 sm:mt-4 py-0 overflow-hidden flex flex-col gap-0">
 
         {/* Row 1: New stores — scrolls right to left */}
         <div className="overflow-hidden py-0">
@@ -559,7 +595,7 @@ export default function Index() {
 
       {/* Problem Statement Section */}
       <section className="pt-1 sm:pt-2 pb-3 sm:pb-4 bg-white">
-        <div className="container-wide px-4">
+        <div className="site-container">
           <div className="grid lg:grid-cols-12 gap-4 sm:gap-5 lg:gap-6 items-start mb-6 sm:mb-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -621,7 +657,7 @@ export default function Index() {
 
       {/* Key Benefits Section */}
       <section id="solutions" className="section-spacing bg-gradient-to-b from-slate-50 to-white">
-        <div className="container-wide px-4">
+        <div className="site-container">
           <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -667,7 +703,7 @@ export default function Index() {
 
       {/* How It Works */}
       <section className="section-spacing bg-gradient-to-b from-white to-slate-50">
-        <div className="container-wide px-4">
+        <div className="site-container">
           <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -741,7 +777,7 @@ export default function Index() {
 
       {/* Industries */}
       <section className="section-spacing bg-gradient-to-b from-white to-[#eaf2f8]">
-        <div className="container-wide px-4">
+        <div className="site-container">
           <div className="text-center mb-6 sm:mb-8">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-3 sm:mb-4" style={{ color: '#1b181f' }}>
               {t('industries.title')}
@@ -817,7 +853,7 @@ export default function Index() {
           />
         </div>
 
-        <div className="container-wide px-4 relative z-10">
+        <div className="site-container relative z-10">
           {/* Header */}
           <div className="text-center mb-8 sm:mb-10">
             <motion.div
@@ -954,7 +990,7 @@ export default function Index() {
       {/* Final CTA */}
       <section className="section-spacing !pt-1 sm:!pt-2 md:!pt-3 hero-gradient relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-[#146fb5]/10" />
-        <div className="container-tight text-center relative z-10 px-4 sm:px-6">
+        <div className="site-container text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

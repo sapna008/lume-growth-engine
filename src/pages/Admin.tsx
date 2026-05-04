@@ -57,7 +57,7 @@ export default function Admin() {
     <div className="min-h-screen bg-muted/30">
       {/* Header */}
       <header className="bg-white border-b border-border sticky top-0 z-50">
-        <div className="container-wide flex items-center justify-between h-14">
+        <div className="site-container flex items-center justify-between h-14">
           <h1 className="font-display font-bold text-lg text-foreground">Admin Configuration</h1>
           <div className="flex items-center gap-2">
             <Button variant="outline" size="sm" onClick={handleReset}>
@@ -72,7 +72,7 @@ export default function Admin() {
         </div>
       </header>
 
-      <div className="container-wide py-8">
+      <div className="site-container py-8">
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Configuration Panel */}
           <div className="space-y-6">

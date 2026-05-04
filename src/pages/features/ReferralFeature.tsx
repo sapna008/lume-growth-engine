@@ -48,7 +48,7 @@ export default function ReferralFeature() {
       <Header />
 
       {/* Hero – WhatsApp-Driven Referrals */}
-      <section className="relative overflow-hidden pt-24 lg:pt-28 pb-12 lg:pb-16">
+      <section className="hero-section relative overflow-hidden">
         <div
           className="absolute inset-0 -z-10"
           style={{
@@ -59,7 +59,7 @@ export default function ReferralFeature() {
         <div className="absolute -z-10 w-[70%] h-[80%] -bottom-[20%] -right-[10%]" style={{ background: "radial-gradient(ellipse 50% 60% at 90% 90%, rgba(20,111,181,0.08) 0%, rgba(180,210,235,0.15) 40%, transparent 70%)" }} />
         <div className="absolute inset-0 -z-10 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, #146fb5 1px, transparent 0)", backgroundSize: "28px 28px" }} />
 
-        <div className="container-wide relative z-10">
+        <div className="site-container relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="order-2 lg:order-1">
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-5 py-2.5 border border-[#146fb5]/25 mb-6">
@@ -89,9 +89,9 @@ export default function ReferralFeature() {
       </section>
 
       {/* Stats – 35%, 10x, 92% */}
-      <section className="pt-16 lg:pt-24 pb-12 lg:pb-16 bg-white relative">
+      <section className="section-spacing bg-white relative">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
-        <div className="container-wide relative">
+        <div className="site-container relative">
           <div className="grid sm:grid-cols-3 gap-5 lg:gap-6 mb-14 lg:mb-20">
             {[
               { value: "35%", labelEN: "More customers", labelHI: "ज्यादा ग्राहक", descEN: "Referrals contribute to 35% of new sales or customers", descHI: "रेफरल नई बिक्री या ग्राहकों का 35% योगदान करते हैं", bg: "bg-gradient-to-br from-[#146fb5]/15 to-[#146fb5]/5", border: "border-[#146fb5]/20", color: "#146fb5" },
@@ -140,7 +140,7 @@ export default function ReferralFeature() {
       {/* 3 feature blocks – alternating image + text */}
       <section id="referral-features" className="pt-8 lg:pt-12 pb-8 lg:pb-12 bg-gradient-to-b from-primary/30 to-white relative overflow-hidden scroll-mt-24">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_0%,rgba(20,111,181,0.06),transparent)] pointer-events-none" />
-        <div className="container-wide relative space-y-12 lg:space-y-16">
+        <div className="site-container relative space-y-12 lg:space-y-16">
           {[
             { image: whatsappReferImage, imageAlt: "One-click WhatsApp referral", pillEN: "One-click WhatsApp referral", pillHI: "एक-क्लिक WhatsApp रेफरल", headingEN: "Run referrals where your customers are", headingHI: "रेफरल वहां चलाएं जहां आपके ग्राहक हैं", bodyEN: "Enable your customers to send one-click referrals via WhatsApp that enroll at a 30% higher efficiency.", bodyHI: "ग्राहक WhatsApp से एक-क्लिक रेफरल भेज सकें, 30% ज्यादा एफिशिएंसी के साथ।", imageFirst: true },
             { image: inStoreImage, imageAlt: "In-store redeemable codes", pillEN: "Personal referral codes", pillHI: "पर्सनल रेफरल कोड", headingEN: "In-store redeemable codes", headingHI: "इन-स्टोर रिडीम कोड", bodyEN: "Let your advocates share referrals with their mobile number as the referral code to be mentioned at billing.", bodyHI: "अपने अडवोकेट्स मोबाइल नंबर को रेफरल कोड की तरह बिलिंग पर बताएं।", imageFirst: false },
@@ -172,8 +172,8 @@ export default function ReferralFeature() {
       </section>
 
       {/* Why stores love it */}
-      <section className="pt-12 lg:pt-16 pb-12 lg:pb-16 bg-gradient-to-b from-primary/25 to-white relative">
-        <div className="container-wide">
+      <section className="section-spacing bg-gradient-to-b from-primary/25 to-white relative">
+        <div className="site-container">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-2xl mx-auto mb-14 lg:mb-20">
             <h2 className="text-2xl sm:text-3xl font-display font-bold mb-3" style={{ color: "#1b181f" }}>{t("Why stores love referrals", "दुकानें रेफरल क्यों पसंद करती हैं")}</h2>
             <p className="text-base" style={{ color: "#4f4f4f" }}>{t("One-click WhatsApp referrals – reward advocates, grow with word-of-mouth.", "एक-क्लिक WhatsApp रेफरल – अडवोकेट्स को इनाम, वर्ड-ऑफ-माउथ से ग्रोथ।")}</p>
@@ -201,9 +201,9 @@ export default function ReferralFeature() {
       </section>
 
       {/* CTA strip */}
-      <section className="pt-6 lg:pt-8 pb-12 lg:pb-16 bg-white border-t border-border relative overflow-hidden">
+      <section className="section-spacing bg-white border-t border-border relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_100%,rgba(20,111,181,0.06),transparent)] pointer-events-none" />
-        <div className="container-wide relative">
+        <div className="site-container relative">
           <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-3xl mx-auto text-center rounded-2xl p-8 lg:p-12 bg-gradient-to-br from-[#146fb5]/15 via-primary/25 to-[#146fb5]/10 border border-[#146fb5]/25 shadow-xl shadow-[#146fb5]/10 relative overflow-hidden">
             <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, #146fb5 1px, transparent 0)", backgroundSize: "32px 32px" }} />
             <div className="relative">

@@ -377,7 +377,7 @@ export function Header() {
               : "absolute top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-sm"
         } transition-all duration-300 overflow-visible`}
       >
-        <nav className="container-wide flex items-center justify-between h-16 overflow-visible">
+        <nav className="site-container flex items-center justify-between h-16 overflow-visible">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 shrink-0">
             <img 
@@ -993,7 +993,7 @@ export function Header() {
               exit={{ opacity: 0, height: 0 }}
               className="lg:hidden bg-gradient-to-b from-white via-[#eaf2f8]/60 to-white border-b border-border/60 overflow-hidden shadow-md"
             >
-              <div className="container-wide py-4 space-y-2">
+              <div className="site-container py-4 space-y-2">
                 {navigation.map((item) => {
                   const hasChildren = !!item.children;
                   const isExpanded = mobileExpandedMenu === item.name;

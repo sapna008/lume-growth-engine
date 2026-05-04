@@ -228,27 +228,54 @@
     box-shadow: var(--shadow-lg);
   }
 
-  /* Container Widths */
+  /* Unified responsive layout container */
+  .site-container {
+    @apply w-full mx-auto px-4 sm:px-5 md:px-6 lg:px-8;
+    max-width: 100%;
+  }
+
+  @media (min-width: 1024px) {
+    .site-container {
+      max-width: 1200px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .site-container {
+      max-width: 1400px;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .site-container {
+      max-width: 1600px;
+    }
+  }
+
+  /* Backward-compatible aliases while pages are migrated */
   .container-tight {
-    @apply max-w-5xl mx-auto px-4 sm:px-6;
+    @apply site-container;
   }
 
   .container-wide {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply site-container;
   }
 
-  /* Section Spacing */
+  /* Unified section and hero spacing */
+  .section-spacing {
+    @apply py-8 sm:py-10 lg:py-12;
+  }
+
   .section-padding {
-    @apply py-16 md:py-20 lg:py-24;
+    @apply section-spacing;
   }
 
   .section-padding-sm {
-    @apply py-10 md:py-14 lg:py-16;
+    @apply section-spacing;
   }
 
-  /* Universal Section Spacing - Reduced for all pages */
-  .section-spacing {
-    @apply py-6 sm:py-8 md:py-10;
+  .hero-section {
+    @apply pt-20 sm:pt-24 lg:pt-24 pb-8 sm:pb-10 lg:pb-12;
   }
 
   /* Animated Background */

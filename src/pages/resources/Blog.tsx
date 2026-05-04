@@ -163,7 +163,7 @@ export default function Blog() {
                 "radial-gradient(420px circle at 8% 15%, rgba(20,111,181,0.14), transparent 58%), radial-gradient(420px circle at 92% 12%, rgba(56,189,248,0.14), transparent 56%)",
             }}
           />
-          <div className="container-wide relative z-10 pt-20 pb-14 sm:pt-22 sm:pb-16 lg:pt-24 lg:pb-20">
+          <div className="site-container hero-section relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
@@ -206,7 +206,7 @@ export default function Blog() {
         </section>
 
         <section className="border-b border-[#146fb5]/10 bg-white/95">
-          <div className="container-wide">
+          <div className="site-container">
             <div className="flex gap-2 overflow-x-auto py-3 no-scrollbar">
               {FILTER_KEYS.map((key) => {
                 const active = activeFilter === key;
@@ -231,7 +231,7 @@ export default function Blog() {
         </section>
 
         <section className="pt-10 sm:pt-12 lg:pt-14 pb-10 sm:pb-12">
-          <div className="container-wide">
+          <div className="site-container">
             <motion.article
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -292,7 +292,7 @@ export default function Blog() {
         </section>
 
         <section id="latest-articles" className="section-spacing bg-gradient-to-b from-white via-[#f4f7fb] to-white pt-8 pb-14 sm:pb-18 lg:pb-20">
-          <div className="container-wide">
+          <div className="site-container">
             <div className="mb-8 sm:mb-10">
               <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-2" style={{ color: "#1b181f" }}>
                 {labels.latestTitle}
@@ -368,7 +368,7 @@ export default function Blog() {
         </section>
 
         <section className="pb-8 sm:pb-10 lg:pb-12">
-          <div className="container-wide">
+          <div className="site-container">
             <div className="rounded-2xl border border-[#146fb5]/15 bg-white p-5 sm:p-6 lg:p-8">
               <h2 className="text-xl sm:text-2xl font-bold mb-4" style={{ color: "#1b181f" }}>
                 {labels.popularTopics}
@@ -390,7 +390,7 @@ export default function Blog() {
         </section>
 
         <section className="relative pb-14 sm:pb-16 lg:pb-20 overflow-hidden">
-          <div className="container-wide">
+          <div className="site-container">
             <div className="relative rounded-3xl border border-[#146fb5]/15 bg-gradient-to-br from-[#eaf4ff] via-[#f4f9ff] to-[#fef9c3]/30 p-7 sm:p-10 lg:p-12 shadow-[0_12px_40px_rgba(20,111,181,0.1)]">
               <div className="absolute inset-0 opacity-40 pointer-events-none rounded-3xl" style={{ backgroundImage: "radial-gradient(500px circle at 0% 0%, rgba(20,111,181,0.18), transparent 60%)" }} />
               <div className="relative z-10 max-w-3xl">

@@ -159,8 +159,8 @@ export default function Products() {
         <Header />
         
       {/* 1. PRODUCT HERO */}
-      <section id="overview" className="pt-14 lg:pt-[4.5rem] pb-8 lg:pb-10 bg-gradient-to-b from-white via-[#eaf2f8]/30 to-white">
-        <div className="container-wide">
+      <section id="overview" className="hero-section bg-gradient-to-b from-white via-[#eaf2f8]/30 to-white">
+        <div className="site-container">
           <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-6 lg:gap-8 items-center">
             {/* Left: Clear product explanation */}
             <motion.div
@@ -232,8 +232,8 @@ export default function Products() {
       </section>
 
       {/* 2. WHAT IS LUME? */}
-      <section id="what-is-lume" className="py-8 lg:py-10 bg-gradient-to-b from-white via-[#eaf2f8]/30 to-white">
-          <div className="container-wide">
+      <section id="what-is-lume" className="section-spacing bg-gradient-to-b from-white via-[#eaf2f8]/30 to-white">
+          <div className="site-container">
           <div className="max-w-5xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -267,9 +267,9 @@ export default function Products() {
       {/* 3. CORE CAPABILITIES */}
       <section
         id="core"
-        className="py-8 lg:py-10 bg-gradient-to-b from-white via-[#eaf2f8]/20 to-white"
+        className="section-spacing bg-gradient-to-b from-white via-[#eaf2f8]/20 to-white"
       >
-          <div className="container-wide">
+          <div className="site-container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -364,9 +364,9 @@ export default function Products() {
       {/* 4. HOW LUME WORKS */}
       <section
         id="how-it-works"
-        className="py-8 lg:py-10 bg-white"
+        className="section-spacing bg-white"
       >
-        <div className="container-wide">
+        <div className="site-container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -420,9 +420,9 @@ export default function Products() {
       {/* 5. WHO IS LUME FOR? */}
       <section
         id="who-is-lume-for"
-        className="py-8 lg:py-10 bg-gradient-to-b from-white via-[#eaf2f8]/20 to-white"
+        className="section-spacing bg-gradient-to-b from-white via-[#eaf2f8]/20 to-white"
       >
-        <div className="container-wide">
+        <div className="site-container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -467,9 +467,9 @@ export default function Products() {
       {/* 6. LUME + LUME SHOP CONNECTION */}
       <section
         id="lume-shop"
-        className="py-8 lg:py-10 bg-white"
+        className="section-spacing bg-white"
       >
-        <div className="container-wide">
+        <div className="site-container">
           <div className="max-w-4xl mx-auto">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -515,9 +515,9 @@ export default function Products() {
       {/* 7. TRUST (LIGHT VERSION) */}
       <section
         id="trust"
-        className="py-8 lg:py-10 bg-gradient-to-b from-white via-[#eaf2f8]/20 to-white"
+        className="section-spacing bg-gradient-to-b from-white via-[#eaf2f8]/20 to-white"
       >
-        <div className="container-wide">
+        <div className="site-container">
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -560,9 +560,9 @@ export default function Products() {
       {/* 8. FINAL CTA */}
       <section
         id="cta"
-        className="py-8 lg:py-10 bg-white"
+        className="section-spacing bg-white"
       >
-        <div className="container-wide">
+        <div className="site-container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

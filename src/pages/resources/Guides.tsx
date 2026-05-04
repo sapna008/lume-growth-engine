@@ -297,8 +297,8 @@ export default function Guides() {
       
       <main className="flex-1">
         {/* Guides Grid Section */}
-        <section className="section-spacing bg-gradient-to-b from-white via-[#f4f7fb] to-white pt-24">
-          <div className="container-wide">
+        <section className="hero-section bg-gradient-to-b from-white via-[#f4f7fb] to-white">
+          <div className="site-container">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -478,7 +478,7 @@ export default function Guides() {
 
         {/* FAQs Section */}
         <section className="section-padding bg-gradient-to-b from-white via-[#eaf2f8]/20 to-white">
-          <div className="container-wide">
+          <div className="site-container">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

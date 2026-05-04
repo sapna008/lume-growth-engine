@@ -44,7 +44,7 @@ export default function BillingGuide() {
       <Header />
 
       {/* Hero / SEO banner */}
-      <section className="relative pt-20 lg:pt-24 pb-10 overflow-hidden">
+      <section className="hero-section relative overflow-hidden">
         {/* Background image */}
         <div className="absolute inset-0">
           <img
@@ -56,7 +56,7 @@ export default function BillingGuide() {
         </div>
 
         <div className="relative z-10">
-          <div className="container-wide">
+          <div className="site-container">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -92,7 +92,7 @@ export default function BillingGuide() {
 
       {/* Top information + overview */}
       <section className="section-spacing bg-white">
-        <div className="container-wide space-y-4">
+        <div className="site-container space-y-4">
           {/* Info banner */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -159,7 +159,7 @@ export default function BillingGuide() {
 
       {/* Billing types accordion */}
       <section className="section-spacing subtle-gradient">
-        <div className="container-wide space-y-5">
+        <div className="site-container space-y-5">
           {/* Quick Bill */}
           <BillingSection
             id="quick"
@@ -467,7 +467,7 @@ export default function BillingGuide() {
 
       {/* Important clarification box */}
       <section className="section-spacing bg-white">
-        <div className="container-wide">
+        <div className="site-container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -495,7 +495,7 @@ export default function BillingGuide() {
 
       {/* Support section */}
       <section className="section-spacing bg-secondary/30">
-        <div className="container-wide">
+        <div className="site-container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

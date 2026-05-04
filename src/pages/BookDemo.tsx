@@ -109,8 +109,8 @@ export default function BookDemo() {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-14 lg:pt-20 pb-8 lg:pb-10 hero-gradient">
-        <div className="container-wide px-4">
+      <section className="hero-section hero-gradient">
+        <div className="site-container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -128,8 +128,8 @@ export default function BookDemo() {
       </section>
 
       {/* Booking Form Section */}
-      <section className="py-8 lg:py-10 bg-gradient-to-b from-white to-slate-50">
-        <div className="container-wide px-4">
+      <section className="section-spacing bg-gradient-to-b from-white to-slate-50">
+        <div className="site-container">
           <div className="max-w-4xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
               {/* Form */}

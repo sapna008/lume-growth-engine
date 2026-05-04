@@ -121,8 +121,8 @@ export default function Help() {
       <Header />
 
       {/* Hero */}
-      <section className="pt-20 lg:pt-24 pb-12 hero-gradient text-white">
-        <div className="container-wide text-center">
+      <section className="hero-section hero-gradient text-white">
+        <div className="site-container text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <h1 className="text-3xl md:text-4xl font-display font-bold mb-4">
               {language === "HI" ? "हम आपकी कैसे मदद कर सकते हैं?" : "How can we help?"}
@@ -142,7 +142,7 @@ export default function Help() {
 
       {/* Categories */}
       <section className="section-spacing bg-white">
-        <div className="container-wide">
+        <div className="site-container">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {categories.map((category, i) => {
               const isGettingStarted = category.title === "Getting Started";
@@ -198,7 +198,7 @@ export default function Help() {
 
       {/* Popular Articles */}
       <section className="section-padding-sm subtle-gradient">
-        <div className="container-wide">
+        <div className="site-container">
           <h2 className="text-xl font-display font-bold text-foreground mb-6">
             {language === "HI" ? "लोकप्रिय लेख" : "Popular Articles"}
           </h2>
@@ -226,7 +226,7 @@ export default function Help() {
 
       {/* Contact */}
       <section className="section-spacing bg-secondary/30">
-        <div className="container-wide">
+        <div className="site-container">
           <div className="text-center mb-8">
             <h2 className="text-xl font-display font-bold text-foreground">
               {language === "HI" ? "फिर भी मदद चाहिए?" : "Still need help?"}

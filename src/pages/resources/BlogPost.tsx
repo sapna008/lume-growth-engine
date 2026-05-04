@@ -32,7 +32,7 @@ export default function BlogPost() {
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
 
-      <main className="flex-1 pt-24 pb-16 lg:pb-24">
+      <main className="flex-1 pt-20 pb-12 lg:pb-16">
         <article className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
           <Button variant="ghost" size="sm" className="mb-8 -ml-2 gap-1 text-[#146fb5]" asChild>
             <Link to="/resources/blog">

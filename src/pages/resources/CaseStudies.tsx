@@ -436,7 +436,7 @@ export default function CaseStudies() {
       
       <main className="flex-1">
         {/* Hero + Success Stories Slider (single container, no image bg) */}
-        <section className="relative pt-24 pb-16 overflow-hidden">
+        <section className="hero-section relative overflow-hidden">
           {/* Light blue + yellowish gradient background */}
           <div className="absolute inset-0 bg-gradient-to-br from-[#eaf2ff] via-[#f7fbff] to-[#fff7d6]" />
           <div
@@ -447,7 +447,7 @@ export default function CaseStudies() {
             }}
           />
           <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white/90 to-transparent" />
-          <div className="container-wide relative z-10">
+          <div className="site-container relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
@@ -578,7 +578,7 @@ export default function CaseStudies() {
 
         {/* Video Testimonials (Instagram Reels) */}
         <section className="py-16 sm:py-20 bg-white">
-          <div className="container-wide">
+          <div className="site-container">
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -682,7 +682,7 @@ export default function CaseStudies() {
 
         {/* How they use Lume */}
         <section className="py-16 sm:py-20 bg-white">
-          <div className="container-wide">
+          <div className="site-container">
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -752,7 +752,7 @@ export default function CaseStudies() {
               }}
             />
           </div>
-          <div className="container-wide relative z-10">
+          <div className="site-container relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -871,7 +871,7 @@ export default function CaseStudies() {
 
         {/* Why These Stories Matter */}
         <section className="py-16 sm:py-20 bg-white">
-          <div className="container-wide">
+          <div className="site-container">
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -920,7 +920,7 @@ export default function CaseStudies() {
 
         {/* Snapshot Comparison */}
         <section className="py-16 sm:py-20 bg-slate-50">
-          <div className="container-wide">
+          <div className="site-container">
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1000,7 +1000,7 @@ export default function CaseStudies() {
 
         {/* Testimonials */}
         <section className="py-16 sm:py-20 bg-white">
-          <div className="container-wide">
+          <div className="site-container">
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1036,7 +1036,7 @@ export default function CaseStudies() {
 
         {/* CTA Section */}
         <section className="py-16 sm:py-20 bg-gradient-to-b from-[#e0f2fe] via-white to-[#fefce8]">
-          <div className="container-wide">
+          <div className="site-container">
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1073,7 +1073,7 @@ export default function CaseStudies() {
 
         {/* SEO Closing */}
         <section className="section-padding bg-white">
-          <div className="container-wide">
+          <div className="site-container">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

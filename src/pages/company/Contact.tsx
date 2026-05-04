@@ -39,8 +39,8 @@ export default function Contact() {
       <Header />
 
       {/* Hero */}
-      <section className="pt-24 lg:pt-32 pb-16 hero-gradient text-white">
-        <div className="container-wide text-center">
+      <section className="hero-section hero-gradient text-white">
+        <div className="site-container text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -58,7 +58,7 @@ export default function Contact() {
 
       {/* Contact Section */}
       <section className="section-spacing bg-white">
-        <div className="container-wide">
+        <div className="site-container">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <motion.div

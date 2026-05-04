@@ -48,8 +48,8 @@ export default function GuideDetail() {
       <Header />
       
       <main className="flex-1">
-        <section className="section-spacing bg-white pt-24">
-          <div className="container-wide max-w-5xl mx-auto">
+        <section className="hero-section bg-white">
+          <div className="site-container max-w-5xl mx-auto">
             {/* Back Button */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}

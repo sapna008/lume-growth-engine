@@ -89,7 +89,7 @@ export default function FeaturePageTemplate(props: FeaturePageTemplateProps) {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <section className="relative overflow-hidden pt-24 lg:pt-28 pb-12 lg:pb-16">
+      <section className="hero-section relative overflow-hidden">
         <div
           className="absolute inset-0 -z-10"
           style={{
@@ -110,7 +110,7 @@ export default function FeaturePageTemplate(props: FeaturePageTemplateProps) {
         />
         <div className="absolute inset-0 -z-10 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, #146fb5 1px, transparent 0)", backgroundSize: "28px 28px" }} />
 
-        <div className="container-wide relative z-10">
+        <div className="site-container relative z-10">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 xl:gap-12 items-center">
             <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="order-2 lg:order-1">
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-5 py-2.5 border border-[#146fb5]/25 mb-6">
@@ -179,9 +179,9 @@ export default function FeaturePageTemplate(props: FeaturePageTemplateProps) {
         </div>
       </section>
 
-      <section id={props.heroCtaTargetId} className="pt-16 lg:pt-24 pb-12 lg:pb-16 bg-white relative scroll-mt-24">
+      <section id={props.heroCtaTargetId} className="section-spacing bg-white relative scroll-mt-24">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
-        <div className="container-wide relative">
+        <div className="site-container relative">
           <div className="grid sm:grid-cols-3 gap-5 lg:gap-6 mb-14 lg:mb-20">
             {props.stats.map((card, i) => (
               <motion.div
@@ -227,9 +227,9 @@ export default function FeaturePageTemplate(props: FeaturePageTemplateProps) {
         </div>
       </section>
 
-      <section className="pt-12 lg:pt-16 pb-12 lg:pb-16 bg-gradient-to-b from-primary/30 to-white relative overflow-hidden">
+      <section className="section-spacing bg-gradient-to-b from-primary/30 to-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_0%,rgba(20,111,181,0.06),transparent)] pointer-events-none" />
-        <div className="container-wide relative">
+        <div className="site-container relative">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold" style={{ color: "#1b181f" }}>{t(props.stepsHeading)}</h2>
           </motion.div>
@@ -265,8 +265,8 @@ export default function FeaturePageTemplate(props: FeaturePageTemplateProps) {
         </div>
       </section>
 
-      <section className="pt-12 lg:pt-16 pb-12 lg:pb-16 bg-white">
-        <div className="container-wide">
+      <section className="section-spacing bg-white">
+        <div className="site-container">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold mb-3" style={{ color: "#1b181f" }}>{t(props.whyHeading)}</h2>
             <p className="text-base" style={{ color: "#4f4f4f" }}>{t(props.whySubheading)}</p>
@@ -282,8 +282,8 @@ export default function FeaturePageTemplate(props: FeaturePageTemplateProps) {
         </div>
       </section>
 
-      <section className="pt-12 lg:pt-16 pb-12 lg:pb-16 bg-gradient-to-b from-primary/20 to-white">
-        <div className="container-wide">
+      <section className="section-spacing bg-gradient-to-b from-primary/20 to-white">
+        <div className="site-container">
           <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold mb-3" style={{ color: "#1b181f" }}>{t(props.faqsHeading)}</h2>
             <p className="text-base" style={{ color: "#4f4f4f" }}>{t(props.faqsSubheading)}</p>
@@ -304,9 +304,9 @@ export default function FeaturePageTemplate(props: FeaturePageTemplateProps) {
         </div>
       </section>
 
-      <section className="pt-6 lg:pt-8 pb-12 lg:pb-16 bg-white border-t border-border relative overflow-hidden">
+      <section className="section-spacing bg-white border-t border-border relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_100%,rgba(20,111,181,0.06),transparent)] pointer-events-none" />
-        <div className="container-wide relative">
+        <div className="site-container relative">
           <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-3xl mx-auto text-center rounded-2xl p-8 lg:p-12 bg-gradient-to-br from-[#146fb5]/15 via-primary/25 to-[#146fb5]/10 border border-[#146fb5]/25 shadow-xl shadow-[#146fb5]/10 relative overflow-hidden">
             <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, #146fb5 1px, transparent 0)", backgroundSize: "32px 32px" }} />
             <div className="relative">

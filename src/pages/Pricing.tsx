@@ -557,8 +557,8 @@ export default function Pricing() {
       </div>
 
       {/* Hero */}
-      <section className="pt-16 lg:pt-20 pb-8 lg:pb-10 relative z-10">
-        <div className="container-wide text-center">
+      <section className="hero-section relative z-10">
+        <div className="site-container text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -593,7 +593,7 @@ export default function Pricing() {
 
       {/* Pricing Cards */}
       <section className="relative z-10">
-        <div className="container-wide max-w-5xl">
+        <div className="site-container max-w-5xl">
           <div className="grid md:grid-cols-3 gap-4 lg:gap-5">
             {plans.map((plan, i) => (
               <motion.div
@@ -699,8 +699,8 @@ export default function Pricing() {
       </section>
 
       {/* Plan Comparison */}
-      <section className="py-8 lg:py-10 relative z-10">
-        <div className="container-wide max-w-5xl">
+      <section className="section-spacing relative z-10">
+        <div className="site-container max-w-5xl">
           <div className="flex justify-center mb-4">
             <label className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white border border-border shadow-sm cursor-pointer">
               <input
@@ -819,7 +819,7 @@ export default function Pricing() {
 
       {/* Enterprise */}
       <section className="relative z-10">
-        <div className="container-wide max-w-5xl">
+        <div className="site-container max-w-5xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -852,8 +852,8 @@ export default function Pricing() {
       </section>
 
       {/* FAQs */}
-      <section className="py-8 lg:py-10 relative z-10">
-        <div className="container-tight">
+      <section className="section-spacing relative z-10">
+        <div className="site-container">
           <div className="text-center mb-8">
             <HelpCircle className="w-12 h-12 mx-auto mb-4" style={{ color: '#146fb5' }} />
             <h2 className="text-3xl font-bold" style={{ color: '#1b181f' }}>
@@ -881,8 +881,8 @@ export default function Pricing() {
       </section>
 
       {/* CTA */}
-      <section className="py-8 lg:py-10 relative z-10">
-        <div className="container-tight text-center">
+      <section className="section-spacing relative z-10">
+        <div className="site-container text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

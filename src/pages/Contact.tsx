@@ -28,8 +28,8 @@ export default function Contact() {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <section className="pt-20 lg:pt-24 pb-12 hero-gradient text-white">
-        <div className="container-wide text-center">
+      <section className="hero-section hero-gradient text-white">
+        <div className="site-container text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <h1 className="text-3xl md:text-4xl font-display font-bold mb-3">
               Contact Us
@@ -40,7 +40,7 @@ export default function Contact() {
       </section>
 
       <section className="section-spacing bg-white">
-        <div className="container-wide">
+        <div className="site-container">
           <div className="grid lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
             {/* Contact Info */}
             <div>

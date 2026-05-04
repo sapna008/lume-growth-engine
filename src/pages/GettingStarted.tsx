@@ -55,7 +55,7 @@ export default function GettingStarted() {
       <Header />
 
       {/* Hero */}
-      <section className="relative pt-20 lg:pt-24 pb-12 overflow-hidden">
+      <section className="hero-section relative overflow-hidden">
         {/* Background image with gradient overlay */}
         <div className="absolute inset-0">
           <img
@@ -68,7 +68,7 @@ export default function GettingStarted() {
         </div>
 
         <div className="relative z-10">
-          <div className="container-wide">
+          <div className="site-container">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -104,7 +104,7 @@ export default function GettingStarted() {
 
       {/* Setup Options */}
       <section className="section-spacing bg-white">
-        <div className="container-wide">
+        <div className="site-container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -258,7 +258,7 @@ export default function GettingStarted() {
 
       {/* Onboarding Journey */}
       <section className="section-spacing subtle-gradient">
-        <div className="container-wide">
+        <div className="site-container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -972,7 +972,7 @@ export default function GettingStarted() {
 
       {/* Support Section */}
       <section className="section-spacing bg-white">
-        <div className="container-wide">
+        <div className="site-container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

@@ -18,8 +18,8 @@ export default function About() {
       <Header />
 
       {/* Hero */}
-      <section className="pt-24 lg:pt-32 pb-14 bg-gradient-to-b from-[#e9f4ff] via-white to-white">
-        <div className="container-wide">
+      <section className="hero-section bg-gradient-to-b from-[#e9f4ff] via-white to-white">
+        <div className="site-container">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -69,7 +69,7 @@ export default function About() {
 
       {/* Why we exist */}
       <section className="section-spacing bg-white">
-        <div className="container-wide grid lg:grid-cols-[1.1fr,1fr] gap-10 lg:gap-14 items-start">
+        <div className="site-container grid lg:grid-cols-[1.1fr,1fr] gap-10 lg:gap-14 items-start">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -192,7 +192,7 @@ export default function About() {
 
       {/* What we build - Lume */}
       <section className="section-spacing subtle-gradient">
-        <div className="container-wide grid lg:grid-cols-[1.15fr,1fr] gap-10 lg:gap-14 items-start">
+        <div className="site-container grid lg:grid-cols-[1.15fr,1fr] gap-10 lg:gap-14 items-start">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -338,7 +338,7 @@ export default function About() {
 
       {/* Our belief */}
       <section className="section-spacing bg-white">
-        <div className="container-wide grid lg:grid-cols-[1.2fr,1fr] gap-10 lg:gap-16 items-center">
+        <div className="site-container grid lg:grid-cols-[1.2fr,1fr] gap-10 lg:gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -399,7 +399,7 @@ export default function About() {
 
       {/* Leadership */}
       <section className="section-spacing subtle-gradient">
-        <div className="container-wide">
+        <div className="site-container">
           <div className="text-center max-w-3xl mx-auto mb-10">
             <h2 className="text-2xl md:text-3xl font-display font-bold mb-3 text-[#1b181f]">
               {language === "HI" ? "नेतृत्व" : "Leadership"}
@@ -614,7 +614,7 @@ export default function About() {
 
       {/* How we work */}
       <section className="section-spacing bg-white">
-        <div className="container-wide grid lg:grid-cols-[1.1fr,1fr] gap-10 lg:gap-16 items-start">
+        <div className="site-container grid lg:grid-cols-[1.1fr,1fr] gap-10 lg:gap-16 items-start">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -692,7 +692,7 @@ export default function About() {
 
       {/* Looking ahead & Join the journey */}
       <section className="section-spacing bg-gradient-to-b from-[#0b1530] via-[#101c3a] to-[#0b1530] text-white">
-        <div className="container-wide grid lg:grid-cols-[1.15fr,1fr] gap-10 lg:gap-16 items-center">
+        <div className="site-container grid lg:grid-cols-[1.15fr,1fr] gap-10 lg:gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

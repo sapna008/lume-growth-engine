@@ -37,7 +37,7 @@ export function Footer() {
   return (
     <footer className="bg-blue-900 text-white">
       {/* Links Section */}
-      <div className="container-wide py-10 lg:py-12">
+      <div className="site-container py-10 lg:py-12">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 lg:gap-8">
           {/* Brand */}
           <div className="col-span-2">
@@ -131,7 +131,7 @@ export function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
-        <div className="container-wide py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="site-container py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-white/80 text-xs">
             © {new Date().getFullYear()} Apeiros AI. {t('footer.copyright')}
           </p>

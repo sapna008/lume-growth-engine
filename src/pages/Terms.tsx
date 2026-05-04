@@ -12,8 +12,8 @@ export default function Terms() {
       
       <main className="flex-1">
         {/* Header Section */}
-        <section className="py-8 mt-24 pt-4">
-          <div className="container-wide text-center">
+        <section className="hero-section">
+          <div className="site-container text-center">
             <h1 className="text-4xl font-bold mb-2 text-gray-900">
               {language === 'HI' ? 'नियम और शर्तें' : 'Terms and Conditions'}
             </h1>
@@ -25,7 +25,7 @@ export default function Terms() {
 
         {/* Content Section */}
         <section className="py-0 lg:py-0">
-          <div className="container-wide max-w-4xl prose prose-lg prose-blue dark:prose-invert">
+          <div className="site-container max-w-4xl prose prose-lg prose-blue dark:prose-invert">
             <div className="space-y-8 text-gray-700 pt-6">
               {language === 'HI' ? (
                 <>

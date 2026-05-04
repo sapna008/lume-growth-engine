@@ -219,8 +219,8 @@ export default function Solutions() {
       <Header />
 
       {/* Hero */}
-      <section className="pt-24 lg:pt-32 pb-16 hero-gradient text-white">
-        <div className="container-wide text-center">
+      <section className="hero-section hero-gradient text-white">
+        <div className="site-container text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -256,7 +256,7 @@ export default function Solutions() {
 
       {/* Solutions List */}
       <section className="section-spacing bg-white">
-        <div className="container-wide space-y-16">
+        <div className="site-container space-y-16">
           {solutions.map((solution, i) => (
           <motion.div
               key={solution.id}
@@ -329,7 +329,7 @@ export default function Solutions() {
 
       {/* CTA */}
       <section className="section-spacing subtle-gradient">
-        <div className="container-tight text-center">
+        <div className="site-container text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: '#1b181f' }}>
             {language === "HI" ? "एक ऐप में सभी समाधान" : "All Solutions in One App"}
           </h2>
