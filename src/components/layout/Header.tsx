@@ -171,6 +171,7 @@ const navigation = [
     children: [
       { name: "Lume", nameHI: "ल्यूम", href: "/products", icon: Smartphone, desc: "Complete retail platform", descHI: "पूर्ण खुदरा मंच" },
       { name: "Lume Shop", nameHI: "ल्यूम दुकान", href: "#", icon: ShoppingBag, desc: "Coming Soon", descHI: "जल्द आ रहा है", comingSoon: true },
+      { name: "MPos", nameHI: "एमपीओएस", href: "/products/mpos", icon: Smartphone, desc: "Mobile POS for fast billing", descHI: "तेज़ बिलिंग के लिए मोबाइल POS" },
     ],
   },
   {

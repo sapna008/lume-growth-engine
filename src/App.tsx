@@ -9,6 +9,7 @@ import { GlobalDemoFab } from "@/components/layout/GlobalDemoFab";
 import Index from "./pages/Index";
 import ForRetailers from "./pages/ForRetailers";
 import Products from "./pages/Products";
+import ProductsMpos from "./pages/ProductsMpos";
 import Solutions from "./pages/Solutions";
 import Features from "./pages/Features";
 import ReviewFeature from "./pages/features/ReviewFeature";
@@ -56,6 +57,7 @@ const App = () => (
             <Route path="/industries" element={<Navigate to="/industries/fashion" replace />} />
             <Route path="/industries/:slug" element={<IndustryPageRoute />} />
             <Route path="/products" element={<Products />} />
+            <Route path="/products/mpos" element={<ProductsMpos />} />
             <Route path="/products/:id" element={<Products />} />
             <Route path="/solutions" element={<Solutions />} />
             <Route path="/solutions/:id" element={<Solutions />} />
