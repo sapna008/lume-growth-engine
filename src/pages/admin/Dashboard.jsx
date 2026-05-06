@@ -82,6 +82,7 @@ const PieTooltip = ({ active, payload }) => {
 };
 
 export default function Dashboard() {
+  const API_BASE_URL = import.meta.env.VITE_CONTENT_API_BASE_URL || "http://localhost:4000";
   const { user } = useAuth();
   const navigate = useNavigate();
   const [activeView, setActiveView] = useState("analytics");
@@ -91,6 +92,22 @@ export default function Dashboard() {
   const [bookDemoClicks, setBookDemoClicks] = useState(0);
   const [loading, setLoading] = useState(true);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [contentLoading, setContentLoading] = useState(false);
+  const [contentSaving, setContentSaving] = useState(false);
+  const [contentForm, setContentForm] = useState({
+    heading: "",
+    subheading: "",
+    colorTheme: "",
+    template: "",
+    heroImage: "",
+    heroVideo: "",
+    heroImageId: "",
+    heroVideoId: "",
+  });
+  const [heroImageFile, setHeroImageFile] = useState(null);
+  const [heroVideoFile, setHeroVideoFile] = useState(null);
+  const [heroImagePreview, setHeroImagePreview] = useState("");
+  const [heroVideoPreview, setHeroVideoPreview] = useState("");
 
   useEffect(() => {
     const fetchLeads = async () => {
@@ -145,6 +162,87 @@ export default function Dashboard() {
     }, {});
     return Object.entries(grouped).map(([name, value]) => ({ name, value }));
   }, [leads]);
+
+  const fetchContentData = async () => {
+    setContentLoading(true);
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/content`);
+      const json = await response.json();
+      const data = json?.data ?? {};
+
+      setContentForm({
+        heading: data.heading ?? "",
+        subheading: data.subheading ?? "",
+        colorTheme: data.colorTheme ?? "",
+        template: data.template ?? "",
+        heroImage: data.heroImage ?? "",
+        heroVideo: data.heroVideo ?? "",
+        heroImageId: data.heroImageId ?? "",
+        heroVideoId: data.heroVideoId ?? "",
+      });
+      setHeroImagePreview(data.heroImage ?? "");
+      setHeroVideoPreview(data.heroVideo ?? "");
+      setHeroImageFile(null);
+      setHeroVideoFile(null);
+    } catch {
+      toast.error("Failed to load content data");
+    } finally {
+      setContentLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (activeView === "content") {
+      void fetchContentData();
+    }
+  }, [activeView]);
+
+  const handleContentSave = async (event) => {
+    event.preventDefault();
+    setContentSaving(true);
+
+    try {
+      const formData = new FormData();
+      formData.append("heading", contentForm.heading);
+      formData.append("subheading", contentForm.subheading);
+      formData.append("colorTheme", contentForm.colorTheme);
+      formData.append("template", contentForm.template);
+
+      if (heroImageFile) formData.append("heroImage", heroImageFile);
+      if (heroVideoFile) formData.append("heroVideo", heroVideoFile);
+
+      const response = await fetch(`${API_BASE_URL}/api/content`, {
+        method: "POST",
+        body: formData,
+      });
+      const json = await response.json();
+
+      if (!response.ok || !json.success) {
+        throw new Error(json.message || "Failed to save content");
+      }
+
+      toast.success("Hero content saved");
+      await fetchContentData();
+    } catch (error) {
+      toast.error(error.message || "Failed to save content");
+    } finally {
+      setContentSaving(false);
+    }
+  };
+
+  const onImageFileChange = (event) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    setHeroImageFile(file);
+    setHeroImagePreview(URL.createObjectURL(file));
+  };
+
+  const onVideoFileChange = (event) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    setHeroVideoFile(file);
+    setHeroVideoPreview(URL.createObjectURL(file));
+  };
 
   const handleLogout = async () => {
     try {
@@ -758,10 +856,146 @@ export default function Dashboard() {
 
           <main className="d-main">
             {activeView === "content" && (
-              <div className="d-content-empty">
-                <div className="d-content-icon-wrap">📄</div>
-                <h2>Content Management</h2>
-                <p>This section is ready. Share your requirements and we'll wire up forms, CMS blocks, and publishing controls here.</p>
+              <div className="d-card" style={{ maxWidth: 980 }}>
+                <div className="d-card-title">Hero Content Management</div>
+                <div className="d-card-sub">Upload image/video and update banner content</div>
+
+                {contentLoading ? (
+                  <p style={{ color: "#64748b", padding: "16px 0" }}>Loading content...</p>
+                ) : (
+                  <form onSubmit={handleContentSave} style={{ display: "grid", gap: 14 }}>
+                    <div style={{ display: "grid", gap: 8 }}>
+                      <label style={{ fontSize: 13, fontWeight: 600 }}>Heading</label>
+                      <input
+                        value={contentForm.heading}
+                        onChange={(e) => setContentForm((prev) => ({ ...prev, heading: e.target.value }))}
+                        placeholder="Enter heading"
+                        style={{ border: "1px solid #dbeafe", borderRadius: 10, padding: "10px 12px" }}
+                      />
+                    </div>
+
+                    <div style={{ display: "grid", gap: 8 }}>
+                      <label style={{ fontSize: 13, fontWeight: 600 }}>Subheading</label>
+                      <textarea
+                        value={contentForm.subheading}
+                        onChange={(e) => setContentForm((prev) => ({ ...prev, subheading: e.target.value }))}
+                        rows={3}
+                        placeholder="Enter subheading"
+                        style={{ border: "1px solid #dbeafe", borderRadius: 10, padding: "10px 12px", resize: "vertical" }}
+                      />
+                    </div>
+
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))", gap: 12 }}>
+                      <div style={{ display: "grid", gap: 8 }}>
+                        <label style={{ fontSize: 13, fontWeight: 600 }}>Color Theme</label>
+                        <input
+                          value={contentForm.colorTheme}
+                          onChange={(e) => setContentForm((prev) => ({ ...prev, colorTheme: e.target.value }))}
+                          placeholder="e.g. Ocean Blue"
+                          style={{ border: "1px solid #dbeafe", borderRadius: 10, padding: "10px 12px" }}
+                        />
+                      </div>
+                      <div style={{ display: "grid", gap: 8 }}>
+                        <label style={{ fontSize: 13, fontWeight: 600 }}>Template</label>
+                        <input
+                          value={contentForm.template}
+                          onChange={(e) => setContentForm((prev) => ({ ...prev, template: e.target.value }))}
+                          placeholder="e.g. modern-v1"
+                          style={{ border: "1px solid #dbeafe", borderRadius: 10, padding: "10px 12px" }}
+                        />
+                      </div>
+                    </div>
+
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))", gap: 12 }}>
+                      <div style={{ display: "grid", gap: 8 }}>
+                        <label style={{ fontSize: 13, fontWeight: 600 }}>Hero Image</label>
+                        <input type="file" accept="image/*" onChange={onImageFileChange} />
+                        {heroImagePreview ? (
+                          <div style={{ display: "grid", gap: 8 }}>
+                            <img
+                              src={heroImagePreview}
+                              alt="Hero preview"
+                              style={{ width: "100%", maxHeight: 180, objectFit: "cover", borderRadius: 10, border: "1px solid #e2e8f0" }}
+                            />
+                            <a
+                              href={contentForm.heroImage || heroImagePreview}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              style={{
+                                fontSize: 12,
+                                color: "#2563eb",
+                                textDecoration: "underline",
+                                wordBreak: "break-all",
+                              }}
+                            >
+                              {contentForm.heroImage ? contentForm.heroImage : "Selected image preview link"}
+                            </a>
+                          </div>
+                        ) : null}
+                      </div>
+                      <div style={{ display: "grid", gap: 8 }}>
+                        <label style={{ fontSize: 13, fontWeight: 600 }}>Hero Video</label>
+                        <input type="file" accept="video/*" onChange={onVideoFileChange} />
+                        {heroVideoPreview ? (
+                          <div style={{ display: "grid", gap: 8 }}>
+                            <video
+                              src={heroVideoPreview}
+                              controls
+                              style={{ width: "100%", maxHeight: 180, borderRadius: 10, border: "1px solid #e2e8f0" }}
+                            />
+                            <a
+                              href={contentForm.heroVideo || heroVideoPreview}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              style={{
+                                fontSize: 12,
+                                color: "#2563eb",
+                                textDecoration: "underline",
+                                wordBreak: "break-all",
+                              }}
+                            >
+                              {contentForm.heroVideo ? contentForm.heroVideo : "Selected video preview link"}
+                            </a>
+                          </div>
+                        ) : null}
+                      </div>
+                    </div>
+
+                    <div style={{ display: "flex", gap: 10, marginTop: 8, flexWrap: "wrap" }}>
+                      <button
+                        type="submit"
+                        disabled={contentSaving}
+                        style={{
+                          border: "none",
+                          borderRadius: 10,
+                          padding: "10px 16px",
+                          background: "linear-gradient(135deg,#2563eb,#0891b2)",
+                          color: "#fff",
+                          fontWeight: 700,
+                          cursor: contentSaving ? "not-allowed" : "pointer",
+                          opacity: contentSaving ? 0.7 : 1,
+                        }}
+                      >
+                        {contentSaving ? "Saving..." : "Save Content"}
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => void fetchContentData()}
+                        style={{
+                          border: "1px solid #cbd5e1",
+                          borderRadius: 10,
+                          padding: "10px 16px",
+                          background: "#fff",
+                          color: "#334155",
+                          fontWeight: 600,
+                          cursor: "pointer",
+                        }}
+                      >
+                        Refresh
+                      </button>
+                    </div>
+                  </form>
+                )}
               </div>
             )}
 

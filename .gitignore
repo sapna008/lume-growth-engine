@@ -11,6 +11,21 @@ node_modules
 dist
 dist-ssr
 *.local
+.env
+**/.env
+.env.local
+**/.env.local
+
+# Firebase service account keys (NEVER COMMIT)
+*-firebase-adminsdk-*.json
+src/assets/*-firebase-adminsdk-*.json
+backend/.firebase-adminsdk-*.json
+
+# Sensitive files
+*.key
+*.pem
+*.p12
+secrets/
 
 # Editor directories and files
 .vscode/*
