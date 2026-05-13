@@ -208,7 +208,7 @@ const searchablePages = [
   { name: "Lume Shop", href: "/products/lume-shop", keywords: ["lume shop", "hyperlocal", "online store", "shopping app"] },
 
   // Pricing & plans
-  { name: "Pricing", href: "/pricing", keywords: ["pricing", "plans", "cost", "price", "free", "कीमत", "standard", "advance", "premium"] },
+  { name: "Pricing", href: "/pricing", keywords: ["pricing", "plans", "cost", "price", "free", "कीमत", "advance", "premium"] },
 
   // Dedicated feature pages
   { name: "Reviews Feature", href: "/features/reviews", keywords: ["reviews", "google reviews", "rating", "feature reviews"] },

@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, HelpCircle, Zap, X, Sparkles } from "lucide-react";
+import { CheckCircle2, HelpCircle, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -16,51 +15,25 @@ import { useState } from "react";
 
 const plans = [
   {
-    name: "Standard",
-    nameHI: "स्टैंडर्ड",
-    tagLine: "Ideal for small retail businesses",
-    price: "₹5,500",
-    originalPrice: "₹14,999",
+    name: "Advance",
+    nameHI: "एडवांस",
+    tagLine: "Focus on retention & insights",
+    price: "₹9,999",
+    originalPrice: "₹29,999",
     periodLabel: "per year + 18% GST",
     highlightLine: "What's included:",
     messagesLabel: "500 FREE MESSAGES INCLUDED",
     features: [
-      "E‑Bill sending (SMS, WhatsApp, Email)",
-      "Smart E‑Bills (Logo, Social, AI‑Driven)",
-      "Credit Management (Udhaar Control)",
-      "Marketing & Campaign Tools",
+      "AI-powered Smart E-Bills",
+      "WhatsApp, SMS & Email billing",
+      "Credit management & campaign tools",
+      "Loyalty rewards, cashback & insights",
     ],
     featuresHI: [
-      "ई-बिल भेजना (SMS, व्हाट्सऐप, Email)",
-      "स्मार्ट ई-बिल (लोगो, सोशल, AI के साथ)",
-      "क्रेडिट मैनेजमेंट (उधार कंट्रोल)",
-      "मार्केटिंग और कैंपेन टूल्स",
-    ],
-    cta: "Get Started",
-    href: "/book-demo",
-    popular: false,
-    badge: null,
-  },
-  {
-    name: "Advance",
-    nameHI: "एडवांस",
-    tagLine: "Focus on retention & insights",
-    price: "₹7,500",
-    originalPrice: "₹29,999",
-    periodLabel: "per year + 18% GST",
-    highlightLine: "Everything in Standard, plus:",
-    messagesLabel: "500 FREE MESSAGES INCLUDED",
-    features: [
-      "Customer Behaviour Analysis",
-      "Customer Loyalty & Rewards",
-      "Cashback & Smart Coupons",
-      "Advanced Growth Insights",
-    ],
-    featuresHI: [
-      "ग्राहक व्यवहार की जानकारी",
-      "ग्राहक लॉयल्टी और रिवॉर्ड्स",
-      "कैशबैक और स्मार्ट कूपन",
-      "एडवांस ग्रोथ इनसाइट्स",
+      "AI-संचालित स्मार्ट ई-बिल",
+      "व्हाट्सऐप, SMS और ईमेल बिलिंग",
+      "क्रेडिट मैनेजमेंट और कैंपेन टूल्स",
+      "लॉयल्टी रिवॉर्ड्स, कैशबैक और इनसाइट्स",
     ],
     cta: "Get Started",
     href: "/book-demo",
@@ -71,7 +44,7 @@ const plans = [
     name: "Premium",
     nameHI: "प्रीमियम",
     tagLine: "Maximize Brand Impact",
-    price: "₹9,500",
+    price: "₹12,999",
     originalPrice: "₹49,999",
     periodLabel: "per year + 18% GST",
     highlightLine: "Everything in Advance, plus:",
@@ -542,7 +515,7 @@ export default function Pricing() {
   const [showComparison, setShowComparison] = useState(false);
   useSEO(
     'Pricing Plans – Lume for Retailers',
-    'Lume pricing: Standard, Advance & Premium plans. Digital billing, customer loyalty, campaigns. Start from ₹5,500/year. Book a demo.'
+    'Lume pricing: Advance & Premium plans. Digital billing, customer loyalty, campaigns. Start from ₹9,999/year. Book a demo.'
   );
 
   return (
@@ -593,23 +566,23 @@ export default function Pricing() {
 
       {/* Pricing Cards */}
       <section className="relative z-10">
-        <div className="site-container max-w-5xl">
-          <div className="grid md:grid-cols-3 gap-4 lg:gap-5">
+        <div className="site-container max-w-4xl">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:gap-5">
             {plans.map((plan, i) => (
               <motion.div
                 key={plan.name}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className={`relative rounded-2xl p-5 transition-all duration-300 flex flex-col h-full ${
+                className={`relative flex h-full min-h-0 flex-col rounded-2xl p-4 transition-all duration-300 sm:p-5 lg:p-5 ${
                   plan.popular
-                    ? "bg-gradient-to-br from-[#eaf2f8] via-[#d4e6f3]/50 to-white border-2 border-[#146fb5] shadow-2xl shadow-[#146fb5]/20"
-                    : "bg-white border border-border shadow-lg hover:shadow-xl hover:-translate-y-1"
+                    ? "border-2 border-[#146fb5] bg-gradient-to-br from-[#eaf2f8] via-[#d4e6f3]/50 to-white shadow-2xl shadow-[#146fb5]/20"
+                    : "border border-border bg-white shadow-lg hover:-translate-y-1 hover:shadow-xl"
                 }`}
               >
                 {plan.badge && (
                   <div
-                    className={`absolute -top-0.5 right-4 px-3 py-1.5 rounded-b-lg text-xs font-bold uppercase tracking-wide ${
+                    className={`absolute -top-0.5 right-4 rounded-b-lg px-3 py-1.5 text-xs font-bold uppercase tracking-wide ${
                       plan.popular
                         ? "bg-gradient-to-r from-[#146fb5] to-[#1a7fc7] text-white shadow-lg"
                         : "bg-gradient-to-r from-[#146fb5] to-[#1a7fc7] text-white"
@@ -618,76 +591,79 @@ export default function Pricing() {
                     {language === "HI" && plan.badgeHI ? plan.badgeHI : plan.badge}
                   </div>
                 )}
-                <div className="mb-4">
-                  <h3 className="text-2xl font-bold" style={{ color: "#1b181f" }}>
-                    {language === "HI" && plan.nameHI ? plan.nameHI : plan.name}
-                  </h3>
-                  <p className="text-sm mt-1" style={{ color: "#4f4f4f" }}>
-                    {language === "HI"
-                      ? plan.name === "Standard"
-                        ? "छोटे रिटेल बिज़नेस के लिए सही शुरुआत"
-                        : plan.name === "Advance"
-                        ? "उन स्टोर्स के लिए जो रिपीट कस्टमर और इनसाइट्स पर फोकस करते हैं"
-                        : "ब्रांड इम्पैक्ट और कस्टमर ऐप के लिए पूरा सॉल्यूशन"
-                      : plan.tagLine}
-                  </p>
-                </div>
 
-                <div className="mb-2">
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-4xl font-bold" style={{ color: plan.popular ? '#146fb5' : '#1b181f' }}>
-                      {plan.price}
-                    </span>
-                    {plan.originalPrice && (
-                      <span className="text-sm line-through" style={{ color: '#9ca3af' }}>{plan.originalPrice}</span>
-                    )}
+                <div className="grid min-h-0 flex-1 grid-cols-1 gap-5 lg:grid-cols-[2fr_3fr] lg:items-start lg:gap-6">
+                  {/* Left: plan identity & pricing */}
+                  <div className="flex min-w-0 flex-col gap-2.5">
+                    <div>
+                      <h3 className="text-2xl font-bold" style={{ color: "#1b181f" }}>
+                        {language === "HI" && plan.nameHI ? plan.nameHI : plan.name}
+                      </h3>
+                      <p className="mt-1 text-sm leading-snug" style={{ color: "#4f4f4f" }}>
+                        {language === "HI"
+                          ? plan.name === "Advance"
+                            ? "उन स्टोर्स के लिए जो रिपीट कस्टमर और इनसाइट्स पर फोकस करते हैं"
+                            : "ब्रांड इम्पैक्ट और कस्टमर ऐप के लिए पूरा सॉल्यूशन"
+                          : plan.tagLine}
+                      </p>
+                    </div>
+
+                    <div>
+                      <div className="flex flex-wrap items-baseline gap-2">
+                        <span className="text-4xl font-bold" style={{ color: plan.popular ? '#146fb5' : '#1b181f' }}>
+                          {plan.price}
+                        </span>
+                        {plan.originalPrice && (
+                          <span className="text-sm line-through" style={{ color: '#9ca3af' }}>{plan.originalPrice}</span>
+                        )}
+                      </div>
+                      {plan.periodLabel && (
+                        <p className="mt-0.5 text-sm" style={{ color: "#4f4f4f" }}>
+                          {language === "HI" ? "प्रति वर्ष + 18% GST" : plan.periodLabel}
+                        </p>
+                      )}
+                    </div>
+
+                    <div>
+                      <span
+                        className="inline-block rounded-full px-3 py-1 text-xs font-semibold bg-[#146fb5]/10"
+                        style={{ color: "#146fb5" }}
+                      >
+                        {language === "HI"
+                          ? "500 मुफ्त मैसेज शामिल"
+                          : plan.messagesLabel}
+                      </span>
+                    </div>
                   </div>
-                  {plan.periodLabel && (
-                    <p className="text-sm" style={{ color: "#4f4f4f" }}>
-                      {language === "HI" ? "प्रति वर्ष + 18% GST" : plan.periodLabel}
+
+                  {/* Right: highlights & features */}
+                  <div className="flex min-w-0 flex-col lg:pt-2">
+                    <p
+                      className="mb-2 text-[13px] font-semibold uppercase tracking-wider leading-snug lg:text-sm lg:leading-snug"
+                      style={{ color: "#4f4f4f" }}
+                    >
+                      {language === "HI"
+                        ? plan.name === "Advance"
+                          ? "इस प्लान में शामिल:"
+                          : "एडवांस में जो है, उसके साथ:"
+                        : plan.highlightLine}
                     </p>
-                  )}
-                </div>
-
-                <div className="mb-4">
-                  <span
-                    className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-[#146fb5]/10"
-                    style={{ color: "#146fb5" }}
-                  >
-                    {language === "HI"
-                      ? "500 मुफ्त मैसेज शामिल"
-                      : plan.messagesLabel}
-                  </span>
-                </div>
-
-                <div className="flex-1">
-                  <p
-                    className="text-xs font-semibold uppercase tracking-wider mb-3"
-                    style={{ color: "#4f4f4f" }}
-                  >
-                    {language === "HI"
-                      ? plan.name === "Standard"
-                        ? "इस प्लान में शामिल:"
-                        : plan.name === "Advance"
-                        ? "स्टैण्डर्ड में जो है, उसके साथ:"
-                        : "एडवांस में जो है, उसके साथ:"
-                      : plan.highlightLine}
-                  </p>
-                  <ul className="space-y-2">
-                    {(language === "HI" && plan.featuresHI ? plan.featuresHI : plan.features).map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-sm">
-                        <CheckCircle2 className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: '#146fb5' }} />
-                        <span style={{ color: "#1b181f" }}>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+                    <ul className="space-y-1.5">
+                      {(language === "HI" && plan.featuresHI ? plan.featuresHI : plan.features).map((feature, idx) => (
+                        <li key={idx} className="flex items-start gap-2 text-[15px] leading-snug">
+                          <CheckCircle2 className="mt-[3px] h-[1.0625rem] w-[1.0625rem] shrink-0" style={{ color: '#146fb5' }} />
+                          <span style={{ color: "#1b181f" }}>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
 
                 {/* Footer Badge */}
-                <div className="mt-auto pt-3 border-t border-border">
-                  <div className={`rounded-lg overflow-hidden ${plan.popular ? "ring-1 ring-[#146fb5]/30" : ""}`}>
-                    <div className="py-2 px-3 text-xs font-bold flex items-center gap-2 text-white" style={{ background: 'linear-gradient(135deg, #146fb5 0%, #1a7fc7 100%)' }}>
-                      <Sparkles className="w-3 h-3" />
+                <div className="mt-auto border-t border-border pt-2.5 lg:pt-3">
+                  <div className={`overflow-hidden rounded-lg ${plan.popular ? "ring-1 ring-[#146fb5]/30" : ""}`}>
+                    <div className="flex items-center gap-2 px-3 py-2 text-xs font-bold text-white" style={{ background: 'linear-gradient(135deg, #146fb5 0%, #1a7fc7 100%)' }}>
+                      <Sparkles className="h-3 w-3" />
                       {language === "HI" ? "ल्यूम द्वारा संचालित" : "POWERED BY LUME"}
                     </div>
                   </div>
@@ -730,8 +706,8 @@ export default function Pricing() {
                 </h2>
                 <p style={{ color: "#4f4f4f" }}>
                   {language === "HI"
-                    ? "स्टैंडर्ड बनाम एडवांस बनाम प्रीमियम"
-                    : "Standard vs Advance vs Premium"}
+                    ? "एडवांस बनाम प्रीमियम"
+                    : "Advance vs Premium"}
                 </p>
               </motion.div>
 
@@ -750,14 +726,8 @@ export default function Pricing() {
                         </th>
                         <th className="text-center py-4 px-4 font-semibold" style={{ color: '#1b181f' }}>
                           <div className="flex flex-col items-center">
-                            <span>{language === "HI" ? "स्टैंडर्ड" : "Standard"}</span>
-                            <span className="text-sm font-normal" style={{ color: '#4f4f4f' }}>₹5,500 / year</span>
-                          </div>
-                        </th>
-                        <th className="text-center py-4 px-4 font-semibold" style={{ color: '#1b181f' }}>
-                          <div className="flex flex-col items-center">
                             <span>{language === "HI" ? "एडवांस" : "Advance"}</span>
-                            <span className="text-sm font-normal" style={{ color: '#4f4f4f' }}>₹7,500 / year</span>
+                            <span className="text-sm font-normal" style={{ color: '#4f4f4f' }}>₹9,999 / year</span>
                           </div>
                         </th>
                         <th className="text-center py-4 px-4 font-semibold bg-[#146fb5]/10" style={{ color: '#1b181f' }}>
@@ -765,7 +735,7 @@ export default function Pricing() {
                             <span>
                               {language === "HI" ? "प्रीमियम" : "Premium"}
                             </span>
-                            <span className="text-sm font-normal" style={{ color: '#4f4f4f' }}>₹9,500 / year</span>
+                            <span className="text-sm font-normal" style={{ color: '#4f4f4f' }}>₹12,999 / year</span>
                           </div>
                         </th>
                       </tr>
@@ -786,14 +756,7 @@ export default function Pricing() {
                             </div>
                           </td>
                           <td className="py-4 px-4 text-center">
-                            {feature.standard === "yes" ? (
-                              <CheckCircle2 className="w-5 h-5 mx-auto" style={{ color: '#16a34a' }} />
-                            ) : (
-                              <span className="text-base" style={{ color: '#9ca3af' }}>—</span>
-                            )}
-                          </td>
-                          <td className="py-4 px-4 text-center">
-                            {feature.advance === "yes" ? (
+                            {feature.standard === "yes" || feature.advance === "yes" ? (
                               <CheckCircle2 className="w-5 h-5 mx-auto" style={{ color: '#16a34a' }} />
                             ) : (
                               <span className="text-base" style={{ color: '#9ca3af' }}>—</span>
