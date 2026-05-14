@@ -12,6 +12,7 @@ import {
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useSEO } from "@/hooks/useSEO";
 import { useState } from "react";
+import { cn } from "@/lib/utils";
 
 const plans = [
   {
@@ -22,18 +23,30 @@ const plans = [
     originalPrice: "₹29,999",
     periodLabel: "per year + 18% GST",
     highlightLine: "What's included:",
-    messagesLabel: "500 FREE MESSAGES INCLUDED",
+    messagesLabel: "500 FREE MESSAGES",
     features: [
-      "AI-powered Smart E-Bills",
-      "WhatsApp, SMS & Email billing",
-      "Credit management & campaign tools",
-      "Loyalty rewards, cashback & insights",
+      "E-Bill Sending (WhatsApp, SMS, Email)",
+      "Smart E-Bills (Logo, Social, AI-Driven)",
+      "Credit Management (Udhar Control)",
+      "Marketing & Campaign Tools",
     ],
     featuresHI: [
-      "AI-संचालित स्मार्ट ई-बिल",
-      "व्हाट्सऐप, SMS और ईमेल बिलिंग",
-      "क्रेडिट मैनेजमेंट और कैंपेन टूल्स",
-      "लॉयल्टी रिवॉर्ड्स, कैशबैक और इनसाइट्स",
+      "ई-बिल भेजना (व्हाट्सऐप, SMS, ईमेल)",
+      "स्मार्ट ई-बिल (लोगो, सोशल, AI-संचालित)",
+      "क्रेडिट मैनेजमेंट (उधार कंट्रोल)",
+      "मार्केटिंग और कैंपेन टूल्स",
+    ],
+    featuresMore: [
+      "Customer Behavior Analysis",
+      "Customer Loyalty & Rewards",
+      "Cashback & Smart Coupons",
+      "Advanced Growth Insights",
+    ],
+    featuresMoreHI: [
+      "ग्राहक व्यवहार विश्लेषण",
+      "ग्राहक लॉयल्टी और रिवॉर्ड्स",
+      "कैशबैक और स्मार्ट कूपन",
+      "एडवांस ग्रोथ इनसाइट्स",
     ],
     cta: "Get Started",
     href: "/book-demo",
@@ -48,7 +61,7 @@ const plans = [
     originalPrice: "₹49,999",
     periodLabel: "per year + 18% GST",
     highlightLine: "Everything in Advance, plus:",
-    messagesLabel: "500 FREE MESSAGES INCLUDED",
+    messagesLabel: "500 FREE MESSAGES",
     features: [
       "Your own customer shopping app",
       "Direct access to your customers",
@@ -513,6 +526,7 @@ const faqs = [
 export default function Pricing() {
   const { language } = useLanguage();
   const [showComparison, setShowComparison] = useState(false);
+  const [advanceFeaturesExpanded, setAdvanceFeaturesExpanded] = useState(false);
   useSEO(
     'Pricing Plans – Lume for Retailers',
     'Lume pricing: Advance & Premium plans. Digital billing, customer loyalty, campaigns. Start from ₹9,999/year. Book a demo.'
@@ -624,13 +638,13 @@ export default function Pricing() {
                       )}
                     </div>
 
-                    <div>
+                    <div className="w-fit max-w-full min-w-0">
                       <span
-                        className="inline-block rounded-full px-3 py-1 text-xs font-semibold bg-[#146fb5]/10"
+                        className="inline-flex max-w-full min-w-0 items-center justify-center whitespace-nowrap rounded-full bg-[#146fb5]/10 px-2 py-0.5 text-[10px] font-semibold uppercase leading-none tracking-wide sm:px-2.5 sm:text-[11px] sm:leading-tight md:text-xs"
                         style={{ color: "#146fb5" }}
                       >
                         {language === "HI"
-                          ? "500 मुफ्त मैसेज शामिल"
+                          ? "500 मुफ्त मैसेज"
                           : plan.messagesLabel}
                       </span>
                     </div>
@@ -648,7 +662,7 @@ export default function Pricing() {
                           : "एडवांस में जो है, उसके साथ:"
                         : plan.highlightLine}
                     </p>
-                    <ul className="space-y-1.5">
+                    <ul className="space-y-1">
                       {(language === "HI" && plan.featuresHI ? plan.featuresHI : plan.features).map((feature, idx) => (
                         <li key={idx} className="flex items-start gap-2 text-[15px] leading-snug">
                           <CheckCircle2 className="mt-[3px] h-[1.0625rem] w-[1.0625rem] shrink-0" style={{ color: '#146fb5' }} />
@@ -656,6 +670,47 @@ export default function Pricing() {
                         </li>
                       ))}
                     </ul>
+                    {plan.featuresMore && plan.featuresMore.length > 0 ? (
+                      <>
+                        {!advanceFeaturesExpanded ? (
+                          <button
+                            type="button"
+                            className="mt-1 w-fit text-left text-sm font-medium text-[#146fb5] underline-offset-2 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#146fb5]/40 focus-visible:ring-offset-2 rounded-sm"
+                            aria-expanded={false}
+                            onClick={() => setAdvanceFeaturesExpanded(true)}
+                          >
+                            {language === "HI"
+                              ? `और देखें (${plan.featuresMore.length} और)`
+                              : `View more (${plan.featuresMore.length} more)`}
+                          </button>
+                        ) : null}
+                        <div
+                          className={cn(
+                            "grid transition-[grid-template-rows] duration-300 ease-in-out",
+                            advanceFeaturesExpanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                          )}
+                        >
+                          <div className="min-h-0 overflow-hidden">
+                            <ul className="space-y-1 pt-1">
+                              {(language === "HI" && plan.featuresMoreHI ? plan.featuresMoreHI : plan.featuresMore).map((feature, idx) => (
+                                <li key={`more-${idx}`} className="flex items-start gap-2 text-[15px] leading-snug">
+                                  <CheckCircle2 className="mt-[3px] h-[1.0625rem] w-[1.0625rem] shrink-0" style={{ color: '#146fb5' }} />
+                                  <span style={{ color: "#1b181f" }}>{feature}</span>
+                                </li>
+                              ))}
+                            </ul>
+                            <button
+                              type="button"
+                              className="mt-1.5 w-fit text-left text-sm font-medium text-[#146fb5] underline-offset-2 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#146fb5]/40 focus-visible:ring-offset-2 rounded-sm"
+                              aria-expanded
+                              onClick={() => setAdvanceFeaturesExpanded(false)}
+                            >
+                              {language === "HI" ? "कम देखें" : "View less"}
+                            </button>
+                          </div>
+                        </div>
+                      </>
+                    ) : null}
                   </div>
                 </div>
 
