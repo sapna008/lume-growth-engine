@@ -23,6 +23,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useSEO } from "@/hooks/useSEO";
+import { trackDownloadClick } from "@/lib/leadStore";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import { useMemo } from 'react';
@@ -415,7 +416,14 @@ export default function Index() {
                 
                 <div className="flex flex-row gap-3 sm:gap-4 w-full sm:w-auto">
                   <Button size="xl" variant="hero" asChild className="shadow-lg hover:shadow-xl transition-shadow h-10 sm:h-12 text-sm sm:text-base px-4 sm:px-6 flex-1 sm:flex-initial">
-                    <a href="https://play.google.com/store/apps/details?id=com.mhjs.retailerapp" target="_blank" rel="noopener noreferrer">
+                    <a
+                      href="https://play.google.com/store/apps/details?id=com.mhjs.retailerapp"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => {
+                        void trackDownloadClick();
+                      }}
+                    >
                       <svg className="w-5 h-5 sm:w-6 sm:h-6 mr-1.5 sm:mr-2" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M3 20.5v-17c0-.59.34-1.11.84-1.35L13.69 12l-9.85 9.85c-.5-.24-.84-.76-.84-1.35zm13.81-5.38L6.05 21.34l8.49-8.49 2.27 2.27zm-1.36-2.24l2.27 2.27L21.95 12l-4.48-4.48-2.27 2.27L17.45 12l-1.99 1.88zM6.05 2.66l10.76 6.22-2.27 2.27L6.05 2.66z"/>
                       </svg>
