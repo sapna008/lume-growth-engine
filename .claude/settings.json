@@ -1,0 +1,31 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "powershell",
+            "command": "$j = [Console]::In.ReadToEnd() | ConvertFrom-Json; $f = $j.tool_input.file_path; if ($f -and $f -match '\\.(tsx)$') { $msg = '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"additionalContext\":\"DESIGN SYSTEM REMINDER — This website must feel: AI-native, enterprise-grade, futuristic, scalable, investor-ready, modern SaaS (think Linear/Stripe/Vercel). Before writing this component run through: (1) TYPOGRAPHY: bold scaled headings tracking-tight, weight contrast extrabold->medium->normal, never flat sizes. (2) FUTURISTIC EFFECTS: gradient text on keywords, glassmorphism cards backdrop-blur, glow shadow on CTAs, dot-grid or noise bg texture on sections. (3) PREMIUM LAYOUT: bento grid features, two-col hero with floating stat cards, dark sections with radial glow, count-up animated stats. (4) TRANSITIONS: every card gets hover:-translate-y-1 hover:shadow-xl transition-all duration-300, buttons get active:scale-95, Framer Motion stagger on lists with viewport once:true. (5) ENTERPRISE VISUALS: indigo+amber palette only, rounded-2xl cards, slate-100 borders not black, generous whitespace py-20 md:py-32, Lucide icons consistent size, product screenshots in device frames with glow. AVOID: flat cards, generic stock photos, rainbow colors, walls of text, cartoon illustrations, anything that looks like a free template.\"}}'; Write-Output $msg }; exit 0",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "powershell",
+            "command": "$j = [Console]::In.ReadToEnd() | ConvertFrom-Json; $f = $j.tool_input.file_path; if ($f -and $f -match '\\.(ts|tsx|js|jsx)$') { npx eslint --fix \"$f\" 2>$null }; exit 0",
+            "timeout": 30,
+            "statusMessage": "ESLint auto-fix..."
+          }
+        ]
+      }
+    ]
+  }
+}
