@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { motion } from "framer-motion";
-import { ArrowRight, Clock3, Newspaper, Search } from "lucide-react";
+import { ArrowRight, Clock3, Search } from "lucide-react";
 import { useMemo, useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useSEO } from "@/hooks/useSEO";
-import { blogPosts, getListingBlurb, type BlogPostPreview } from "@/data/blogPosts";
+import { blogPosts, getBlogImageSrc, getListingBlurb, type BlogPostPreview } from "@/data/blogPosts";
 import { getBlogPostBody } from "@/components/blog/postBodies/registry";
 import { Button } from "@/components/ui/button";
 
@@ -60,6 +60,7 @@ export default function Blog() {
   const featuredPost = blogPosts[0];
   const featuredCategory = normalizeCategory(featuredPost);
   const featuredSummary = getListingBlurb(featuredPost, language);
+  const featuredImageSrc = getBlogImageSrc(featuredPost);
 
   const gridPosts = useMemo(() => {
     const q = searchQuery.trim().toLowerCase();
@@ -240,19 +241,13 @@ export default function Blog() {
               className="rounded-3xl border border-[#146fb5]/15 bg-white shadow-[0_12px_48px_rgba(20,111,181,0.08)] overflow-hidden md:grid md:grid-cols-2"
             >
               <div className="relative min-h-[260px] sm:min-h-[320px] bg-gradient-to-br from-[#dbeafe] via-[#eaf4ff] to-[#fef9c3]/50">
-                {featuredPost.imageSrc ? (
+                {featuredImageSrc ? (
                   <img
-                    src={featuredPost.imageSrc}
+                    src={featuredImageSrc}
                     alt={language === "HI" ? featuredPost.titleHI : featuredPost.title}
                     className="absolute inset-0 h-full w-full object-cover"
                   />
-                ) : (
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="rounded-3xl bg-[#146fb5]/10 p-8 sm:p-10">
-                      <Newspaper className="h-16 w-16 sm:h-20 sm:w-20" style={{ color: "#146fb5" }} aria-hidden />
-                    </div>
-                  </div>
-                )}
+                ) : null}
               </div>
 
               <div className="p-6 sm:p-8 lg:p-10 flex flex-col justify-center">
@@ -311,7 +306,10 @@ export default function Blog() {
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-7">
-                {gridPosts.map((item, i) => (
+                {gridPosts.map((item, i) => {
+                  const cardImageSrc = getBlogImageSrc(item.post);
+
+                  return (
                   <motion.article
                     key={item.post.slug}
                     initial={{ opacity: 0, y: 16 }}
@@ -320,20 +318,15 @@ export default function Blog() {
                     transition={{ duration: 0.35, delay: i * 0.04 }}
                     className="group h-full rounded-2xl border border-gray-100 bg-white shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col"
                   >
-                    <div className="relative aspect-[16/9] w-full bg-gradient-to-br from-[#146fb5]/12 via-[#e8f2fb] to-[#fef9c3]/40">
-                      {item.post.imageSrc ? (
+                    <div className="relative aspect-[3/2] w-full bg-gradient-to-br from-[#146fb5]/12 via-[#e8f2fb] to-[#fef9c3]/40">
+                      {cardImageSrc ? (
                         <img
-                          src={item.post.imageSrc}
+                          src={cardImageSrc}
                           alt={item.title}
                           className="absolute inset-0 h-full w-full object-cover"
+                          loading="lazy"
                         />
-                      ) : (
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="rounded-xl bg-[#146fb5]/10 p-4">
-                            <Newspaper className="h-10 w-10 sm:h-12 sm:w-12" style={{ color: "#146fb5" }} aria-hidden />
-                          </div>
-                        </div>
-                      )}
+                      ) : null}
                     </div>
                     <div className="p-5 sm:p-6 flex flex-col h-full">
                       <div className="mb-3">
@@ -361,7 +354,8 @@ export default function Blog() {
                       </div>
                     </div>
                   </motion.article>
-                ))}
+                  );
+                })}
               </div>
             )}
           </div>

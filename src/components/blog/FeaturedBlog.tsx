@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
-import { Newspaper } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { getListingBlurb, type BlogPostPreview } from "@/data/blogPosts";
+import { getBlogImageSrc, getListingBlurb, type BlogPostPreview } from "@/data/blogPosts";
 
 export interface FeaturedBlogProps {
   post: BlogPostPreview;
@@ -13,6 +12,7 @@ export interface FeaturedBlogProps {
 export function FeaturedBlog({ post, language, className }: FeaturedBlogProps) {
   const title = language === "HI" ? post.titleHI : post.title;
   const description = getListingBlurb(post, language);
+  const imageSrc = getBlogImageSrc(post);
 
   return (
     <div
@@ -22,19 +22,13 @@ export function FeaturedBlog({ post, language, className }: FeaturedBlogProps) {
       )}
     >
       <div className="relative md:w-[46%] lg:w-[42%] shrink-0 min-h-[200px] sm:min-h-[220px] md:min-h-0 bg-gradient-to-br from-[#146fb5]/12 via-[#e8f2fb] to-[#fef9c3]/40">
-        {post.imageSrc ? (
+        {imageSrc ? (
           <img
-            src={post.imageSrc}
+            src={imageSrc}
             alt={title}
             className="absolute inset-0 h-full w-full object-cover"
           />
-        ) : (
-          <div className="absolute inset-0 flex items-center justify-center p-8">
-            <div className="rounded-2xl bg-[#146fb5]/10 p-8">
-              <Newspaper className="h-16 w-16 md:h-20 md:w-20" style={{ color: "#146fb5" }} aria-hidden />
-            </div>
-          </div>
-        )}
+        ) : null}
       </div>
 
       <div className="flex flex-col justify-center flex-1 p-6 sm:p-8 lg:p-10">

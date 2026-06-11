@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
-import { Newspaper } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { getListingBlurb, type BlogPostPreview } from "@/data/blogPosts";
+import { getBlogImageSrc, getListingBlurb, type BlogPostPreview } from "@/data/blogPosts";
 
 export interface BlogCardProps {
   post: BlogPostPreview;
@@ -13,6 +12,7 @@ export interface BlogCardProps {
 export function BlogCard({ post, language, className }: BlogCardProps) {
   const title = language === "HI" ? post.titleHI : post.title;
   const description = getListingBlurb(post, language);
+  const imageSrc = getBlogImageSrc(post);
 
   return (
     <article
@@ -21,20 +21,15 @@ export function BlogCard({ post, language, className }: BlogCardProps) {
         className,
       )}
     >
-      <div className="relative aspect-[16/9] w-full bg-gradient-to-br from-[#146fb5]/12 via-[#e8f2fb] to-[#fef9c3]/40">
-        {post.imageSrc ? (
+      <div className="relative aspect-[16/9] w-full overflow-hidden bg-gradient-to-br from-[#146fb5]/12 via-[#e8f2fb] to-[#fef9c3]/40">
+        {imageSrc ? (
           <img
-            src={post.imageSrc}
+            src={imageSrc}
             alt={title}
-            className="absolute inset-0 h-full w-full object-cover"
+            className="absolute inset-0 h-full w-full object-contain"
+            loading="lazy"
           />
-        ) : (
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="rounded-xl bg-[#146fb5]/10 p-4">
-              <Newspaper className="h-10 w-10 sm:h-12 sm:w-12" style={{ color: "#146fb5" }} aria-hidden />
-            </div>
-          </div>
-        )}
+        ) : null}
       </div>
 
       <div className="flex flex-col flex-1 p-5 sm:p-6">
