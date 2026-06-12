@@ -31,7 +31,7 @@ export default function Privacy() {
             {language === "HI" ? (
               <div className="space-y-8 text-gray-700 pt-6">
                 {/* Company Info */}
-                <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                <div className="bg-[var(--brand-tint)] p-6 rounded-lg border border-[var(--brand-tint-3)]">
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">कंपनी विवरण</h2>
                   <div className="space-y-2 text-sm">
                     <p><strong>Apeiros AI Private Limited</strong></p>
@@ -66,7 +66,7 @@ export default function Privacy() {
                 </div>
 
                 {/* Consent */}
-                <div className="bg-blue-50 p-6 rounded-lg">
+                <div className="bg-[var(--brand-tint)] p-6 rounded-lg">
                   <p className="text-sm">
                     <strong>
                       हमारी सेवाओं का उपयोग करने या अकाउंट रजिस्टर करने के द्वारा, आप इस गोपनीयता नीति से
@@ -235,7 +235,7 @@ export default function Privacy() {
             ) : (
             <div className="space-y-8 text-gray-700 pt-6">
               {/* Company Info */}
-              <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+              <div className="bg-[var(--brand-tint)] p-6 rounded-lg border border-[var(--brand-tint-3)]">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Apeiros AI Private Limited</h2>
                 <div className="space-y-2 text-sm">
                   <p><strong>Head Office Address:</strong> 4th floor, Block-C, Krish Cubical, Govardhan partyplot Avalonhotel Road, Sindhu Bhavan Marg, Thaltej, Ahmedabad, Gujarat 380059</p>
@@ -254,7 +254,7 @@ export default function Privacy() {
               </div>
 
               {/* Consent */}
-              <div className="bg-blue-50 p-6 rounded-lg">
+              <div className="bg-[var(--brand-tint)] p-6 rounded-lg">
                 <p className="text-sm"><strong>By accessing or using our Services and/or registering for an account with Apeiros, you agree to this privacy policy and you are consenting to Apeiros's collection, use, disclosure, retention, and protection of your personal information as described here.</strong></p>
               </div>
 
@@ -374,7 +374,7 @@ export default function Privacy() {
               <div>
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">11. Contact Us</h2>
                 <p>If you have any queries relating to the processing/usage of information provided by you or Apeiros's Privacy Policy, please contact us:</p>
-                <div className="bg-blue-50 p-6 rounded-lg border border-blue-200 mt-4">
+                <div className="bg-[var(--brand-tint)] p-6 rounded-lg border border-[var(--brand-tint-3)] mt-4">
                   <p className="mb-2"><strong>Email:</strong> <a href="mailto:info@apeirosai.com" className="text-blue-600 hover:underline">info@apeirosai.com</a></p>
                   <p><strong>Address:</strong> Apeiros AI Pvt. Ltd, India</p>
                 </div>

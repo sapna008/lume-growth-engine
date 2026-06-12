@@ -20,6 +20,7 @@ dist-ssr
 *-firebase-adminsdk-*.json
 src/assets/*-firebase-adminsdk-*.json
 backend/.firebase-adminsdk-*.json
+backend/secrets/
 
 # Sensitive files
 *.key

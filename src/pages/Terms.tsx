@@ -30,7 +30,7 @@ export default function Terms() {
               {language === 'HI' ? (
                 <>
                   {/* Company Info */}
-                  <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                  <div className="bg-[var(--brand-tint)] p-6 rounded-lg border border-[var(--brand-tint-3)]">
                     <h2 className="text-2xl font-bold text-gray-900 mb-4">कंपनी विवरण</h2>
                     <h3 className="text-xl font-semibold text-gray-800 mb-3">APEIROS AI Private Limited</h3>
                     <div className="space-y-2 text-sm">
@@ -49,7 +49,7 @@ export default function Terms() {
               ) : (
                 <>
                   {/* Company Info */}
-                  <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                  <div className="bg-[var(--brand-tint)] p-6 rounded-lg border border-[var(--brand-tint-3)]">
                     <h2 className="text-2xl font-bold text-gray-900 mb-4">APEIROS AI Private Limited</h2>
                     <div className="space-y-2 text-sm">
                       <p><strong>Head Office Address:</strong> 4th floor, Block-C, Krish Cubical, Govardhan partyplot Avalonhotel Road, Sindhu Bhavan Marg, Thaltej, Ahmedabad, Gujarat 380059</p>
@@ -344,7 +344,7 @@ export default function Terms() {
                 {language === 'HI' ? (
                   <>
                     <p>यदि आपको इन नियमों से संबंधित कोई प्रश्न हों, तो संपर्क करें:</p>
-                    <div className="bg-blue-50 p-6 rounded-lg border border-blue-200 mt-4">
+                    <div className="bg-[var(--brand-tint)] p-6 rounded-lg border border-[var(--brand-tint-3)] mt-4">
                       <p className="mb-2"><strong>ई-मेल:</strong> <a href="mailto:info@apeirosai.com" className="text-blue-600 hover:underline">info@apeirosai.com</a></p>
                       <p><strong>पता:</strong> Apeiros AI Pvt. Ltd., India</p>
                     </div>
@@ -352,7 +352,7 @@ export default function Terms() {
                 ) : (
                   <>
                     <p>If you have any questions about these Terms and Conditions, please contact us:</p>
-                    <div className="bg-blue-50 p-6 rounded-lg border border-blue-200 mt-4">
+                    <div className="bg-[var(--brand-tint)] p-6 rounded-lg border border-[var(--brand-tint-3)] mt-4">
                       <p className="mb-2"><strong>Email:</strong> <a href="mailto:info@apeirosai.com" className="text-blue-600 hover:underline">info@apeirosai.com</a></p>
                       <p><strong>Address:</strong> Apeiros AI Pvt. Ltd, India.</p>
                     </div>

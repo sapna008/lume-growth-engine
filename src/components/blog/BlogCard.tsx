@@ -17,19 +17,24 @@ export function BlogCard({ post, language, className }: BlogCardProps) {
   return (
     <article
       className={cn(
-        "group flex flex-col h-full bg-white rounded-xl sm:rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-[#146fb5]/30 transition-all duration-300 overflow-hidden",
+        "group flex flex-col h-full bg-white rounded-xl sm:rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-[rgb(var(--brand-rgb)/0.3)] transition-all duration-300 overflow-hidden",
         className,
       )}
     >
-      <div className="relative aspect-[16/9] w-full overflow-hidden bg-gradient-to-br from-[#146fb5]/12 via-[#e8f2fb] to-[#fef9c3]/40">
+      <div className="relative aspect-[16/9] w-full overflow-hidden bg-gradient-to-br from-[rgb(var(--brand-rgb)/0.12)] via-[#e8f2fb] to-[#fef9c3]/40">
         {imageSrc ? (
           <img
             src={imageSrc}
             alt={title}
-            className="absolute inset-0 h-full w-full object-contain"
-            loading="lazy"
+            className="absolute inset-0 h-full w-full object-cover"
           />
-        ) : null}
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="rounded-xl bg-[rgb(var(--brand-rgb)/0.1)] p-4">
+              <Newspaper className="h-10 w-10 sm:h-12 sm:w-12" style={{ color: "var(--brand)" }} aria-hidden />
+            </div>
+          </div>
+        )}
       </div>
 
       <div className="flex flex-col flex-1 p-5 sm:p-6">

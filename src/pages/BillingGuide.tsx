@@ -66,7 +66,7 @@ export default function BillingGuide() {
                 <>
                   <h1 className="text-3xl md:text-4xl lg:text-5xl leading-snug font-display font-bold mb-3 text-left">
                     <span style={{ color: "#1b181f" }}>ल्यूम रिटेलर्स के लिए </span>
-                    <span style={{ color: "#146fb5" }}>बिलिंग गाइड</span>
+                    <span style={{ color: "var(--brand)" }}>बिलिंग गाइड</span>
                   </h1>
                   <p className="mt-1 text-base md:text-xl mb-3 text-left leading-relaxed" style={{ color: "#1b181f" }}>
                     ल्यूम में अलग–अलग तरह के बिल कैसे बनाएं, ये गाइड आपको आसान भाषा में स्टेप–बाय–स्टेप
@@ -77,7 +77,7 @@ export default function BillingGuide() {
                 <>
                   <h1 className="text-3xl md:text-5xl lg:text-6xl font-display font-bold mb-4 text-left">
                     <span style={{ color: "#1b181f" }}>Billing Guide for </span>
-                    <span style={{ color: "#146fb5" }}>Lume Retailers</span>
+                    <span style={{ color: "var(--brand)" }}>Lume Retailers</span>
                   </h1>
                   <p className="text-lg md:text-2xl mb-3 text-left" style={{ color: "#1b181f" }}>
                     Learn how to create bills in Lume in just a few simple steps. You only need the
@@ -102,7 +102,7 @@ export default function BillingGuide() {
           >
             <h2
               className="text-3xl md:text-4xl font-display font-bold mb-3"
-              style={{ color: "#146fb5" }}
+              style={{ color: "var(--brand)" }}
             >
               {language === "HI"
                 ? "बिलिंग आसान है – सिर्फ ज़रूरी जानकारी भरें"
@@ -164,7 +164,7 @@ export default function BillingGuide() {
           <BillingSection
             id="quick"
             title={language === "HI" ? "क्विक बिल" : "Quick Bill"}
-            icon={<ReceiptIndianRupee className="w-6 h-6" style={{ color: "#146fb5" }} />}
+            icon={<ReceiptIndianRupee className="w-6 h-6" style={{ color: "var(--brand)" }} />}
             open={openSection === "quick"}
             onToggle={() => toggleSection("quick")}
             description={
@@ -220,7 +220,7 @@ export default function BillingGuide() {
           <BillingSection
             id="pos"
             title={language === "HI" ? "POS बिल" : "POS Bill"}
-            icon={<FileText className="w-6 h-6" style={{ color: "#146fb5" }} />}
+            icon={<FileText className="w-6 h-6" style={{ color: "var(--brand)" }} />}
             open={openSection === "pos"}
             onToggle={() => toggleSection("pos")}
             description={
@@ -296,7 +296,7 @@ export default function BillingGuide() {
           <BillingSection
             id="image"
             title={language === "HI" ? "इमेज बिल" : "Image Bill"}
-            icon={<ImageIcon className="w-6 h-6" style={{ color: "#146fb5" }} />}
+            icon={<ImageIcon className="w-6 h-6" style={{ color: "var(--brand)" }} />}
             open={openSection === "image"}
             onToggle={() => toggleSection("image")}
             description={
@@ -360,7 +360,7 @@ export default function BillingGuide() {
           <BillingSection
             id="mpos"
             title={language === "HI" ? "MPOS (मोबाइल POS)" : "MPOS (Mobile POS)"}
-            icon={<Smartphone className="w-6 h-6" style={{ color: "#146fb5" }} />}
+            icon={<Smartphone className="w-6 h-6" style={{ color: "var(--brand)" }} />}
             open={openSection === "mpos"}
             onToggle={() => toggleSection("mpos")}
             description={
@@ -417,7 +417,7 @@ export default function BillingGuide() {
           <BillingSection
             id="listing"
             title={language === "HI" ? "E‑Bill लिस्टिंग" : "E‑Bill Listing"}
-            icon={<ListChecks className="w-6 h-6" style={{ color: "#146fb5" }} />}
+            icon={<ListChecks className="w-6 h-6" style={{ color: "var(--brand)" }} />}
             open={openSection === "listing"}
             onToggle={() => toggleSection("listing")}
             description={
@@ -515,7 +515,7 @@ export default function BillingGuide() {
                 href="mailto:support@apeirosai.com"
                 className="flex items-center gap-2 px-5 py-3 rounded-lg border border-border hover:border-primary/60 hover:bg-primary/5 transition-colors"
               >
-                <Mail className="w-5 h-5" style={{ color: "#146fb5" }} />
+                <Mail className="w-5 h-5" style={{ color: "var(--brand)" }} />
                 <span className="text-sm font-medium" style={{ color: "#1b181f" }}>
                   support@apeirosai.com
                 </span>
@@ -524,7 +524,7 @@ export default function BillingGuide() {
                 href="tel:+919724151647"
                 className="flex items-center gap-2 px-5 py-3 rounded-lg border border-border hover:border-primary/60 hover:bg-primary/5 transition-colors"
               >
-                <Phone className="w-5 h-5" style={{ color: "#146fb5" }} />
+                <Phone className="w-5 h-5" style={{ color: "var(--brand)" }} />
                 <span className="text-sm font-medium" style={{ color: "#1b181f" }}>
                   +91 97241 51647
                 </span>
@@ -585,9 +585,9 @@ function BillingSection({
           </div>
         </div>
         {open ? (
-          <ChevronUp className="w-5 h-5 md:w-6 md:h-6" style={{ color: "#146fb5" }} />
+          <ChevronUp className="w-5 h-5 md:w-6 md:h-6" style={{ color: "var(--brand)" }} />
         ) : (
-          <ChevronDown className="w-5 h-5 md:w-6 md:h-6" style={{ color: "#146fb5" }} />
+          <ChevronDown className="w-5 h-5 md:w-6 md:h-6" style={{ color: "var(--brand)" }} />
         )}
       </button>
 
@@ -640,7 +640,7 @@ function BillingSection({
               </div>
 
               <div className="p-3 rounded-lg bg-primary/5 border border-primary/20">
-                <p className="text-xs md:text-sm" style={{ color: "#146fb5" }}>
+                <p className="text-xs md:text-sm" style={{ color: "var(--brand)" }}>
                   Best for: {bestFor}
                 </p>
               </div>

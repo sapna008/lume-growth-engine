@@ -493,7 +493,7 @@ export default function CaseStudies() {
                   <SwiperSlide key={story.id}>
                     <div className="h-full min-h-[380px] bg-white rounded-xl shadow-sm border border-slate-200/80 overflow-hidden hover:shadow-md hover:border-slate-300/80 transition-all duration-300 flex flex-col">
                       {/* Accent bar */}
-                      <div className="h-1 w-full bg-gradient-to-r from-[#146fb5] to-[#38bdf8]" />
+                      <div className="h-1 w-full bg-gradient-to-r from-[var(--brand)] to-[#38bdf8]" />
                       <div className="p-5 sm:p-6 flex flex-col flex-1">
                         {/* Brand row */}
                         <div className="flex items-center gap-4 mb-5">
@@ -510,14 +510,14 @@ export default function CaseStudies() {
                             </div>
                           ) : (
                             <div className="w-14 h-14 rounded-xl bg-slate-100 flex items-center justify-center flex-shrink-0">
-                              <Store className="w-7 h-7 text-[#146fb5]" />
+                              <Store className="w-7 h-7 text-[var(--brand)]" />
                             </div>
                           )}
                           <div className="min-w-0 flex-1">
                             <h3 className="text-base sm:text-lg font-semibold text-slate-900 leading-tight">
                               {language === "HI" && (story as any).nameHI ? (story as any).nameHI : story.name}
                             </h3>
-                            <p className="text-sm font-medium text-[#146fb5] mt-0.5">
+                            <p className="text-sm font-medium text-[var(--brand)] mt-0.5">
                               {language === "HI" && (story as any).categoryHI ? (story as any).categoryHI : story.category}
                             </p>
                             <div className="flex items-center gap-1 text-xs text-slate-500 mt-1">
@@ -526,7 +526,7 @@ export default function CaseStudies() {
                               {story.stores && ` · ${story.stores}`}
                             </div>
                             {(story as any).special && (
-                              <span className="inline-block mt-2 text-xs font-medium text-[#146fb5] bg-sky-50 px-2 py-1 rounded">
+                              <span className="inline-block mt-2 text-xs font-medium text-[var(--brand)] bg-sky-50 px-2 py-1 rounded">
                                 {language === "HI" && (story as any).specialHI ? (story as any).specialHI : (story as any).special}
                               </span>
                             )}
@@ -538,7 +538,7 @@ export default function CaseStudies() {
                         <ul className="space-y-2 flex-1">
                           {(language === "HI" && (story as any).whyChoseHI ? (story as any).whyChoseHI : story.whyChose).slice(0, 4).map((item, idx) => (
                             <li key={idx} className="flex items-start gap-2 text-sm text-slate-600 leading-snug">
-                              <span className="w-1.5 h-1.5 rounded-full bg-[#146fb5] mt-1.5 flex-shrink-0" />
+                              <span className="w-1.5 h-1.5 rounded-full bg-[var(--brand)] mt-1.5 flex-shrink-0" />
                               <span>{item}</span>
                             </li>
                           ))}
@@ -559,14 +559,14 @@ export default function CaseStudies() {
               <button
                 type="button"
                 aria-label="Previous"
-                className="retailer-swiper-prev absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/90 backdrop-blur shadow border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-[#146fb5] hover:text-white hover:border-[#146fb5] transition-colors"
+                className="retailer-swiper-prev absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/90 backdrop-blur shadow border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-[var(--brand)] hover:text-white hover:border-[var(--brand)] transition-colors"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
               <button
                 type="button"
                 aria-label="Next"
-                className="retailer-swiper-next absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/90 backdrop-blur shadow border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-[#146fb5] hover:text-white hover:border-[#146fb5] transition-colors"
+                className="retailer-swiper-next absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/90 backdrop-blur shadow border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-[var(--brand)] hover:text-white hover:border-[var(--brand)] transition-colors"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
@@ -630,7 +630,7 @@ export default function CaseStudies() {
                           href={(v as any).profileUrl ?? "https://www.instagram.com/the_lume.app/"}
                           target="_blank"
                           rel="noreferrer"
-                          className="text-xs font-semibold text-white bg-[#146fb5] hover:bg-[#115a94] px-3 py-2 rounded-sm shadow-sm"
+                          className="text-xs font-semibold text-white bg-[var(--brand)] hover:bg-[#115a94] px-3 py-2 rounded-sm shadow-sm"
                         >
                           View profile
                         </a>
@@ -663,14 +663,14 @@ export default function CaseStudies() {
               <button
                 type="button"
                 aria-label="Previous video"
-                className="video-swiper-prev absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/90 backdrop-blur shadow border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-[#146fb5] hover:text-white hover:border-[#146fb5] transition-colors"
+                className="video-swiper-prev absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/90 backdrop-blur shadow border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-[var(--brand)] hover:text-white hover:border-[var(--brand)] transition-colors"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
               <button
                 type="button"
                 aria-label="Next video"
-                className="video-swiper-next absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/90 backdrop-blur shadow border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-[#146fb5] hover:text-white hover:border-[#146fb5] transition-colors"
+                className="video-swiper-next absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/90 backdrop-blur shadow border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-[var(--brand)] hover:text-white hover:border-[var(--brand)] transition-colors"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
@@ -716,7 +716,7 @@ export default function CaseStudies() {
                     ]
                 ).map((item, i) => (
                   <div key={i} className="flex items-center gap-3 rounded-lg px-4 py-3 bg-slate-50 border border-slate-100">
-                    <span className="w-2 h-2 rounded-full bg-[#146fb5] flex-shrink-0" />
+                    <span className="w-2 h-2 rounded-full bg-[var(--brand)] flex-shrink-0" />
                     <span className="text-sm sm:text-base text-slate-700">{item}</span>
                   </div>
                 ))}
@@ -726,7 +726,7 @@ export default function CaseStudies() {
         </section>
 
         {/* Case Studies — Problem / Solution / Results */}
-        <section className="py-16 sm:py-20 relative overflow-hidden bg-gradient-to-b from-[#eaf2f8] via-white to-[#e0f2fe]">
+        <section className="py-16 sm:py-20 relative overflow-hidden bg-gradient-to-b from-[var(--brand-tint)] via-white to-[#e0f2fe]">
           {/* Decorative background icons (same vibe as home testimonials) */}
           <div className="absolute left-4 top-[40px] w-[220px] h-[220px] opacity-20 pointer-events-none hidden lg:block">
             <img
@@ -765,7 +765,7 @@ export default function CaseStudies() {
               <p className="text-slate-600 text-base sm:text-lg">
                 {language === "HI" ? "स्टोर प्रोफाइल → समस्या → ल्यूम समाधान → नतीजे।" : "Store profile → Problem → Lume solution → Results."}
               </p>
-              <div className="mt-4 h-1 w-20 mx-auto rounded-full bg-gradient-to-r from-[#146fb5] to-[#38bdf8]" />
+              <div className="mt-4 h-1 w-20 mx-auto rounded-full bg-gradient-to-r from-[var(--brand)] to-[#38bdf8]" />
             </motion.div>
             <div className="space-y-8 max-w-5xl mx-auto">
               {caseStudies.map((study, i) => (
@@ -776,11 +776,11 @@ export default function CaseStudies() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.1 }}
                 >
-                  <div className="bg-white/95 backdrop-blur rounded-xl shadow-sm border border-slate-200/80 overflow-hidden hover:shadow-md hover:border-[#146fb5]/40 transition-all duration-300 hover:-translate-y-1">
-                    <div className="h-1 w-full bg-gradient-to-r from-[#146fb5] to-[#38bdf8]" />
+                  <div className="bg-white/95 backdrop-blur rounded-xl shadow-sm border border-slate-200/80 overflow-hidden hover:shadow-md hover:border-[rgb(var(--brand-rgb)/0.4)] transition-all duration-300 hover:-translate-y-1">
+                    <div className="h-1 w-full bg-gradient-to-r from-[var(--brand)] to-[#38bdf8]" />
                     <div className="p-6 sm:p-8 lg:p-10">
                       <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-8">
-                        <div className="w-14 h-14 rounded-xl flex items-center justify-center bg-slate-100 text-[#146fb5]">
+                        <div className="w-14 h-14 rounded-xl flex items-center justify-center bg-slate-100 text-[var(--brand)]">
                           <study.icon className="w-7 h-7" />
                         </div>
                         <div className="flex-1">
@@ -793,7 +793,7 @@ export default function CaseStudies() {
                               {language === "HI" && (study as any).locationHI ? (study as any).locationHI : study.location}
                             </span>
                           </div>
-                          <p className="text-sm sm:text-base font-medium text-[#146fb5]">
+                          <p className="text-sm sm:text-base font-medium text-[var(--brand)]">
                             {language === "HI" && (study as any).businessTypeHI ? (study as any).businessTypeHI : study.businessType}
                           </p>
                         </div>
@@ -802,7 +802,7 @@ export default function CaseStudies() {
                       <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
                         <div>
                           <div className="flex items-center gap-2 mb-3">
-                            <Target className="w-5 h-5 text-[#146fb5]" />
+                            <Target className="w-5 h-5 text-[var(--brand)]" />
                             <h3 className="text-base font-bold text-slate-900">
                               {language === "HI" ? "चुनौती" : "Challenge"}
                             </h3>
@@ -819,7 +819,7 @@ export default function CaseStudies() {
 
                         <div>
                           <div className="flex items-center gap-2 mb-3">
-                            <Lightbulb className="w-5 h-5 text-[#146fb5]" />
+                            <Lightbulb className="w-5 h-5 text-[var(--brand)]" />
                             <h3 className="text-base font-bold text-slate-900">
                               {language === "HI" ? "ल्यूम के साथ समाधान" : "Solution with Lume"}
                             </h3>
@@ -827,7 +827,7 @@ export default function CaseStudies() {
                           <ul className="space-y-2">
                             {(language === "HI" && (study as any).solutionHI ? (study as any).solutionHI : study.solution).map((item: string, idx: number) => (
                               <li key={idx} className="flex items-start gap-2 text-sm text-slate-600 leading-relaxed">
-                                <span className="w-1.5 h-1.5 rounded-full bg-[#146fb5] mt-1.5 flex-shrink-0" />
+                                <span className="w-1.5 h-1.5 rounded-full bg-[var(--brand)] mt-1.5 flex-shrink-0" />
                                 <span>{item}</span>
                               </li>
                             ))}
@@ -836,7 +836,7 @@ export default function CaseStudies() {
 
                         <div>
                           <div className="flex items-center gap-2 mb-3">
-                            <TrendingUp className="w-5 h-5 text-[#146fb5]" />
+                            <TrendingUp className="w-5 h-5 text-[var(--brand)]" />
                             <h3 className="text-base font-bold text-slate-900">
                               {language === "HI" ? "नतीजे" : "Results"}
                             </h3>
@@ -854,7 +854,7 @@ export default function CaseStudies() {
 
                       <div className="mt-8 pt-6 border-t border-slate-200">
                         <div className="flex items-start gap-3 bg-slate-50 rounded-lg p-4 border border-slate-100">
-                          <ArrowRight className="w-5 h-5 mt-0.5 flex-shrink-0 text-[#146fb5]" />
+                          <ArrowRight className="w-5 h-5 mt-0.5 flex-shrink-0 text-[var(--brand)]" />
                           <p className="text-sm sm:text-base font-medium text-slate-800">
                             <strong className="text-slate-900">{language === "HI" ? "मुख्य सीख:" : "Key takeaway:"}</strong>{" "}
                             {language === "HI" && (study as any).takeawayHI ? (study as any).takeawayHI : study.takeaway}
@@ -902,7 +902,7 @@ export default function CaseStudies() {
                     ]
                 ).map((item, i) => (
                   <div key={i} className="flex items-center gap-3 rounded-lg px-4 py-3 bg-slate-50 border border-slate-100 text-left">
-                    <span className="w-2 h-2 rounded-full bg-[#146fb5] flex-shrink-0" />
+                    <span className="w-2 h-2 rounded-full bg-[var(--brand)] flex-shrink-0" />
                     <span className="text-sm sm:text-base text-slate-700">{item}</span>
                   </div>
                 ))}
@@ -959,7 +959,7 @@ export default function CaseStudies() {
                       <td className="py-4 px-4 text-slate-600 text-sm">
                         {language === "HI" ? "नेक्स्ट विज़िट रिवॉर्ड ₹2000→₹200" : "Next Visit Reward ₹2000→₹200"}
                       </td>
-                      <td className="py-4 px-4 font-medium text-[#146fb5] text-sm">
+                      <td className="py-4 px-4 font-medium text-[var(--brand)] text-sm">
                         {language === "HI" ? "रिपीट कस्टमर बढ़े, रिवॉर्ड इस्तेमाल करने वापस आए" : "Repeat customers up; returned to use rewards"}
                       </td>
                     </tr>
@@ -973,7 +973,7 @@ export default function CaseStudies() {
                       <td className="py-4 px-4 text-slate-600 text-sm">
                         {language === "HI" ? "फोन खरीद पर रिवॉर्ड ₹20k→₹500" : "Phone purchase reward ₹20k→₹500"}
                       </td>
-                      <td className="py-4 px-4 font-medium text-[#146fb5] text-sm">
+                      <td className="py-4 px-4 font-medium text-[var(--brand)] text-sm">
                         {language === "HI" ? "एक्सेसरी के लिए वापस आने लगे" : "Customers returned for accessories"}
                       </td>
                     </tr>
@@ -987,7 +987,7 @@ export default function CaseStudies() {
                       <td className="py-4 px-4 text-slate-600 text-sm">
                         {language === "HI" ? "फेस्टिवल रिवॉर्ड ₹50k→₹1000" : "Festival reward ₹50k→₹1000"}
                       </td>
-                      <td className="py-4 px-4 font-medium text-[#146fb5] text-sm">
+                      <td className="py-4 px-4 font-medium text-[var(--brand)] text-sm">
                         {language === "HI" ? "फेस्टिवल पर रिपीट विज़िट बढ़े" : "More repeat visits during festivals"}
                       </td>
                     </tr>
@@ -1020,7 +1020,7 @@ export default function CaseStudies() {
                     transition={{ delay: i * 0.08 }}
                     className="bg-slate-50 rounded-xl p-6 border border-slate-100"
                   >
-                    <MessageSquare className="w-8 h-8 mb-4 text-[#146fb5]" />
+                    <MessageSquare className="w-8 h-8 mb-4 text-[var(--brand)]" />
                     <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-4 italic">
                       &ldquo;{language === "HI" && (testimonial as any).quoteHI ? (testimonial as any).quoteHI : testimonial.quote}&rdquo;
                     </p>
@@ -1046,7 +1046,7 @@ export default function CaseStudies() {
               <p className="text-xs font-semibold tracking-[0.22em] uppercase text-slate-500 mb-3">
                 {language === "HI" ? "अगली सक्सेस स्टोरी बनें" : "Become the next success story"}
               </p>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#0f172a] via-[#146fb5] to-[#eab308] bg-clip-text text-transparent">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#0f172a] via-[var(--brand)] to-[#eab308] bg-clip-text text-transparent">
                 {language === "HI"
                   ? "क्या आप हमारी अगली सक्सेस स्टोरी बनने के लिए तैयार हैं?"
                   : "Ready to be our next success story?"}

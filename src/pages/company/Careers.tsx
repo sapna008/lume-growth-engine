@@ -95,7 +95,7 @@ export default function Careers() {
                 className="text-center p-6"
               >
                 <div className="w-14 h-14 rounded-2xl bg-[#e3f0ff] flex items-center justify-center mx-auto mb-4">
-                  <perk.icon className="w-7 h-7 text-[#146fb5]" />
+                  <perk.icon className="w-7 h-7 text-[var(--brand)]" />
                 </div>
                 <h3 className="text-lg font-bold text-navy-900 mb-2">{perk.title}</h3>
                 <p className="text-muted-foreground">{perk.description}</p>
@@ -123,7 +123,7 @@ export default function Careers() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-white rounded-xl p-6 shadow-card hover-lift border border-[#146fb5]/10"
+                className="bg-white rounded-xl p-6 shadow-card hover-lift border border-[rgb(var(--brand-rgb)/0.1)]"
               >
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                   <div>
@@ -137,7 +137,7 @@ export default function Careers() {
                         <MapPin className="w-4 h-4" />
                         {job.location}
                       </span>
-                      <span className="text-sm bg-[#e3f0ff] text-[#146fb5] px-2 py-0.5 rounded-full">
+                      <span className="text-sm bg-[#e3f0ff] text-[var(--brand)] px-2 py-0.5 rounded-full">
                         {job.type}
                       </span>
                     </div>

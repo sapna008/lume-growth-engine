@@ -264,7 +264,7 @@ function HeroImageComposition({
           />
         </div>
 
-        <div className="absolute -top-4 -left-4 z-30 w-[38%] origin-center rounded-2xl overflow-hidden border-2 border-white bg-white shadow-2xl shadow-black/30 ring-2 ring-[#146fb5]/15 -rotate-[1.5deg] scale-[0.97]">
+        <div className="absolute -top-4 -left-4 z-30 w-[38%] origin-center rounded-2xl overflow-hidden border-2 border-white bg-white shadow-2xl shadow-black/30 ring-2 ring-[rgb(var(--brand-rgb)/0.15)] -rotate-[1.5deg] scale-[0.97]">
           <img
             src={secondarySrc1}
             alt=""
@@ -274,7 +274,7 @@ function HeroImageComposition({
           />
         </div>
 
-        <div className="absolute -bottom-4 -right-4 z-30 w-[36%] origin-center rounded-2xl overflow-hidden border-2 border-white bg-white shadow-2xl shadow-black/30 ring-2 ring-[#146fb5]/15 rotate-[1.5deg] scale-[0.97]">
+        <div className="absolute -bottom-4 -right-4 z-30 w-[36%] origin-center rounded-2xl overflow-hidden border-2 border-white bg-white shadow-2xl shadow-black/30 ring-2 ring-[rgb(var(--brand-rgb)/0.15)] rotate-[1.5deg] scale-[0.97]">
           <img
             src={secondarySrc2}
             alt=""
@@ -297,7 +297,7 @@ function HeroImageComposition({
           />
         </div>
         <div className="grid grid-cols-2 gap-3">
-          <div className="origin-center rounded-xl overflow-hidden border-2 border-white bg-white shadow-2xl shadow-black/25 ring-1 ring-[#146fb5]/10 -rotate-[1deg] scale-[0.98]">
+          <div className="origin-center rounded-xl overflow-hidden border-2 border-white bg-white shadow-2xl shadow-black/25 ring-1 ring-[rgb(var(--brand-rgb)/0.1)] -rotate-[1deg] scale-[0.98]">
             <img
               src={secondarySrc1}
               alt=""
@@ -306,7 +306,7 @@ function HeroImageComposition({
               className="w-full h-auto object-cover aspect-[4/3]"
             />
           </div>
-          <div className="origin-center rounded-xl overflow-hidden border-2 border-white bg-white shadow-2xl shadow-black/25 ring-1 ring-[#146fb5]/10 rotate-[1deg] scale-[0.98]">
+          <div className="origin-center rounded-xl overflow-hidden border-2 border-white bg-white shadow-2xl shadow-black/25 ring-1 ring-[rgb(var(--brand-rgb)/0.1)] rotate-[1deg] scale-[0.98]">
             <img
               src={secondarySrc2}
               alt=""
@@ -427,9 +427,9 @@ export function IndustryPage({ config }: { config: IndustryPageConfig }) {
                 {config.benefitBlocks.map((b) => (
                   <div
                     key={b.title}
-                    className="rounded-xl border border-border/60 bg-secondary/30 p-5 transition-colors hover:bg-[#146fb5]/5 hover:border-[#146fb5]/20"
+                    className="rounded-xl border border-border/60 bg-secondary/30 p-5 transition-colors hover:bg-[rgb(var(--brand-rgb)/0.05)] hover:border-[rgb(var(--brand-rgb)/0.2)]"
                   >
-                    <p className="text-2xl font-bold text-[#146fb5] font-display mb-2">{b.metric}</p>
+                    <p className="text-2xl font-bold text-[var(--brand)] font-display mb-2">{b.metric}</p>
                     <p className="font-semibold text-foreground mb-2">{b.title}</p>
                     <p className="text-sm text-muted-foreground leading-relaxed">{b.description}</p>
                   </div>
@@ -467,7 +467,7 @@ export function IndustryPage({ config }: { config: IndustryPageConfig }) {
               </div>
               <Link
                 to={config.overviewLearnMoreHref}
-                className="inline-flex items-center gap-1.5 mt-6 text-sm font-semibold text-[#146fb5] hover:underline"
+                className="inline-flex items-center gap-1.5 mt-6 text-sm font-semibold text-[var(--brand)] hover:underline"
               >
                 Learn more
                 <ArrowRight className="w-4 h-4" />
@@ -498,14 +498,14 @@ export function IndustryPage({ config }: { config: IndustryPageConfig }) {
               <Link
                 key={f.title}
                 to={f.learnMoreHref}
-                className="group flex flex-col rounded-xl border border-border/60 bg-card p-6 transition-colors hover:bg-secondary/40 hover:border-[#146fb5]/25"
+                className="group flex flex-col rounded-xl border border-border/60 bg-card p-6 transition-colors hover:bg-secondary/40 hover:border-[rgb(var(--brand-rgb)/0.25)]"
               >
-                <div className="w-12 h-12 rounded-xl bg-[#146fb5]/10 flex items-center justify-center text-[#146fb5] mb-4 group-hover:bg-[#146fb5]/15 transition-colors">
+                <div className="w-12 h-12 rounded-xl bg-[rgb(var(--brand-rgb)/0.1)] flex items-center justify-center text-[var(--brand)] mb-4 group-hover:bg-[rgb(var(--brand-rgb)/0.15)] transition-colors">
                   <f.icon className="w-6 h-6" />
                 </div>
-                <h3 className="font-semibold text-foreground mb-2 group-hover:text-[#146fb5] transition-colors">{f.title}</h3>
+                <h3 className="font-semibold text-foreground mb-2 group-hover:text-[var(--brand)] transition-colors">{f.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-4">{f.description}</p>
-                <span className="text-sm font-semibold text-[#146fb5] inline-flex items-center gap-1">
+                <span className="text-sm font-semibold text-[var(--brand)] inline-flex items-center gap-1">
                   Learn more
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
                 </span>
@@ -516,7 +516,7 @@ export function IndustryPage({ config }: { config: IndustryPageConfig }) {
       </section>
 
       {/* CTA */}
-      <section className="section-spacing relative overflow-hidden bg-gradient-to-br from-[#146fb5] via-[#1a7fc7] to-[#0d5a94] text-white">
+      <section className="section-spacing relative overflow-hidden bg-gradient-to-br from-[var(--brand)] via-[var(--brand-light)] to-[#0d5a94] text-white">
         <div className="absolute inset-0 opacity-20 pointer-events-none bg-[radial-gradient(ellipse_at_top_right,_rgba(255,255,255,0.25),_transparent_50%)]" />
         <div className="site-container relative text-center max-w-3xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-display font-bold mb-4">{config.ctaTitle}</h2>

@@ -155,7 +155,7 @@ export default function Help() {
               const content = (
                 <>
                   <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-3" style={{ backgroundColor: 'rgba(20, 111, 181, 0.15)' }}>
-                    <category.icon className="w-5 h-5" style={{ color: '#146fb5' }} />
+                    <category.icon className="w-5 h-5" style={{ color: 'var(--brand)' }} />
                   </div>
                   <h3 className="font-semibold text-foreground mb-1">
                     {language === "HI" && (category as any).titleHI ? (category as any).titleHI : category.title}
@@ -163,7 +163,7 @@ export default function Help() {
                   <p className="text-sm" style={{ color: '#4f4f4f' }}>
                     {language === "HI" && (category as any).descHI ? (category as any).descHI : category.desc}
                   </p>
-                  <p className="text-xs font-medium mt-2" style={{ color: '#146fb5' }}>
+                  <p className="text-xs font-medium mt-2" style={{ color: 'var(--brand)' }}>
                     {category.count} {language === "HI" ? "लेख" : "articles"}
                   </p>
                 </>
@@ -212,7 +212,7 @@ export default function Help() {
                 transition={{ delay: i * 0.05 }}
                 className="bg-white p-4 rounded-lg border border-border hover:border-primary/30 transition-colors cursor-pointer"
               >
-                <span className="text-xs font-medium px-2 py-0.5 rounded inline-block" style={{ color: '#146fb5', backgroundColor: 'rgba(20, 111, 181, 0.1)' }}>
+                <span className="text-xs font-medium px-2 py-0.5 rounded inline-block" style={{ color: 'var(--brand)', backgroundColor: 'rgba(20, 111, 181, 0.1)' }}>
                   {language === "HI" && (article as any).categoryHI ? (article as any).categoryHI : article.category}
                 </span>
                 <p className="font-medium mt-2" style={{ color: '#1b181f' }}>

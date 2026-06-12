@@ -69,7 +69,7 @@ export default function Resources() {
           <div className="site-container">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
               <div className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center mb-4">
-                <selectedCategory.icon className="w-7 h-7" style={{ color: '#146fb5' }} />
+                <selectedCategory.icon className="w-7 h-7" style={{ color: 'var(--brand)' }} />
               </div>
               <h1 className="text-3xl md:text-4xl font-display font-bold mb-2" style={{ color: '#1b181f' }}>{selectedCategory.title}</h1>
               <p className="text-lg" style={{ color: '#4f4f4f' }}>{selectedCategory.desc}</p>
@@ -89,7 +89,7 @@ export default function Resources() {
                   transition={{ delay: i * 0.1 }}
                   className="bg-secondary/30 p-5 rounded-xl hover:shadow-md transition-all cursor-pointer"
                 >
-                  <span className="text-xs px-2 py-1 rounded font-medium" style={{ background: '#eaf2f8', color: '#146fb5' }}>
+                  <span className="text-xs px-2 py-1 rounded font-medium" style={{ background: 'var(--brand-tint)', color: 'var(--brand)' }}>
                     {item.category}
                   </span>
                   <h3 className="font-semibold mt-3 mb-1" style={{ color: '#1b181f' }}>{item.title}</h3>
@@ -143,12 +143,12 @@ export default function Resources() {
                   to={`/resources/${category.id}`}
                   className="block bg-secondary/30 p-6 rounded-xl hover:shadow-lg transition-all h-full text-center"
                 >
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4" style={{ background: '#eaf2f8' }}>
-                    <category.icon className="w-6 h-6" style={{ color: '#146fb5' }} />
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4" style={{ background: 'var(--brand-tint)' }}>
+                    <category.icon className="w-6 h-6" style={{ color: 'var(--brand)' }} />
                   </div>
                   <h3 className="font-semibold mb-1" style={{ color: '#1b181f' }}>{category.title}</h3>
                   <p className="text-sm mb-3" style={{ color: '#4f4f4f' }}>{category.desc}</p>
-                  <span className="text-xs font-medium" style={{ color: '#146fb5' }}>{category.items.length} items</span>
+                  <span className="text-xs font-medium" style={{ color: 'var(--brand)' }}>{category.items.length} items</span>
                 </Link>
               </motion.div>
             ))}

@@ -229,11 +229,11 @@ export default function Solutions() {
             <h1 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: '#1b181f' }}>
               {language === "HI" ? (
                 <>
-                  हर <span style={{ color: '#146fb5' }}>रिटेल चुनौती</span> के लिए समाधान
+                  हर <span style={{ color: 'var(--brand)' }}>रिटेल चुनौती</span> के लिए समाधान
                 </>
               ) : (
                 <>
-                  Solutions for Every <span style={{ color: '#146fb5' }}>Retail Challenge</span>
+                  Solutions for Every <span style={{ color: 'var(--brand)' }}>Retail Challenge</span>
                 </>
               )}
             </h1>
@@ -271,14 +271,14 @@ export default function Solutions() {
             >
               <div className={i % 2 === 1 ? "lg:order-2" : ""}>
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: '#eaf2f8' }}>
-                    <solution.icon className="w-6 h-6" style={{ color: '#146fb5' }} />
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: 'var(--brand-tint)' }}>
+                    <solution.icon className="w-6 h-6" style={{ color: 'var(--brand)' }} />
                   </div>
                   <h2 className="text-2xl font-bold" style={{ color: '#1b181f' }}>
                     {language === "HI" ? solution.titleHI : solution.title}
                   </h2>
                 </div>
-                <p className="text-lg font-medium mb-4" style={{ color: '#146fb5' }}>
+                <p className="text-lg font-medium mb-4" style={{ color: 'var(--brand)' }}>
                   {language === "HI" ? solution.taglineHI : solution.tagline}
                 </p>
 
@@ -291,7 +291,7 @@ export default function Solutions() {
                       {language === "HI" ? solution.problemHI : solution.problem}
                     </p>
                   </div>
-                  <div className="rounded-lg p-4" style={{ background: '#eaf2f8' }}>
+                  <div className="rounded-lg p-4" style={{ background: 'var(--brand-tint)' }}>
                     <p className="text-sm font-medium mb-1" style={{ color: '#1e3a5f' }}>
                       {language === "HI" ? "समाधान:" : "The Solution:"}
                     </p>
@@ -309,14 +309,14 @@ export default function Solutions() {
                 </Button>
               </div>
 
-              <div className={`rounded-2xl p-8 ${i % 2 === 1 ? "lg:order-1" : ""}`} style={{ background: '#eaf2f8' }}>
+              <div className={`rounded-2xl p-8 ${i % 2 === 1 ? "lg:order-1" : ""}`} style={{ background: 'var(--brand-tint)' }}>
                 <h3 className="font-semibold mb-4" style={{ color: '#1b181f' }}>
                   {language === "HI" ? "मुख्य लाभ" : "Key Benefits"}
                 </h3>
                 <ul className="space-y-3">
                   {(language === "HI" ? solution.benefitsHI : solution.benefits).map((benefit, idx) => (
                     <li key={idx} className="flex items-center gap-3">
-                      <CheckCircle2 className="w-5 h-5" style={{ color: '#146fb5' }} />
+                      <CheckCircle2 className="w-5 h-5" style={{ color: 'var(--brand)' }} />
                       <span style={{ color: '#1b181f' }}>{benefit}</span>
                     </li>
                   ))}

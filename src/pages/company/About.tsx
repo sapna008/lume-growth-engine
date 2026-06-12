@@ -28,12 +28,12 @@ export default function About() {
           >
             {language === "HI" ? (
               <>
-                <p className="text-sm font-semibold tracking-[0.18em] uppercase text-[#146fb5]/80 mb-3">
+                <p className="text-sm font-semibold tracking-[0.18em] uppercase text-[rgb(var(--brand-rgb)/0.8)] mb-3">
                   हमारे बारे में
                 </p>
                 <h1 className="text-2xl md:text-3xl lg:text-4xl leading-snug font-display font-bold mb-3 text-[#1b181f]">
                   भारत के रिटेलर्स को{" "}
-                  <span className="text-[#146fb5]">स्पष्टता, नियंत्रण और भरोसा</span> देने वाला
+                  <span className="text-[var(--brand)]">स्पष्टता, नियंत्रण और भरोसा</span> देने वाला
                   टेक्नोलॉजी पार्टनर
                 </h1>
                 <p
@@ -47,12 +47,12 @@ export default function About() {
               </>
             ) : (
               <>
-                <p className="text-sm font-semibold tracking-[0.18em] uppercase text-[#146fb5]/80 mb-3">
+                <p className="text-sm font-semibold tracking-[0.18em] uppercase text-[rgb(var(--brand-rgb)/0.8)] mb-3">
                   About Us
                 </p>
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4 text-[#1b181f]">
                   Empowering India’s Retailers with{" "}
-                  <span className="text-[#146fb5]">Clarity, Control, and Confidence</span>
+                  <span className="text-[var(--brand)]">Clarity, Control, and Confidence</span>
                 </h1>
                 <p
                   className="text-base md:text-lg text-muted-foreground leading-relaxed"
@@ -113,8 +113,8 @@ export default function About() {
             )}
 
             <div className="grid sm:grid-cols-2 gap-4">
-              <div className="rounded-2xl border border-[#146fb5]/15 bg-[#f3f7ff] p-5">
-                <Target className="w-8 h-8 text-[#146fb5] mb-3" />
+              <div className="rounded-2xl border border-[rgb(var(--brand-rgb)/0.15)] bg-[#f3f7ff] p-5">
+                <Target className="w-8 h-8 text-[var(--brand)] mb-3" />
                 <h3 className="font-semibold text-[#1b181f] mb-1">
                   {language === "HI" ? "असल दुकानों के लिए बना" : "Built for real stores"}
                 </h3>
@@ -124,8 +124,8 @@ export default function About() {
                     : "Systems that match how billing, staff, and counters actually work on the ground."}
                 </p>
               </div>
-              <div className="rounded-2xl border border-[#146fb5]/15 bg-[#f5fbff] p-5">
-                <Lightbulb className="w-8 h-8 text-[#146fb5] mb-3" />
+              <div className="rounded-2xl border border-[rgb(var(--brand-rgb)/0.15)] bg-[#f5fbff] p-5">
+                <Lightbulb className="w-8 h-8 text-[var(--brand)] mb-3" />
                 <h3 className="font-semibold text-[#1b181f] mb-1">
                   {language === "HI" ? "कम्प्लेक्सिटी से ज़्यादा क्लैरिटी" : "Clarity over complexity"}
                 </h3>
@@ -142,14 +142,14 @@ export default function About() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="rounded-2xl border border-dashed border-[#146fb5]/30 bg-[#f8fbff] p-6 flex flex-col gap-3"
+            className="rounded-2xl border border-dashed border-[rgb(var(--brand-rgb)/0.3)] bg-[#f8fbff] p-6 flex flex-col gap-3"
           >
-            <p className="text-sm font-semibold tracking-wide text-[#146fb5] uppercase">
+            <p className="text-sm font-semibold tracking-wide text-[var(--brand)] uppercase">
               {language === "HI" ? "हम किस पर फोकस करते हैं" : "What we focus on"}
             </p>
             <ul className="space-y-2 text-sm md:text-base text-[#1b181f]">
               <li className="flex gap-2">
-                <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#146fb5]" />
+                <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[var(--brand)]" />
                 <span>
                   {language === "HI"
                     ? "मैन्युअल बिलिंग और अलग‑अलग, न जुड़े हुए काउंटर्स से आगे बढ़ना।"
@@ -157,7 +157,7 @@ export default function About() {
                 </span>
               </li>
               <li className="flex gap-2">
-                <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#146fb5]" />
+                <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[var(--brand)]" />
                 <span>
                   {language === "HI"
                     ? "गेसवर्क की जगह कस्टमर और सेल्स को डेटा के ज़रिए समझना।"
@@ -165,7 +165,7 @@ export default function About() {
                 </span>
               </li>
               <li className="flex gap-2">
-                <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#146fb5]" />
+                <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[var(--brand)]" />
                 <span>
                   {language === "HI"
                     ? "सिर्फ़ रिपोर्ट के लिए नहीं, रोज़मर्रा के फ़ैसलों के लिए डेटा का इस्तेमाल करना।"
@@ -173,7 +173,7 @@ export default function About() {
                 </span>
               </li>
               <li className="flex gap-2">
-                <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#146fb5]" />
+                <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[var(--brand)]" />
                 <span>
                   {language === "HI"
                     ? "स्टोर में और जटिलता बढ़ाए बिना बिज़नेस को ग्रो करना।"
@@ -198,7 +198,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <p className="text-xs font-semibold tracking-[0.18em] uppercase text-[#146fb5] mb-2">
+            <p className="text-xs font-semibold tracking-[0.18em] uppercase text-[var(--brand)] mb-2">
               {language === "HI" ? "हम क्या बनाते हैं" : "What We Build"}
             </p>
             <h2 className="text-2xl md:text-3xl font-display font-bold mb-3 text-[#1b181f]">
@@ -209,11 +209,11 @@ export default function About() {
                 ? "ल्यूम हमारा फ़्लैगशिप प्रोडक्ट है — एक यूनिफ़ाइड रिटेल इंटेलिजेंस प्लेटफ़ॉर्म जो बिलिंग, POS सिस्टम, कस्टमर डेटा, लॉयल्टी, कैम्पेन और एनालिटिक्स को एक ही सिंपल सिस्टम में जोड़ देता है।"
                 : "Lume is our flagship product — a unified retail intelligence platform that connects billing, POS systems, customer data, loyalty, campaigns, and analytics into one simple system."}
             </p>
-            <p className="text-sm font-semibold text-[#146fb5] mb-3">
+            <p className="text-sm font-semibold text-[var(--brand)] mb-3">
               {language === "HI" ? "ल्यूम इन सबको एक साथ जोड़ता है:" : "Lume brings together:"}
             </p>
             <div className="grid sm:grid-cols-2 gap-4 mb-4">
-              <div className="rounded-2xl bg-white/80 border border-[#146fb5]/15 p-4">
+              <div className="rounded-2xl bg-white/80 border border-[rgb(var(--brand-rgb)/0.15)] p-4">
                 <h3 className="text-sm font-semibold text-[#1b181f] mb-1">
                   {language === "HI" ? "बिलिंग और POS" : "Billing & POS"}
                 </h3>
@@ -223,7 +223,7 @@ export default function About() {
                     : "Tax & non-tax billing, existing POS, web billing, and mobile-friendly POS."}
                 </p>
               </div>
-              <div className="rounded-2xl bg-white/80 border border-[#146fb5]/15 p-4">
+              <div className="rounded-2xl bg-white/80 border border-[rgb(var(--brand-rgb)/0.15)] p-4">
                 <h3 className="text-sm font-semibold text-[#1b181f] mb-1">
                   {language === "HI" ? "कस्टमर और लॉयल्टी" : "Customer & Loyalty"}
                 </h3>
@@ -233,7 +233,7 @@ export default function About() {
                     : "Automatic customer capture, loyalty & rewards, repeat tracking and segments."}
                 </p>
               </div>
-              <div className="rounded-2xl bg-white/80 border border-[#146fb5]/15 p-4">
+              <div className="rounded-2xl bg-white/80 border border-[rgb(var(--brand-rgb)/0.15)] p-4">
                 <h3 className="text-sm font-semibold text-[#1b181f] mb-1">
                   {language === "HI" ? "कैम्पेन और एंगेजमेंट" : "Campaigns & Engagement"}
                 </h3>
@@ -243,7 +243,7 @@ export default function About() {
                     : "WhatsApp, SMS and multi-channel campaigns that run on real purchase data."}
                 </p>
               </div>
-              <div className="rounded-2xl bg-white/80 border border-[#146fb5]/15 p-4">
+              <div className="rounded-2xl bg-white/80 border border-[rgb(var(--brand-rgb)/0.15)] p-4">
                 <h3 className="text-sm font-semibold text-[#1b181f] mb-1">
                   {language === "HI" ? "एनालिटिक्स और रिपोर्ट्स" : "Analytics & Reports"}
                 </h3>
@@ -259,7 +259,7 @@ export default function About() {
                 <>
                   हर बिल — चाहे वह किसी भी सोर्स से बना हो — अपने‑आप पढ़ा, प्रोसेस और एक्शन लेने लायक
                   इनसाइट्स में बदल जाता है। रिटेलर्स सिर्फ़ बिल नहीं बनाते,
-                  <span className="font-semibold text-[#146fb5]">
+                  <span className="font-semibold text-[var(--brand)]">
                     {" "}
                     ल्यूम के ज़रिए वे बिलिंग से ही अपना पूरा बिज़नेस समझने लगते हैं।
                   </span>
@@ -268,7 +268,7 @@ export default function About() {
                 <>
                   Every bill created — from any source — is automatically read, processed and converted
                   into actionable insights. Retailers don’t just generate bills with Lume —{" "}
-                  <span className="font-semibold text-[#146fb5]">
+                  <span className="font-semibold text-[var(--brand)]">
                     they understand their business through billing.
                   </span>
                 </>
@@ -281,14 +281,14 @@ export default function About() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="rounded-2xl bg-white/90 border border-[#146fb5]/15 shadow-sm p-6 space-y-4"
+            className="rounded-2xl bg-white/90 border border-[rgb(var(--brand-rgb)/0.15)] shadow-sm p-6 space-y-4"
           >
             <h3 className="text-lg font-semibold text-[#1b181f] mb-1">
               {language === "HI" ? "Lume को क्या अलग बनाता है" : "What makes Lume different"}
             </h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li className="flex gap-2">
-                <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#146fb5]" />
+                <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[var(--brand)]" />
                 <span>
                   <span className="font-semibold text-[#1b181f]">
                     {language === "HI" ? "स्मार्ट डिजिटल बिलिंग:" : "Smart Digital Billing:"}
@@ -299,7 +299,7 @@ export default function About() {
                 </span>
               </li>
               <li className="flex gap-2">
-                <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#146fb5]" />
+                <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[var(--brand)]" />
                 <span>
                   <span className="font-semibold text-[#1b181f]">
                     {language === "HI" ? "कस्टमर इंटेलिजेंस:" : "Customer Intelligence:"}
@@ -310,7 +310,7 @@ export default function About() {
                 </span>
               </li>
               <li className="flex gap-2">
-                <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#146fb5]" />
+                <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[var(--brand)]" />
                 <span>
                   <span className="font-semibold text-[#1b181f]">
                     {language === "HI" ? "वाकई काम करने वाले कैम्पेन:" : "Campaigns that actually work:"}
@@ -321,7 +321,7 @@ export default function About() {
                 </span>
               </li>
               <li className="flex gap-2">
-                <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#146fb5]" />
+                <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[var(--brand)]" />
                 <span>
                   <span className="font-semibold text-[#1b181f]">
                     {language === "HI" ? "इंडियन रिटेल की असल ज़मीन के लिए:" : "Built for Indian retail reality:"}
@@ -378,9 +378,9 @@ export default function About() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="rounded-2xl border border-[#146fb5]/15 bg-[#f4f8ff] p-6 flex gap-4 items-start"
+            className="rounded-2xl border border-[rgb(var(--brand-rgb)/0.15)] bg-[#f4f8ff] p-6 flex gap-4 items-start"
           >
-            <Heart className="w-8 h-8 text-[#146fb5] mt-1" />
+            <Heart className="w-8 h-8 text-[var(--brand)] mt-1" />
             <div>
               <p className="text-sm md:text-base text-[#1b181f] font-semibold mb-2">
                 {language === "HI"
@@ -417,10 +417,10 @@ export default function About() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-white rounded-2xl border border-[#146fb5]/15 shadow-sm overflow-hidden flex flex-col"
+              className="bg-white rounded-2xl border border-[rgb(var(--brand-rgb)/0.15)] shadow-sm overflow-hidden flex flex-col"
             >
               <div className="bg-[#f4f7ff] px-6 pt-6 pb-4 flex items-center gap-4">
-                <div className="w-24 h-24 rounded-2xl overflow-hidden border border-[#146fb5]/20 bg-white flex-shrink-0">
+                <div className="w-24 h-24 rounded-2xl overflow-hidden border border-[rgb(var(--brand-rgb)/0.2)] bg-white flex-shrink-0">
                   <img
                     src={gyanPhoto}
                     alt="Gyanendra singh – Founder & Director"
@@ -429,7 +429,7 @@ export default function About() {
                 </div>
                 <div className="text-left">
                   <h3 className="text-lg font-semibold text-[#1b181f]">Gyanendra Singh</h3>
-                  <p className="text-sm font-medium text-[#146fb5]">Founder & Director</p>
+                  <p className="text-sm font-medium text-[var(--brand)]">Founder & Director</p>
                   <p className="text-xs text-muted-foreground mt-1">
                     23+ years across Retail, POS, FinTech, Payments, Loyalty, Banking & Digital Platforms.
                   </p>
@@ -444,23 +444,23 @@ export default function About() {
                     </p>
                     <ul className="space-y-1.5">
                       <li className="flex gap-2">
-                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#146fb5]" />
+                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[var(--brand)]" />
                         <span>मैथमेटिक्स और कंप्यूटर एप्लिकेशन में मास्टर्स।</span>
                       </li>
                       <li className="flex gap-2">
-                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#146fb5]" />
+                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[var(--brand)]" />
                         <span>Future Group में FuturePay को 2.5 करोड़+ यूज़र्स तक स्केल किया।</span>
                       </li>
                       <li className="flex gap-2">
-                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#146fb5]" />
+                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[var(--brand)]" />
                         <span>10 लाख+ लाइनों का प्रोडक्शन POS और रिटेल सिस्टम कोड खुद लिखा और शिप किया।</span>
                       </li>
                       <li className="flex gap-2">
-                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#146fb5]" />
+                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[var(--brand)]" />
                         <span>हज़ारों रिटेल स्टोर्स में ज़ीरो‑डाउनटाइम माइग्रेशन्स लीड किए।</span>
                       </li>
                       <li className="flex gap-2">
-                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#146fb5]" />
+                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[var(--brand)]" />
                         <span>
                           Fiserv (US), Specsavers (UK), JK Technosoft, Future Group और कई ग्लोबल व इंडियन
                           एंटरप्राइज़ के साथ काम किया।
@@ -484,23 +484,23 @@ export default function About() {
                     </p>
                     <ul className="space-y-1.5">
                       <li className="flex gap-2">
-                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#146fb5]" />
+                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[var(--brand)]" />
                         <span>Masters in Mathematics and Computer Applications.</span>
                       </li>
                       <li className="flex gap-2">
-                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#146fb5]" />
+                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[var(--brand)]" />
                         <span>Built and scaled FuturePay at Future Group to 25+ million users.</span>
                       </li>
                       <li className="flex gap-2">
-                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#146fb5]" />
+                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[var(--brand)]" />
                         <span>Personally wrote and shipped 10+ lakh lines of production POS code.</span>
                       </li>
                       <li className="flex gap-2">
-                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#146fb5]" />
+                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[var(--brand)]" />
                         <span>Led zero‑downtime migrations across thousands of retail stores.</span>
                       </li>
                       <li className="flex gap-2">
-                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#146fb5]" />
+                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[var(--brand)]" />
                         <span>
                           Worked with Fiserv (US), Specsavers (UK), JK Technosoft, Future Group and other
                           enterprises.
@@ -526,10 +526,10 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="bg-white rounded-2xl border border-[#146fb5]/15 shadow-sm overflow-hidden flex flex-col"
+              className="bg-white rounded-2xl border border-[rgb(var(--brand-rgb)/0.15)] shadow-sm overflow-hidden flex flex-col"
             >
               <div className="bg-[#f4f7ff] px-6 pt-6 pb-4 flex items-center gap-4">
-                <div className="w-24 h-24 rounded-2xl overflow-hidden border border-[#146fb5]/20 bg-white flex-shrink-0">
+                <div className="w-24 h-24 rounded-2xl overflow-hidden border border-[rgb(var(--brand-rgb)/0.2)] bg-white flex-shrink-0">
                   <img
                     src={seemaPhoto}
                     alt="Seema Singh– Director"
@@ -538,7 +538,7 @@ export default function About() {
                 </div>
                 <div className="text-left">
                   <h3 className="text-lg font-semibold text-[#1b181f]">Seema Singh</h3>
-                  <p className="text-sm font-medium text-[#146fb5]">Director</p>
+                  <p className="text-sm font-medium text-[var(--brand)]">Director</p>
                   <p className="text-xs text-muted-foreground mt-1">
                     15+ years across QA, retail systems, POS, loyalty, FinTech & digital applications.
                   </p>
@@ -553,15 +553,15 @@ export default function About() {
                     </p>
                     <ul className="space-y-1.5">
                       <li className="flex gap-2">
-                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#146fb5]" />
+                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[var(--brand)]" />
                         <span>इन्फ़ॉर्मेशन टेक्नोलॉजी में पोस्ट‑ग्रेजुएट।</span>
                       </li>
                       <li className="flex gap-2">
-                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#146fb5]" />
+                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[var(--brand)]" />
                         <span>Fiserv, NIIT, M‑Intellect, Future Group और अन्य संगठनों के साथ काम किया।</span>
                       </li>
                       <li className="flex gap-2">
-                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#146fb5]" />
+                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[var(--brand)]" />
                         <span>क्वालिटी इंजीनियरिंग और एक्ज़ीक्यूशन रिलायबिलिटी में गहरी विशेषज्ञता।</span>
                       </li>
                     </ul>
@@ -583,15 +583,15 @@ export default function About() {
                     </p>
                     <ul className="space-y-1.5">
                       <li className="flex gap-2">
-                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#146fb5]" />
+                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[var(--brand)]" />
                         <span>Post‑graduate in Information Technology.</span>
                       </li>
                       <li className="flex gap-2">
-                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#146fb5]" />
+                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[var(--brand)]" />
                         <span>Worked with Fiserv, NIIT, M‑Intellect, Future Group and others.</span>
                       </li>
                       <li className="flex gap-2">
-                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#146fb5]" />
+                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[var(--brand)]" />
                         <span>Deep expertise in quality engineering and execution reliability.</span>
                       </li>
                     </ul>
@@ -629,8 +629,8 @@ export default function About() {
                 : "We stay close to retailers, their counters and their staff. Product decisions come from what actually happens in stores — not from slides or conference rooms."}
             </p>
             <div className="grid sm:grid-cols-2 gap-4">
-              <div className="rounded-2xl border border-[#146fb5]/15 bg-[#f5fbff] p-5">
-                <Users className="w-7 h-7 text-[#146fb5] mb-2" />
+              <div className="rounded-2xl border border-[rgb(var(--brand-rgb)/0.15)] bg-[#f5fbff] p-5">
+                <Users className="w-7 h-7 text-[var(--brand)] mb-2" />
                 <p className="text-sm font-semibold text-[#1b181f] mb-1">
                   {language === "HI" ? "प्रोडक्ट‑फर्स्ट, रिटेलर‑फर्स्ट" : "Product‑first, retailer‑first"}
                 </p>
@@ -640,7 +640,7 @@ export default function About() {
                     : "Retail reality before assumptions. Every feature must solve a real counter problem."}
                 </p>
               </div>
-              <div className="rounded-2xl border border-[#146fb5]/15 bg-[#f3f7ff] p-5">
+              <div className="rounded-2xl border border-[rgb(var(--brand-rgb)/0.15)] bg-[#f3f7ff] p-5">
                 <p className="text-sm font-semibold text-[#1b181f] mb-1">
                   {language === "HI"
                     ? "क्वालिटी और रिलायबिलिटी, शॉर्टकट से ऊपर"

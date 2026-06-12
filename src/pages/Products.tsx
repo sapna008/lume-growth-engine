@@ -159,7 +159,7 @@ export default function Products() {
         <Header />
         
       {/* 1. PRODUCT HERO */}
-      <section id="overview" className="hero-section bg-gradient-to-b from-white via-[#eaf2f8]/30 to-white">
+      <section id="overview" className="hero-section bg-gradient-to-b from-white via-[var(--brand-tint)]/30 to-white">
         <div className="site-container">
           <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-6 lg:gap-8 items-center">
             {/* Left: Clear product explanation */}
@@ -181,7 +181,7 @@ export default function Products() {
                     <div style={{ color: '#1b181f' }} className="leading-[1.4]">{t('products.hero.titleLine1')}</div>
                     <div className="pt-1 sm:pt-1.5 leading-[1.4]">
                       <span style={{ color: '#1b181f' }}>{t('products.hero.titleLine1Part2Before')} </span>
-                      <span style={{ color: '#146fb5' }}>{t('products.hero.titleLine1Part2After')}</span>
+                      <span style={{ color: 'var(--brand)' }}>{t('products.hero.titleLine1Part2After')}</span>
                     </div>
                   </>
                 ) : (
@@ -189,7 +189,7 @@ export default function Products() {
                     <div style={{ color: '#1b181f' }} className="whitespace-nowrap">{t('products.hero.titleLine1')}</div>
                     <div>
                       <span style={{ color: '#1b181f' }}>your </span>
-                      <span style={{ color: '#146fb5' }}>business</span>
+                      <span style={{ color: 'var(--brand)' }}>business</span>
                     </div>
                   </>
                 )}
@@ -232,7 +232,7 @@ export default function Products() {
       </section>
 
       {/* 2. WHAT IS LUME? */}
-      <section id="what-is-lume" className="section-spacing bg-gradient-to-b from-white via-[#eaf2f8]/30 to-white">
+      <section id="what-is-lume" className="section-spacing bg-gradient-to-b from-white via-[var(--brand-tint)]/30 to-white">
           <div className="site-container">
           <div className="max-w-5xl mx-auto">
             <motion.div
@@ -247,13 +247,13 @@ export default function Products() {
               </h2>
               <div className="space-y-4 text-lg sm:text-xl leading-relaxed" style={{ color: '#4f4f4f' }}>
                 <div className="flex items-start gap-4">
-                  <div className="w-2 h-2 rounded-full mt-3 flex-shrink-0" style={{ background: '#146fb5' }}></div>
+                  <div className="w-2 h-2 rounded-full mt-3 flex-shrink-0" style={{ background: 'var(--brand)' }}></div>
                   <p className="font-medium" style={{ color: '#1b181f' }}>
                     {t('products.whatIsLume.point1')}
                   </p>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="w-2 h-2 rounded-full mt-3 flex-shrink-0" style={{ background: '#146fb5' }}></div>
+                  <div className="w-2 h-2 rounded-full mt-3 flex-shrink-0" style={{ background: 'var(--brand)' }}></div>
                   <p>
                     {t('products.whatIsLume.point2')}
                   </p>
@@ -267,7 +267,7 @@ export default function Products() {
       {/* 3. CORE CAPABILITIES */}
       <section
         id="core"
-        className="section-spacing bg-gradient-to-b from-white via-[#eaf2f8]/20 to-white"
+        className="section-spacing bg-gradient-to-b from-white via-[var(--brand-tint)]/20 to-white"
       >
           <div className="site-container">
           <motion.div
@@ -295,8 +295,8 @@ export default function Products() {
                 <div className={`grid lg:grid-cols-2 gap-6 items-center ${i % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
               <div className={i % 2 === 1 ? 'lg:col-start-2' : ''}>
                     <div className="flex items-center gap-4 mb-4">
-                      <div className="w-14 h-14 rounded-xl flex items-center justify-center" style={{ background: '#eaf2f8' }}>
-                        <capability.icon className="w-7 h-7" style={{ color: '#146fb5' }} />
+                      <div className="w-14 h-14 rounded-xl flex items-center justify-center" style={{ background: 'var(--brand-tint)' }}>
+                        <capability.icon className="w-7 h-7" style={{ color: 'var(--brand)' }} />
                       </div>
                       <h3 className="text-2xl sm:text-3xl font-bold" style={{ color: '#1b181f' }}>
                         {capability.title}
@@ -308,7 +308,7 @@ export default function Products() {
                     <ul className="space-y-3">
                       {capability.features.map((feature) => (
                         <li key={feature} className="flex items-start gap-3">
-                          <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#146fb5' }} />
+                          <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--brand)' }} />
                           <span className="text-base sm:text-lg" style={{ color: '#1b181f' }}>{feature}</span>
                     </li>
                   ))}
@@ -346,9 +346,9 @@ export default function Products() {
                         className="w-full max-w-md h-auto max-h-64 sm:max-h-80 rounded-lg object-contain"
                       />
                     ) : (
-                      <div className="bg-gradient-to-br from-[#eaf2f8] to-white rounded-xl p-6 sm:p-8 h-64 sm:h-80 flex items-center justify-center">
+                      <div className="bg-gradient-to-br from-[var(--brand-tint)] to-white rounded-xl p-6 sm:p-8 h-64 sm:h-80 flex items-center justify-center">
                         <div className="text-center">
-                          <capability.icon className="w-24 h-24 mx-auto mb-4 opacity-20" style={{ color: '#146fb5' }} />
+                          <capability.icon className="w-24 h-24 mx-auto mb-4 opacity-20" style={{ color: 'var(--brand)' }} />
                           <p className="text-sm" style={{ color: '#4f4f4f' }}>Visual placeholder</p>
                         </div>
                       </div>
@@ -393,7 +393,7 @@ export default function Products() {
                   <div className="bg-white rounded-xl sm:rounded-2xl px-6 sm:px-8 py-4 sm:py-5 shadow-card h-full relative pt-10 sm:pt-12 border border-gray-100">
                     {/* Number Circle - Half inside, half outside */}
                     <div className="absolute -top-6 sm:-top-7 left-1/2 transform -translate-x-1/2 z-10">
-                      <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full text-white text-lg sm:text-xl font-bold shadow-lg border-4 border-white" style={{ background: '#146fb5' }}>
+                      <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full text-white text-lg sm:text-xl font-bold shadow-lg border-4 border-white" style={{ background: 'var(--brand)' }}>
                         {step.step}
                       </div>
                     </div>
@@ -420,7 +420,7 @@ export default function Products() {
       {/* 5. WHO IS LUME FOR? */}
       <section
         id="who-is-lume-for"
-        className="section-spacing bg-gradient-to-b from-white via-[#eaf2f8]/20 to-white"
+        className="section-spacing bg-gradient-to-b from-white via-[var(--brand-tint)]/20 to-white"
       >
         <div className="site-container">
           <motion.div
@@ -443,9 +443,9 @@ export default function Products() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-white rounded-xl sm:rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-[#146fb5]/30"
+                className="bg-white rounded-xl sm:rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-[rgb(var(--brand-rgb)/0.3)]"
               >
-              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl flex items-center justify-center mb-6 bg-gradient-to-br from-[#eaf2f8] to-white border-2 border-[#146fb5]/20 shadow-sm mx-auto">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl flex items-center justify-center mb-6 bg-gradient-to-br from-[var(--brand-tint)] to-white border-2 border-[rgb(var(--brand-rgb)/0.2)] shadow-sm mx-auto">
                   <img 
                     src={item.icon} 
                     alt={item.title}
@@ -476,7 +476,7 @@ export default function Products() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-gradient-to-br from-[#eaf2f8] to-white rounded-2xl p-6 sm:p-8 border-2" style={{ borderColor: '#146fb5' }}
+              className="bg-gradient-to-br from-[var(--brand-tint)] to-white rounded-2xl p-8 sm:p-12 border-2" style={{ borderColor: 'var(--brand)' }}
             >
               <div className="grid lg:grid-cols-2 gap-8 items-center">
                 <div>
@@ -515,7 +515,7 @@ export default function Products() {
       {/* 7. TRUST (LIGHT VERSION) */}
       <section
         id="trust"
-        className="section-spacing bg-gradient-to-b from-white via-[#eaf2f8]/20 to-white"
+        className="section-spacing bg-gradient-to-b from-white via-[var(--brand-tint)]/20 to-white"
       >
         <div className="site-container">
           <div className="max-w-4xl mx-auto">
@@ -528,19 +528,19 @@ export default function Products() {
             >
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 mb-8">
                 <div>
-                  <div className="text-3xl sm:text-4xl font-bold mb-2" style={{ color: '#146fb5' }}>285+</div>
+                  <div className="text-3xl sm:text-4xl font-bold mb-2" style={{ color: 'var(--brand)' }}>285+</div>
                   <div className="text-sm sm:text-base" style={{ color: '#4f4f4f' }}>{t('products.trust.retailers')}</div>
                 </div>
                 <div>
-                  <div className="text-3xl sm:text-4xl font-bold mb-2" style={{ color: '#146fb5' }}>₹75Cr+</div>
+                  <div className="text-3xl sm:text-4xl font-bold mb-2" style={{ color: 'var(--brand)' }}>₹75Cr+</div>
                   <div className="text-sm sm:text-base" style={{ color: '#4f4f4f' }}>{t('products.trust.transactions')}</div>
                 </div>
                 <div>
-                  <div className="text-3xl sm:text-4xl font-bold mb-2" style={{ color: '#146fb5' }}>4.8/5</div>
+                  <div className="text-3xl sm:text-4xl font-bold mb-2" style={{ color: 'var(--brand)' }}>4.8/5</div>
                   <div className="text-sm sm:text-base" style={{ color: '#4f4f4f' }}>{t('products.trust.rating')}</div>
                     </div>
                     <div>
-                  <div className="text-3xl sm:text-4xl font-bold mb-2" style={{ color: '#146fb5' }}>25%</div>
+                  <div className="text-3xl sm:text-4xl font-bold mb-2" style={{ color: 'var(--brand)' }}>25%</div>
                   <div className="text-sm sm:text-base" style={{ color: '#4f4f4f' }}>{t('products.trust.growth')}</div>
                     </div>
                   </div>

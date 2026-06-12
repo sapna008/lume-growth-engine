@@ -50,7 +50,7 @@ export default function Startup() {
               <p className="text-xs font-semibold tracking-[0.22em] uppercase text-slate-500 mb-3">
                 Startup Overview · Apeiros AI
               </p>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#0f172a] via-[#146fb5] to-[#eab308] bg-clip-text text-transparent">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#0f172a] via-[var(--brand)] to-[#eab308] bg-clip-text text-transparent">
                 AI-Powered Retail SaaS Platform for Billing, Customer Engagement & Analytics
               </h1>
               <p className="text-sm sm:text-base text-slate-700 mb-3">
@@ -122,7 +122,7 @@ export default function Startup() {
               </div>
               <div className="rounded-xl bg-white shadow-sm border border-slate-200 p-4 flex flex-col gap-3">
                 <div className="flex items-center gap-2 text-xs font-semibold tracking-[0.18em] uppercase text-slate-500">
-                  <Sparkles className="w-4 h-4 text-[#146fb5]" />
+                  <Sparkles className="w-4 h-4 text-[var(--brand)]" />
                   <span>Platform Snapshot</span>
                 </div>
                 <p className="text-sm text-slate-700">
@@ -205,7 +205,7 @@ export default function Startup() {
                   </p>
                   <div className="grid sm:grid-cols-2 gap-4 mt-4">
                     <div className="rounded-xl border border-slate-200 bg-white p-4 flex gap-3">
-                      <Server className="w-5 h-5 text-[#146fb5] mt-0.5" />
+                      <Server className="w-5 h-5 text-[var(--brand)] mt-0.5" />
                       <div>
                         <div className="text-sm font-semibold text-slate-900">Application Services</div>
                         <div className="text-xs text-slate-600">
@@ -215,7 +215,7 @@ export default function Startup() {
                       </div>
                     </div>
                     <div className="rounded-xl border border-slate-200 bg-white p-4 flex gap-3">
-                      <Database className="w-5 h-5 text-[#146fb5] mt-0.5" />
+                      <Database className="w-5 h-5 text-[var(--brand)] mt-0.5" />
                       <div>
                         <div className="text-sm font-semibold text-slate-900">Data Layer</div>
                         <div className="text-xs text-slate-600">
@@ -225,7 +225,7 @@ export default function Startup() {
                       </div>
                     </div>
                     <div className="rounded-xl border border-slate-200 bg-white p-4 flex gap-3">
-                      <MonitorSmartphone className="w-5 h-5 text-[#146fb5] mt-0.5" />
+                      <MonitorSmartphone className="w-5 h-5 text-[var(--brand)] mt-0.5" />
                       <div>
                         <div className="text-sm font-semibold text-slate-900">Web Dashboards</div>
                         <div className="text-xs text-slate-600">
@@ -235,7 +235,7 @@ export default function Startup() {
                       </div>
                     </div>
                     <div className="rounded-xl border border-slate-200 bg-white p-4 flex gap-3">
-                      <ShieldCheck className="w-5 h-5 text-[#146fb5] mt-0.5" />
+                      <ShieldCheck className="w-5 h-5 text-[var(--brand)] mt-0.5" />
                       <div>
                         <div className="text-sm font-semibold text-slate-900">Security &amp; Observability</div>
                         <div className="text-xs text-slate-600">
@@ -253,24 +253,24 @@ export default function Startup() {
                   </p>
                   <div className="space-y-3 text-xs text-slate-700">
                     <div className="flex items-center gap-2">
-                      <Layers className="w-4 h-4 text-[#146fb5]" />
+                      <Layers className="w-4 h-4 text-[var(--brand)]" />
                       <span>Billing sources (POS, web, integrations) send data into Lume Ingestion APIs.</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Cpu className="w-4 h-4 text-[#146fb5]" />
+                      <Cpu className="w-4 h-4 text-[var(--brand)]" />
                       <span>
                         Ingestion services normalise transactions and push them into the customer &amp;
                         loyalty engine.
                       </span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <LineChart className="w-4 h-4 text-[#146fb5]" />
+                      <LineChart className="w-4 h-4 text-[var(--brand)]" />
                       <span>
                         Analytics and segmentation services compute KPIs, cohorts, and campaign audiences.
                       </span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Cloud className="w-4 h-4 text-[#146fb5]" />
+                      <Cloud className="w-4 h-4 text-[var(--brand)]" />
                       <span>
                         Campaign services trigger WhatsApp/SMS/Email messages and feed results back into
                         the analytics layer.
@@ -417,7 +417,7 @@ export default function Startup() {
               </p>
               <div className="grid sm:grid-cols-2 gap-4 text-sm sm:text-base text-slate-700">
                 <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 flex gap-3">
-                  <Cloud className="w-5 h-5 text-[#146fb5] mt-0.5" />
+                  <Cloud className="w-5 h-5 text-[var(--brand)] mt-0.5" />
                   <div>
                     <div className="font-semibold text-slate-900">Compute &amp; Orchestration</div>
                     <ul className="mt-1 space-y-1 text-xs sm:text-sm">
@@ -428,7 +428,7 @@ export default function Startup() {
                   </div>
                 </div>
                 <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 flex gap-3">
-                  <Database className="w-5 h-5 text-[#146fb5] mt-0.5" />
+                  <Database className="w-5 h-5 text-[var(--brand)] mt-0.5" />
                   <div>
                     <div className="font-semibold text-slate-900">Data &amp; Messaging</div>
                     <ul className="mt-1 space-y-1 text-xs sm:text-sm">
@@ -439,7 +439,7 @@ export default function Startup() {
                   </div>
                 </div>
                 <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 flex gap-3">
-                  <Cpu className="w-5 h-5 text-[#146fb5] mt-0.5" />
+                  <Cpu className="w-5 h-5 text-[var(--brand)] mt-0.5" />
                   <div>
                     <div className="font-semibold text-slate-900">AI &amp; Document Processing</div>
                     <ul className="mt-1 space-y-1 text-xs sm:text-sm">
@@ -449,7 +449,7 @@ export default function Startup() {
                   </div>
                 </div>
                 <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 flex gap-3">
-                  <Server className="w-5 h-5 text-[#146fb5] mt-0.5" />
+                  <Server className="w-5 h-5 text-[var(--brand)] mt-0.5" />
                   <div>
                     <div className="font-semibold text-slate-900">Networking &amp; Security</div>
                     <ul className="mt-1 space-y-1 text-xs sm:text-sm">
@@ -460,7 +460,7 @@ export default function Startup() {
                   </div>
                 </div>
                 <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 flex gap-3">
-                  <LineChart className="w-5 h-5 text-[#146fb5] mt-0.5" />
+                  <LineChart className="w-5 h-5 text-[var(--brand)] mt-0.5" />
                   <div>
                     <div className="font-semibold text-slate-900">DevOps &amp; Observability</div>
                     <ul className="mt-1 space-y-1 text-xs sm:text-sm">
@@ -518,7 +518,7 @@ export default function Startup() {
                 {/* Gyan profile */}
                 <div className="rounded-xl border border-slate-200 bg-white p-5 flex flex-col gap-3">
                   <div className="flex items-center gap-3">
-                    <div className="w-16 h-16 rounded-2xl overflow-hidden border border-[#146fb5]/20 bg-white flex-shrink-0">
+                    <div className="w-16 h-16 rounded-2xl overflow-hidden border border-[rgb(var(--brand-rgb)/0.2)] bg-white flex-shrink-0">
                       <img
                         src={gyanPhoto}
                         alt="Gyanendra Singh – Founder & Director"
@@ -527,7 +527,7 @@ export default function Startup() {
                     </div>
                     <div className="flex flex-col">
                       <div className="text-sm font-semibold text-slate-900">Gyanendra Singh</div>
-                      <div className="text-xs font-medium text-[#146fb5] uppercase tracking-[0.18em]">
+                      <div className="text-xs font-medium text-[var(--brand)] uppercase tracking-[0.18em]">
                         Founder &amp; Director
                       </div>
                     </div>
@@ -541,7 +541,7 @@ export default function Startup() {
                     href="https://www.linkedin.com/in/gyanendra-singh-615a5a17/"
                     target="_blank"
                     rel="noreferrer"
-                    className="mt-1 inline-flex items-center text-xs font-medium text-[#146fb5] hover:underline"
+                    className="mt-1 inline-flex items-center text-xs font-medium text-[var(--brand)] hover:underline"
                   >
                     View LinkedIn profile
                   </a>
@@ -550,7 +550,7 @@ export default function Startup() {
                 {/* Seema profile */}
                 <div className="rounded-xl border border-slate-200 bg-white p-5 flex flex-col gap-3">
                   <div className="flex items-center gap-3">
-                    <div className="w-16 h-16 rounded-2xl overflow-hidden border border-[#146fb5]/20 bg-white flex-shrink-0">
+                    <div className="w-16 h-16 rounded-2xl overflow-hidden border border-[rgb(var(--brand-rgb)/0.2)] bg-white flex-shrink-0">
                       <img
                         src={seemaPhoto}
                         alt="Seema Singh – Director"
@@ -559,7 +559,7 @@ export default function Startup() {
                     </div>
                     <div className="flex flex-col">
                       <div className="text-sm font-semibold text-slate-900">Seema Singh</div>
-                      <div className="text-xs font-medium text-[#146fb5] uppercase tracking-[0.18em]">
+                      <div className="text-xs font-medium text-[var(--brand)] uppercase tracking-[0.18em]">
                         Director
                       </div>
                     </div>
@@ -573,7 +573,7 @@ export default function Startup() {
                     href="https://www.linkedin.com/in/seema-singh-80585617/"
                     target="_blank"
                     rel="noreferrer"
-                    className="mt-1 inline-flex items-center text-xs font-medium text-[#146fb5] hover:underline"
+                    className="mt-1 inline-flex items-center text-xs font-medium text-[var(--brand)] hover:underline"
                   >
                     View LinkedIn profile
                   </a>

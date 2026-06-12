@@ -251,8 +251,8 @@ export function WhySmartPosBeatsManualBillingBusyStoresEn() {
       </section>
 
       <section
-        className="rounded-xl border border-[#146fb5]/20 bg-[#146fb5]/[0.06] p-6 sm:p-8 space-y-4"
-        aria-labelledby="blog-cta-heading-pos"
+        className="rounded-xl border border-[rgb(var(--brand-rgb)/0.2)] bg-[var(--brand)]/[0.06] p-6 sm:p-8 space-y-4"
+        aria-labelledby="blog-cta-heading"
       >
         <h2 id="blog-cta-heading-pos" className="text-xl font-bold" style={{ color: "#1b181f" }}>
           Ready to move past manual billing?
@@ -261,7 +261,7 @@ export function WhySmartPosBeatsManualBillingBusyStoresEn() {
           See how{" "}
           <Link
             to="/products"
-            className="font-semibold text-[#146fb5] underline-offset-2 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#146fb5] rounded-sm"
+            className="font-semibold text-[var(--brand)] underline-offset-2 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand)] rounded-sm"
           >
             Lume POS
           </Link>{" "}

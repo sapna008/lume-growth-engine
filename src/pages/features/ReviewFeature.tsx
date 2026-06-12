@@ -71,7 +71,7 @@ export default function ReviewFeature() {
           }}
         />
         {/* Subtle dots */}
-        <div className="absolute inset-0 -z-10 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, #146fb5 1px, transparent 0)", backgroundSize: "28px 28px" }} />
+        <div className="absolute inset-0 -z-10 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, var(--brand) 1px, transparent 0)", backgroundSize: "28px 28px" }} />
 
         {/* Purane wale stars – big, subtle, top-left + bottom-right */}
         <div className="absolute left-0 top-20 sm:top-24 pointer-events-none z-0 opacity-[0.06]">
@@ -93,10 +93,10 @@ export default function ReviewFeature() {
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
-                className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-5 py-2.5 border border-[#146fb5]/25 mb-6"
+                className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-5 py-2.5 border border-[rgb(var(--brand-rgb)/0.25)] mb-6"
               >
                 <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
-                <span className="text-sm font-semibold" style={{ color: "#146fb5" }}>
+                <span className="text-sm font-semibold" style={{ color: "var(--brand)" }}>
                   {t("Turn Every Bill into a Google Review", "हर बिल को Google समीक्षा में बदलें")}
                 </span>
               </motion.div>
@@ -109,6 +109,18 @@ export default function ReviewFeature() {
                   "हर डिजिटल बिल के साथ ग्राहकों को Google समीक्षा देने के लिए प्रोत्साहित करें। अधिक समीक्षाएं पाएं, विश्वास बनाएं और Google खोज में ऊपर रैंक करें।"
                 )}
               </p>
+              <div className="flex flex-row flex-nowrap gap-2 sm:gap-3">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  type="button"
+                  className="rounded-xl px-4 py-4 sm:px-8 sm:py-6 text-sm sm:text-base border-2 border-[rgb(var(--brand-rgb)/0.4)] hover:bg-[rgb(var(--brand-rgb)/0.1)] hover:border-[rgb(var(--brand-rgb)/0.6)] transition-all duration-300 flex-1 sm:flex-initial min-w-0"
+                  style={{ color: "var(--brand)" }}
+                  onClick={() => document.getElementById("review-features")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                >
+                  <span className="truncate block">{t("See all features", "सभी फ़ीचर्स देखें")}</span>
+                </Button>
+              </div>
             </motion.div>
 
             <motion.div
@@ -142,9 +154,9 @@ export default function ReviewFeature() {
                 labelHI: "Google समीक्षाएं",
                 descEN: "Automate review generation and get top rankings",
                 descHI: "समीक्षाएं ऑटोमेट करें और टॉप रैंकिंग पाएं",
-                bg: "bg-gradient-to-br from-[#146fb5]/15 to-[#146fb5]/5",
-                border: "border-[#146fb5]/20",
-                color: "#146fb5",
+                bg: "bg-gradient-to-br from-[rgb(var(--brand-rgb)/0.15)] to-[rgb(var(--brand-rgb)/0.05)]",
+                border: "border-[rgb(var(--brand-rgb)/0.2)]",
+                color: "var(--brand)",
               },
               {
                 value: "18%",
@@ -198,9 +210,9 @@ export default function ReviewFeature() {
             style={{ color: "#1b181f" }}
           >
             {t("The ", "वह ")}
-            <span className="bg-gradient-to-r from-[#146fb5] to-[#0ea5e9] bg-clip-text text-transparent">#1</span>
+            <span className="bg-gradient-to-r from-[var(--brand)] to-[#0ea5e9] bg-clip-text text-transparent">#1</span>
             {t(" tool to earn five star customer reviews on ", " टूल जिससे ग्राहक पाँच स्टार समीक्षाएं देते हैं ")}
-            <span className="bg-gradient-to-r from-[#146fb5] to-[#0ea5e9] bg-clip-text text-transparent">Google Maps</span>
+            <span className="bg-gradient-to-r from-[var(--brand)] to-[#0ea5e9] bg-clip-text text-transparent">Google Maps</span>
           </motion.h2>
 
           {/* Bottom row – 3 benefit columns with icon cards */}
@@ -219,7 +231,7 @@ export default function ReviewFeature() {
                 whileHover={{ y: -4 }}
                 className="text-center group"
               >
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#146fb5]/20 to-[#146fb5]/5 flex items-center justify-center mx-auto mb-5 text-[#146fb5] border border-[#146fb5]/20 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-[#146fb5]/20 transition-all duration-300">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[rgb(var(--brand-rgb)/0.2)] to-[rgb(var(--brand-rgb)/0.05)] flex items-center justify-center mx-auto mb-5 text-[var(--brand)] border border-[rgb(var(--brand-rgb)/0.2)] group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-[rgb(var(--brand-rgb)/0.2)] transition-all duration-300">
                   <item.icon className="w-8 h-8" strokeWidth={1.5} />
                 </div>
                 <h3 className="text-xl font-bold mb-2" style={{ color: "#1b181f" }}>
@@ -257,8 +269,8 @@ export default function ReviewFeature() {
                 </motion.div>
               </div>
               <div className={`${block.imageFirst ? "order-1 lg:order-2" : "order-1 lg:order-1"} text-center lg:text-left`}>
-                <div className="inline-flex items-center rounded-full px-5 py-2.5 mb-3 bg-white/90 border border-[#146fb5]/25 shadow-sm">
-                  <span className="text-sm font-semibold" style={{ color: "#146fb5" }}>
+                <div className="inline-flex items-center rounded-full px-5 py-2.5 mb-3 bg-white/90 border border-[rgb(var(--brand-rgb)/0.25)] shadow-sm">
+                  <span className="text-sm font-semibold" style={{ color: "var(--brand)" }}>
                     {t(block.pillEN, block.pillHI)}
                   </span>
                 </div>
@@ -300,9 +312,9 @@ export default function ReviewFeature() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
                 whileHover={{ y: -6 }}
-                className="group relative bg-gradient-to-b from-white to-primary/10 border border-[#146fb5]/15 rounded-2xl p-6 lg:p-8 shadow-md hover:shadow-xl hover:border-[#146fb5]/30 hover:ring-2 hover:ring-[#146fb5]/10 transition-all duration-300"
+                className="group relative bg-gradient-to-b from-white to-primary/10 border border-[rgb(var(--brand-rgb)/0.15)] rounded-2xl p-6 lg:p-8 shadow-md hover:shadow-xl hover:border-[rgb(var(--brand-rgb)/0.3)] hover:ring-2 hover:ring-[rgb(var(--brand-rgb)/0.1)] transition-all duration-300"
               >
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-5 bg-gradient-to-br from-[#146fb5]/15 to-[#146fb5]/5 text-[#146fb5] border border-[#146fb5]/20 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-[#146fb5]/15 transition-all duration-300">
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-5 bg-gradient-to-br from-[rgb(var(--brand-rgb)/0.15)] to-[rgb(var(--brand-rgb)/0.05)] text-[var(--brand)] border border-[rgb(var(--brand-rgb)/0.2)] group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-[rgb(var(--brand-rgb)/0.15)] transition-all duration-300">
                   <item.icon className="w-7 h-7" />
                 </div>
                 <h3 className="text-xl font-bold mb-2" style={{ color: "#1b181f" }}>
@@ -350,7 +362,7 @@ export default function ReviewFeature() {
                 >
                   <div className="bg-white rounded-xl sm:rounded-2xl px-6 sm:px-8 py-4 sm:py-5 shadow-[0_4px_20px_rgba(0,0,0,0.06)] h-full relative pt-10 sm:pt-12 border border-gray-100">
                     <div className="absolute -top-6 sm:-top-7 left-1/2 transform -translate-x-1/2 z-10">
-                      <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full text-white text-lg sm:text-xl font-bold shadow-lg border-4 border-white" style={{ background: "#146fb5" }}>
+                      <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full text-white text-lg sm:text-xl font-bold shadow-lg border-4 border-white" style={{ background: "var(--brand)" }}>
                         {s.step}
                       </div>
                     </div>
@@ -381,13 +393,13 @@ export default function ReviewFeature() {
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-3xl mx-auto text-center rounded-2xl p-8 lg:p-12 bg-gradient-to-br from-[#146fb5]/15 via-primary/25 to-[#146fb5]/10 border border-[#146fb5]/25 shadow-xl shadow-[#146fb5]/10 relative overflow-hidden"
+            className="max-w-3xl mx-auto text-center rounded-2xl p-8 lg:p-12 bg-gradient-to-br from-[rgb(var(--brand-rgb)/0.15)] via-primary/25 to-[rgb(var(--brand-rgb)/0.1)] border border-[rgb(var(--brand-rgb)/0.25)] shadow-xl shadow-[rgb(var(--brand-rgb)/0.1)] relative overflow-hidden"
           >
-            <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, #146fb5 1px, transparent 0)", backgroundSize: "32px 32px" }} />
+            <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, var(--brand) 1px, transparent 0)", backgroundSize: "32px 32px" }} />
             <div className="relative">
               <div className="flex justify-center mb-4">
-                <div className="w-14 h-14 rounded-full bg-[#146fb5]/15 flex items-center justify-center">
-                  <CheckCircle2 className="w-8 h-8" style={{ color: "#146fb5" }} />
+                <div className="w-14 h-14 rounded-full bg-[rgb(var(--brand-rgb)/0.15)] flex items-center justify-center">
+                  <CheckCircle2 className="w-8 h-8" style={{ color: "var(--brand)" }} />
                 </div>
               </div>
               <h3 className="text-xl sm:text-2xl font-bold mb-3" style={{ color: "#1b181f" }}>

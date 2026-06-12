@@ -533,14 +533,14 @@ export default function Pricing() {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50/50 via-white to-amber-50/30">
+    <div className="min-h-screen bg-gradient-to-b from-[var(--brand-tint)]/50 via-white to-amber-50/30">
       <Header />
 
       {/* Background Effects */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute top-40 right-20 w-96 h-96 bg-[#146fb5]/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-blue-200/20 rounded-full blur-3xl" />
+        <div className="absolute top-40 right-20 w-96 h-96 bg-[rgb(var(--brand-rgb)/0.1)] rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-[var(--brand-tint-3)]/20 rounded-full blur-3xl" />
       </div>
 
       {/* Hero */}
@@ -590,16 +590,16 @@ export default function Pricing() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className={`relative flex h-full min-h-0 flex-col rounded-2xl p-4 transition-all duration-300 sm:p-5 lg:p-5 ${
                   plan.popular
-                    ? "border-2 border-[#146fb5] bg-gradient-to-br from-[#eaf2f8] via-[#d4e6f3]/50 to-white shadow-2xl shadow-[#146fb5]/20"
-                    : "border border-border bg-white shadow-lg hover:-translate-y-1 hover:shadow-xl"
+                    ? "bg-gradient-to-br from-[var(--brand-tint)] via-[var(--brand-tint-2)]/50 to-white border-2 border-[var(--brand)] shadow-2xl shadow-[rgb(var(--brand-rgb)/0.2)]"
+                    : "bg-white border border-border shadow-lg hover:shadow-xl hover:-translate-y-1"
                 }`}
               >
                 {plan.badge && (
                   <div
                     className={`absolute -top-0.5 right-4 rounded-b-lg px-3 py-1.5 text-xs font-bold uppercase tracking-wide ${
                       plan.popular
-                        ? "bg-gradient-to-r from-[#146fb5] to-[#1a7fc7] text-white shadow-lg"
-                        : "bg-gradient-to-r from-[#146fb5] to-[#1a7fc7] text-white"
+                        ? "bg-gradient-to-r from-[var(--brand)] to-[var(--brand-light)] text-white shadow-lg"
+                        : "bg-gradient-to-r from-[var(--brand)] to-[var(--brand-light)] text-white"
                     }`}
                   >
                     {language === "HI" && plan.badgeHI ? plan.badgeHI : plan.badge}
@@ -622,33 +622,32 @@ export default function Pricing() {
                       </p>
                     </div>
 
-                    <div>
-                      <div className="flex flex-wrap items-baseline gap-2">
-                        <span className="text-4xl font-bold" style={{ color: plan.popular ? '#146fb5' : '#1b181f' }}>
-                          {plan.price}
-                        </span>
-                        {plan.originalPrice && (
-                          <span className="text-sm line-through" style={{ color: '#9ca3af' }}>{plan.originalPrice}</span>
-                        )}
-                      </div>
-                      {plan.periodLabel && (
-                        <p className="mt-0.5 text-sm" style={{ color: "#4f4f4f" }}>
-                          {language === "HI" ? "प्रति वर्ष + 18% GST" : plan.periodLabel}
-                        </p>
-                      )}
-                    </div>
-
-                    <div className="w-fit max-w-full min-w-0">
-                      <span
-                        className="inline-flex max-w-full min-w-0 items-center justify-center whitespace-nowrap rounded-full bg-[#146fb5]/10 px-2 py-0.5 text-[10px] font-semibold uppercase leading-none tracking-wide sm:px-2.5 sm:text-[11px] sm:leading-tight md:text-xs"
-                        style={{ color: "#146fb5" }}
-                      >
-                        {language === "HI"
-                          ? "500 मुफ्त मैसेज"
-                          : plan.messagesLabel}
-                      </span>
-                    </div>
+                <div className="mb-2">
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-4xl font-bold" style={{ color: plan.popular ? 'var(--brand)' : '#1b181f' }}>
+                      {plan.price}
+                    </span>
+                    {plan.originalPrice && (
+                      <span className="text-sm line-through" style={{ color: '#9ca3af' }}>{plan.originalPrice}</span>
+                    )}
                   </div>
+                  {plan.periodLabel && (
+                    <p className="text-sm" style={{ color: "#4f4f4f" }}>
+                      {language === "HI" ? "प्रति वर्ष + 18% GST" : plan.periodLabel}
+                    </p>
+                  )}
+                </div>
+
+                <div className="mb-4">
+                  <span
+                    className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-[rgb(var(--brand-rgb)/0.1)]"
+                    style={{ color: "var(--brand)" }}
+                  >
+                    {language === "HI"
+                      ? "500 मुफ्त मैसेज शामिल"
+                      : plan.messagesLabel}
+                  </span>
+                </div>
 
                   {/* Right: highlights & features */}
                   <div className="flex min-w-0 flex-col lg:pt-2">
@@ -665,7 +664,7 @@ export default function Pricing() {
                     <ul className="space-y-1">
                       {(language === "HI" && plan.featuresHI ? plan.featuresHI : plan.features).map((feature, idx) => (
                         <li key={idx} className="flex items-start gap-2 text-[15px] leading-snug">
-                          <CheckCircle2 className="mt-[3px] h-[1.0625rem] w-[1.0625rem] shrink-0" style={{ color: '#146fb5' }} />
+                          <CheckCircle2 className="mt-[3px] h-[1.0625rem] w-[1.0625rem] shrink-0" style={{ color: 'var(--brand)' }} />
                           <span style={{ color: "#1b181f" }}>{feature}</span>
                         </li>
                       ))}
@@ -713,12 +712,13 @@ export default function Pricing() {
                     ) : null}
                   </div>
                 </div>
+                </div>
 
                 {/* Footer Badge */}
-                <div className="mt-auto border-t border-border pt-2.5 lg:pt-3">
-                  <div className={`overflow-hidden rounded-lg ${plan.popular ? "ring-1 ring-[#146fb5]/30" : ""}`}>
-                    <div className="flex items-center gap-2 px-3 py-2 text-xs font-bold text-white" style={{ background: 'linear-gradient(135deg, #146fb5 0%, #1a7fc7 100%)' }}>
-                      <Sparkles className="h-3 w-3" />
+                <div className="mt-auto pt-4 border-t border-border">
+                  <div className={`rounded-lg overflow-hidden ${plan.popular ? "ring-1 ring-[rgb(var(--brand-rgb)/0.3)]" : ""}`}>
+                    <div className="py-2 px-3 text-xs font-bold flex items-center gap-2 text-white" style={{ background: 'linear-gradient(135deg, var(--brand) 0%, var(--brand-light) 100%)' }}>
+                      <Sparkles className="w-3 h-3" />
                       {language === "HI" ? "ल्यूम द्वारा संचालित" : "POWERED BY LUME"}
                     </div>
                   </div>
@@ -736,7 +736,7 @@ export default function Pricing() {
             <label className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white border border-border shadow-sm cursor-pointer">
               <input
                 type="checkbox"
-                className="form-checkbox h-4 w-4 text-[#146fb5]"
+                className="form-checkbox h-4 w-4 text-[var(--brand)]"
                 checked={showComparison}
                 onChange={(e) => setShowComparison(e.target.checked)}
               />
@@ -785,7 +785,7 @@ export default function Pricing() {
                             <span className="text-sm font-normal" style={{ color: '#4f4f4f' }}>₹9,999 / year</span>
                           </div>
                         </th>
-                        <th className="text-center py-4 px-4 font-semibold bg-[#146fb5]/10" style={{ color: '#1b181f' }}>
+                        <th className="text-center py-4 px-4 font-semibold bg-[rgb(var(--brand-rgb)/0.1)]" style={{ color: '#1b181f' }}>
                           <div className="flex flex-col items-center">
                             <span>
                               {language === "HI" ? "प्रीमियम" : "Premium"}
@@ -817,7 +817,14 @@ export default function Pricing() {
                               <span className="text-base" style={{ color: '#9ca3af' }}>—</span>
                             )}
                           </td>
-                          <td className="py-4 px-4 text-center bg-[#146fb5]/5">
+                          <td className="py-4 px-4 text-center">
+                            {feature.advance === "yes" ? (
+                              <CheckCircle2 className="w-5 h-5 mx-auto" style={{ color: '#16a34a' }} />
+                            ) : (
+                              <span className="text-base" style={{ color: '#9ca3af' }}>—</span>
+                            )}
+                          </td>
+                          <td className="py-4 px-4 text-center bg-[rgb(var(--brand-rgb)/0.05)]">
                             {feature.premium === "yes" ? (
                               <CheckCircle2 className="w-5 h-5 mx-auto" style={{ color: '#16a34a' }} />
                             ) : (
@@ -873,7 +880,7 @@ export default function Pricing() {
       <section className="section-spacing relative z-10">
         <div className="site-container">
           <div className="text-center mb-8">
-            <HelpCircle className="w-12 h-12 mx-auto mb-4" style={{ color: '#146fb5' }} />
+            <HelpCircle className="w-12 h-12 mx-auto mb-4" style={{ color: 'var(--brand)' }} />
             <h2 className="text-3xl font-bold" style={{ color: '#1b181f' }}>
               {language === "HI" ? "अक्सर पूछे जाने वाले सवाल" : "Frequently Asked Questions"}
             </h2>

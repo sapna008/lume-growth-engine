@@ -17,13 +17,15 @@ export const getContent = async (_req, res, next) => {
   }
 };
 
+const cleanField = (value) => (typeof value === "string" ? value.trim() : undefined);
+
 export const postContent = async (req, res, next) => {
   try {
-    const { heading, subheading, colorTheme, template } = req.body;
+    const { headingEn, headingHi, subheadingEn, subheadingHi, colorTheme, template } = req.body;
     const heroImageFile = getSingleFile(req.files, "heroImage");
     const heroVideoFile = getSingleFile(req.files, "heroVideo");
 
-    const hasAnyBodyField = [heading, subheading, colorTheme, template].some(
+    const hasAnyBodyField = [headingEn, headingHi, subheadingEn, subheadingHi, colorTheme, template].some(
       (item) => typeof item === "string" && item.trim().length > 0
     );
 
@@ -36,10 +38,12 @@ export const postContent = async (req, res, next) => {
     }
 
     const data = await upsertHeroContent({
-      heading: typeof heading === "string" ? heading.trim() : undefined,
-      subheading: typeof subheading === "string" ? subheading.trim() : undefined,
-      colorTheme: typeof colorTheme === "string" ? colorTheme.trim() : undefined,
-      template: typeof template === "string" ? template.trim() : undefined,
+      headingEn: cleanField(headingEn),
+      headingHi: cleanField(headingHi),
+      subheadingEn: cleanField(subheadingEn),
+      subheadingHi: cleanField(subheadingHi),
+      colorTheme: cleanField(colorTheme),
+      template: cleanField(template),
       heroImageFile,
       heroVideoFile,
     });

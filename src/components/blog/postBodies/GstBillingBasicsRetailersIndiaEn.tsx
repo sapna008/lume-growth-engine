@@ -16,7 +16,7 @@ export function GstBillingBasicsRetailersIndiaEn() {
           <h3 className="text-lg font-semibold mb-2" style={{ color: "#1b181f" }}>
             Mandatory fields
           </h3>
-          <ul className="list-disc pl-6 space-y-2 marker:text-[#146fb5]">
+          <ul className="list-disc pl-6 space-y-2 marker:text-[var(--brand)]">
             <li>Business name and GSTIN</li>
             <li>Invoice number and date</li>
             <li>Customer details (if applicable)</li>
@@ -72,7 +72,7 @@ export function GstBillingBasicsRetailersIndiaEn() {
         <p className="font-medium" style={{ color: "#1b181f" }}>
           GST will be split as:
         </p>
-        <ul className="list-disc pl-6 space-y-1 marker:text-[#146fb5]">
+        <ul className="list-disc pl-6 space-y-1 marker:text-[var(--brand)]">
           <li>CGST = 9% (₹90)</li>
           <li>SGST = 9% (₹90)</li>
         </ul>
@@ -82,7 +82,7 @@ export function GstBillingBasicsRetailersIndiaEn() {
         <p className="font-medium" style={{ color: "#1b181f" }}>
           For inter-state sales:
         </p>
-        <ul className="list-disc pl-6 marker:text-[#146fb5]">
+        <ul className="list-disc pl-6 marker:text-[var(--brand)]">
           <li>IGST = 18% (₹180)</li>
         </ul>
       </section>
@@ -95,7 +95,7 @@ export function GstBillingBasicsRetailersIndiaEn() {
           Many retailers still use manual methods like notebooks or basic Excel sheets. While this might seem
           simple, it comes with risks:
         </p>
-        <ul className="list-disc pl-6 space-y-2 marker:text-[#146fb5]">
+        <ul className="list-disc pl-6 space-y-2 marker:text-[var(--brand)]">
           <li>Calculation errors</li>
           <li>Time-consuming billing</li>
           <li>Difficulty in tracking records</li>
@@ -112,7 +112,7 @@ export function GstBillingBasicsRetailersIndiaEn() {
           Modern billing software makes GST compliance much easier by automating the entire process. With the
           right system, you can:
         </p>
-        <ul className="list-disc pl-6 space-y-2 marker:text-[#146fb5]">
+        <ul className="list-disc pl-6 space-y-2 marker:text-[var(--brand)]">
           <li>Automatically calculate GST</li>
           <li>Generate compliant invoices instantly</li>
           <li>Track sales and tax reports</li>
@@ -127,7 +127,7 @@ export function GstBillingBasicsRetailersIndiaEn() {
           Choosing the Right GST Billing Software
         </h2>
         <p>When selecting software for your retail shop, make sure it offers:</p>
-        <ul className="list-disc pl-6 space-y-2 marker:text-[#146fb5]">
+        <ul className="list-disc pl-6 space-y-2 marker:text-[var(--brand)]">
           <li>GST-compliant invoice generation</li>
           <li>Easy-to-use interface</li>
           <li>Real-time inventory tracking</li>
@@ -145,7 +145,7 @@ export function GstBillingBasicsRetailersIndiaEn() {
           Instead of juggling multiple tools or manual processes, many retailers today are switching to
           all-in-one POS systems. Solutions like Lume POS combine:
         </p>
-        <ul className="list-disc pl-6 space-y-2 marker:text-[#146fb5]">
+        <ul className="list-disc pl-6 space-y-2 marker:text-[var(--brand)]">
           <li>Billing</li>
           <li>GST compliance</li>
           <li>Inventory management</li>
@@ -162,7 +162,7 @@ export function GstBillingBasicsRetailersIndiaEn() {
         <h2 className="text-2xl font-bold tracking-tight scroll-mt-24" style={{ color: "#1b181f" }}>
           Benefits of Using GST Billing Software
         </h2>
-        <ul className="list-disc pl-6 space-y-2 marker:text-[#146fb5]">
+        <ul className="list-disc pl-6 space-y-2 marker:text-[var(--brand)]">
           <li>Faster billing process</li>
           <li>Accurate tax calculations</li>
           <li>Better record management</li>
@@ -191,7 +191,7 @@ export function GstBillingBasicsRetailersIndiaEn() {
       </section>
 
       <section
-        className="rounded-xl border border-[#146fb5]/20 bg-[#146fb5]/[0.06] p-6 sm:p-8 space-y-4"
+        className="rounded-xl border border-[rgb(var(--brand-rgb)/0.2)] bg-[var(--brand)]/[0.06] p-6 sm:p-8 space-y-4"
         aria-labelledby="blog-cta-heading"
       >
         <h2 id="blog-cta-heading" className="text-xl font-bold" style={{ color: "#1b181f" }}>
@@ -201,7 +201,7 @@ export function GstBillingBasicsRetailersIndiaEn() {
           Want to simplify GST billing and manage your retail business smarter?{" "}
           <Link
             to="/products"
-            className="font-semibold text-[#146fb5] underline-offset-2 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#146fb5] rounded-sm"
+            className="font-semibold text-[var(--brand)] underline-offset-2 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand)] rounded-sm"
           >
             Explore Lume POS
           </Link>{" "}

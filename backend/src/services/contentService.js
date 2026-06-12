@@ -46,7 +46,16 @@ export const getHeroContent = async () => {
   return snapshot.data();
 };
 
-export const upsertHeroContent = async ({ heading, subheading, colorTheme, template, heroImageFile, heroVideoFile }) => {
+export const upsertHeroContent = async ({
+  headingEn,
+  headingHi,
+  subheadingEn,
+  subheadingHi,
+  colorTheme,
+  template,
+  heroImageFile,
+  heroVideoFile,
+}) => {
   const current = (await getHeroContent()) ?? {};
 
   let nextHeroImage = current.heroImage ?? "";
@@ -68,9 +77,20 @@ export const upsertHeroContent = async ({ heading, subheading, colorTheme, templ
     nextHeroVideoId = uploadedVideo.public_id;
   }
 
+  // Backward compatibility: older docs stored single heading/subheading (English).
+  const resolvedHeadingEn = headingEn ?? current.headingEn ?? current.heading ?? "";
+  const resolvedHeadingHi = headingHi ?? current.headingHi ?? "";
+  const resolvedSubheadingEn = subheadingEn ?? current.subheadingEn ?? current.subheading ?? "";
+  const resolvedSubheadingHi = subheadingHi ?? current.subheadingHi ?? "";
+
   const payload = {
-    heading: heading ?? current.heading ?? "",
-    subheading: subheading ?? current.subheading ?? "",
+    headingEn: resolvedHeadingEn,
+    headingHi: resolvedHeadingHi,
+    subheadingEn: resolvedSubheadingEn,
+    subheadingHi: resolvedSubheadingHi,
+    // Keep legacy mirrors so any older consumer keeps working.
+    heading: resolvedHeadingEn,
+    subheading: resolvedSubheadingEn,
     colorTheme: colorTheme ?? current.colorTheme ?? "",
     template: template ?? current.template ?? "",
     heroImage: nextHeroImage,

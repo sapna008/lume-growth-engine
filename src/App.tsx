@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { AuthProvider } from "@/context/AuthContext";
 import ScrollToTop from "@/components/ScrollToTop";
+import BrandThemeLoader from "@/components/BrandThemeLoader";
 import ProtectedRoute from "@/components/ProtectedRoute";
 import { GlobalDemoFab } from "@/components/layout/GlobalDemoFab";
 import Index from "./pages/Index";
@@ -53,6 +54,7 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
+            <BrandThemeLoader />
             <ScrollToTop />
             <GlobalDemoFab />
             <Routes>

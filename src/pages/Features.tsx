@@ -260,10 +260,10 @@ export default function Features() {
                 <h2 className="text-2xl font-bold mb-3" style={{ color: '#1b181f' }}>
                   {language === "HI" && feature.titleHI ? feature.titleHI : feature.title}
                 </h2>
-                <p className="text-lg font-medium mb-3" style={{ color: '#146fb5' }}>
+                <p className="text-lg font-medium mb-4" style={{ color: 'var(--brand)' }}>
                   {language === "HI" && feature.subtitleHI ? feature.subtitleHI : feature.subtitle}
                 </p>
-                <div className="rounded-lg p-4" style={{ background: '#eaf2f8' }}>
+                <div className="rounded-lg p-4" style={{ background: 'var(--brand-tint)' }}>
                   <p className="text-sm font-medium mb-2" style={{ color: '#1e3a5f' }}>
                     {language === "HI" ? "अवलोकन:" : "Overview:"}
                   </p>
@@ -274,14 +274,14 @@ export default function Features() {
               </div>
 
               {/* Right Side - Key Benefits */}
-              <div className="rounded-2xl p-6" style={{ background: '#eaf2f8' }}>
+              <div className="rounded-2xl p-8" style={{ background: 'var(--brand-tint)' }}>
                 <h3 className="font-semibold mb-4" style={{ color: '#1b181f' }}>
                   {language === "HI" ? "मुख्य लाभ" : "Key Benefits"}
                 </h3>
                 <ul className="space-y-2">
                   {(language === "HI" ? feature.benefitsHI : feature.benefits).map((benefit, idx) => (
                     <li key={idx} className="flex items-center gap-3">
-                      <CheckCircle2 className="w-5 h-5" style={{ color: '#146fb5' }} />
+                      <CheckCircle2 className="w-5 h-5" style={{ color: 'var(--brand)' }} />
                       <span style={{ color: '#1b181f' }}>{benefit}</span>
                     </li>
                   ))}

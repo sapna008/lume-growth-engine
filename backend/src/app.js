@@ -6,6 +6,7 @@ import express from "express";
 import "./config/firebase.js";
 
 import contentRoutes from "./routes/contentRoutes.js";
+import translateRoutes from "./routes/translateRoutes.js";
 
 dotenv.config({ path: "backend/.env" });
 
@@ -20,6 +21,7 @@ app.get("/api/health", (_req, res) => {
 });
 
 app.use("/api/content", contentRoutes);
+app.use("/api/translate", translateRoutes);
 
 app.use((error, _req, res, _next) => {
   const statusCode = error.statusCode || 500;

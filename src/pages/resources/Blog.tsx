@@ -383,6 +383,7 @@ export default function Blog() {
           </div>
         </section>
 
+        {/* CTA */}
         <section className="relative pb-14 sm:pb-16 lg:pb-20 overflow-hidden">
           <div className="site-container">
             <div className="relative rounded-3xl border border-[#146fb5]/15 bg-gradient-to-br from-[#eaf4ff] via-[#f4f9ff] to-[#fef9c3]/30 p-7 sm:p-10 lg:p-12 shadow-[0_12px_40px_rgba(20,111,181,0.1)]">
