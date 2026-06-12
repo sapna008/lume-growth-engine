@@ -34,7 +34,7 @@ export default function BlogPost() {
 
       <main className="flex-1 pt-24 pb-16">
         <article className="container-wide max-w-3xl mx-auto">
-          <Button variant="ghost" size="sm" className="mb-8 -ml-2 gap-1 text-[#146fb5]" asChild>
+          <Button variant="ghost" size="sm" className="mb-8 -ml-2 gap-1 text-[var(--brand)]" asChild>
             <Link to="/resources/blog">
               <ArrowLeft className="w-4 h-4" />
               {language === "HI" ? "ब्लॉग पर वापस" : "Back to Blog"}
@@ -44,7 +44,7 @@ export default function BlogPost() {
           {post && (post.category || post.readTime) && (
             <div className="flex flex-wrap items-center gap-2 text-sm mb-4" style={{ color: "#6b7280" }}>
               {post.category && (
-                <span className="inline-flex items-center rounded-full border border-[#146fb5]/25 bg-[#146fb5]/8 px-2.5 py-0.5 font-medium text-[#146fb5]">
+                <span className="inline-flex items-center rounded-full border border-[rgb(var(--brand-rgb)/0.25)] bg-[rgb(var(--brand-rgb)/0.08)] px-2.5 py-0.5 font-medium text-[var(--brand)]">
                   {post.category}
                 </span>
               )}
@@ -79,7 +79,7 @@ export default function BlogPost() {
                 {lead}
               </p>
               <div
-                className="rounded-xl border border-dashed border-[#146fb5]/30 bg-[#146fb5]/[0.06] p-6 sm:p-8 text-center"
+                className="rounded-xl border border-dashed border-[rgb(var(--brand-rgb)/0.3)] bg-[var(--brand)]/[0.06] p-6 sm:p-8 text-center"
                 role="status"
               >
                 <p className="text-sm sm:text-base font-medium" style={{ color: "#1b181f" }}>

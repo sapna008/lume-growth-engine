@@ -213,13 +213,13 @@ export default function ForRetailers() {
                       <div className="block">{t('forRetailers.hero.title')}</div>
                       <div className="block pt-2 sm:pt-3">
                         <span style={{ color: '#1b181f' }}>{t('forRetailers.hero.titleMiddle')} </span>
-                        <span style={{ color: '#146fb5' }}>{t('forRetailers.hero.titleHighlight')}</span>
+                        <span style={{ color: 'var(--brand)' }}>{t('forRetailers.hero.titleHighlight')}</span>
                       </div>
                     </>
                   ) : (
                     <>
                       {t('forRetailers.hero.title')}{" "}
-                      <span style={{ color: '#146fb5' }}>{t('forRetailers.hero.titleHighlight')}</span>
+                      <span style={{ color: 'var(--brand)' }}>{t('forRetailers.hero.titleHighlight')}</span>
                     </>
                   )}
                 </h1>
@@ -270,7 +270,7 @@ export default function ForRetailers() {
 
           <div className="relative py-4 sm:py-6 lg:py-8">
             {/* Center Vertical Line - Thinner */}
-            <div className="hidden lg:block absolute left-1/2 top-4 bottom-4 w-0.5 bg-gradient-to-b from-[#146fb5]/40 via-[#146fb5] to-[#146fb5]/40 transform -translate-x-1/2 z-0" />
+            <div className="hidden lg:block absolute left-1/2 top-4 bottom-4 w-0.5 bg-gradient-to-b from-[rgb(var(--brand-rgb)/0.4)] via-[var(--brand)] to-[rgb(var(--brand-rgb)/0.4)] transform -translate-x-1/2 z-0" />
             
             <div className="space-y-4 sm:space-y-6 lg:space-y-8">
               {painPoints.map((item, i) => (
@@ -305,14 +305,14 @@ export default function ForRetailers() {
 
                     {/* Center Node */}
                     <div className="hidden lg:block absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#146fb5] to-[#0d5a94] flex items-center justify-center shadow-xl border-4 border-white ring-2 ring-[#146fb5]/20">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[var(--brand)] to-[#0d5a94] flex items-center justify-center shadow-xl border-4 border-white ring-2 ring-[rgb(var(--brand-rgb)/0.2)]">
                         <ArrowRightIcon className="w-6 h-6 text-white" />
                       </div>
                     </div>
 
                     {/* Solution Box - Right Side */}
                     <div className="relative order-3">
-                      <div className="bg-gradient-to-br from-[#eaf2f8] to-white rounded-xl sm:rounded-2xl border-2 border-[#146fb5]/40 px-3 sm:px-4 py-1 sm:py-1.5 shadow-sm hover:shadow-md hover:border-[#146fb5]/60 transition-all duration-300">
+                      <div className="bg-gradient-to-br from-[var(--brand-tint)] to-white rounded-xl sm:rounded-2xl border-2 border-[rgb(var(--brand-rgb)/0.4)] px-3 sm:px-4 py-1 sm:py-1.5 shadow-sm hover:shadow-md hover:border-[rgb(var(--brand-rgb)/0.6)] transition-all duration-300">
                         <div className="flex flex-row items-center gap-2 sm:gap-3">
                           <div className="flex-shrink-0">
                             <img 
@@ -323,7 +323,7 @@ export default function ForRetailers() {
                           </div>
                           <div className="flex-1 min-w-0 text-left flex items-center">
                             <p className="text-xs sm:text-sm md:text-base font-semibold flex items-center justify-start gap-1.5 sm:gap-2 leading-relaxed break-words w-full">
-                              <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" style={{ color: '#146fb5' }} />
+                              <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" style={{ color: 'var(--brand)' }} />
                               <span style={{ color: '#1b181f' }}>{item.solution}</span>
                             </p>
                           </div>
@@ -360,7 +360,7 @@ export default function ForRetailers() {
                   <div className="bg-white rounded-xl sm:rounded-2xl px-6 sm:px-8 py-4 sm:py-5 shadow-card text-center h-full relative pt-10 sm:pt-12">
                     {/* Number Circle - Half inside, half outside */}
                     <div className="absolute -top-6 sm:-top-7 left-1/2 transform -translate-x-1/2 z-10">
-                      <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full text-white text-lg sm:text-xl font-bold shadow-lg border-4 border-white" style={{ background: '#146fb5' }}>
+                      <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full text-white text-lg sm:text-xl font-bold shadow-lg border-4 border-white" style={{ background: 'var(--brand)' }}>
                         {item.step}
                       </div>
                     </div>
@@ -381,7 +381,7 @@ export default function ForRetailers() {
                   <p className="text-sm sm:text-base mb-2 sm:mb-3" style={{ color: '#4f4f4f' }}>{item.description}</p>
                   
                   {/* Time */}
-                  <div className="inline-flex items-center gap-2 font-semibold text-xs sm:text-sm" style={{ color: '#146fb5' }}>
+                  <div className="inline-flex items-center gap-2 font-semibold text-xs sm:text-sm" style={{ color: 'var(--brand)' }}>
                     <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                     {item.time}
                   </div>
@@ -417,7 +417,7 @@ export default function ForRetailers() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="rounded-xl p-4 sm:p-5 lg:p-4 hover-lift" style={{ background: '#eaf2f8' }}
+                className="rounded-xl p-4 sm:p-5 lg:p-4 hover-lift" style={{ background: 'var(--brand-tint)' }}
               >
                 <div className="mb-2 sm:mb-3">
                   <h3 className="text-base sm:text-lg font-bold mb-1.5 sm:mb-2" style={{ color: '#1b181f' }}>{industry.name}</h3>
@@ -430,7 +430,7 @@ export default function ForRetailers() {
                       className="inline-flex items-center gap-1 bg-white px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full text-xs"
                       style={{ color: '#1b181f' }}
                     >
-                      <CheckCircle2 className="w-2.5 h-2.5 sm:w-3 sm:h-3 flex-shrink-0" style={{ color: '#146fb5' }} />
+                      <CheckCircle2 className="w-2.5 h-2.5 sm:w-3 sm:h-3 flex-shrink-0" style={{ color: 'var(--brand)' }} />
                       <span className="break-words">{benefit}</span>
                     </span>
                   ))}
@@ -460,7 +460,7 @@ export default function ForRetailers() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 shadow-md hover:shadow-lg transition-shadow"
               >
-                <div className="text-2xl sm:text-3xl font-bold mb-2" style={{ color: '#146fb5' }}>{story.metric}</div>
+                <div className="text-2xl sm:text-3xl font-bold mb-2" style={{ color: 'var(--brand)' }}>{story.metric}</div>
                 <p className="text-sm sm:text-base font-medium mb-2 sm:mb-3" style={{ color: '#1b181f' }}>{story.outcome}</p>
                 <p className="italic text-xs sm:text-sm mb-2 sm:mb-3 leading-relaxed" style={{ color: '#4f4f4f' }}>"{story.quote}"</p>
                 <div className="pt-2 sm:pt-3 border-t" style={{ borderColor: '#e5e7eb' }}>
@@ -490,34 +490,34 @@ export default function ForRetailers() {
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 lg:gap-6">
-                <div className="rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6" style={{ background: '#eaf2f8' }}>
+                <div className="rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6" style={{ background: 'var(--brand-tint)' }}>
                   <div className="flex items-start gap-2 sm:gap-3">
-                    <Calculator className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 flex-shrink-0" style={{ color: '#146fb5' }} />
+                    <Calculator className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 flex-shrink-0" style={{ color: 'var(--brand)' }} />
                     <div>
                       <div className="text-lg sm:text-xl md:text-2xl font-bold mb-1" style={{ color: '#1b181f' }}>{roiCalculation.timeSaved}</div>
                       <div className="text-xs sm:text-sm" style={{ color: '#4f4f4f' }}>{t('forRetailers.roi.timeSaved.label')}</div>
                     </div>
                   </div>
                 </div>
-                <div className="rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6" style={{ background: '#eaf2f8' }}>
+                <div className="rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6" style={{ background: 'var(--brand-tint)' }}>
                   <div className="flex items-start gap-2 sm:gap-3">
-                    <CreditCard className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 flex-shrink-0" style={{ color: '#146fb5' }} />
+                    <CreditCard className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 flex-shrink-0" style={{ color: 'var(--brand)' }} />
                     <div>
                       <div className="text-lg sm:text-xl md:text-2xl font-bold mb-1" style={{ color: '#1b181f' }}>{roiCalculation.creditRecovered}</div>
                       <div className="text-xs sm:text-sm" style={{ color: '#4f4f4f' }}>{t('forRetailers.roi.creditRecovered.label')}</div>
                     </div>
                   </div>
                 </div>
-                <div className="rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6" style={{ background: '#eaf2f8' }}>
+                <div className="rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6" style={{ background: 'var(--brand-tint)' }}>
                   <div className="flex items-start gap-2 sm:gap-3">
-                    <Users className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 flex-shrink-0" style={{ color: '#146fb5' }} />
+                    <Users className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 flex-shrink-0" style={{ color: 'var(--brand)' }} />
                     <div>
                       <div className="text-lg sm:text-xl md:text-2xl font-bold mb-1" style={{ color: '#1b181f' }}>{roiCalculation.repeatCustomers}</div>
                       <div className="text-xs sm:text-sm" style={{ color: '#4f4f4f' }}>{t('forRetailers.roi.repeatCustomers.label')}</div>
                     </div>
                   </div>
                 </div>
-                <div className="rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 text-white" style={{ background: '#146fb5' }}>
+                <div className="rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 text-white" style={{ background: 'var(--brand)' }}>
                   <div className="flex items-start gap-2 sm:gap-3">
                     <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 flex-shrink-0 text-white" />
                     <div>
@@ -533,7 +533,7 @@ export default function ForRetailers() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="rounded-xl sm:rounded-2xl p-6 sm:p-8" style={{ background: '#eaf2f8' }}
+              className="rounded-xl sm:rounded-2xl p-6 sm:p-8" style={{ background: 'var(--brand-tint)' }}
             >
               <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6" style={{ color: '#1b181f' }}>{t('forRetailers.cta.title')}</h3>
               <ul className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
@@ -545,13 +545,13 @@ export default function ForRetailers() {
                   t('forRetailers.cta.feature5'),
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-2 sm:gap-3">
-                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 mt-0.5" style={{ color: '#146fb5' }} />
+                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--brand)' }} />
                     <span className="text-sm sm:text-base" style={{ color: '#1b181f' }}>{item}</span>
                   </li>
                 ))}
               </ul>
               <p className="text-center text-xs sm:text-sm mt-3 sm:mt-4" style={{ color: '#4f4f4f' }}>
-                <Link to="/pricing" className="font-medium hover:underline" style={{ color: '#146fb5' }}>{t('forRetailers.cta.viewPricing')}</Link>
+                <Link to="/pricing" className="font-medium hover:underline" style={{ color: 'var(--brand)' }}>{t('forRetailers.cta.viewPricing')}</Link>
               </p>
             </motion.div>
           </div>

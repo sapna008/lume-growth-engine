@@ -115,7 +115,7 @@ export default function GuideDetail() {
               <ul className="space-y-3">
                 {guide.bullets.map((bullet, bulletIndex) => (
                   <li key={bulletIndex} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#146fb5' }} />
+                    <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--brand)' }} />
                     <span className="text-base leading-relaxed" style={{ color: '#4f4f4f' }}>
                       {bullet}
                     </span>

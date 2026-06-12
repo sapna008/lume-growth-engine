@@ -17,11 +17,11 @@ export function BlogCard({ post, language, className }: BlogCardProps) {
   return (
     <article
       className={cn(
-        "group flex flex-col h-full bg-white rounded-xl sm:rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-[#146fb5]/30 transition-all duration-300 overflow-hidden",
+        "group flex flex-col h-full bg-white rounded-xl sm:rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-[rgb(var(--brand-rgb)/0.3)] transition-all duration-300 overflow-hidden",
         className,
       )}
     >
-      <div className="relative aspect-[16/9] w-full bg-gradient-to-br from-[#146fb5]/12 via-[#e8f2fb] to-[#fef9c3]/40">
+      <div className="relative aspect-[16/9] w-full bg-gradient-to-br from-[rgb(var(--brand-rgb)/0.12)] via-[#e8f2fb] to-[#fef9c3]/40">
         {post.imageSrc ? (
           <img
             src={post.imageSrc}
@@ -30,8 +30,8 @@ export function BlogCard({ post, language, className }: BlogCardProps) {
           />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="rounded-xl bg-[#146fb5]/10 p-4">
-              <Newspaper className="h-10 w-10 sm:h-12 sm:w-12" style={{ color: "#146fb5" }} aria-hidden />
+            <div className="rounded-xl bg-[rgb(var(--brand-rgb)/0.1)] p-4">
+              <Newspaper className="h-10 w-10 sm:h-12 sm:w-12" style={{ color: "var(--brand)" }} aria-hidden />
             </div>
           </div>
         )}

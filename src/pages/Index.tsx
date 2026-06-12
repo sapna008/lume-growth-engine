@@ -23,6 +23,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useSEO } from "@/hooks/useSEO";
+import { useHeroContent } from "@/hooks/useHeroContent";
 import { trackDownloadClick } from "@/lib/leadStore";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
@@ -291,6 +292,32 @@ const testimonials = [
 
 export default function Index() {
   const { t, language } = useLanguage();
+  const heroContent = useHeroContent();
+
+  // Admin-managed hero copy (falls back to static i18n when unset).
+  const dynamicHeading = heroContent
+    ? (language === "HI" ? heroContent.headingHi : heroContent.headingEn).trim()
+    : "";
+  const dynamicSubheading = heroContent
+    ? (language === "HI" ? heroContent.subheadingHi : heroContent.subheadingEn).trim()
+    : "";
+
+  // Render an admin-managed heading with its last two words in the brand color
+  // (mirrors the highlight on the static hero headline).
+  const renderDynamicHeading = (text: string) => {
+    const words = text.split(/\s+/);
+    if (words.length <= 2) {
+      return <span style={{ color: "var(--brand)" }}>{text}</span>;
+    }
+    const head = words.slice(0, -2).join(" ");
+    const tail = words.slice(-2).join(" ");
+    return (
+      <>
+        {head} <span style={{ color: "var(--brand)" }}>{tail}</span>
+      </>
+    );
+  };
+
   useSEO(
     'Digital Billing & Retail Growth for Indian Stores',
     'Lume helps Indian retailers with digital billing, customer insights, loyalty & campaigns. One simple platform. Grow your store.'
@@ -314,7 +341,7 @@ export default function Index() {
         <div 
           className="absolute inset-0"
           style={{ 
-            background: 'linear-gradient(135deg, rgba(234, 242, 248, 0.7) 0%, rgba(212, 230, 243, 0.5) 100%)',
+            background: 'linear-gradient(135deg, rgb(var(--brand-rgb) / 0.14) 0%, rgb(var(--brand-rgb) / 0.07) 100%)',
             zIndex: 1 
           }}
         />
@@ -328,35 +355,37 @@ export default function Index() {
                 transition={{ duration: 0.6 }}
               >
                 <div className={`inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20 ${language === 'HI' ? 'mb-2 sm:mb-8' : 'mb-2 sm:mb-6'}`}>
-                  <span className="w-2 h-2 rounded-full bg-[#146fb5] animate-pulse" />
+                  <span className="w-2 h-2 rounded-full bg-[var(--brand)] animate-pulse" />
                   <span className={`font-medium ${language === 'HI' ? 'text-xs' : 'text-sm'}`} style={{ color: '#1b181f' }}>{t('hero.badge')}</span>
                 </div>
                 
-                <h1 className={`font-display font-bold ${language === 'HI' ? 'text-3xl sm:text-3xl md:text-4xl lg:text-5xl mb-3 sm:mb-7 leading-[1.5]' : 'text-3xl sm:text-3xl md:text-4xl lg:text-5xl mb-2 sm:mb-4 leading-snug'}`} style={{ color: '#1b181f' }}>
-                  {language === 'HI' ? (
+                <h1 className={`font-display font-bold ${language === 'HI' ? 'text-2xl sm:text-2xl md:text-3xl lg:text-4xl mb-3 sm:mb-7 leading-[1.5]' : 'text-2xl sm:text-2xl md:text-3xl lg:text-4xl mb-2 sm:mb-4 leading-snug'}`} style={{ color: '#1b181f' }}>
+                  {dynamicHeading ? (
+                    renderDynamicHeading(dynamicHeading)
+                  ) : language === 'HI' ? (
                     <>
                       {/* Hindi: Line 1 ग्राहक को वापस लाने, Line 2 वाला सिस्टम सिर्फ बिलिंग, Line 3 सॉफ्टवेयर नहीं (blue, slightly bigger) */}
                       <div className="sm:hidden leading-tight">
                         <div className="block">{t('hero.title')}</div>
                         <div className="block pt-0.5">{t('hero.titleHighlightPart1')}</div>
-                        <div className="block pt-0.5 text-[1.05em]" style={{ color: '#146fb5' }}>{t('hero.titleHighlightPart2')}</div>
+                        <div className="block pt-0.5 text-[1.05em]" style={{ color: 'var(--brand)' }}>{t('hero.titleHighlightPart2')}</div>
                       </div>
                       <div className="hidden sm:block">
                         <div className="block">{t('hero.title')}</div>
                         <div className="block pt-2 sm:pt-3">{t('hero.titleHighlightPart1')}</div>
-                        <div className="block pt-1.5 sm:pt-2 text-[1.08em] sm:text-[1.1em]" style={{ color: '#146fb5' }}>{t('hero.titleHighlightPart2')}</div>
+                        <div className="block pt-1.5 sm:pt-2 text-[1.08em] sm:text-[1.1em]" style={{ color: 'var(--brand)' }}>{t('hero.titleHighlightPart2')}</div>
                       </div>
                     </>
                   ) : (
                     <>
                       {t('hero.title')}{" "}
-                      <span style={{ color: '#146fb5' }}>{t('hero.titleHighlight')}</span>
+                      <span style={{ color: 'var(--brand)' }}>{t('hero.titleHighlight')}</span>
                     </>
                   )}
                 </h1>
                 
                 <p className={`max-w-lg ${language === 'HI' ? 'text-base sm:text-base md:text-lg mb-4 sm:mb-9' : 'text-base sm:text-base md:text-lg mb-3 sm:mb-6'}`} style={{ color: '#4f4f4f' }}>
-                  {t('hero.description')}
+                  {dynamicSubheading || t('hero.description')}
                 </p>
                 
                 <div className="flex flex-row gap-3 sm:gap-4 w-full sm:w-auto">
@@ -381,7 +410,7 @@ export default function Index() {
                 <div className={`hidden sm:flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 ${language === 'HI' ? 'mt-6 sm:mt-8' : 'mt-4 sm:mt-6'}`}>
                   <div className="flex -space-x-3">
                     {memoizedTestimonials.slice(0, 4).map((testimonial, i) => (
-                      <div key={`hero-testimonial-${testimonial.author}-${i}`} className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white shadow-lg overflow-hidden" style={{ borderColor: '#146fb5' }}>
+                      <div key={`hero-testimonial-${testimonial.author}-${i}`} className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white shadow-lg overflow-hidden" style={{ borderColor: 'var(--brand)' }}>
                         <img 
                           src={testimonial.image} 
                           alt={testimonial.author}
@@ -457,7 +486,7 @@ export default function Index() {
                   <div className="mt-2 flex flex-col items-center gap-2">
                     <div className="flex -space-x-3">
                       {memoizedTestimonials.slice(0, 4).map((testimonial, i) => (
-                        <div key={`mobile-testimonial-${testimonial.author}-${i}`} className="w-10 h-10 rounded-full border-2 border-white shadow-lg overflow-hidden" style={{ borderColor: '#146fb5' }}>
+                        <div key={`mobile-testimonial-${testimonial.author}-${i}`} className="w-10 h-10 rounded-full border-2 border-white shadow-lg overflow-hidden" style={{ borderColor: 'var(--brand)' }}>
                           <img
                             src={testimonial.image}
                             alt={testimonial.author}
@@ -478,7 +507,7 @@ export default function Index() {
                   </div>
                 </div>
 
-                <div className="absolute inset-0 bg-gradient-to-r from-[#146fb5]/30 to-primary/20 rounded-3xl blur-3xl pointer-events-none -z-10" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[rgb(var(--brand-rgb)/0.3)] to-primary/20 rounded-3xl blur-3xl pointer-events-none -z-10" />
               </motion.div>
             </div>
           </div>
@@ -495,7 +524,7 @@ export default function Index() {
                 transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
                 className="p-4 sm:p-6 text-center group hover:bg-primary/5 transition-colors rounded-xl"
               >
-                <div className="text-xl sm:text-2xl md:text-3xl font-bold group-hover:scale-110 transition-transform" style={{ color: '#146fb5' }}>{stat.value}</div>
+                <div className="text-xl sm:text-2xl md:text-3xl font-bold group-hover:scale-110 transition-transform" style={{ color: 'var(--brand)' }}>{stat.value}</div>
                 <div className="text-xs sm:text-sm mt-1" style={{ color: '#4f4f4f' }}>{t(stat.key)}</div>
               </motion.div>
             ))}
@@ -593,7 +622,7 @@ export default function Index() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="bg-gradient-to-br from-[#eaf2f8] to-white border border-[#146fb5]/20 rounded-xl px-3.5 py-3 sm:px-4 sm:py-3.5 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 group min-h-[104px] sm:min-h-[112px] flex items-center gap-3.5"
+                  className="bg-gradient-to-br from-[var(--brand-tint)] to-white border border-[rgb(var(--brand-rgb)/0.2)] rounded-xl px-3.5 py-3 sm:px-4 sm:py-3.5 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 group min-h-[104px] sm:min-h-[112px] flex items-center gap-3.5"
                 >
                   <img 
                     src={point.icon} 
@@ -645,7 +674,7 @@ export default function Index() {
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                   className="bg-white rounded-xl p-4 sm:p-6 shadow-md border border-border hover:shadow-lg hover:-translate-y-1 transition-all group flex flex-col sm:flex-row gap-4 sm:gap-5 items-start cursor-pointer"
                 >
-                  <div className="flex-shrink-0 w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center bg-gradient-to-br from-[#eaf2f8] to-white rounded-lg border border-[#146fb5]/10 mx-auto sm:mx-0">
+                  <div className="flex-shrink-0 w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center bg-gradient-to-br from-[var(--brand-tint)] to-white rounded-lg border border-[rgb(var(--brand-rgb)/0.1)] mx-auto sm:mx-0">
                     <img 
                       src={benefit.icon} 
                       alt={t(benefit.titleKey)}
@@ -694,11 +723,11 @@ export default function Index() {
               >
                 {/* Connecting Line */}
                 {i < howItWorksKeys.length - 1 && (
-                  <div className="absolute left-5 top-12 w-0.5 h-full bg-gradient-to-b from-[#146fb5] to-[#146fb5]/30" />
+                  <div className="absolute left-5 top-12 w-0.5 h-full bg-gradient-to-b from-[var(--brand)] to-[rgb(var(--brand-rgb)/0.3)]" />
                 )}
                 
                 {/* Step Number Circle */}
-                <div className="absolute left-0 top-0 flex items-center justify-center w-10 h-10 rounded-full bg-[#146fb5] text-white text-lg font-bold shadow-lg z-10">
+                <div className="absolute left-0 top-0 flex items-center justify-center w-10 h-10 rounded-full bg-[var(--brand)] text-white text-lg font-bold shadow-lg z-10">
                   {item.step}
                 </div>
                 
@@ -723,9 +752,9 @@ export default function Index() {
                 className="text-center relative group"
               >
                 {i < howItWorksKeys.length - 1 && (
-                  <div className="hidden md:block absolute top-8 left-[60%] w-[80%] h-[2px] bg-gradient-to-r from-[#146fb5]/40 to-transparent" />
+                  <div className="hidden md:block absolute top-8 left-[60%] w-[80%] h-[2px] bg-gradient-to-r from-[rgb(var(--brand-rgb)/0.4)] to-transparent" />
                 )}
-                <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-[#146fb5] text-white text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-6 shadow-lg group-hover:scale-110 transition-transform">
+                <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-[var(--brand)] text-white text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-6 shadow-lg group-hover:scale-110 transition-transform">
                   {item.step}
                 </div>
                 <h3 className="text-base sm:text-lg font-bold mb-2 sm:mb-3" style={{ color: '#1b181f' }}>{t(item.titleKey)}</h3>
@@ -738,7 +767,7 @@ export default function Index() {
       </section>
 
       {/* Industries */}
-      <section className="section-spacing bg-gradient-to-b from-white to-[#eaf2f8]">
+      <section className="section-spacing bg-gradient-to-b from-white to-[var(--brand-tint)]">
         <div className="container-wide px-4">
           <div className="text-center mb-6 sm:mb-8">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-3 sm:mb-4" style={{ color: '#1b181f' }}>
@@ -755,14 +784,14 @@ export default function Index() {
               {/* First set */}
               {industriesKeys.map((industry, i) => (
                 <div key={`first-${i}`} className="flex items-center flex-shrink-0">
-                  <span className="text-sm sm:text-base font-semibold whitespace-nowrap" style={{ color: '#146fb5' }}>
+                  <span className="text-sm sm:text-base font-semibold whitespace-nowrap" style={{ color: 'var(--brand)' }}>
                     {t(industry.key)}
                   </span>
                   <span className="mx-3 sm:mx-4 text-gray-300 font-bold" style={{ color: '#d1d5db' }}>|</span>
                 </div>
               ))}
               <div className="flex items-center flex-shrink-0">
-                <span className="text-sm sm:text-base font-semibold whitespace-nowrap" style={{ color: '#146fb5' }}>
+                <span className="text-sm sm:text-base font-semibold whitespace-nowrap" style={{ color: 'var(--brand)' }}>
                   {language === 'HI' ? 'और भी कई तरह की दुकानें' : 'and many more'}
                 </span>
                 <span className="mx-3 sm:mx-4 text-gray-300 font-bold" style={{ color: '#d1d5db' }}>|</span>
@@ -770,14 +799,14 @@ export default function Index() {
               {/* Duplicate set for seamless loop */}
               {industriesKeys.map((industry, i) => (
                 <div key={`second-${i}`} className="flex items-center flex-shrink-0">
-                  <span className="text-sm sm:text-base font-semibold whitespace-nowrap" style={{ color: '#146fb5' }}>
+                  <span className="text-sm sm:text-base font-semibold whitespace-nowrap" style={{ color: 'var(--brand)' }}>
                     {t(industry.key)}
                   </span>
                   <span className="mx-3 sm:mx-4 text-gray-300 font-bold" style={{ color: '#d1d5db' }}>|</span>
                 </div>
               ))}
               <div className="flex items-center flex-shrink-0">
-                <span className="text-sm sm:text-base font-semibold whitespace-nowrap" style={{ color: '#146fb5' }}>
+                <span className="text-sm sm:text-base font-semibold whitespace-nowrap" style={{ color: 'var(--brand)' }}>
                   {language === 'HI' ? 'और भी कई तरह की दुकानें' : 'and many more'}
                 </span>
                 <span className="mx-3 sm:mx-4 text-gray-300 font-bold" style={{ color: '#d1d5db' }}>|</span>
@@ -788,7 +817,7 @@ export default function Index() {
       </section>
 
       {/* Testimonials */}
-      <section className="pt-8 sm:pt-10 lg:pt-12 pb-2 sm:pb-3 lg:pb-4 relative overflow-hidden bg-gradient-to-b from-[#eaf2f8] via-white to-[#eaf2f8]">
+      <section className="pt-8 sm:pt-10 lg:pt-12 pb-2 sm:pb-3 lg:pb-4 relative overflow-hidden bg-gradient-to-b from-[var(--brand-tint)] via-white to-[var(--brand-tint)]">
         {/* Decorative background element - Left Top */}
         <div className="absolute left-8 top-[100px] w-[250px] h-[250px] opacity-15 pointer-events-none hidden lg:block">
           <img 
@@ -826,7 +855,7 @@ export default function Index() {
             >
               {/* Quote Icon */}
               <div className="mb-2 sm:mb-3 flex items-center justify-center">
-                <svg className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ color: '#146fb5', transform: 'rotate(180deg)', opacity: 0.7 }}>
+                <svg className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ color: 'var(--brand)', transform: 'rotate(180deg)', opacity: 0.7 }}>
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.996 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.984zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.432.917-3.995 3.638-3.995 5.849h3.983v10h-9.984z" fill="currentColor"/>
                 </svg>
               </div>
@@ -872,7 +901,7 @@ export default function Index() {
               pagination={{
                 clickable: true,
                 bulletClass: 'swiper-pagination-bullet !bg-gray-300 !opacity-100',
-                bulletActiveClass: 'swiper-pagination-bullet-active !bg-[#146fb5]',
+                bulletActiveClass: 'swiper-pagination-bullet-active !bg-[var(--brand)]',
               }}
               className="!pb-4 sm:!pb-5 [&_.swiper-wrapper]:items-stretch [&_.swiper-slide]:flex [&_.swiper-slide]:h-auto"
             >
@@ -914,7 +943,7 @@ export default function Index() {
 
       {/* Final CTA */}
       <section className="section-spacing !pt-1 sm:!pt-2 md:!pt-3 hero-gradient relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-[#146fb5]/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-[rgb(var(--brand-rgb)/0.1)]" />
         <div className="container-tight text-center relative z-10 px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

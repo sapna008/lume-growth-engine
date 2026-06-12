@@ -35,7 +35,7 @@ const footerLinks = {
 export function Footer() {
   const { t, language } = useLanguage();
   return (
-    <footer className="bg-blue-900 text-white">
+    <footer className="bg-[var(--brand-dark)] text-white">
       {/* Links Section */}
       <div className="container-wide py-10 lg:py-12">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 lg:gap-8">

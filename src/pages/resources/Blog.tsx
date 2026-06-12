@@ -63,7 +63,7 @@ export default function Blog() {
               className="text-center max-w-3xl mx-auto"
             >
               <div className="inline-flex items-center justify-center gap-2 mb-4">
-                <Newspaper className="w-7 h-7 sm:w-8 sm:h-8" style={{ color: "#146fb5" }} aria-hidden />
+                <Newspaper className="w-7 h-7 sm:w-8 sm:h-8" style={{ color: "var(--brand)" }} aria-hidden />
               </div>
               <h1
                 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4"
@@ -124,8 +124,8 @@ export default function Blog() {
         </section>
 
         {/* CTA */}
-        <section className="relative py-14 sm:py-16 lg:py-20 overflow-hidden border-t border-[#146fb5]/10">
-          <div className="absolute inset-0 bg-gradient-to-b from-[#eaf2f8] via-[#f0f6fc] to-white" />
+        <section className="relative py-14 sm:py-16 lg:py-20 overflow-hidden border-t border-[rgb(var(--brand-rgb)/0.1)]">
+          <div className="absolute inset-0 bg-gradient-to-b from-[var(--brand-tint)] via-[#f0f6fc] to-white" />
           <div
             className="absolute inset-0 opacity-50 pointer-events-none"
             style={{

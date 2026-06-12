@@ -307,7 +307,7 @@ export default function Guides() {
               className="text-center mb-10 sm:mb-12"
             >
               <div className="inline-flex items-center gap-2 mb-4">
-                <Video className="w-6 h-6" style={{ color: '#146fb5' }} />
+                <Video className="w-6 h-6" style={{ color: 'var(--brand)' }} />
                 <h2 className="text-3xl sm:text-4xl font-bold tracking-tight" style={{ color: '#1b181f' }}>
                   {language === "HI" ? "गाइड्स" : "Guides"}
                 </h2>
@@ -333,13 +333,13 @@ export default function Guides() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.05 }}
-                  className="bg-white rounded-xl sm:rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-[#146fb5]/30 flex flex-col"
+                  className="bg-white rounded-xl sm:rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-[rgb(var(--brand-rgb)/0.3)] flex flex-col"
                 >
                   <div className="mb-3 flex items-center justify-between gap-2">
                     <h3 className="text-lg sm:text-xl font-bold" style={{ color: '#1b181f' }}>
                       {guide.title}
                     </h3>
-                    <span className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-[10px] sm:text-xs font-semibold bg-[#146fb5]/5 text-[#146fb5]">
+                    <span className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-[10px] sm:text-xs font-semibold bg-[rgb(var(--brand-rgb)/0.05)] text-[var(--brand)]">
                       {guide.type === "download" ? "Download" : "Video"}
                     </span>
                   </div>
@@ -347,7 +347,7 @@ export default function Guides() {
                   <ul className="space-y-2 text-sm sm:text-[0.95rem] flex-1">
                     {guide.bullets.slice(0, 4).map((bullet, bulletIndex) => (
                       <li key={bulletIndex} className="flex items-start gap-3">
-                        <CheckCircle2 className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: '#146fb5' }} />
+                        <CheckCircle2 className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--brand)' }} />
                         <span className="leading-relaxed" style={{ color: '#4f4f4f' }}>
                           {bullet}
                         </span>
@@ -400,9 +400,9 @@ export default function Guides() {
                 className="mb-4 sm:mb-6 text-center"
               >
                 <div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#146fb5]/5 border border-[#146fb5]/20">
-                    <span className="w-2 h-2 rounded-full bg-[#146fb5]" />
-                    <span className="text-xs sm:text-sm font-semibold" style={{ color: "#146fb5" }}>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[rgb(var(--brand-rgb)/0.05)] border border-[rgb(var(--brand-rgb)/0.2)]">
+                    <span className="w-2 h-2 rounded-full bg-[var(--brand)]" />
+                    <span className="text-xs sm:text-sm font-semibold" style={{ color: "var(--brand)" }}>
                       {language === "HI" ? "कैंपेन और मार्केटिंग गाइड्स" : "Campaign & marketing guides"}
                     </span>
                   </div>
@@ -427,13 +427,13 @@ export default function Guides() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.4, delay: i * 0.05 }}
-                        className="bg-white rounded-xl sm:rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-[#146fb5]/30 flex flex-col"
+                        className="bg-white rounded-xl sm:rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-[rgb(var(--brand-rgb)/0.3)] flex flex-col"
                       >
                         <div className="mb-3 flex items-center justify-between gap-2">
                           <h4 className="text-lg sm:text-xl font-bold" style={{ color: "#1b181f" }}>
                             {guide.title}
                           </h4>
-                          <span className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-[10px] sm:text-xs font-semibold bg-[#146fb5]/5 text-[#146fb5]">
+                          <span className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-[10px] sm:text-xs font-semibold bg-[rgb(var(--brand-rgb)/0.05)] text-[var(--brand)]">
                             Video
                           </span>
                         </div>
@@ -441,7 +441,7 @@ export default function Guides() {
                         <ul className="space-y-2 text-sm sm:text-[0.95rem] flex-1">
                           {guide.bullets.slice(0, 4).map((bullet, bulletIndex) => (
                             <li key={bulletIndex} className="flex items-start gap-3">
-                              <CheckCircle2 className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: "#146fb5" }} />
+                              <CheckCircle2 className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: "var(--brand)" }} />
                               <span className="leading-relaxed" style={{ color: "#4f4f4f" }}>
                                 {bullet}
                               </span>
@@ -477,7 +477,7 @@ export default function Guides() {
         </section>
 
         {/* FAQs Section */}
-        <section className="section-padding bg-gradient-to-b from-white via-[#eaf2f8]/20 to-white">
+        <section className="section-padding bg-gradient-to-b from-white via-[var(--brand-tint)]/20 to-white">
           <div className="container-wide">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -487,7 +487,7 @@ export default function Guides() {
               className="text-center mb-12"
             >
               <div className="inline-flex items-center gap-2 mb-4">
-                <HelpCircle className="w-6 h-6" style={{ color: '#146fb5' }} />
+                <HelpCircle className="w-6 h-6" style={{ color: 'var(--brand)' }} />
                 <h2 className="text-3xl sm:text-4xl font-bold" style={{ color: '#1b181f' }}>
                   {language === "HI" ? "अक्सर पूछे जाने वाले सवाल" : "Frequently Asked Questions"}
                 </h2>
@@ -515,7 +515,7 @@ export default function Guides() {
                     >
                       <AccordionTrigger className="text-left font-bold text-lg sm:text-xl hover:no-underline py-6" style={{ color: '#1b181f' }}>
                         <div className="flex items-start gap-3">
-                          <FileText className="w-5 h-5 mt-1 flex-shrink-0" style={{ color: '#146fb5' }} />
+                          <FileText className="w-5 h-5 mt-1 flex-shrink-0" style={{ color: 'var(--brand)' }} />
                           <span>
                             {language === "HI" && (faq as any).questionHI ? (faq as any).questionHI : faq.question}
                           </span>

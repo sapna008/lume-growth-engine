@@ -395,10 +395,10 @@ export function Header() {
                       hoveredMenu === item.name 
                         ? isScrolled 
                           ? 'text-foreground bg-muted/60' 
-                          : 'text-[#146fb5] bg-[#146fb5]/10'
+                          : 'text-[var(--brand)] bg-[rgb(var(--brand-rgb)/0.1)]'
                         : isScrolled 
                           ? 'text-muted-foreground hover:bg-muted/60 hover:text-foreground' 
-                          : 'text-[#1b181f] hover:bg-[#146fb5]/10 hover:text-[#146fb5]'
+                          : 'text-[#1b181f] hover:bg-[rgb(var(--brand-rgb)/0.1)] hover:text-[var(--brand)]'
                     }`}
                   >
                     {item.nameKey ? t(item.nameKey) : item.name}
@@ -453,15 +453,15 @@ export function Header() {
                                               key={child.name}
                                               className="flex items-start gap-3 p-3 rounded-lg cursor-not-allowed opacity-60"
                                             >
-                                              <div className="w-9 h-9 rounded-lg bg-[#146fb5]/10 flex items-center justify-center shrink-0">
-                                                <child.icon className="w-4.5 h-4.5" style={{ color: '#146fb5' }} />
+                                              <div className="w-9 h-9 rounded-lg bg-[rgb(var(--brand-rgb)/0.1)] flex items-center justify-center shrink-0">
+                                                <child.icon className="w-4.5 h-4.5" style={{ color: 'var(--brand)' }} />
                                               </div>
                                               <div className="flex-1 min-w-0">
                                                 <div className="flex items-center gap-2 flex-wrap">
                                                   <p className="font-medium text-sm text-foreground">
                                                     {language === "HI" && child.nameHI ? child.nameHI : child.name}
                                                   </p>
-                                                  <span className="text-xs px-2 py-0.5 rounded-full bg-[#146fb5]/10 text-[#146fb5] font-medium">
+                                                  <span className="text-xs px-2 py-0.5 rounded-full bg-[rgb(var(--brand-rgb)/0.1)] text-[var(--brand)] font-medium">
                                                     {language === "HI" ? "जल्द आ रहा है" : "Coming Soon"}
                                                   </span>
                                                 </div>
@@ -479,11 +479,11 @@ export function Header() {
                                             to={child.href}
                                             className="flex items-start gap-3 p-3 rounded-lg transition-colors group hover:bg-secondary/50"
                                           >
-                                            <div className="w-9 h-9 rounded-lg bg-[#146fb5]/10 flex items-center justify-center shrink-0 group-hover:bg-[#146fb5]/15">
-                                              <child.icon className="w-4.5 h-4.5" style={{ color: '#146fb5' }} />
+                                            <div className="w-9 h-9 rounded-lg bg-[rgb(var(--brand-rgb)/0.1)] flex items-center justify-center shrink-0 group-hover:bg-[rgb(var(--brand-rgb)/0.15)]">
+                                              <child.icon className="w-4.5 h-4.5" style={{ color: 'var(--brand)' }} />
                                             </div>
                                             <div className="flex-1 min-w-0">
-                                              <p className="font-medium text-sm text-foreground group-hover:text-[#146fb5]">
+                                              <p className="font-medium text-sm text-foreground group-hover:text-[var(--brand)]">
                                                 {language === "HI" && child.nameHI ? child.nameHI : child.name}
                                               </p>
                                               <p className="text-xs text-muted-foreground mt-1">
@@ -516,11 +516,11 @@ export function Header() {
                                       onClick={() => setHoveredMenu(null)}
                                       className="flex items-start gap-3 p-3 rounded-lg transition-colors group hover:bg-secondary/50"
                                     >
-                                      <div className="w-9 h-9 rounded-lg bg-[#146fb5]/10 flex items-center justify-center shrink-0 group-hover:bg-[#146fb5]/15">
-                                        <row.icon className="w-4.5 h-4.5" style={{ color: "#146fb5" }} />
+                                      <div className="w-9 h-9 rounded-lg bg-[rgb(var(--brand-rgb)/0.1)] flex items-center justify-center shrink-0 group-hover:bg-[rgb(var(--brand-rgb)/0.15)]">
+                                        <row.icon className="w-4.5 h-4.5" style={{ color: "var(--brand)" }} />
                                       </div>
                                       <div className="flex-1 min-w-0">
-                                        <p className="font-medium text-sm text-foreground group-hover:text-[#146fb5]">
+                                        <p className="font-medium text-sm text-foreground group-hover:text-[var(--brand)]">
                                           {language === "HI" ? row.nameHI : row.name}
                                         </p>
                                         <p className="text-xs text-muted-foreground mt-1">
@@ -545,12 +545,12 @@ export function Header() {
                                       to={child.href}
                                       className="flex items-start gap-3 p-3 rounded-lg transition-colors group hover:bg-secondary/50"
                                     >
-                                      <div className="w-9 h-9 rounded-lg bg-[#146fb5]/10 flex items-center justify-center shrink-0 group-hover:bg-[#146fb5]/15">
-                                        <child.icon className="w-4.5 h-4.5" style={{ color: "#146fb5" }} />
+                                      <div className="w-9 h-9 rounded-lg bg-[rgb(var(--brand-rgb)/0.1)] flex items-center justify-center shrink-0 group-hover:bg-[rgb(var(--brand-rgb)/0.15)]">
+                                        <child.icon className="w-4.5 h-4.5" style={{ color: "var(--brand)" }} />
                                       </div>
                                       <div className="flex-1">
                                         <div className="flex items-center gap-2">
-                                          <p className="font-semibold text-base text-[#146fb5]">
+                                          <p className="font-semibold text-base text-[var(--brand)]">
                                             {language === "HI" && child.nameHI ? child.nameHI : child.name}
                                           </p>
                                         </div>
@@ -585,15 +585,15 @@ export function Header() {
                                     key={child.name}
                                     className="flex items-start gap-3 p-3 rounded-lg cursor-not-allowed opacity-60"
                                   >
-                                    <div className="w-9 h-9 rounded-lg bg-[#146fb5]/10 flex items-center justify-center shrink-0">
-                                      <child.icon className="w-4.5 h-4.5" style={{ color: '#146fb5' }} />
+                                    <div className="w-9 h-9 rounded-lg bg-[rgb(var(--brand-rgb)/0.1)] flex items-center justify-center shrink-0">
+                                      <child.icon className="w-4.5 h-4.5" style={{ color: 'var(--brand)' }} />
                                     </div>
                                     <div className="flex-1">
                                       <div className="flex items-center gap-2">
                                         <p className="font-medium text-base text-foreground">
                                           {language === "HI" && child.nameHI ? child.nameHI : child.name}
                                         </p>
-                                        <span className="text-xs px-2 py-0.5 rounded-full bg-[#146fb5]/10 text-[#146fb5] font-medium">
+                                        <span className="text-xs px-2 py-0.5 rounded-full bg-[rgb(var(--brand-rgb)/0.1)] text-[var(--brand)] font-medium">
                                           {language === "HI" ? "जल्द आ रहा है" : "Coming Soon"}
                                         </span>
                                       </div>
@@ -612,8 +612,8 @@ export function Header() {
                                   to={child.href}
                                   className="flex items-start gap-3 p-3 rounded-lg transition-colors group hover:bg-secondary/50"
                                 >
-                                  <div className="w-9 h-9 rounded-lg bg-[#146fb5]/10 flex items-center justify-center shrink-0 group-hover:bg-[#146fb5]/15">
-                                    <child.icon className="w-4.5 h-4.5" style={{ color: '#146fb5' }} />
+                                  <div className="w-9 h-9 rounded-lg bg-[rgb(var(--brand-rgb)/0.1)] flex items-center justify-center shrink-0 group-hover:bg-[rgb(var(--brand-rgb)/0.15)]">
+                                    <child.icon className="w-4.5 h-4.5" style={{ color: 'var(--brand)' }} />
                                   </div>
                                   <div className="flex-1">
                                     <div className="flex items-center gap-2">
@@ -642,10 +642,10 @@ export function Header() {
                   asChild
                   className={`text-base font-medium transition-colors ${
                     isActive(item.href)
-                      ? "text-[#146fb5]"
+                      ? "text-[var(--brand)]"
                       : isScrolled
                         ? "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
-                        : "text-[#1b181f] hover:bg-[#146fb5]/10 hover:text-[#146fb5]"
+                        : "text-[#1b181f] hover:bg-[rgb(var(--brand-rgb)/0.1)] hover:text-[var(--brand)]"
                   }`}
                 >
                   <Link to={item.href}>{item.nameKey ? t(item.nameKey) : item.name}</Link>
@@ -672,7 +672,7 @@ export function Header() {
                   className={`transition-colors h-9 w-9 ${
                     isScrolled 
                       ? "text-muted-foreground hover:text-foreground hover:bg-muted/60" 
-                      : "text-[#1b181f] hover:text-[#146fb5] hover:bg-[#146fb5]/10"
+                      : "text-[#1b181f] hover:text-[var(--brand)] hover:bg-[rgb(var(--brand-rgb)/0.1)]"
                   }`}
                   onClick={() => setSearchOpen(true)}
                 >
@@ -756,9 +756,9 @@ export function Header() {
                             onClick={() => handleSearchSelect(result.href)}
                             className="w-full text-left px-4 py-3 hover:bg-[#e0f0ff] transition-colors flex items-center gap-3 group"
                           >
-                            <Search className="w-4 h-4 text-muted-foreground group-hover:text-[#146fb5]" />
+                            <Search className="w-4 h-4 text-muted-foreground group-hover:text-[var(--brand)]" />
                             <div className="flex-1">
-                              <p className="font-medium text-sm text-foreground group-hover:text-[#146fb5]">
+                              <p className="font-medium text-sm text-foreground group-hover:text-[var(--brand)]">
                                 {result.name}
                               </p>
                             </div>
@@ -777,7 +777,7 @@ export function Header() {
               className={`transition-colors h-9 w-9 ${
                 isScrolled 
                   ? "text-muted-foreground hover:text-foreground hover:bg-muted/60" 
-                  : "text-[#1b181f] hover:text-[#146fb5] hover:bg-[#146fb5]/10"
+                  : "text-[#1b181f] hover:text-[var(--brand)] hover:bg-[rgb(var(--brand-rgb)/0.1)]"
               }`}
               asChild
             >
@@ -798,7 +798,7 @@ export function Header() {
                 className={`gap-1 transition-colors h-9 px-2 ${
                   isScrolled 
                     ? "text-muted-foreground hover:text-foreground hover:bg-muted/60" 
-                    : "text-[#1b181f] hover:text-[#146fb5] hover:bg-[#146fb5]/10"
+                    : "text-[#1b181f] hover:text-[var(--brand)] hover:bg-[rgb(var(--brand-rgb)/0.1)]"
                 }`}
               >
                 <Globe className="w-4 h-4" />
@@ -822,7 +822,7 @@ export function Header() {
                           onClick={() => setLanguage(lang.code)}
                           className={`w-full text-left px-3 py-2 rounded-md text-sm transition-colors ${
                             language === lang.code 
-                              ? 'bg-primary/10 text-[#146fb5] font-semibold' 
+                              ? 'bg-primary/10 text-[var(--brand)] font-semibold' 
                               : 'text-[#1b181f] hover:bg-secondary/50'
                           }`}
                         >
@@ -854,7 +854,7 @@ export function Header() {
                   className={`transition-colors ${
                     isScrolled 
                       ? "text-muted-foreground hover:text-foreground hover:bg-muted/60" 
-                      : "text-[#1b181f] hover:text-[#146fb5] hover:bg-[#146fb5]/10"
+                      : "text-[#1b181f] hover:text-[var(--brand)] hover:bg-[rgb(var(--brand-rgb)/0.1)]"
                   }`}
                   onClick={() => setSearchOpen(true)}
                 >
@@ -939,9 +939,9 @@ export function Header() {
                               onClick={() => handleSearchSelect(result.href)}
                               className="w-full text-left px-4 py-3 hover:bg-[#e0f0ff] transition-colors flex items-center gap-3 group"
                             >
-                              <Search className="w-4 h-4 text-muted-foreground group-hover:text-[#146fb5]" />
+                              <Search className="w-4 h-4 text-muted-foreground group-hover:text-[var(--brand)]" />
                               <div className="flex-1">
-                                <p className="font-medium text-sm text-foreground group-hover:text-[#146fb5]">
+                                <p className="font-medium text-sm text-foreground group-hover:text-[var(--brand)]">
                                   {result.name}
                                 </p>
                               </div>
@@ -966,7 +966,7 @@ export function Header() {
               className={`transition-colors hover:bg-transparent ${
                 isScrolled 
                   ? "text-muted-foreground hover:text-foreground" 
-                  : "text-[#1b181f] hover:text-[#146fb5]"
+                  : "text-[#1b181f] hover:text-[var(--brand)]"
               }`}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
@@ -982,7 +982,7 @@ export function Header() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden bg-gradient-to-b from-white via-[#eaf2f8]/60 to-white border-b border-border/60 overflow-hidden shadow-md"
+              className="lg:hidden bg-gradient-to-b from-white via-[var(--brand-tint)]/60 to-white border-b border-border/60 overflow-hidden shadow-md"
             >
               <div className="container-wide py-4 space-y-2">
                 {navigation.map((item) => {
@@ -1031,7 +1031,7 @@ export function Header() {
                                   <Link
                                     to={child.href}
                                     onClick={() => setMobileMenuOpen(false)}
-                                    className="flex items-center gap-2 px-3 py-2.5 text-base font-semibold text-[#146fb5] hover:text-[#146fb5] hover:bg-secondary/20"
+                                    className="flex items-center gap-2 px-3 py-2.5 text-base font-semibold text-[var(--brand)] hover:text-[var(--brand)] hover:bg-secondary/20"
                                   >
                                     <child.icon className="w-4 h-4 shrink-0" />
                                     <span>
@@ -1068,7 +1068,7 @@ export function Header() {
                                   <span>
                                     {language === "HI" && child.nameHI ? child.nameHI : child.name}
                                   </span>
-                                  <span className="ml-auto text-xs px-2 py-0.5 rounded-full bg-[#146fb5]/10 text-[#146fb5] font-medium">
+                                  <span className="ml-auto text-xs px-2 py-0.5 rounded-full bg-[rgb(var(--brand-rgb)/0.1)] text-[var(--brand)] font-medium">
                                     {language === "HI" ? "जल्द आ रहा है" : "Coming Soon"}
                                   </span>
                                 </div>
@@ -1105,7 +1105,7 @@ export function Header() {
                     onClick={() => setMobileMenuOpen(false)}
                     className="w-full flex items-center gap-2 px-3 py-3 text-base font-medium text-[#1b181f]"
                   >
-                    <HelpCircle className="w-4 h-4 text-[#146fb5]" />
+                    <HelpCircle className="w-4 h-4 text-[var(--brand)]" />
                     <span>{language === "HI" ? "मदद / हेल्प सेंटर" : "Help Center"}</span>
                   </Link>
                 </div>

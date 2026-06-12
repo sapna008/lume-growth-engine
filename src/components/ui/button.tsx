@@ -16,9 +16,9 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         // Custom Lume variants - Blue theme
-        cta: "bg-[#146fb5] text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 hover:bg-[#1a7fc7]",
-        hero: "bg-[#146fb5] text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 hover:bg-[#1a7fc7]",
-        "hero-outline": "border-2 border-[#146fb5] bg-transparent text-[#146fb5] hover:bg-[#146fb5]/10 hover:border-[#1a7fc7]",
+        cta: "bg-[var(--brand)] text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 hover:bg-[var(--brand-light)]",
+        hero: "bg-[var(--brand)] text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 hover:bg-[var(--brand-light)]",
+        "hero-outline": "border-2 border-[var(--brand)] bg-transparent text-[var(--brand)] hover:bg-[rgb(var(--brand-rgb)/0.1)] hover:border-[var(--brand-light)]",
         nav: "text-muted-foreground hover:text-foreground hover:bg-muted/50",
         "nav-cta": "bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm",
       },

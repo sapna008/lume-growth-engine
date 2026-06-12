@@ -78,7 +78,7 @@ export default function GettingStarted() {
                 <>
                   <h1 className="text-3xl md:text-4xl lg:text-5xl leading-snug font-display font-bold mb-3 text-left">
                     <span style={{ color: "#1b181f" }}>ल्यूम के साथ </span>
-                    <span style={{ color: "#146fb5" }}>शुरुआत करें</span>
+                    <span style={{ color: "var(--brand)" }}>शुरुआत करें</span>
                   </h1>
                   <p className="mt-1 text-base md:text-xl text-left leading-relaxed" style={{ color: "#1b181f" }}>
                     इन आसान स्टेप्स को फॉलो करके ल्यूम सेटअप करें और अपनी दुकान को और स्मार्ट तरीके से
@@ -89,7 +89,7 @@ export default function GettingStarted() {
                 <>
                   <h1 className="text-3xl md:text-5xl lg:text-6xl font-display font-bold mb-4 text-left">
                     <span style={{ color: "#1b181f" }}>Getting Started </span>
-                    <span style={{ color: "#146fb5" }}>with Lume</span>
+                    <span style={{ color: "var(--brand)" }}>with Lume</span>
                   </h1>
                   <p className="text-lg md:text-2xl text-left" style={{ color: "#1b181f" }}>
                     Follow these simple steps to set up Lume and start managing your store smarter —
@@ -132,7 +132,7 @@ export default function GettingStarted() {
             >
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center">
-                  <Smartphone className="w-6 h-6" style={{ color: "#146fb5" }} />
+                  <Smartphone className="w-6 h-6" style={{ color: "var(--brand)" }} />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold" style={{ color: "#1b181f" }}>
@@ -166,7 +166,7 @@ export default function GettingStarted() {
                     : "Start using Lume POS for daily billing",
                 ].map((step, i) => (
                   <div key={i} className="flex items-start gap-2">
-                    <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: "#146fb5" }} />
+                    <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: "var(--brand)" }} />
                     <span className="text-sm" style={{ color: "#4f4f4f" }}>
                       {step}
                     </span>
@@ -174,7 +174,7 @@ export default function GettingStarted() {
                 ))}
               </div>
               <div className="mt-4 p-3 rounded-lg bg-primary/10 border border-primary/20">
-                <p className="text-sm font-medium" style={{ color: "#146fb5" }}>
+                <p className="text-sm font-medium" style={{ color: "var(--brand)" }}>
                   {language === "HI"
                     ? "👉 शुरुआत करने का यह सबसे तेज़ और आसान तरीका है"
                     : "👉 This is the fastest and easiest way to get started"}
@@ -192,7 +192,7 @@ export default function GettingStarted() {
             >
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center">
-                  <Globe className="w-6 h-6" style={{ color: "#146fb5" }} />
+                  <Globe className="w-6 h-6" style={{ color: "var(--brand)" }} />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold" style={{ color: "#1b181f" }}>
@@ -237,7 +237,7 @@ export default function GettingStarted() {
                     : "Restart POS system to complete integration",
                 ].map((step, i) => (
                   <div key={i} className="flex items-start gap-2">
-                    <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: "#146fb5" }} />
+                    <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: "var(--brand)" }} />
                     <span className="text-sm" style={{ color: "#4f4f4f" }}>
                       {step}
                     </span>
@@ -245,7 +245,7 @@ export default function GettingStarted() {
                 ))}
               </div>
               <div className="mt-4 p-3 rounded-lg bg-primary/10 border border-primary/20">
-                <p className="text-sm font-medium" style={{ color: "#146fb5" }}>
+                <p className="text-sm font-medium" style={{ color: "var(--brand)" }}>
                   {language === "HI"
                     ? "👉 अपने मौजूदा POS सिस्टम को बदलने की ज़रूरत नहीं"
                     : "👉 No need to change your existing POS"}
@@ -289,7 +289,7 @@ export default function GettingStarted() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center">
-                    <span className="text-xl font-bold" style={{ color: '#146fb5' }}>0</span>
+                    <span className="text-xl font-bold" style={{ color: 'var(--brand)' }}>0</span>
                   </div>
                   <div>
                     <h3 className="text-xl font-bold" style={{ color: "#1b181f" }}>
@@ -303,9 +303,9 @@ export default function GettingStarted() {
                   </div>
                 </div>
                 {expandedStep === 0 ? (
-                  <ChevronUp className="w-6 h-6" style={{ color: '#146fb5' }} />
+                  <ChevronUp className="w-6 h-6" style={{ color: 'var(--brand)' }} />
                 ) : (
-                  <ChevronDown className="w-6 h-6" style={{ color: '#146fb5' }} />
+                  <ChevronDown className="w-6 h-6" style={{ color: 'var(--brand)' }} />
                 )}
               </div>
             </button>
@@ -323,13 +323,13 @@ export default function GettingStarted() {
                     </h4>
                     <div className="space-y-2">
                       <div className="flex items-start gap-2">
-                        <span className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-sm font-medium flex-shrink-0" style={{ color: '#146fb5' }}>1</span>
+                        <span className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-sm font-medium flex-shrink-0" style={{ color: 'var(--brand)' }}>1</span>
                         <span className="text-sm" style={{ color: "#4f4f4f" }}>
                           {language === "HI" ? "अपना मोबाइल नंबर दर्ज करें" : "Enter your mobile number"}
                         </span>
                       </div>
                       <div className="flex items-start gap-2">
-                        <span className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-sm font-medium flex-shrink-0" style={{ color: '#146fb5' }}>2</span>
+                        <span className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-sm font-medium flex-shrink-0" style={{ color: 'var(--brand)' }}>2</span>
                         <span className="text-sm" style={{ color: "#4f4f4f" }}>
                           {language === "HI"
                             ? "\"Send Verification Code\" पर क्लिक करें"
@@ -337,13 +337,13 @@ export default function GettingStarted() {
                         </span>
                       </div>
                       <div className="flex items-start gap-2">
-                        <span className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-sm font-medium flex-shrink-0" style={{ color: '#146fb5' }}>3</span>
+                        <span className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-sm font-medium flex-shrink-0" style={{ color: 'var(--brand)' }}>3</span>
                         <span className="text-sm" style={{ color: "#4f4f4f" }}>
                           {language === "HI" ? "मिले हुए OTP को दर्ज करें" : "Enter the OTP received"}
                         </span>
                       </div>
                       <div className="flex items-start gap-2">
-                        <span className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-sm font-medium flex-shrink-0" style={{ color: '#146fb5' }}>4</span>
+                        <span className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-sm font-medium flex-shrink-0" style={{ color: 'var(--brand)' }}>4</span>
                         <span className="text-sm" style={{ color: "#4f4f4f" }}>
                           {language === "HI"
                             ? "Terms & Conditions से सहमत हों"
@@ -351,7 +351,7 @@ export default function GettingStarted() {
                         </span>
                       </div>
                       <div className="flex items-start gap-2">
-                        <span className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-sm font-medium flex-shrink-0" style={{ color: '#146fb5' }}>5</span>
+                        <span className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-sm font-medium flex-shrink-0" style={{ color: 'var(--brand)' }}>5</span>
                         <span className="text-sm" style={{ color: "#4f4f4f" }}>
                           {language === "HI"
                             ? "\"Submit\" पर क्लिक करके आगे बढ़ें"
@@ -383,7 +383,7 @@ export default function GettingStarted() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center">
-                    <Building2 className="w-6 h-6" style={{ color: '#146fb5' }} />
+                    <Building2 className="w-6 h-6" style={{ color: 'var(--brand)' }} />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold" style={{ color: "#1b181f" }}>
@@ -397,9 +397,9 @@ export default function GettingStarted() {
                   </div>
                 </div>
                 {expandedStep === 1 ? (
-                  <ChevronUp className="w-6 h-6" style={{ color: '#146fb5' }} />
+                  <ChevronUp className="w-6 h-6" style={{ color: 'var(--brand)' }} />
                 ) : (
-                  <ChevronDown className="w-6 h-6" style={{ color: '#146fb5' }} />
+                  <ChevronDown className="w-6 h-6" style={{ color: 'var(--brand)' }} />
                 )}
               </div>
             </button>
@@ -417,7 +417,7 @@ export default function GettingStarted() {
                     </h4>
                     <div className="space-y-3 mb-6">
                       <div className="flex items-start gap-2">
-                        <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#146fb5' }} />
+                        <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--brand)' }} />
                         <div>
                           <span className="font-medium" style={{ color: "#1b181f" }}>
                             {language === "HI"
@@ -430,7 +430,7 @@ export default function GettingStarted() {
                         </div>
                       </div>
                       <div className="flex items-start gap-2">
-                        <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#146fb5' }} />
+                        <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--brand)' }} />
                         <div>
                           <span className="font-medium" style={{ color: "#1b181f" }}>
                             {language === "HI" ? "पता *" : "Address *"}
@@ -475,7 +475,7 @@ export default function GettingStarted() {
                     </h4>
                     <div className="space-y-2">
                       <div className="flex items-start gap-2">
-                        <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#146fb5' }} />
+                        <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--brand)' }} />
                         <span className="text-sm" style={{ color: "#4f4f4f" }}>
                           {language === "HI"
                             ? "चुनें: WhatsApp, SMS या दोनों"
@@ -483,7 +483,7 @@ export default function GettingStarted() {
                         </span>
                       </div>
                       <div className="p-3 rounded-lg bg-primary/5 border border-primary/20">
-                        <p className="text-xs font-medium mb-1" style={{ color: "#146fb5" }}>
+                        <p className="text-xs font-medium mb-1" style={{ color: "var(--brand)" }}>
                           {language === "HI" ? "मैसेज चार्जेस:" : "Message Charges:"}
                         </p>
                         <p className="text-xs" style={{ color: "#4f4f4f" }}>
@@ -520,7 +520,7 @@ export default function GettingStarted() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center">
-                    <CreditCard className="w-6 h-6" style={{ color: '#146fb5' }} />
+                    <CreditCard className="w-6 h-6" style={{ color: 'var(--brand)' }} />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold" style={{ color: "#1b181f" }}>
@@ -534,9 +534,9 @@ export default function GettingStarted() {
                   </div>
                 </div>
                 {expandedStep === 2 ? (
-                  <ChevronUp className="w-6 h-6" style={{ color: '#146fb5' }} />
+                  <ChevronUp className="w-6 h-6" style={{ color: 'var(--brand)' }} />
                 ) : (
-                  <ChevronDown className="w-6 h-6" style={{ color: '#146fb5' }} />
+                  <ChevronDown className="w-6 h-6" style={{ color: 'var(--brand)' }} />
                 )}
               </div>
             </button>
@@ -554,7 +554,7 @@ export default function GettingStarted() {
                     </h4>
                     <div className="space-y-3 mb-6">
                       <div className="p-3 rounded-lg border border-primary/20 bg-primary/5">
-                        <p className="font-medium text-sm mb-1" style={{ color: "#146fb5" }}>
+                        <p className="font-medium text-sm mb-1" style={{ color: "var(--brand)" }}>
                           {language === "HI" ? "7-दिन का ट्रायल" : "7-Days Trial"}
                         </p>
                         <p className="text-xs" style={{ color: "#4f4f4f" }}>
@@ -584,7 +584,7 @@ export default function GettingStarted() {
                         </p>
                       </div>
                       <div className="p-3 rounded-lg border border-primary/20 bg-primary/5">
-                        <p className="font-medium text-sm mb-1" style={{ color: "#146fb5" }}>
+                        <p className="font-medium text-sm mb-1" style={{ color: "var(--brand)" }}>
                           {language === "HI" ? "प्रीमियम (रिकमेन्डेड)" : "Premium (Recommended)"}
                         </p>
                         <p className="text-xs" style={{ color: "#4f4f4f" }}>
@@ -595,7 +595,7 @@ export default function GettingStarted() {
                       </div>
                     </div>
                     <div className="p-3 rounded-lg bg-primary/5 border border-primary/20">
-                      <p className="text-xs font-medium" style={{ color: "#146fb5" }}>
+                      <p className="text-xs font-medium" style={{ color: "var(--brand)" }}>
                         {language === "HI"
                           ? "👉 आप कभी भी अपना प्लान अपग्रेड कर सकते हैं"
                           : "👉 You can upgrade your plan anytime"}
@@ -625,7 +625,7 @@ export default function GettingStarted() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center">
-                    <Store className="w-6 h-6" style={{ color: '#146fb5' }} />
+                    <Store className="w-6 h-6" style={{ color: 'var(--brand)' }} />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold" style={{ color: "#1b181f" }}>
@@ -639,9 +639,9 @@ export default function GettingStarted() {
                   </div>
                 </div>
                 {expandedStep === 3 ? (
-                  <ChevronUp className="w-6 h-6" style={{ color: '#146fb5' }} />
+                  <ChevronUp className="w-6 h-6" style={{ color: 'var(--brand)' }} />
                 ) : (
-                  <ChevronDown className="w-6 h-6" style={{ color: '#146fb5' }} />
+                  <ChevronDown className="w-6 h-6" style={{ color: 'var(--brand)' }} />
                 )}
               </div>
             </button>
@@ -661,25 +661,25 @@ export default function GettingStarted() {
                     </h4>
                     <div className="space-y-3 mb-6">
                       <div className="flex items-start gap-2">
-                        <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#146fb5' }} />
+                        <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--brand)' }} />
                         <span className="text-sm" style={{ color: "#4f4f4f" }}>
                           {language === "HI" ? "स्टोर का नाम" : "Store Name"}
                         </span>
                       </div>
                       <div className="flex items-start gap-2">
-                        <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#146fb5' }} />
+                        <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--brand)' }} />
                         <span className="text-sm" style={{ color: "#4f4f4f" }}>
                           {language === "HI" ? "पिनकोड (6 अंक)" : "Pincode (6 digits)"}
                         </span>
                       </div>
                       <div className="flex items-start gap-2">
-                        <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#146fb5' }} />
+                        <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--brand)' }} />
                         <span className="text-sm" style={{ color: "#4f4f4f" }}>
                           {language === "HI" ? "स्टोर एड्रेस" : "Store Address"}
                         </span>
                       </div>
                       <div className="flex items-start gap-2">
-                        <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#146fb5' }} />
+                        <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--brand)' }} />
                         <span className="text-sm" style={{ color: "#4f4f4f" }}>
                           {language === "HI"
                             ? "स्टोर कैटेगरी (Grocery, Pharmacy आदि)"
@@ -715,7 +715,7 @@ export default function GettingStarted() {
                     </h4>
                     <div className="space-y-3">
                       <div className="flex items-start gap-2">
-                        <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#146fb5' }} />
+                        <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--brand)' }} />
                         <span className="text-sm" style={{ color: "#4f4f4f" }}>
                           {language === "HI"
                             ? "POS नाम (ज़रूरी)"
@@ -731,7 +731,7 @@ export default function GettingStarted() {
                         </span>
                       </div>
                       <div className="flex items-start gap-2">
-                        <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#146fb5' }} />
+                        <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--brand)' }} />
                         <span className="text-sm" style={{ color: "#4f4f4f" }}>
                           {language === "HI"
                             ? "स्टोर चुनें (ज़रूरी)"
@@ -739,7 +739,7 @@ export default function GettingStarted() {
                         </span>
                       </div>
                       <div className="flex items-start gap-2">
-                        <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#146fb5' }} />
+                        <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--brand)' }} />
                         <span className="text-sm" style={{ color: "#4f4f4f" }}>
                           {language === "HI"
                             ? "टर्मिनल OS (Windows / Linux)"
@@ -748,7 +748,7 @@ export default function GettingStarted() {
                       </div>
                     </div>
                     <div className="mt-4 p-3 rounded-lg bg-primary/5 border border-primary/20">
-                      <p className="text-xs font-medium" style={{ color: "#146fb5" }}>
+                      <p className="text-xs font-medium" style={{ color: "var(--brand)" }}>
                         {language === "HI"
                           ? "👉 आप बाद में कई स्टोर्स और POS टर्मिनल जोड़ सकते हैं"
                           : "👉 You can add multiple stores and POS terminals later"}
@@ -783,7 +783,7 @@ export default function GettingStarted() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center">
-                    <CreditCard className="w-6 h-6" style={{ color: '#146fb5' }} />
+                    <CreditCard className="w-6 h-6" style={{ color: 'var(--brand)' }} />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold" style={{ color: "#1b181f" }}>
@@ -797,9 +797,9 @@ export default function GettingStarted() {
                   </div>
                 </div>
                 {expandedStep === 4 ? (
-                  <ChevronUp className="w-6 h-6" style={{ color: '#146fb5' }} />
+                  <ChevronUp className="w-6 h-6" style={{ color: 'var(--brand)' }} />
                 ) : (
-                  <ChevronDown className="w-6 h-6" style={{ color: '#146fb5' }} />
+                  <ChevronDown className="w-6 h-6" style={{ color: 'var(--brand)' }} />
                 )}
               </div>
             </button>
@@ -818,7 +818,7 @@ export default function GettingStarted() {
                     <div className="space-y-4 mb-6">
                       <div className="p-4 rounded-lg border-2 border-primary/20 bg-primary/5">
                         <div className="flex items-center gap-3 mb-2">
-                          <CreditCard className="w-5 h-5" style={{ color: "#146fb5" }} />
+                          <CreditCard className="w-5 h-5" style={{ color: "var(--brand)" }} />
                           <span className="font-medium" style={{ color: "#1b181f" }}>
                             {language === "HI" ? "Razorpay (ऑनलाइन)" : "Razorpay (Online)"}
                           </span>
@@ -861,7 +861,7 @@ export default function GettingStarted() {
                       </div>
                     </div>
                     <div className="p-3 rounded-lg bg-primary/5 border border-primary/20">
-                      <p className="text-xs font-medium" style={{ color: "#146fb5" }}>
+                      <p className="text-xs font-medium" style={{ color: "var(--brand)" }}>
                         {language === "HI"
                           ? "👉 ऑनबोर्डिंग तभी पूरा होता है जब पेमेंट कन्फर्म हो जाए"
                           : "👉 Onboarding completes only after payment confirmation"}
@@ -896,7 +896,7 @@ export default function GettingStarted() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center">
-                    <CheckCircle2 className="w-6 h-6" style={{ color: '#146fb5' }} />
+                    <CheckCircle2 className="w-6 h-6" style={{ color: 'var(--brand)' }} />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold" style={{ color: "#1b181f" }}>
@@ -910,9 +910,9 @@ export default function GettingStarted() {
                   </div>
                 </div>
                 {expandedStep === 5 ? (
-                  <ChevronUp className="w-6 h-6" style={{ color: '#146fb5' }} />
+                  <ChevronUp className="w-6 h-6" style={{ color: 'var(--brand)' }} />
                 ) : (
-                  <ChevronDown className="w-6 h-6" style={{ color: '#146fb5' }} />
+                  <ChevronDown className="w-6 h-6" style={{ color: 'var(--brand)' }} />
                 )}
               </div>
             </button>
@@ -930,7 +930,7 @@ export default function GettingStarted() {
                     </h4>
                     <div className="space-y-3">
                       <div className="flex items-start gap-2">
-                        <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#146fb5' }} />
+                        <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--brand)' }} />
                         <span className="text-sm" style={{ color: "#4f4f4f" }}>
                           {language === "HI"
                             ? "आपका ऑनबोर्डिंग पूरा हो गया है!"
@@ -938,7 +938,7 @@ export default function GettingStarted() {
                         </span>
                       </div>
                       <div className="flex items-start gap-2">
-                        <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#146fb5' }} />
+                        <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--brand)' }} />
                         <span className="text-sm" style={{ color: "#4f4f4f" }}>
                           {language === "HI"
                             ? "डैशबोर्ड से बिल बनाना शुरू करें"
@@ -946,7 +946,7 @@ export default function GettingStarted() {
                         </span>
                       </div>
                       <div className="flex items-start gap-2">
-                        <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#146fb5' }} />
+                        <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--brand)' }} />
                         <span className="text-sm" style={{ color: "#4f4f4f" }}>
                           {language === "HI"
                             ? "कैम्पेन, एनालिटिक्स और बाकी फीचर्स एक्सप्लोर करें"
@@ -992,14 +992,14 @@ export default function GettingStarted() {
                 href="mailto:support@apeirosai.com"
                 className="flex items-center gap-2 px-6 py-3 bg-white border-2 border-primary/20 rounded-lg hover:bg-primary/5 transition-all"
               >
-                <Mail className="w-5 h-5" style={{ color: "#146fb5" }} />
+                <Mail className="w-5 h-5" style={{ color: "var(--brand)" }} />
                 <span className="font-medium" style={{ color: "#1b181f" }}>support@apeirosai.com</span>
               </a>
               <a
                 href="tel:+919724151647"
                 className="flex items-center gap-2 px-6 py-3 bg-white border-2 border-primary/20 rounded-lg hover:bg-primary/5 transition-all"
               >
-                <Phone className="w-5 h-5" style={{ color: "#146fb5" }} />
+                <Phone className="w-5 h-5" style={{ color: "var(--brand)" }} />
                 <span className="font-medium" style={{ color: "#1b181f" }}>+91 97241 51647</span>
               </a>
             </div>

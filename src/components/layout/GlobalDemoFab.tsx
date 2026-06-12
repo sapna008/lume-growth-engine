@@ -22,7 +22,7 @@ export function GlobalDemoFab() {
         onClick={() => {
           void trackBookDemoClick();
         }}
-        className="inline-flex items-center gap-2 rounded-full bg-[#146fb5] px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-[#146fb5]/30 transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#115f9c] hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#146fb5]/60 focus-visible:ring-offset-2 sm:px-5 sm:py-3.5 sm:text-base"
+        className="inline-flex items-center gap-2 rounded-full bg-[var(--brand)] px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-[rgb(var(--brand-rgb)/0.3)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#115f9c] hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--brand-rgb)/0.6)] focus-visible:ring-offset-2 sm:px-5 sm:py-3.5 sm:text-base"
         aria-label="Book Demo"
       >
         <CalendarDays className="h-4 w-4 sm:h-5 sm:w-5" />

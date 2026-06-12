@@ -268,11 +268,11 @@ export default function BookDemo() {
                             onClick={() => handleChange('date', dateOption.date.toISOString())}
                             className={`p-3 rounded-lg border-2 transition-all text-sm font-medium ${
                               formData.date === dateOption.date.toISOString()
-                                ? 'border-[#146fb5] bg-[#146fb5]/10'
-                                : 'border-border hover:border-[#146fb5]/50'
+                                ? 'border-[var(--brand)] bg-[rgb(var(--brand-rgb)/0.1)]'
+                                : 'border-border hover:border-[rgb(var(--brand-rgb)/0.5)]'
                             }`}
                             style={{
-                              color: formData.date === dateOption.date.toISOString() ? '#146fb5' : '#1b181f'
+                              color: formData.date === dateOption.date.toISOString() ? 'var(--brand)' : '#1b181f'
                             }}
                           >
                             <div className="font-bold">{dateOption.labelKey ? t(dateOption.labelKey) : dateOption.label}</div>
@@ -297,11 +297,11 @@ export default function BookDemo() {
                               onClick={() => handleChange('time', slot)}
                               className={`p-2 rounded-lg border transition-all text-sm ${
                                 formData.time === slot
-                                  ? 'border-[#146fb5] bg-[#146fb5]/10'
-                                  : 'border-border hover:border-[#146fb5]/50'
+                                  ? 'border-[var(--brand)] bg-[rgb(var(--brand-rgb)/0.1)]'
+                                  : 'border-border hover:border-[rgb(var(--brand-rgb)/0.5)]'
                               }`}
                               style={{
-                                color: formData.time === slot ? '#146fb5' : '#1b181f'
+                                color: formData.time === slot ? 'var(--brand)' : '#1b181f'
                               }}
                             >
                               {slot}
@@ -338,7 +338,7 @@ export default function BookDemo() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="space-y-6"
               >
-                <div className="bg-gradient-to-br from-[#eaf2f8] to-white rounded-2xl p-6 sm:p-8 border border-[#146fb5]/20">
+                <div className="bg-gradient-to-br from-[var(--brand-tint)] to-white rounded-2xl p-6 sm:p-8 border border-[rgb(var(--brand-rgb)/0.2)]">
                   <h3 className="text-xl sm:text-2xl font-bold mb-4" style={{ color: '#1b181f' }}>
                     {t('demo.whatToExpect')}
                   </h3>
@@ -350,7 +350,7 @@ export default function BookDemo() {
                       t('demo.expect4'),
                     ].map((item, index) => (
                       <li key={index} className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#146fb5' }} />
+                        <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--brand)' }} />
                         <span style={{ color: '#4f4f4f' }}>{item}</span>
                       </li>
                     ))}

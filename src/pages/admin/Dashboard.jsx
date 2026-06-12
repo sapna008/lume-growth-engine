@@ -16,6 +16,8 @@ import {
 } from "recharts";
 import auth from "@/firebase";
 import { useAuth } from "@/context/AuthContext";
+import { getHeroContentFromDb, saveHeroContentToDb } from "@/lib/contentStore";
+import { applyBrandColor } from "@/lib/brandTheme";
 import apeirosLogo from "@/assets/apeiros-logo.png";
 
 const PIE_COLORS = ["#6366f1", "#f59e0b", "#10b981", "#ef4444", "#3b82f6"];
@@ -87,6 +89,8 @@ export default function Dashboard() {
   const navigate = useNavigate();
   const [activeView, setActiveView] = useState("analytics");
   const [leads, setLeads] = useState([]);
+  const [leadSearch, setLeadSearch] = useState("");
+  const [trendRange, setTrendRange] = useState("all");
   const [totalLeads, setTotalLeads] = useState(0);
   const [downloadClicks, setDownloadClicks] = useState(0);
   const [bookDemoClicks, setBookDemoClicks] = useState(0);
@@ -95,8 +99,10 @@ export default function Dashboard() {
   const [contentLoading, setContentLoading] = useState(false);
   const [contentSaving, setContentSaving] = useState(false);
   const [contentForm, setContentForm] = useState({
-    heading: "",
-    subheading: "",
+    headingEn: "",
+    headingHi: "",
+    subheadingEn: "",
+    subheadingHi: "",
     colorTheme: "",
     template: "",
     heroImage: "",
@@ -104,6 +110,7 @@ export default function Dashboard() {
     heroImageId: "",
     heroVideoId: "",
   });
+  const [translating, setTranslating] = useState("");
   const [heroImageFile, setHeroImageFile] = useState(null);
   const [heroVideoFile, setHeroVideoFile] = useState(null);
   const [heroImagePreview, setHeroImagePreview] = useState("");
@@ -145,14 +152,17 @@ export default function Dashboard() {
   }, [user?.email]);
 
   const leadsByDate = useMemo(() => {
+    const cutoff = trendRange === "30d" ? Date.now() - 30 * 24 * 60 * 60 * 1000 : 0;
     const grouped = leads.reduce((acc, lead) => {
-      const dateObj = new Date(lead.createdAt || Date.now());
+      const ts = lead.createdAt || Date.now();
+      if (ts < cutoff) return acc;
+      const dateObj = new Date(ts);
       const label = dateObj.toLocaleDateString("en-IN", { day: "2-digit", month: "short" });
       acc[label] = (acc[label] || 0) + 1;
       return acc;
     }, {});
     return Object.entries(grouped).map(([date, count]) => ({ date, count }));
-  }, [leads]);
+  }, [leads, trendRange]);
 
   const sourceData = useMemo(() => {
     const grouped = leads.reduce((acc, lead) => {
@@ -163,16 +173,26 @@ export default function Dashboard() {
     return Object.entries(grouped).map(([name, value]) => ({ name, value }));
   }, [leads]);
 
+  const filteredLeads = useMemo(() => {
+    const query = leadSearch.trim().toLowerCase();
+    if (!query) return leads;
+    return leads.filter((lead) =>
+      [lead.name, lead.email, lead.phone].some((field) =>
+        String(field ?? "").toLowerCase().includes(query)
+      )
+    );
+  }, [leads, leadSearch]);
+
   const fetchContentData = async () => {
     setContentLoading(true);
     try {
-      const response = await fetch(`${API_BASE_URL}/api/content`);
-      const json = await response.json();
-      const data = json?.data ?? {};
+      const data = (await getHeroContentFromDb()) ?? {};
 
       setContentForm({
-        heading: data.heading ?? "",
-        subheading: data.subheading ?? "",
+        headingEn: data.headingEn ?? "",
+        headingHi: data.headingHi ?? "",
+        subheadingEn: data.subheadingEn ?? "",
+        subheadingHi: data.subheadingHi ?? "",
         colorTheme: data.colorTheme ?? "",
         template: data.template ?? "",
         heroImage: data.heroImage ?? "",
@@ -202,23 +222,40 @@ export default function Dashboard() {
     setContentSaving(true);
 
     try {
-      const formData = new FormData();
-      formData.append("heading", contentForm.heading);
-      formData.append("subheading", contentForm.subheading);
-      formData.append("colorTheme", contentForm.colorTheme);
-      formData.append("template", contentForm.template);
-
-      if (heroImageFile) formData.append("heroImage", heroImageFile);
-      if (heroVideoFile) formData.append("heroVideo", heroVideoFile);
-
-      const response = await fetch(`${API_BASE_URL}/api/content`, {
-        method: "POST",
-        body: formData,
+      // 1. Save bilingual text straight to Realtime Database — no backend needed.
+      await saveHeroContentToDb({
+        headingEn: contentForm.headingEn.trim(),
+        headingHi: contentForm.headingHi.trim(),
+        subheadingEn: contentForm.subheadingEn.trim(),
+        subheadingHi: contentForm.subheadingHi.trim(),
+        colorTheme: contentForm.colorTheme.trim(),
+        template: contentForm.template.trim(),
       });
-      const json = await response.json();
 
-      if (!response.ok || !json.success) {
-        throw new Error(json.message || "Failed to save content");
+      // 2. Media uploads need the Cloudinary backend — best effort only, so a
+      //    missing API server never blocks saving the text content.
+      if (heroImageFile || heroVideoFile) {
+        try {
+          const formData = new FormData();
+          if (heroImageFile) formData.append("heroImage", heroImageFile);
+          if (heroVideoFile) formData.append("heroVideo", heroVideoFile);
+
+          const response = await fetch(`${API_BASE_URL}/api/content`, {
+            method: "POST",
+            body: formData,
+          });
+          const json = await response.json();
+          if (!response.ok || !json.success) {
+            throw new Error(json.message || "Media upload failed");
+          }
+
+          await saveHeroContentToDb({
+            heroImage: json.data?.heroImage ?? "",
+            heroVideo: json.data?.heroVideo ?? "",
+          });
+        } catch {
+          toast.warning("Text saved. Media upload needs the API server (run: npm run api:dev).");
+        }
       }
 
       toast.success("Hero content saved");
@@ -227,6 +264,34 @@ export default function Dashboard() {
       toast.error(error.message || "Failed to save content");
     } finally {
       setContentSaving(false);
+    }
+  };
+
+  const handleAutoTranslate = async (sourceField, targetField) => {
+    const text = contentForm[sourceField]?.trim();
+    if (!text) {
+      toast.error("Enter English text first");
+      return;
+    }
+    setTranslating(targetField);
+    try {
+      // Free, key-less, CORS-enabled translation (MyMemory) — runs fully in the
+      // browser, so no backend server is required.
+      const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=en|hi`;
+      const response = await fetch(url);
+      const json = await response.json().catch(() => null);
+      const translated = json?.responseData?.translatedText;
+
+      if (!response.ok || !translated) {
+        throw new Error(json?.responseDetails || `Translation failed (HTTP ${response.status})`);
+      }
+
+      setContentForm((prev) => ({ ...prev, [targetField]: translated }));
+      toast.success("Translated to Hindi — review and edit if needed");
+    } catch (error) {
+      toast.error(error.message || "Translation failed");
+    } finally {
+      setTranslating("");
     }
   };
 
@@ -263,8 +328,9 @@ export default function Dashboard() {
 
         .d-root {
           display: flex;
-          min-height: 100vh;
-          background: linear-gradient(135deg, #fffdf5 0%, #fff9e8 52%, #fff5db 100%);
+          height: 100vh;
+          overflow: hidden;
+          background: #f1f5f9;
           font-family: 'Plus Jakarta Sans', sans-serif;
           color: #1e293b;
         }
@@ -277,7 +343,7 @@ export default function Dashboard() {
           border-right: 1px solid #e8ecf8;
           display: flex;
           flex-direction: column;
-          padding: 24px 14px;
+          padding: 14px 14px 16px;
           flex-shrink: 0;
           position: relative;
           z-index: 30;
@@ -286,45 +352,29 @@ export default function Dashboard() {
 
         .d-logo {
           display: flex;
-          align-items: center;
-          gap: 11px;
-          padding: 4px 8px 24px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0;
+          padding: 0 8px 10px;
           border-bottom: 1px solid #f0f4ff;
-          margin-bottom: 20px;
+          margin-bottom: 12px;
         }
 
-        .d-logo-mark {
-          width: 40px;
-          height: 40px;
-          border-radius: 12px;
-          background: #fff;
-          border: 1px solid #e2e8f0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          overflow: hidden;
-          flex-shrink: 0;
-        }
-
-        .d-logo-mark img {
-          width: 100%;
-          height: 100%;
+        .d-logo-img {
+          height: 48px;
+          width: auto;
+          max-width: 100%;
           object-fit: contain;
-          padding: 4px;
-        }
-
-        .d-logo-name {
-          font-size: 19px;
-          font-weight: 800;
-          color: #1e293b;
-          letter-spacing: -0.4px;
+          margin-left: -6px;
         }
 
         .d-logo-tag {
           font-size: 11px;
           color: #94a3b8;
           font-family: 'Fira Code', monospace;
-          margin-top: 1px;
+          letter-spacing: 0.5px;
+          margin-top: -6px;
+          margin-left: 30px;
         }
 
         .d-nav-label {
@@ -335,6 +385,7 @@ export default function Dashboard() {
           color: #94a3b8;
           padding: 0 10px;
           margin-bottom: 6px;
+         
         }
 
         .d-nav-item {
@@ -435,35 +486,36 @@ export default function Dashboard() {
         .d-main {
           flex: 1;
           min-width: 0;
+          min-height: 0;
           overflow: auto;
-          padding: 32px;
+          padding: 18px 32px 32px;
           background:
-            radial-gradient(circle at 8% 18%, rgba(254, 240, 138, 0.30) 0, rgba(254, 240, 138, 0.09) 22%, transparent 38%),
-            radial-gradient(circle at 92% 12%, rgba(253, 224, 71, 0.22) 0, rgba(253, 224, 71, 0.08) 20%, transparent 36%),
-            linear-gradient(135deg, #fffdf5 0%, #fff9e8 52%, #fff5db 100%);
+            radial-gradient(circle at 6% 0%, rgba(99, 102, 241, 0.10) 0, rgba(99, 102, 241, 0.04) 24%, transparent 44%),
+            radial-gradient(circle at 100% 4%, rgba(14, 165, 233, 0.08) 0, transparent 38%),
+            #f1f5f9;
         }
 
         .d-page-header {
           display: flex;
           align-items: flex-end;
           justify-content: space-between;
-          margin-bottom: 28px;
+          margin-bottom: 18px;
           flex-wrap: wrap;
           gap: 12px;
         }
 
         .d-page-title {
-          font-size: 28px;
+          font-size: 21px;
           font-weight: 800;
           color: #0f172a;
-          letter-spacing: -0.6px;
-          line-height: 1.1;
+          letter-spacing: -0.4px;
+          line-height: 1.15;
         }
 
         .d-page-sub {
-          font-size: 13px;
+          font-size: 12.5px;
           color: #64748b;
-          margin-top: 5px;
+          margin-top: 3px;
           font-weight: 500;
         }
 
@@ -491,53 +543,61 @@ export default function Dashboard() {
           padding: 24px;
           position: relative;
           overflow: hidden;
-          color: #1e3a8a;
+          color: #1e293b;
           min-height: 130px;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          border: 1px solid #bfdbfe;
+          border: 1px solid #e2e8f0;
+          transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .d-stat-card:hover {
+          transform: translateY(-3px);
         }
 
         .d-stat-card-1 {
-          background: linear-gradient(135deg, #ffffff 0%, #eaf4ff 62%, #dbeafe 100%);
-          box-shadow: 0 10px 26px rgba(59, 130, 246, 0.14);
+          background: linear-gradient(135deg, #ffffff 0%, #f5f3ff 60%, #ede9fe 100%);
+          box-shadow: 0 10px 28px rgba(99, 102, 241, 0.14);
         }
+        .d-stat-card-1:hover { box-shadow: 0 16px 36px rgba(99, 102, 241, 0.22); }
 
         .d-stat-card-2 {
-          background: linear-gradient(135deg, #ffffff 0%, #ecf8ff 62%, #d9f1ff 100%);
-          box-shadow: 0 10px 26px rgba(14, 165, 233, 0.14);
+          background: linear-gradient(135deg, #ffffff 0%, #eff6ff 60%, #dbeafe 100%);
+          box-shadow: 0 10px 28px rgba(59, 130, 246, 0.13);
         }
+        .d-stat-card-2:hover { box-shadow: 0 16px 36px rgba(59, 130, 246, 0.2); }
 
         .d-stat-card-3 {
-          background: linear-gradient(135deg, #ffffff 0%, #eef6ff 58%, #e3ecff 100%);
-          box-shadow: 0 10px 26px rgba(99, 102, 241, 0.13);
+          background: linear-gradient(135deg, #ffffff 0%, #ecfeff 60%, #cffafe 100%);
+          box-shadow: 0 10px 28px rgba(14, 165, 233, 0.13);
         }
+        .d-stat-card-3:hover { box-shadow: 0 16px 36px rgba(14, 165, 233, 0.2); }
 
         .d-stat-card::after {
           content: '';
           position: absolute;
-          top: -20px; right: -20px;
-          width: 100px; height: 100px;
+          top: -24px; right: -24px;
+          width: 110px; height: 110px;
           border-radius: 50%;
-          background: rgba(191, 219, 254, 0.45);
+          background: rgba(99, 102, 241, 0.10);
         }
 
         .d-stat-card::before {
           content: '';
           position: absolute;
-          bottom: -30px; right: 30px;
+          bottom: -30px; right: 28px;
           width: 80px; height: 80px;
           border-radius: 50%;
-          background: rgba(186, 230, 253, 0.35);
+          background: rgba(99, 102, 241, 0.07);
         }
 
         .d-stat-label {
-          font-size: 12px;
-          font-weight: 600;
-          letter-spacing: 0.5px;
+          font-size: 11.5px;
+          font-weight: 700;
+          letter-spacing: 0.8px;
           text-transform: uppercase;
-          color: #1d4ed8;
+          color: #6366f1;
           position: relative;
           z-index: 1;
         }
@@ -598,6 +658,194 @@ export default function Dashboard() {
           color: #94a3b8;
           margin-bottom: 18px;
           font-family: 'Fira Code', monospace;
+        }
+
+        /* ─── BENTO ANALYTICS (fits viewport, no scroll) ─── */
+        .d-analytics {
+          display: flex;
+          flex-direction: column;
+          gap: 14px;
+        }
+
+        .d-analytics .d-page-header { margin-bottom: 0; }
+
+        .d-bento {
+          display: grid;
+          gap: 16px;
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-template-areas:
+            "s1 s2 s3"
+            "trend trend sources";
+        }
+
+        .d-bento .d-stat-card {
+          min-height: 0;
+          padding: 16px 20px;
+          flex-direction: row;
+          align-items: center;
+          justify-content: flex-start;
+          gap: 14px;
+        }
+        .d-bento .d-stat-value { font-size: 30px; line-height: 1; }
+        .d-bento .d-stat-footer { font-size: 10.5px; }
+
+        .d-stat-body {
+          position: relative;
+          z-index: 1;
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+          min-width: 0;
+        }
+
+        .d-stat-icon {
+          width: 46px; height: 46px;
+          border-radius: 13px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+          position: relative;
+          z-index: 1;
+        }
+
+        .d-stat-card-1 .d-stat-icon { background: #ede9fe; color: #7c3aed; }
+        .d-stat-card-2 .d-stat-icon { background: #dbeafe; color: #2563eb; }
+        .d-stat-card-3 .d-stat-icon { background: #cffafe; color: #0891b2; }
+
+        /* card header with right-aligned control */
+        .d-card-head {
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          gap: 10px;
+          margin-bottom: 8px;
+        }
+
+        .d-mini-pill {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          padding: 6px 11px;
+          border: 1px solid #e2e8f0;
+          border-radius: 10px;
+          background: #fff;
+          font-size: 12px;
+          font-weight: 600;
+          color: #475569;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          cursor: pointer;
+          transition: all 0.16s;
+        }
+        .d-mini-pill:hover { border-color: #c7d2fe; color: #6366f1; }
+
+        .d-mini-select {
+          appearance: none;
+          -webkit-appearance: none;
+          padding: 7px 30px 7px 12px;
+          border: 1px solid #e2e8f0;
+          border-radius: 10px;
+          background: #fff
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")
+            no-repeat right 10px center;
+          font-size: 12px;
+          font-weight: 600;
+          color: #475569;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          cursor: pointer;
+          transition: all 0.16s;
+        }
+        .d-mini-select:hover { border-color: #c7d2fe; color: #6366f1; }
+        .d-mini-select:focus { outline: none; border-color: #6366f1; box-shadow: 0 0 0 3px rgba(99,102,241,0.12); }
+
+        .d-table-actions {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          flex-wrap: wrap;
+        }
+
+        .d-search-wrap { position: relative; display: flex; align-items: center; }
+        .d-search-wrap svg {
+          position: absolute;
+          left: 11px;
+          color: #94a3b8;
+          pointer-events: none;
+        }
+        .d-search-input {
+          border: 1px solid #e2e8f0;
+          border-radius: 10px;
+          padding: 8px 12px 8px 32px;
+          font-size: 13px;
+          min-width: 180px;
+          outline: none;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          color: #1e293b;
+          transition: all 0.16s;
+        }
+        .d-search-input:focus { border-color: #6366f1; box-shadow: 0 0 0 3px rgba(99,102,241,0.12); }
+
+        .d-row-action {
+          background: none;
+          border: none;
+          cursor: pointer;
+          color: #94a3b8;
+          padding: 4px;
+          border-radius: 8px;
+          display: inline-flex;
+          transition: all 0.16s;
+        }
+        .d-row-action:hover { background: #f1f5f9; color: #6366f1; }
+
+        @media (max-width: 600px) {
+          .d-search-input { min-width: 130px; }
+        }
+
+        .d-bento-trend, .d-bento-sources {
+          display: flex;
+          flex-direction: column;
+          padding: 18px 20px;
+          height: 300px;
+        }
+        .d-bento-trend .d-card-sub,
+        .d-bento-sources .d-card-sub { margin-bottom: 10px; }
+
+        .d-chart-fill { flex: 1; min-height: 0; }
+
+        .d-pie-legend {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 6px 14px;
+          margin-top: 8px;
+          max-height: 56px;
+          overflow: auto;
+        }
+        .d-legend-item {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          font-size: 12px;
+          color: #475569;
+          font-weight: 600;
+        }
+        .d-legend-dot {
+          width: 9px; height: 9px;
+          border-radius: 3px;
+          flex-shrink: 0;
+        }
+        .d-legend-name {
+          max-width: 120px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        .d-legend-pct { color: #6366f1; font-weight: 700; }
+
+        @media (max-width: 960px) {
+          .d-bento {
+            grid-template-columns: 1fr;
+            grid-template-areas: none;
+          }
         }
 
         /* ─── TABLE ─── */
@@ -743,6 +991,62 @@ export default function Dashboard() {
           line-height: 1.65;
         }
 
+        /* ─── BILINGUAL CONTENT FIELDS ─── */
+        .d-bilingual {
+          border: 1px solid #eef2ff;
+          background: #fafbff;
+          border-radius: 14px;
+          padding: 14px 16px;
+          display: grid;
+          gap: 12px;
+        }
+
+        .d-bilingual-head {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 10px;
+          flex-wrap: wrap;
+        }
+
+        .d-translate-btn {
+          border: 1px solid #c7d2fe;
+          background: linear-gradient(135deg, #eef2ff, #ede9fe);
+          color: #4f46e5;
+          border-radius: 999px;
+          padding: 6px 13px;
+          font-size: 12px;
+          font-weight: 700;
+          cursor: pointer;
+          transition: all 0.18s;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .d-translate-btn:hover:not(:disabled) {
+          box-shadow: 0 2px 10px rgba(99,102,241,0.18);
+          transform: translateY(-1px);
+        }
+
+        .d-translate-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+        .d-bilingual-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 12px;
+        }
+
+        @media (max-width: 720px) {
+          .d-bilingual-grid { grid-template-columns: 1fr; }
+        }
+
+        .d-lang-tag {
+          font-size: 10.5px;
+          font-weight: 700;
+          letter-spacing: 0.6px;
+          text-transform: uppercase;
+          color: #94a3b8;
+        }
+
         /* ─── MOBILE ─── */
         .d-mobile-bar { display: none; }
 
@@ -804,13 +1108,8 @@ export default function Dashboard() {
         {/* Sidebar */}
         <aside className={`d-sidebar${sidebarOpen ? " open" : ""}`}>
           <div className="d-logo">
-            <div className="d-logo-mark">
-              <img src={apeirosLogo} alt="Apeiros logo" />
-            </div>
-            <div>
-              <div className="d-logo-name">Apeiros</div>
-              <div className="d-logo-tag">admin panel</div>
-            </div>
+            <img src={apeirosLogo} alt="Apeiros logo" className="d-logo-img" />
+            <div className="d-logo-tag">admin panel</div>
           </div>
 
           <div style={{ marginBottom: 8 }}>
@@ -842,7 +1141,7 @@ export default function Dashboard() {
 
         <div className={`d-overlay${sidebarOpen ? " show" : ""}`} onClick={() => setSidebarOpen(false)} />
 
-        <div style={{ flex: 1, display: "flex", flexDirection: "column", minWidth: 0 }}>
+        <div style={{ flex: 1, display: "flex", flexDirection: "column", minWidth: 0, minHeight: 0 }}>
           {/* Mobile bar */}
           <div className="d-mobile-bar">
             <button type="button" className="d-ham" onClick={() => setSidebarOpen(true)}>
@@ -864,36 +1163,107 @@ export default function Dashboard() {
                   <p style={{ color: "#64748b", padding: "16px 0" }}>Loading content...</p>
                 ) : (
                   <form onSubmit={handleContentSave} style={{ display: "grid", gap: 14 }}>
-                    <div style={{ display: "grid", gap: 8 }}>
-                      <label style={{ fontSize: 13, fontWeight: 600 }}>Heading</label>
-                      <input
-                        value={contentForm.heading}
-                        onChange={(e) => setContentForm((prev) => ({ ...prev, heading: e.target.value }))}
-                        placeholder="Enter heading"
-                        style={{ border: "1px solid #dbeafe", borderRadius: 10, padding: "10px 12px" }}
-                      />
+                    {/* Heading — English + Hindi */}
+                    <div className="d-bilingual">
+                      <div className="d-bilingual-head">
+                        <label style={{ fontSize: 13, fontWeight: 700 }}>Heading</label>
+                        <button
+                          type="button"
+                          className="d-translate-btn"
+                          onClick={() => handleAutoTranslate("headingEn", "headingHi")}
+                          disabled={translating === "headingHi"}
+                        >
+                          {translating === "headingHi" ? "Translating…" : "⇄ Auto-translate to Hindi"}
+                        </button>
+                      </div>
+                      <div className="d-bilingual-grid">
+                        <div style={{ display: "grid", gap: 6 }}>
+                          <span className="d-lang-tag">English</span>
+                          <input
+                            value={contentForm.headingEn}
+                            onChange={(e) => setContentForm((prev) => ({ ...prev, headingEn: e.target.value }))}
+                            placeholder="Enter heading in English"
+                            style={{ border: "1px solid #dbeafe", borderRadius: 10, padding: "10px 12px", width: "100%" }}
+                          />
+                        </div>
+                        <div style={{ display: "grid", gap: 6 }}>
+                          <span className="d-lang-tag">हिंदी (Hindi)</span>
+                          <input
+                            value={contentForm.headingHi}
+                            onChange={(e) => setContentForm((prev) => ({ ...prev, headingHi: e.target.value }))}
+                            placeholder="हिंदी में हेडिंग लिखें"
+                            style={{ border: "1px solid #fde68a", borderRadius: 10, padding: "10px 12px", width: "100%" }}
+                          />
+                        </div>
+                      </div>
                     </div>
 
-                    <div style={{ display: "grid", gap: 8 }}>
-                      <label style={{ fontSize: 13, fontWeight: 600 }}>Subheading</label>
-                      <textarea
-                        value={contentForm.subheading}
-                        onChange={(e) => setContentForm((prev) => ({ ...prev, subheading: e.target.value }))}
-                        rows={3}
-                        placeholder="Enter subheading"
-                        style={{ border: "1px solid #dbeafe", borderRadius: 10, padding: "10px 12px", resize: "vertical" }}
-                      />
+                    {/* Subheading — English + Hindi */}
+                    <div className="d-bilingual">
+                      <div className="d-bilingual-head">
+                        <label style={{ fontSize: 13, fontWeight: 700 }}>Subheading</label>
+                        <button
+                          type="button"
+                          className="d-translate-btn"
+                          onClick={() => handleAutoTranslate("subheadingEn", "subheadingHi")}
+                          disabled={translating === "subheadingHi"}
+                        >
+                          {translating === "subheadingHi" ? "Translating…" : "⇄ Auto-translate to Hindi"}
+                        </button>
+                      </div>
+                      <div className="d-bilingual-grid">
+                        <div style={{ display: "grid", gap: 6 }}>
+                          <span className="d-lang-tag">English</span>
+                          <textarea
+                            value={contentForm.subheadingEn}
+                            onChange={(e) => setContentForm((prev) => ({ ...prev, subheadingEn: e.target.value }))}
+                            rows={3}
+                            placeholder="Enter subheading in English"
+                            style={{ border: "1px solid #dbeafe", borderRadius: 10, padding: "10px 12px", resize: "vertical", width: "100%" }}
+                          />
+                        </div>
+                        <div style={{ display: "grid", gap: 6 }}>
+                          <span className="d-lang-tag">हिंदी (Hindi)</span>
+                          <textarea
+                            value={contentForm.subheadingHi}
+                            onChange={(e) => setContentForm((prev) => ({ ...prev, subheadingHi: e.target.value }))}
+                            rows={3}
+                            placeholder="हिंदी में सबहेडिंग लिखें"
+                            style={{ border: "1px solid #fde68a", borderRadius: 10, padding: "10px 12px", resize: "vertical", width: "100%" }}
+                          />
+                        </div>
+                      </div>
                     </div>
 
                     <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))", gap: 12 }}>
                       <div style={{ display: "grid", gap: 8 }}>
-                        <label style={{ fontSize: 13, fontWeight: 600 }}>Color Theme</label>
-                        <input
-                          value={contentForm.colorTheme}
-                          onChange={(e) => setContentForm((prev) => ({ ...prev, colorTheme: e.target.value }))}
-                          placeholder="e.g. Ocean Blue"
-                          style={{ border: "1px solid #dbeafe", borderRadius: 10, padding: "10px 12px" }}
-                        />
+                        <label style={{ fontSize: 13, fontWeight: 600 }}>Brand Color (whole website)</label>
+                        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                          <input
+                            type="color"
+                            value={/^#[0-9a-fA-F]{6}$/.test(contentForm.colorTheme) ? contentForm.colorTheme : "#146fb5"}
+                            onChange={(e) => {
+                              const v = e.target.value;
+                              setContentForm((prev) => ({ ...prev, colorTheme: v }));
+                              applyBrandColor(v);
+                            }}
+                            aria-label="Pick brand color"
+                            style={{ width: 48, height: 42, border: "1px solid #dbeafe", borderRadius: 10, padding: 2, background: "#fff", cursor: "pointer", flexShrink: 0 }}
+                          />
+                          <input
+                            value={contentForm.colorTheme}
+                            onChange={(e) => {
+                              const v = e.target.value;
+                              setContentForm((prev) => ({ ...prev, colorTheme: v }));
+                              applyBrandColor(v);
+                            }}
+                            placeholder="#146fb5"
+                            style={{ flex: 1, minWidth: 0, border: "1px solid #dbeafe", borderRadius: 10, padding: "10px 12px", fontFamily: "'Fira Code', monospace" }}
+                          />
+                        </div>
+                        <span style={{ fontSize: 11, color: "#94a3b8" }}>
+                          Pick a color — the public website adapts to it with matching light gradients.
+                        </span>
                       </div>
                       <div style={{ display: "grid", gap: 8 }}>
                         <label style={{ fontSize: 13, fontWeight: 600 }}>Template</label>
@@ -1001,6 +1371,7 @@ export default function Dashboard() {
 
             {activeView === "analytics" && (
               <>
+                <div className="d-analytics">
                 <div className="d-page-header">
                   <div>
                     <div className="d-page-title">Analytics Overview</div>
@@ -1011,32 +1382,62 @@ export default function Dashboard() {
                   </div>
                 </div>
 
-                <div className="d-stat-grid">
-                  <div className="d-stat-card d-stat-card-1">
-                    <div className="d-stat-label">Total Leads</div>
-                    <div className="d-stat-value">{totalLeads}</div>
-                    <div className="d-stat-footer">all-time captured leads</div>
+                <div className="d-bento">
+                  <div className="d-stat-card d-stat-card-1" style={{ gridArea: "s1" }}>
+                    <div className="d-stat-icon">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-1a4 4 0 00-4-4h-1m-6 5H2v-1a4 4 0 014-4h4a4 4 0 014 4v1zm-3-9a4 4 0 100-8 4 4 0 000 8zm9-4a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                    </div>
+                    <div className="d-stat-body">
+                      <div className="d-stat-label">Total Leads</div>
+                      <div className="d-stat-value">{totalLeads}</div>
+                      <div className="d-stat-footer">all-time captured leads</div>
+                    </div>
                   </div>
-                  <div className="d-stat-card d-stat-card-2">
-                    <div className="d-stat-label">Download Clicks</div>
-                    <div className="d-stat-value">{downloadClicks}</div>
-                    <div className="d-stat-footer">play store CTA taps</div>
+                  <div className="d-stat-card d-stat-card-2" style={{ gridArea: "s2" }}>
+                    <div className="d-stat-icon">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4m4-5l5 5 5-5m-5 5V3" />
+                      </svg>
+                    </div>
+                    <div className="d-stat-body">
+                      <div className="d-stat-label">Download Clicks</div>
+                      <div className="d-stat-value">{downloadClicks}</div>
+                      <div className="d-stat-footer">play store CTA taps</div>
+                    </div>
                   </div>
-                  <div className="d-stat-card d-stat-card-3">
-                    <div className="d-stat-label">Book Demo Clicks</div>
-                    <div className="d-stat-value">{bookDemoClicks}</div>
-                    <div className="d-stat-footer">book demo button taps</div>
+                  <div className="d-stat-card d-stat-card-3" style={{ gridArea: "s3" }}>
+                    <div className="d-stat-icon">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+                      </svg>
+                    </div>
+                    <div className="d-stat-body">
+                      <div className="d-stat-label">Book Demo Clicks</div>
+                      <div className="d-stat-value">{bookDemoClicks}</div>
+                      <div className="d-stat-footer">book demo button taps</div>
+                    </div>
                   </div>
-                </div>
 
-
-
-                {/* Charts */}
-                <div className="d-chart-grid">
-                  <div className="d-card">
-                    <div className="d-card-title">Leads Trend</div>
-                    <div className="d-card-sub">Submissions over time</div>
-                    <div style={{ height: 270 }}>
+                  {/* Leads Trend area chart */}
+                  <div className="d-card d-bento-trend" style={{ gridArea: "trend" }}>
+                    <div className="d-card-head">
+                      <div>
+                        <div className="d-card-title">Leads Trend</div>
+                        <div className="d-card-sub" style={{ marginBottom: 0 }}>Submissions over time</div>
+                      </div>
+                      <select
+                        className="d-mini-select"
+                        value={trendRange}
+                        onChange={(e) => setTrendRange(e.target.value)}
+                        aria-label="Leads trend time range"
+                      >
+                        <option value="all">All Time</option>
+                        <option value="30d">Last 30 Days</option>
+                      </select>
+                    </div>
+                    <div className="d-chart-fill">
                       <ResponsiveContainer width="100%" height="100%">
                         <AreaChart data={leadsByDate}>
                           <defs>
@@ -1071,10 +1472,11 @@ export default function Dashboard() {
                     </div>
                   </div>
 
-                  <div className="d-card">
+                  {/* Lead Sources donut */}
+                  <div className="d-card d-bento-sources" style={{ gridArea: "sources" }}>
                     <div className="d-card-title">Lead Sources</div>
                     <div className="d-card-sub">By origin</div>
-                    <div style={{ height: 270 }}>
+                    <div className="d-chart-fill">
                       <ResponsiveContainer width="100%" height="100%">
                         <PieChart>
                           <Pie
@@ -1082,10 +1484,8 @@ export default function Dashboard() {
                             dataKey="value"
                             nameKey="name"
                             cx="50%" cy="50%"
-                            innerRadius={55} outerRadius={95}
+                            innerRadius="58%" outerRadius="85%"
                             paddingAngle={4}
-                            label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
-                            labelLine={false}
                           >
                             {sourceData.map((_, i) => (
                               <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />
@@ -1095,14 +1495,40 @@ export default function Dashboard() {
                         </PieChart>
                       </ResponsiveContainer>
                     </div>
+                    <div className="d-pie-legend">
+                      {(() => {
+                        const total = sourceData.reduce((sum, s) => sum + s.value, 0) || 1;
+                        return sourceData.map((s, i) => (
+                          <div key={s.name} className="d-legend-item">
+                            <span className="d-legend-dot" style={{ background: PIE_COLORS[i % PIE_COLORS.length] }} />
+                            <span className="d-legend-name">{s.name}</span>
+                            <span className="d-legend-pct">{((s.value / total) * 100).toFixed(0)}%</span>
+                          </div>
+                        ));
+                      })()}
+                    </div>
                   </div>
                 </div>
 
-                {/* Table */}
+                {/* Leads table */}
                 <div className="d-table-card">
                   <div className="d-table-top">
                     <div className="d-table-title">All Leads</div>
-                    <div className="d-count-pill">{leads.length} records</div>
+                    <div className="d-table-actions">
+                      <div className="d-search-wrap">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                          <circle cx="11" cy="11" r="7" />
+                          <path strokeLinecap="round" d="M21 21l-4.3-4.3" />
+                        </svg>
+                        <input
+                          className="d-search-input"
+                          placeholder="Search leads..."
+                          value={leadSearch}
+                          onChange={(e) => setLeadSearch(e.target.value)}
+                        />
+                      </div>
+                      <div className="d-count-pill">{filteredLeads.length} records</div>
+                    </div>
                   </div>
                   <div style={{ overflowX: "auto" }}>
                     <table className="d-data-table">
@@ -1113,23 +1539,24 @@ export default function Dashboard() {
                           <th>Phone</th>
                           <th>Date</th>
                           <th>Time</th>
+                          <th aria-label="Actions" />
                         </tr>
                       </thead>
                       <tbody>
                         {loading ? (
                           <tr>
-                            <td colSpan={5} style={{ textAlign: "center", padding: "36px", color: "#94a3b8", fontFamily: "'Fira Code', monospace", fontSize: 13 }}>
+                            <td colSpan={6} style={{ textAlign: "center", padding: "36px", color: "#94a3b8", fontFamily: "'Fira Code', monospace", fontSize: 13 }}>
                               Loading leads…
                             </td>
                           </tr>
-                        ) : leads.length === 0 ? (
+                        ) : filteredLeads.length === 0 ? (
                           <tr>
-                            <td colSpan={5} style={{ textAlign: "center", padding: "36px", color: "#94a3b8", fontFamily: "'Fira Code', monospace", fontSize: 13 }}>
-                              No leads found.
+                            <td colSpan={6} style={{ textAlign: "center", padding: "36px", color: "#94a3b8", fontFamily: "'Fira Code', monospace", fontSize: 13 }}>
+                              {leadSearch ? "No leads match your search." : "No leads found."}
                             </td>
                           </tr>
                         ) : (
-                          leads.map((lead) => (
+                          filteredLeads.map((lead) => (
                             <tr key={lead.id}>
                               <td className="d-td-name">{lead.name}</td>
                               <td className="d-td-email">{lead.email}</td>
@@ -1140,12 +1567,22 @@ export default function Dashboard() {
                                   : <span className="d-dash">—</span>}
                               </td>
                               <td>{lead.time || <span className="d-dash">—</span>}</td>
+                              <td style={{ width: 44, textAlign: "center" }}>
+                                <button type="button" className="d-row-action" aria-label="Lead actions">
+                                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <circle cx="12" cy="5" r="1.6" />
+                                    <circle cx="12" cy="12" r="1.6" />
+                                    <circle cx="12" cy="19" r="1.6" />
+                                  </svg>
+                                </button>
+                              </td>
                             </tr>
                           ))
                         )}
                       </tbody>
                     </table>
                   </div>
+                </div>
                 </div>
               </>
             )}
