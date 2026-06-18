@@ -846,6 +846,26 @@ export default function Dashboard() {
             grid-template-columns: 1fr;
             grid-template-areas: none;
           }
+          /* Inline gridArea styles (s1/s2/trend/sources) win over CSS, so
+             force normal stacking when the grid collapses to one column. */
+          .d-bento > * {
+            grid-area: auto !important;
+          }
+          /* Stacked: give charts real height instead of a cramped fixed box
+             so the donut and its legend never overlap the card title. */
+          .d-bento-trend, .d-bento-sources {
+            height: auto;
+          }
+          .d-bento-trend .d-chart-fill { height: 240px; flex: none; }
+          .d-bento-sources .d-chart-fill { height: 220px; flex: none; }
+        }
+
+        @media (max-width: 480px) {
+          .d-bento { gap: 12px; }
+          .d-bento-trend, .d-bento-sources { padding: 16px; }
+          .d-bento-trend .d-chart-fill { height: 200px; }
+          .d-bento-sources .d-chart-fill { height: 190px; }
+          .d-pie-legend { max-height: none; }
         }
 
         /* ─── TABLE ─── */
