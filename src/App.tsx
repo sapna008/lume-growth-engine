@@ -28,6 +28,7 @@ import CaseStudies from "./pages/resources/CaseStudies";
 import Blog from "./pages/resources/Blog";
 import BlogPost from "./pages/resources/BlogPost";
 import Pricing from "./pages/Pricing";
+import Financials from "./pages/Financials";
 import Help from "./pages/Help";
 import GettingStarted from "./pages/GettingStarted";
 import BillingGuide from "./pages/BillingGuide";
@@ -82,6 +83,7 @@ const App = () => (
               <Route path="/resources/:id" element={<Resources />} />
               <Route path="/guides/:slug" element={<GuideDetail />} />
               <Route path="/pricing" element={<Pricing />} />
+              <Route path="/financials" element={<Financials />} />
               <Route path="/help" element={<Help />} />
               <Route path="/help/getting-started" element={<GettingStarted />} />
               <Route path="/help/billing-guide" element={<BillingGuide />} />
