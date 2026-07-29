@@ -185,6 +185,7 @@ const navigation = [
     ],
   },
   { name: "Pricing", nameKey: "nav.pricing", href: "/pricing" },
+  { name: "Financials", nameKey: "nav.financials", href: "/financials" },
 ];
 
 const searchablePages = [
@@ -209,6 +210,7 @@ const searchablePages = [
 
   // Pricing & plans
   { name: "Pricing", href: "/pricing", keywords: ["pricing", "plans", "cost", "price", "free", "कीमत", "advance", "premium"] },
+  { name: "Financials", href: "/financials", keywords: ["financials", "finance", "reports", "फाइनेंशियल्स"] },
 
   // Dedicated feature pages
   { name: "Reviews Feature", href: "/features/reviews", keywords: ["reviews", "google reviews", "rating", "feature reviews"] },
