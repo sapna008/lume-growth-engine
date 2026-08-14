@@ -522,3 +522,22 @@
 .retailer-swiper .swiper-slide > * {
   width: 100%;
 }
+
+@keyframes progress {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.hero-swiper .swiper-slide {
+  height: auto;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.hero-swiper .swiper-slide-active {
+  opacity: 1;
+}
