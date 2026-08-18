@@ -231,7 +231,11 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.products': 'Products',
     'nav.resources': 'Resources',
     'nav.pricing': 'Pricing',
-    
+    'nav.financials': 'Financials',
+
+    // Financials Page
+    'financials.title': 'Financials',
+
     // Footer
     'footer.tagline': 'We turn billing into a growth engine for retailers.',
     'footer.company': 'Company',
@@ -656,7 +660,11 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.products': 'प्रोडक्ट्स',
     'nav.resources': 'जानकारी',
     'nav.pricing': 'कीमतें',
-    
+    'nav.financials': 'फाइनेंशियल्स',
+
+    // Financials Page
+    'financials.title': 'फाइनेंशियल्स',
+
     // Products Page
     'products.hero.titleLine1': 'ऐसी बिलिंग, जो आपके',
     'products.hero.titleLine1Part2Before': 'बिज़नेस को',
