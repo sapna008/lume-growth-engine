@@ -12,9 +12,12 @@ const footerLinks = {
   ],
   products: [
     { nameKey: "footer.lume", href: "/products" },
+    { nameKey: "footer.mpos", href: "/products/mpos" },
     { nameKey: "footer.lumeShopComingSoon", href: "/products#lume-shop" },
+    { nameKey: "footer.pricing", href: "/pricing" },
   ],
   solutions: [
+    { nameKey: "footer.digitalBills", href: "/features/digital-bills" },
     { nameKey: "footer.smartBilling", href: "/solutions/smart-billing" },
     { nameKey: "footer.customerAnalytics", href: "/solutions/customer-analytics" },
     { nameKey: "footer.loyalty", href: "/solutions/loyalty-coupons" },
@@ -42,7 +45,7 @@ export function Footer() {
           {/* Brand */}
           <div className="col-span-2">
             <Link to="/" className="flex items-center gap-2 mb-3">
-              <img src={apeirosLogo} alt="Apeiros AI" className="h-8 w-auto rounded" />
+              <img src={apeirosLogo} alt="Apeiros AI" loading="lazy" className="h-8 w-auto rounded" />
             </Link>
             <p className="text-white/80 text-sm mb-1 max-w-xs leading-relaxed">
               {t('footer.tagline')}

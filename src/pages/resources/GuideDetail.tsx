@@ -14,6 +14,11 @@ export default function GuideDetail() {
   
   const guide = guideData.find(g => g.slug === slug);
 
+  useSEO(
+    guide ? `${guide.title} – Lume Guides` : 'Guide Not Found – Lume Guides',
+    guide ? `Learn how to ${guide.title.toLowerCase()} with Lume. Step-by-step video guide.` : 'The guide you are looking for could not be found.'
+  );
+
   // If guide not found, show 404
   if (!guide) {
     return (
@@ -37,11 +42,9 @@ export default function GuideDetail() {
   }
 
   // Use placeholder video if no video URL is provided
-  const videoUrl = guide.type === "video" && guide.videoUrl 
-    ? guide.videoUrl 
+  const videoUrl = guide.type === "video" && guide.videoUrl
+    ? guide.videoUrl
     : "https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0"; // Placeholder video
-
-  useSEO(`${guide.title} – Lume Guides`, `Learn how to ${guide.title.toLowerCase()} with Lume. Step-by-step video guide.`);
 
   return (
     <div className="min-h-screen flex flex-col bg-white">

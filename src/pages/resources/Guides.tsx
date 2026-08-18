@@ -17,6 +17,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { FaqJsonLd } from "@/components/seo/FaqJsonLd";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useSEO } from "@/hooks/useSEO";
 
@@ -291,10 +292,16 @@ export default function Guides() {
     }
   ];
 
+  const faqSchemaItems = faqs.map((faq) => ({
+    question: language === "HI" && faq.questionHI ? faq.questionHI : faq.question,
+    answer: language === "HI" && faq.answerHI ? faq.answerHI : faq.answer,
+  }));
+
   return (
     <div className="min-h-screen flex flex-col bg-white">
+      <FaqJsonLd faqs={faqSchemaItems} />
       <Header />
-      
+
       <main className="flex-1">
         {/* Guides Grid Section */}
         <section className="hero-section bg-gradient-to-b from-white via-[#f4f7fb] to-white">

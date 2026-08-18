@@ -5,7 +5,7 @@ import { useSEO } from "@/hooks/useSEO";
 
 export default function Privacy() {
   const { language } = useLanguage();
-  useSEO('Privacy Policy – Lume', 'Lume and Apeiros AI privacy policy. How we collect, use and protect your data.');
+  useSEO('Privacy Policy – Lume', 'Lume and Apeiros AI privacy policy. How we collect, use and protect your data.', { canonicalPath: '/privacy-policy' });
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Header />

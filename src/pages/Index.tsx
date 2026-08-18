@@ -593,7 +593,7 @@ export default function Index() {
                       </div>
 
                       {/* Headline */}
-                      <h1 className="font-display font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] mb-4 leading-tight text-slate-900">
+                      <h2 className="font-display font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] mb-4 leading-tight text-slate-900">
                         {language === 'HI' ? (
                           <>
                             अपने पास की दुकानों से <span className="text-purple-600 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">ऑनलाइन मँगवाएँ</span> — तेज़ इन्स्टेंट डिलीवरी!
@@ -603,7 +603,7 @@ export default function Index() {
                             Shop Online from Nearby Stores with <span className="text-purple-600 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">Instant Delivery</span> via Lume Shop
                           </>
                         )}
-                      </h1>
+                      </h2>
 
                       {/* Description */}
                       <p className="text-base sm:text-lg text-slate-600 mb-6 max-w-xl leading-relaxed">
@@ -725,7 +725,7 @@ export default function Index() {
                       </div>
 
                       {/* Headline */}
-                      <h1 className="font-display font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] mb-4 leading-tight text-slate-900">
+                      <h2 className="font-display font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] mb-4 leading-tight text-slate-900">
                         {language === 'HI' ? (
                           <>
                             दुकानदार की ऑनलाइन दुकान और ग्राहक की आसान ख़रीदारी — <span className="text-emerald-600 bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">एक ही नेटवर्क पर!</span>
@@ -735,7 +735,7 @@ export default function Index() {
                             Connecting Local Retailers & Nearby Customers into <span className="text-emerald-600 bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">One Unified Growth Network</span>
                           </>
                         )}
-                      </h1>
+                      </h2>
 
                       {/* Description */}
                       <p className="text-base sm:text-lg text-slate-600 mb-6 max-w-xl leading-relaxed">

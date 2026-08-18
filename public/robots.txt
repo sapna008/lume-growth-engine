@@ -12,6 +12,8 @@ Allow: /
 
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /admin/login
 
-# Sitemap (generate with build or add sitemap.xml to public/)
+# Sitemap
 Sitemap: https://lume.apeiros.ai/sitemap.xml

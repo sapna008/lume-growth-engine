@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, HelpCircle, LucideIcon } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { FaqJsonLd } from "@/components/seo/FaqJsonLd";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useSEO } from "@/hooks/useSEO";
 
@@ -84,9 +85,14 @@ export default function FeaturePageTemplate(props: FeaturePageTemplateProps) {
       ? props.heroVideo.hi
       : props.heroVideo.en
     : undefined;
+  const faqSchemaItems = props.faqs.map((faq) => ({
+    question: t(faq.question),
+    answer: t(faq.answer),
+  }));
 
   return (
     <div className="min-h-screen bg-background">
+      <FaqJsonLd faqs={faqSchemaItems} />
       <Header />
 
       <section className="hero-section relative overflow-hidden">

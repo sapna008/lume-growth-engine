@@ -9,6 +9,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { FaqJsonLd } from "@/components/seo/FaqJsonLd";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useSEO } from "@/hooks/useSEO";
 import { useState } from "react";
@@ -532,8 +533,14 @@ export default function Pricing() {
     'Lume pricing: Advance & Premium plans. Digital billing, customer loyalty, campaigns. Start from ₹9,999/year. Book a demo.'
   );
 
+  const faqSchemaItems = faqs.map((faq) => ({
+    question: language === "HI" && faq.questionHI ? faq.questionHI : faq.question,
+    answer: language === "HI" && faq.answerHI ? faq.answerHI : faq.answer,
+  }));
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-[var(--brand-tint)]/50 via-white to-amber-50/30">
+      <FaqJsonLd faqs={faqSchemaItems} />
       <Header />
 
       {/* Background Effects */}

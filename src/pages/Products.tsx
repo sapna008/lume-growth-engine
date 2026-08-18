@@ -1,8 +1,8 @@
 import { Link, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
-import { 
-  ArrowRight, 
+import {
+  ArrowRight,
   CheckCircle2,
   MessageSquare,
   Users,
@@ -12,11 +12,19 @@ import {
   Zap,
   Link2,
   ShoppingBag,
-  ReceiptIndianRupee
+  ReceiptIndianRupee,
+  HelpCircle
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { FaqJsonLd } from "@/components/seo/FaqJsonLd";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useSEO } from "@/hooks/useSEO";
 import dashboardDesktop from "@/assets/hero-banner/dashboard-hindii.png";
@@ -38,8 +46,9 @@ export default function Products() {
   const { t, language } = useLanguage();
   const { id } = useParams<{ id?: string }>();
   useSEO(
-    'Products – Billing, POS, Loyalty & Analytics | Lume',
-    'Lume products: billing & POS integration, smart digital bills, customer loyalty, analytics & campaign manager. One retail platform.'
+    'Lume Products – Digital Billing, Customer Engagement & Marketing Campaigns',
+    'Explore Lume: digital bills on WhatsApp, customer loyalty & analytics, and marketing campaign tools built for Indian retailers on one platform.',
+    { canonicalPath: '/products' }
   );
 
   useEffect(() => {
@@ -48,7 +57,7 @@ export default function Products() {
       return;
     }
 
-    let targetId = id;
+    const targetId = id;
     const el = document.getElementById(targetId);
     if (el) {
       el.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -154,8 +163,17 @@ export default function Products() {
     }
   ];
 
+  const productFaqs = [
+    { question: t('products.faq.q1'), answer: t('products.faq.a1') },
+    { question: t('products.faq.q2'), answer: t('products.faq.a2') },
+    { question: t('products.faq.q3'), answer: t('products.faq.a3') },
+    { question: t('products.faq.q4'), answer: t('products.faq.a4') },
+    { question: t('products.faq.q5'), answer: t('products.faq.a5') },
+  ];
+
     return (
       <div className="min-h-screen bg-background">
+        <FaqJsonLd faqs={productFaqs} />
         <Header />
         
       {/* 1. PRODUCT HERO */}
@@ -316,33 +334,38 @@ export default function Products() {
               </div>
                   <div className={`${i % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''} flex items-center justify-center`}>
                     {capability.title === t('products.coreCapabilities.billing.title') ? (
-                      <img 
-                        src={posImage} 
+                      <img
+                        src={posImage}
                         alt="Retail POS billing software dashboard for Indian stores"
+                        loading="lazy"
                         className="w-full max-w-md h-auto max-h-64 sm:max-h-80 rounded-lg object-contain"
                       />
                     ) : capability.title === t('products.coreCapabilities.loyalty.title') ? (
-                      <img 
-                        src={loyaltyImage} 
+                      <img
+                        src={loyaltyImage}
                         alt="Customer loyalty and rewards system in POS software"
+                        loading="lazy"
                         className="w-full max-w-md h-auto max-h-64 sm:max-h-80 rounded-lg object-contain"
                       />
                     ) : capability.title === t('products.coreCapabilities.digitalBills.title') ? (
-                      <img 
-                        src={smartDigitalBillImage} 
+                      <img
+                        src={smartDigitalBillImage}
                         alt="Digital billing system for retail shops"
+                        loading="lazy"
                         className="w-full max-w-md h-auto max-h-64 sm:max-h-80 rounded-lg object-contain"
                       />
                     ) : capability.title === t('products.coreCapabilities.analytics.title') ? (
-                      <img 
-                        src={analyticsReportImage} 
+                      <img
+                        src={analyticsReportImage}
                         alt="Customer insights and sales analytics for retailers"
+                        loading="lazy"
                         className="w-full max-w-md h-auto max-h-64 sm:max-h-80 rounded-lg object-contain"
                       />
                     ) : capability.title === t('products.coreCapabilities.campaign.title') ? (
-                      <img 
-                        src={campaignManagerImage} 
+                      <img
+                        src={campaignManagerImage}
                         alt="Retail marketing and SMS campaign tools"
+                        loading="lazy"
                         className="w-full max-w-md h-auto max-h-64 sm:max-h-80 rounded-lg object-contain"
                       />
                     ) : (
@@ -446,9 +469,10 @@ export default function Products() {
                 className="bg-white rounded-xl sm:rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-[rgb(var(--brand-rgb)/0.3)]"
               >
               <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl flex items-center justify-center mb-6 bg-gradient-to-br from-[var(--brand-tint)] to-white border-2 border-[rgb(var(--brand-rgb)/0.2)] shadow-sm mx-auto">
-                  <img 
-                    src={item.icon} 
+                  <img
+                    src={item.icon}
                     alt={item.title}
+                    loading="lazy"
                     className="w-14 h-14 sm:w-16 sm:h-16 object-contain"
                   />
       </div>
@@ -482,9 +506,10 @@ export default function Products() {
                 <div>
                   <div className="mb-4">
                     <div className="mb-4 flex justify-center lg:justify-start">
-                      <img 
-                        src={lumeShopIcon} 
-                        alt="Lume Shop Icon" 
+                      <img
+                        src={lumeShopIcon}
+                        alt="Lume Shop Icon"
+                        loading="lazy"
                         className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 object-contain"
                       />
                     </div>
@@ -500,9 +525,10 @@ export default function Products() {
                   </Button>
                 </div>
                 <div className="flex items-center justify-center">
-                  <img 
-                    src={lumeShopImage} 
-                    alt="Lume Shop" 
+                  <img
+                    src={lumeShopImage}
+                    alt="Lume Shop"
+                    loading="lazy"
                     className="w-full max-w-xs sm:max-w-sm max-h-64 sm:max-h-80 object-contain rounded-md"
                   />
                 </div>
@@ -553,6 +579,36 @@ export default function Products() {
                 </p>
               </div>
               </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* 7.5 FAQ */}
+      <section id="faq" className="section-spacing bg-white">
+        <div className="site-container">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-8 sm:mb-10">
+              <HelpCircle className="w-10 h-10 mx-auto mb-4" style={{ color: 'var(--brand)' }} />
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ color: '#1b181f' }}>
+                {t('products.faq.title')}
+              </h2>
+            </div>
+            <Accordion type="single" collapsible className="space-y-4">
+              {productFaqs.map((faq, i) => (
+                <AccordionItem
+                  key={i}
+                  value={`product-faq-${i}`}
+                  className="bg-white rounded-xl border border-border px-5 shadow-sm"
+                >
+                  <AccordionTrigger className="text-left font-semibold hover:no-underline" style={{ color: '#1b181f' }}>
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent style={{ color: '#4f4f4f' }}>
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
         </div>
       </section>

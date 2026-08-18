@@ -26,6 +26,7 @@ export function BlogCard({ post, language, className }: BlogCardProps) {
           <img
             src={imageSrc}
             alt={title}
+            loading="lazy"
             className="absolute inset-0 h-full w-full object-cover"
           />
         ) : (
