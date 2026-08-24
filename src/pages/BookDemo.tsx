@@ -76,7 +76,7 @@ const getAvailableDates = () => {
 
 export default function BookDemo() {
   const { t } = useLanguage();
-  useSEO('Book a Demo – See Lume in Action', 'Schedule a free Lume demo. See digital billing, customer insights & campaigns. For Indian retailers.');
+  useSEO('Book a Demo – See Lume in Action', 'Schedule a free Lume demo. See digital billing, customer insights & campaigns. For Indian retailers.', { canonicalPath: '/book-demo' });
   const [formData, setFormData] = useState({
     name: '',
     phone: '',

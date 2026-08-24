@@ -178,7 +178,8 @@ export default function Solutions() {
   const { id } = useParams<{ id?: string }>();
   useSEO(
     'Solutions – Digital Billing, Loyalty & Analytics for Retail',
-    'Lume solutions: digital billing, customer loyalty, campaigns, analytics. Built for Indian retailers. One platform.'
+    'Lume solutions: digital billing, customer loyalty, campaigns, analytics. Built for Indian retailers. One platform.',
+    { canonicalPath: '/solutions' }
   );
 
   useEffect(() => {

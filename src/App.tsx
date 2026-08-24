@@ -1,3 +1,4 @@
+import { Suspense, lazy } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -11,40 +12,45 @@ import ProtectedRoute from "@/components/ProtectedRoute";
 import { WhatsAppFab } from "@/components/layout/WhatsAppFab";
 import { QuickInquiryModal } from "@/components/layout/QuickInquiryModal";
 import Index from "./pages/Index";
-import ForRetailers from "./pages/ForRetailers";
-import Products from "./pages/Products";
-import ProductsMpos from "./pages/ProductsMpos";
-import Solutions from "./pages/Solutions";
-import Features from "./pages/Features";
-import ReviewFeature from "./pages/features/ReviewFeature";
-import ReferralFeature from "./pages/features/ReferralFeature";
-import DigitalBillsFeature from "./pages/features/DigitalBillsFeature";
-import LoyaltyFeature from "./pages/features/LoyaltyFeature";
-import PromotionFeature from "./pages/features/PromotionFeature";
-import AnalyticsFeature from "./pages/features/AnalyticsFeature";
-import SurveysFeature from "./pages/features/SurveysFeature";
-import Resources from "./pages/Resources";
-import Guides from "./pages/resources/Guides";
-import GuideDetail from "./pages/resources/GuideDetail";
-import CaseStudies from "./pages/resources/CaseStudies";
-import Blog from "./pages/resources/Blog";
-import BlogPost from "./pages/resources/BlogPost";
-import Pricing from "./pages/Pricing";
-import Financials from "./pages/Financials";
-import Help from "./pages/Help";
-import GettingStarted from "./pages/GettingStarted";
-import BillingGuide from "./pages/BillingGuide";
-import Contact from "./pages/Contact";
-import AdminLogin from "./pages/admin/Login";
-import AdminDashboard from "./pages/admin/Dashboard";
-import About from "./pages/company/About";
-import Startup from "./pages/Startup";
-import Careers from "./pages/company/Careers";
-import NotFound from "./pages/NotFound";
-import BookDemo from "./pages/BookDemo";
-import Privacy from "./pages/Privacy";
-import Terms from "./pages/Terms";
-import IndustryPageRoute from "./pages/industries/IndustryPageRoute";
+
+// Route-level code splitting: every page below the homepage is fetched on
+// demand instead of being bundled into the initial JS payload. Index stays
+// a static import so the most-visited route (/) has no extra network
+// waterfall before first paint.
+const ForRetailers = lazy(() => import("./pages/ForRetailers"));
+const Products = lazy(() => import("./pages/Products"));
+const ProductsMpos = lazy(() => import("./pages/ProductsMpos"));
+const Solutions = lazy(() => import("./pages/Solutions"));
+const Features = lazy(() => import("./pages/Features"));
+const ReviewFeature = lazy(() => import("./pages/features/ReviewFeature"));
+const ReferralFeature = lazy(() => import("./pages/features/ReferralFeature"));
+const DigitalBillsFeature = lazy(() => import("./pages/features/DigitalBillsFeature"));
+const LoyaltyFeature = lazy(() => import("./pages/features/LoyaltyFeature"));
+const PromotionFeature = lazy(() => import("./pages/features/PromotionFeature"));
+const AnalyticsFeature = lazy(() => import("./pages/features/AnalyticsFeature"));
+const SurveysFeature = lazy(() => import("./pages/features/SurveysFeature"));
+const Resources = lazy(() => import("./pages/Resources"));
+const Guides = lazy(() => import("./pages/resources/Guides"));
+const GuideDetail = lazy(() => import("./pages/resources/GuideDetail"));
+const CaseStudies = lazy(() => import("./pages/resources/CaseStudies"));
+const Blog = lazy(() => import("./pages/resources/Blog"));
+const BlogPost = lazy(() => import("./pages/resources/BlogPost"));
+const Pricing = lazy(() => import("./pages/Pricing"));
+const Financials = lazy(() => import("./pages/Financials"));
+const Help = lazy(() => import("./pages/Help"));
+const GettingStarted = lazy(() => import("./pages/GettingStarted"));
+const BillingGuide = lazy(() => import("./pages/BillingGuide"));
+const Contact = lazy(() => import("./pages/Contact"));
+const AdminLogin = lazy(() => import("./pages/admin/Login"));
+const AdminDashboard = lazy(() => import("./pages/admin/Dashboard"));
+const About = lazy(() => import("./pages/company/About"));
+const Startup = lazy(() => import("./pages/Startup"));
+const Careers = lazy(() => import("./pages/company/Careers"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const BookDemo = lazy(() => import("./pages/BookDemo"));
+const Privacy = lazy(() => import("./pages/Privacy"));
+const Terms = lazy(() => import("./pages/Terms"));
+const IndustryPageRoute = lazy(() => import("./pages/industries/IndustryPageRoute"));
 
 const queryClient = new QueryClient();
 

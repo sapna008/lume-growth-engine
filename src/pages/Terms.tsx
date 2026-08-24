@@ -5,7 +5,7 @@ import { useSEO } from "@/hooks/useSEO";
 
 export default function Terms() {
   const { language } = useLanguage();
-  useSEO('Terms & Conditions – Lume', 'Terms of use for Lume retail platform by Apeiros AI.');
+  useSEO('Terms & Conditions – Lume', 'Terms of use for Lume retail platform by Apeiros AI.', { canonicalPath: '/terms-conditions' });
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Header />

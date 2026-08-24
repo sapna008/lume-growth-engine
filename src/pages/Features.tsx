@@ -201,7 +201,8 @@ export default function Features() {
   const { id } = useParams<{ id?: string }>();
   useSEO(
     'Features – Reviews, Referrals, Digital Bills & More',
-    'Lume features: Google Reviews, referrals, digital billing, loyalty, promotions, analytics, and surveys. Built for Indian retailers.'
+    'Lume features: Google Reviews, referrals, digital billing, loyalty, promotions, analytics, and surveys. Built for Indian retailers.',
+    { canonicalPath: '/features' }
   );
 
   useEffect(() => {
