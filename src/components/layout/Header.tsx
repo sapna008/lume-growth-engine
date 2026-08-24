@@ -1,11 +1,12 @@
 import { useState, useRef, useEffect, Fragment } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, Globe, Search, HelpCircle, Users, Gift, CreditCard, BarChart3, Smartphone, Cpu, ShoppingBag, Package, BookOpen, FileText, Video, Play, Star, Tag, Megaphone, MessageSquare, Newspaper, Store, Shirt, Gem, PlugZap, Glasses, Croissant, Sparkles, Footprints, ShoppingCart, Refrigerator, PenLine, Warehouse, Watch } from "lucide-react";
+import { Menu, X, ChevronDown, Globe, Search, HelpCircle, Users, Gift, CreditCard, BarChart3, Smartphone, Cpu, ShoppingBag, Package, BookOpen, FileText, Video, Play, Star, Tag, Megaphone, MessageSquare, Newspaper, Store, Shirt, Gem, PlugZap, Glasses, Croissant, Sparkles, Footprints, ShoppingCart, Refrigerator, PenLine, Warehouse, Watch, CalendarDays } from "lucide-react";
 import { ReceiptIndianRupee } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { trackBookDemoClick } from "@/lib/leadStore";
 import apeirosLogo from "@/assets/apeiros-logo.png";
 
 /** 5+4+3 in 3 columns; priority items at top of first column; mega menu + flat mobile order */
@@ -846,7 +847,18 @@ export function Header() {
                 )}
               </AnimatePresence>
             </div>
-            
+
+            <Button
+              variant="cta"
+              size="sm"
+              asChild
+              className="ml-1 gap-1.5 rounded-full px-4 transition-all duration-200 active:scale-95"
+            >
+              <Link to="/book-demo" onClick={() => void trackBookDemoClick()}>
+                <CalendarDays className="w-4 h-4" />
+                {t('nav.bookDemo')}
+              </Link>
+            </Button>
           </div>
 
           {/* Mobile */}
@@ -997,6 +1009,23 @@ export function Header() {
               className="lg:hidden bg-gradient-to-b from-white via-[var(--brand-tint)]/60 to-white border-b border-border/60 overflow-hidden shadow-md"
             >
               <div className="site-container py-4 space-y-2">
+                <Button
+                  variant="cta"
+                  size="lg"
+                  asChild
+                  className="w-full min-h-[44px] gap-2 rounded-full transition-all duration-200 active:scale-95"
+                >
+                  <Link
+                    to="/book-demo"
+                    onClick={() => {
+                      void trackBookDemoClick();
+                      setMobileMenuOpen(false);
+                    }}
+                  >
+                    <CalendarDays className="w-4 h-4" />
+                    {t('nav.bookDemo')}
+                  </Link>
+                </Button>
                 {navigation.map((item) => {
                   const hasChildren = !!item.children;
                   const isExpanded = mobileExpandedMenu === item.name;

@@ -232,6 +232,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.resources': 'Resources',
     'nav.pricing': 'Pricing',
     'nav.financials': 'Financials',
+    'nav.bookDemo': 'Book a Demo',
 
     // Financials Page
     'financials.title': 'Financials',
@@ -291,7 +292,19 @@ const translations: Record<Language, Record<string, string>> = {
     'demo.today': 'Today',
     'demo.tomorrow': 'Tomorrow',
     'demo.dayAfter': 'Day After',
-    
+
+    // Quick Inquiry Popup
+    'quickInquiry.title': "Let's Get Started 👋",
+    'quickInquiry.subtitle': "Leave your contact details and our team will get in touch with you shortly.",
+    'quickInquiry.namePlaceholder': 'Your Name',
+    'quickInquiry.phonePlaceholder': 'Mobile Number',
+    'quickInquiry.emailPlaceholder': 'Email Address (Optional)',
+    'quickInquiry.submit': 'Get Started',
+    'quickInquiry.disclaimer': "No spam. We'll only contact you regarding your enquiry.",
+    'quickInquiry.successTitle': 'Thanks for reaching out!',
+    'quickInquiry.successMessage': 'Our team will get in touch with you shortly.',
+    'quickInquiry.errorMessage': 'Something went wrong. Please try again.',
+
     // For Retailers Page
     'forRetailers.hero.badge': 'Rated 4.8/5 by 285+ retailers',
     'forRetailers.hero.title': 'Turn Your Store into a',
@@ -541,7 +554,19 @@ const translations: Record<Language, Record<string, string>> = {
     'demo.today': 'आज',
     'demo.tomorrow': 'कल',
     'demo.dayAfter': 'परसों',
-    
+
+    // Quick Inquiry Popup
+    'quickInquiry.title': 'चलिए शुरू करते हैं 👋',
+    'quickInquiry.subtitle': 'अपनी संपर्क जानकारी दें, हमारी टीम जल्द ही आपसे संपर्क करेगी।',
+    'quickInquiry.namePlaceholder': 'आपका नाम',
+    'quickInquiry.phonePlaceholder': 'मोबाइल नंबर',
+    'quickInquiry.emailPlaceholder': 'ईमेल पता (वैकल्पिक)',
+    'quickInquiry.submit': 'शुरू करें',
+    'quickInquiry.disclaimer': 'कोई स्पैम नहीं। हम केवल आपकी पूछताछ के संबंध में संपर्क करेंगे।',
+    'quickInquiry.successTitle': 'संपर्क करने के लिए धन्यवाद!',
+    'quickInquiry.successMessage': 'हमारी टीम जल्द ही आपसे संपर्क करेगी।',
+    'quickInquiry.errorMessage': 'कुछ गलत हो गया। कृपया पुनः प्रयास करें।',
+
     // For Retailers Page
     'forRetailers.hero.badge': '285+ दुकानदारों का भरोसा | 4.8/5 रेटिंग',
     'forRetailers.hero.title': 'अपनी दुकान को बनाइए',
@@ -661,6 +686,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.resources': 'जानकारी',
     'nav.pricing': 'कीमतें',
     'nav.financials': 'फाइनेंशियल्स',
+    'nav.bookDemo': 'डेमो बुक करें',
 
     // Financials Page
     'financials.title': 'फाइनेंशियल्स',

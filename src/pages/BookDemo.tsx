@@ -102,9 +102,29 @@ export default function BookDemo() {
     setSubmitted(false);
 
     try {
+      await saveBookDemoLead(formData);
+    } catch (error) {
+      console.error('Failed to save book demo lead:', error);
+      setErrorMessage(t('demo.errorMessage') || 'Something went wrong. Please try again.');
+      setLoading(false);
+      return;
+    }
+
+    setSubmitted(true);
+    setFormData({
+      name: '',
+      phone: '',
+      email: '',
+      date: '',
+      time: ''
+    });
+    setLoading(false);
+
+    try {
       const templateParams = {
         ...formData,
         date: formatDateToDDMMYYYY(formData.date),
+        message: "",
       };
 
       await emailjs.send(
@@ -113,22 +133,9 @@ export default function BookDemo() {
         templateParams,
         'IelFQbwyOKxBpHWFm'
       );
-
-      await saveBookDemoLead(formData);
-
-      setSubmitted(true);
-      setFormData({
-        name: '',
-        phone: '',
-        email: '',
-        date: '',
-        time: ''
-      });
     } catch (error) {
-      console.error('Failed to send demo request via EmailJS:', error);
-      setErrorMessage(t('demo.errorMessage') || 'Something went wrong. Please try again.');
-    } finally {
-      setLoading(false);
+      // Lead is already captured; the notification email is best-effort only.
+      console.error('Failed to send demo request notification email via EmailJS:', error);
     }
   };
 

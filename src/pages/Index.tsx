@@ -505,10 +505,10 @@ export default function Index() {
                             className="flex items-center justify-center gap-1.5 sm:gap-2 truncate"
                           >
                             <svg className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" viewBox="0 0 24 24">
-                              <path fill="#4285F4" d="M3.609 1.814L13.793 12 3.61 22.186A1.83 1.83 0 0 1 3 20.887V3.113c0-.498.21-.954.609-1.299z"/>
-                              <path fill="#34A853" d="M17.332 8.461l-3.539 3.539 3.539 3.539 4.025-2.284c.854-.485.854-1.637 0-2.122l-4.025-2.672z"/>
-                              <path fill="#EA4335" d="M13.793 12L3.609 1.814 17.332 9.61l-3.539 2.39z"/>
-                              <path fill="#FBBC04" d="M13.793 12l3.539 2.39-13.723 7.796L13.793 12z"/>
+                              <path fill="#4285F4" d="M3.609 1.814L13.793 12 3.61 22.186A1.83 1.83 0 0 1 3 20.887V3.113c0-.498.21-.954.609-1.299z" />
+                              <path fill="#34A853" d="M17.332 8.461l-3.539 3.539 3.539 3.539 4.025-2.284c.854-.485.854-1.637 0-2.122l-4.025-2.672z" />
+                              <path fill="#EA4335" d="M13.793 12L3.609 1.814 17.332 9.61l-3.539 2.39z" />
+                              <path fill="#FBBC04" d="M13.793 12l3.539 2.39-13.723 7.796L13.793 12z" />
                             </svg>
                             <span className="truncate">{t('hero.slide1.ctaPrimary')}</span>
                           </a>
@@ -640,10 +640,10 @@ export default function Index() {
                             className="flex items-center justify-center gap-1.5 sm:gap-2 truncate"
                           >
                             <svg className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" viewBox="0 0 24 24">
-                              <path fill="#4285F4" d="M3.609 1.814L13.793 12 3.61 22.186A1.83 1.83 0 0 1 3 20.887V3.113c0-.498.21-.954.609-1.299z"/>
-                              <path fill="#34A853" d="M17.332 8.461l-3.539 3.539 3.539 3.539 4.025-2.284c.854-.485.854-1.637 0-2.122l-4.025-2.672z"/>
-                              <path fill="#EA4335" d="M13.793 12L3.609 1.814 17.332 9.61l-3.539 2.39z"/>
-                              <path fill="#FBBC04" d="M13.793 12l3.539 2.39-13.723 7.796L13.793 12z"/>
+                              <path fill="#4285F4" d="M3.609 1.814L13.793 12 3.61 22.186A1.83 1.83 0 0 1 3 20.887V3.113c0-.498.21-.954.609-1.299z" />
+                              <path fill="#34A853" d="M17.332 8.461l-3.539 3.539 3.539 3.539 4.025-2.284c.854-.485.854-1.637 0-2.122l-4.025-2.672z" />
+                              <path fill="#EA4335" d="M13.793 12L3.609 1.814 17.332 9.61l-3.539 2.39z" />
+                              <path fill="#FBBC04" d="M13.793 12l3.539 2.39-13.723 7.796L13.793 12z" />
                             </svg>
                             <span className="truncate">{t('hero.slide2.ctaPrimary')}</span>
                           </a>
@@ -662,7 +662,7 @@ export default function Index() {
                           <Sparkles className="w-4 h-4" />
                         </div>
                         <div className="text-xs sm:text-sm text-slate-700 font-semibold">
-                          ⭐ 4.9/5 Rating from 15,000+ Happy Local Shoppers Across India
+                          ⭐ 4.9/5 Rating from Happy Local Shoppers Across India
                         </div>
                       </div>
                     </motion.div>
@@ -772,10 +772,10 @@ export default function Index() {
                             className="flex items-center justify-center gap-1.5 sm:gap-2 truncate"
                           >
                             <svg className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" viewBox="0 0 24 24">
-                              <path fill="#4285F4" d="M3.609 1.814L13.793 12 3.61 22.186A1.83 1.83 0 0 1 3 20.887V3.113c0-.498.21-.954.609-1.299z"/>
-                              <path fill="#34A853" d="M17.332 8.461l-3.539 3.539 3.539 3.539 4.025-2.284c.854-.485.854-1.637 0-2.122l-4.025-2.672z"/>
-                              <path fill="#EA4335" d="M13.793 12L3.609 1.814 17.332 9.61l-3.539 2.39z"/>
-                              <path fill="#FBBC04" d="M13.793 12l3.539 2.39-13.723 7.796L13.793 12z"/>
+                              <path fill="#4285F4" d="M3.609 1.814L13.793 12 3.61 22.186A1.83 1.83 0 0 1 3 20.887V3.113c0-.498.21-.954.609-1.299z" />
+                              <path fill="#34A853" d="M17.332 8.461l-3.539 3.539 3.539 3.539 4.025-2.284c.854-.485.854-1.637 0-2.122l-4.025-2.672z" />
+                              <path fill="#EA4335" d="M13.793 12L3.609 1.814 17.332 9.61l-3.539 2.39z" />
+                              <path fill="#FBBC04" d="M13.793 12l3.539 2.39-13.723 7.796L13.793 12z" />
                             </svg>
                             <span className="truncate">{t('hero.slide3.ctaPrimary')}</span>
                           </a>
@@ -875,8 +875,8 @@ export default function Index() {
                     >
                       <span
                         className={`block rounded-full transition-all duration-300 ${isActive
-                            ? "w-8 sm:w-10 h-3 bg-[var(--brand)] shadow-md ring-4 ring-blue-500/20"
-                            : "w-3 h-3 bg-slate-300 hover:bg-slate-400 group-hover:scale-125"
+                          ? "w-8 sm:w-10 h-3 bg-[var(--brand)] shadow-md ring-4 ring-blue-500/20"
+                          : "w-3 h-3 bg-slate-300 hover:bg-slate-400 group-hover:scale-125"
                           }`}
                       />
                     </button>
@@ -973,9 +973,9 @@ export default function Index() {
       <section className="py-6 sm:py-8 bg-gradient-to-b from-slate-50 via-blue-50/20 to-white relative overflow-hidden border-t border-b border-slate-200/80">
         {/* Background glow circle */}
         <div className="absolute top-1/2 left-10 -translate-y-1/2 w-80 h-80 bg-red-500/10 rounded-full blur-3xl pointer-events-none" />
-        
+
         <div className="site-container relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
-          
+
           {/* Header row */}
           <div className="text-center max-w-2xl mx-auto mb-5 sm:mb-6">
             <motion.div
@@ -997,7 +997,7 @@ export default function Index() {
           </div>
 
           <div className="grid lg:grid-cols-12 gap-5 lg:gap-6 items-stretch">
-            
+
             {/* Left Column: 3D Visual Hero Graphic + Bottom Aligned Button */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -1007,12 +1007,12 @@ export default function Index() {
               className="lg:col-span-5 flex flex-col justify-between h-full space-y-3"
             >
               <div className="relative p-2 bg-gradient-to-tr from-slate-900 via-indigo-950 to-blue-900 rounded-2xl shadow-xl border border-white/15 overflow-hidden group flex-1 flex items-center justify-center min-h-[220px]">
-                <img 
-                  src={retailChallenges3dImg} 
-                  alt="Why Retailers Lose Customers" 
+                <img
+                  src={retailChallenges3dImg}
+                  alt="Why Retailers Lose Customers"
                   className="w-full max-h-[240px] sm:max-h-[260px] rounded-xl shadow-inner object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                
+
                 {/* Floating Overlay Badge 1 */}
                 <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-xl shadow-md border border-red-200 flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-red-500 animate-ping" />
@@ -1065,9 +1065,9 @@ export default function Index() {
                     {/* Top Stat Ribbon */}
                     <div className="flex items-center justify-between mb-2.5">
                       <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center border border-slate-200/80 group-hover:scale-110 transition-transform">
-                        <img 
-                          src={point.icon} 
-                          alt="" 
+                        <img
+                          src={point.icon}
+                          alt=""
                           className="w-6 h-6 object-contain"
                         />
                       </div>

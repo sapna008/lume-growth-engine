@@ -8,7 +8,8 @@ import { AuthProvider } from "@/context/AuthContext";
 import ScrollToTop from "@/components/ScrollToTop";
 import BrandThemeLoader from "@/components/BrandThemeLoader";
 import ProtectedRoute from "@/components/ProtectedRoute";
-import { GlobalDemoFab } from "@/components/layout/GlobalDemoFab";
+import { WhatsAppFab } from "@/components/layout/WhatsAppFab";
+import { QuickInquiryModal } from "@/components/layout/QuickInquiryModal";
 import Index from "./pages/Index";
 import ForRetailers from "./pages/ForRetailers";
 import Products from "./pages/Products";
@@ -57,7 +58,8 @@ const App = () => (
           <BrowserRouter>
             <BrandThemeLoader />
             <ScrollToTop />
-            <GlobalDemoFab />
+            <WhatsAppFab />
+            <QuickInquiryModal />
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/for-retailers" element={<ForRetailers />} />

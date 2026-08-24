@@ -145,7 +145,7 @@ export default function Contact() {
                   Prefer WhatsApp? Chat with our support team directly for quick assistance.
                 </p>
                 <Button variant="outline" asChild>
-                  <a href="https://wa.me/918001234567" target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/919326601463" target="_blank" rel="noopener noreferrer">
                     Chat on WhatsApp
                   </a>
                 </Button>

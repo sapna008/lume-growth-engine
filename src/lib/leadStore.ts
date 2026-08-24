@@ -9,6 +9,13 @@ type DemoLeadInput = {
   time: string;
 };
 
+type QuickLeadInput = {
+  name: string;
+  phone: string;
+  email: string;
+  message?: string;
+};
+
 const LEADS_PATH = "leads";
 const METRICS_PATH = "leadsMeta";
 const CLICK_METRICS_PATH = "websiteClickMetrics";
@@ -31,7 +38,7 @@ export const ensureLeadDatabaseStructure = async () => {
   }
 };
 
-export const saveBookDemoLead = async (lead: DemoLeadInput) => {
+const persistLead = async (lead: Record<string, unknown>, source: string) => {
   const leadsRef = ref(realtimeDb, LEADS_PATH);
   const leadsSnapshot = await get(leadsRef);
 
@@ -43,7 +50,7 @@ export const saveBookDemoLead = async (lead: DemoLeadInput) => {
 
   await set(newLeadRef, {
     ...lead,
-    source: "book_demo_page",
+    source,
     createdAt: serverTimestamp(),
   });
 
@@ -56,6 +63,10 @@ export const saveBookDemoLead = async (lead: DemoLeadInput) => {
     };
   });
 };
+
+export const saveBookDemoLead = (lead: DemoLeadInput) => persistLead(lead, "book_demo_page");
+
+export const saveQuickLead = (lead: QuickLeadInput) => persistLead(lead, "quick_inquiry_popup");
 
 const incrementClickCounter = async (key: string) => {
   await runTransaction(ref(realtimeDb, `${CLICK_METRICS_PATH}/${key}`), (currentValue) => {
